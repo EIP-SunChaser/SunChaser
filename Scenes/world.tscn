@@ -1,0 +1,112 @@
+[gd_scene load_steps=19 format=3 uid="uid://blivnvvrjxknm"]
+
+[ext_resource type="Script" path="res://Scripts/world.gd" id="1_7ktf8"]
+[ext_resource type="PackedScene" uid="uid://br3uj74yu625n" path="res://Scenes/player.tscn" id="1_v1ikf"]
+[ext_resource type="Texture2D" uid="uid://3pkbnh1mtbjy" path="res://Assets/Images/grid.svg" id="3_3jwi4"]
+[ext_resource type="Script" path="res://Scripts/IP_ADRESS.gd" id="3_o26ad"]
+[ext_resource type="PackedScene" path="res://Scenes/fps_meter.tscn" id="4_1di6o"]
+[ext_resource type="PackedScene" uid="uid://dahwjb1ic8es6" path="res://Scenes/jolt_car.tscn" id="4_tivgw"]
+[ext_resource type="PackedScene" path="res://Scenes/Water.tscn" id="5_p0cso"]
+[ext_resource type="PackedScene" uid="uid://d5d7b87l2mmh" path="res://Scenes/U_montain.tscn" id="8_vck0d"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qiray"]
+
+[sub_resource type="Sky" id="Sky_ojdoe"]
+sky_material = SubResource("ProceduralSkyMaterial_qiray")
+
+[sub_resource type="Environment" id="Environment_wnjxt"]
+background_mode = 2
+sky = SubResource("Sky_ojdoe")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2e641"]
+albedo_texture = ExtResource("3_3jwi4")
+uv1_scale = Vector3(-0.245, -0.245, -0.245)
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lybxb"]
+albedo_color = Color(0.882353, 0.054902, 0.458824, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_chjrh"]
+material = SubResource("StandardMaterial3D_lybxb")
+size = Vector3(4, 4, 4)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_jrfsa"]
+data = PackedVector3Array(-2, 2, 2, 2, 2, 2, -2, -2, 2, 2, 2, 2, 2, -2, 2, -2, -2, 2, 2, 2, -2, -2, 2, -2, 2, -2, -2, -2, 2, -2, -2, -2, -2, 2, -2, -2, 2, 2, 2, 2, 2, -2, 2, -2, 2, 2, 2, -2, 2, -2, -2, 2, -2, 2, -2, 2, -2, -2, 2, 2, -2, -2, -2, -2, 2, 2, -2, -2, 2, -2, -2, -2, 2, 2, 2, -2, 2, 2, 2, 2, -2, -2, 2, 2, -2, 2, -2, 2, 2, -2, -2, -2, 2, 2, -2, 2, -2, -2, -2, 2, -2, 2, 2, -2, -2, -2, -2, -2)
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_5gsq0"]
+albedo_color = Color(0.956863, 0.611765, 0.109804, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_qvss6"]
+material = SubResource("ORMMaterial3D_5gsq0")
+size = Vector3(4, 4, 4)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_j4h7k"]
+data = PackedVector3Array(-2, 2, 2, 2, 2, 2, -2, -2, 2, 2, 2, 2, 2, -2, 2, -2, -2, 2, 2, 2, -2, -2, 2, -2, 2, -2, -2, -2, 2, -2, -2, -2, -2, 2, -2, -2, 2, 2, 2, 2, 2, -2, 2, -2, 2, 2, 2, -2, 2, -2, -2, 2, -2, 2, -2, 2, -2, -2, 2, 2, -2, -2, -2, -2, 2, 2, -2, -2, 2, -2, -2, -2, 2, 2, 2, -2, 2, 2, 2, 2, -2, -2, 2, 2, -2, 2, -2, 2, 2, -2, -2, -2, 2, 2, -2, 2, -2, -2, -2, 2, -2, 2, 2, -2, -2, -2, -2, -2)
+
+[node name="World" type="Node3D"]
+script = ExtResource("1_7ktf8")
+player_scene = ExtResource("1_v1ikf")
+
+[node name="Environnement" type="Node3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Environnement"]
+environment = SubResource("Environment_wnjxt")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environnement"]
+transform = Transform3D(1, 0, 0, 0, 0.62276, 0.782413, 0, -0.782413, 0.62276, 0, 16, 0)
+shadow_enabled = true
+directional_shadow_blend_splits = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+material_override = SubResource("StandardMaterial3D_2e641")
+use_collision = true
+size = Vector3(200, 1, 200)
+
+[node name="Cube" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Cube"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.86241, 0)
+mesh = SubResource("BoxMesh_chjrh")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube/MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_jrfsa")
+
+[node name="Cube2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.56718, -0.341972, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Cube2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.27841, 1, 0)
+mesh = SubResource("BoxMesh_qvss6")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube2/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube2/MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_j4h7k")
+
+[node name="SpawnLocations" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.2281, 0, 19.8094)
+
+[node name="0" type="Node3D" parent="SpawnLocations" groups=["SpawnPoints"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 10, -10)
+
+[node name="1" type="Node3D" parent="SpawnLocations" groups=["SpawnPoints"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 10, -10)
+
+[node name="IP_ADRESS" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0)
+billboard = 2
+font_size = 256
+script = ExtResource("3_o26ad")
+
+[node name="FPSMeter" parent="." instance=ExtResource("4_1di6o")]
+
+[node name="JoltCar" parent="." instance=ExtResource("4_tivgw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.187, 2, -4.503)
+
+[node name="WaterPlane" parent="." instance=ExtResource("5_p0cso")]
+transform = Transform3D(2000, 0, 0, 0, 1, 0, 0, 0, 2000, 0, -1.3, 0)
+
+[node name="sans_nom" parent="." instance=ExtResource("8_vck0d")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 300, 0.5, 0)

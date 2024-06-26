@@ -1,0 +1,66 @@
+[gd_scene load_steps=2 format=3 uid="uid://bnoqq43uj2kpe"]
+
+[ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_nex48"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nex48")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -101.0
+offset_top = 50.0
+offset_right = 101.0
+offset_bottom = 116.0
+grow_horizontal = 2
+
+[node name="Adress" type="LineEdit" parent="VBoxContainer2"]
+layout_mode = 2
+
+[node name="Pseudo" type="LineEdit" parent="VBoxContainer2"]
+layout_mode = 2
+placeholder_text = "Enter your name"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -107.5
+offset_top = -68.0
+offset_right = 107.5
+offset_bottom = 68.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Start" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Start
+"
+
+[node name="Host" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Host"
+
+[node name="Join" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Join"
+
+[node name="Exit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Exit"
+
+[connection signal="button_down" from="VBoxContainer/Start" to="." method="_on_start_button_down"]
+[connection signal="button_down" from="VBoxContainer/Host" to="." method="_on_host_button_down"]
+[connection signal="button_down" from="VBoxContainer/Join" to="." method="_on_join_button_down"]
+[connection signal="button_down" from="VBoxContainer/Exit" to="." method="_on_exit_button_down"]

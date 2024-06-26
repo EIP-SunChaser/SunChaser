@@ -1,0 +1,185 @@
+[gd_scene load_steps=16 format=3 uid="uid://dahwjb1ic8es6"]
+
+[ext_resource type="Script" path="res://Scripts/jolt_car.gd" id="1_v325y"]
+[ext_resource type="Script" path="res://Scripts/wheel.gd" id="2_2687u"]
+[ext_resource type="Script" path="res://Scripts/CameraController.gd" id="3_eqbfd"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g4php"]
+size = Vector3(2, 0.5, 3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m22cp"]
+vertex_color_is_srgb = true
+albedo_color = Color(0.830798, 0.410607, 0.274639, 1)
+emission_enabled = true
+emission = Color(0.964706, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_tphuy"]
+material = SubResource("StandardMaterial3D_m22cp")
+size = Vector3(2, 0.5, 3)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_833o3"]
+frequency = 0.006
+offset = Vector3(978.72, 0, 0)
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_os4bg"]
+seamless = true
+seamless_blend_skirt = 0.356
+noise = SubResource("FastNoiseLite_833o3")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_qwqtk"]
+frequency = 0.0603
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_j4ckb"]
+noise = SubResource("FastNoiseLite_qwqtk")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dqdr2"]
+albedo_texture = SubResource("NoiseTexture2D_os4bg")
+refraction_texture = SubResource("NoiseTexture2D_j4ckb")
+grow_amount = -0.34
+
+[sub_resource type="TorusMesh" id="TorusMesh_542k1"]
+material = SubResource("StandardMaterial3D_dqdr2")
+inner_radius = 0.115
+outer_radius = 0.5
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ne7co"]
+radius = 0.025
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5a73s"]
+size = Vector3(6.22852, 3.52063, 10.1758)
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_afsww"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:rotation")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+
+[node name="JoltCar" type="RigidBody3D"]
+mass = 10.0
+center_of_mass_mode = 1
+center_of_mass = Vector3(0, -0.95, -0.12)
+script = ExtResource("1_v325y")
+spring_strength = 500.0
+spring_force = 30.0
+wheel_radius = 0.5
+engine_power = 70.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_g4php")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0, 0)
+mesh = SubResource("BoxMesh_tphuy")
+
+[node name="Wheels" type="Node3D" parent="."]
+
+[node name="FrontLeftWheel" type="RayCast3D" parent="Wheels"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7, 0, -1.2)
+script = ExtResource("2_2687u")
+is_front_wheel = true
+
+[node name="Wheel" type="Node3D" parent="Wheels/FrontLeftWheel"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wheels/FrontLeftWheel/Wheel"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.5, 0, 0)
+mesh = SubResource("TorusMesh_542k1")
+skeleton = NodePath("../..")
+
+[node name="FrontRightWheel" type="RayCast3D" parent="Wheels"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, 0, -1.2)
+script = ExtResource("2_2687u")
+is_front_wheel = true
+
+[node name="Wheel" type="Node3D" parent="Wheels/FrontRightWheel"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wheels/FrontRightWheel/Wheel"]
+transform = Transform3D(-4.37114e-08, -0.999999, 0, 1, -4.37113e-08, 0, 0, 0, 0.999999, 0.5, 0, 0)
+mesh = SubResource("TorusMesh_542k1")
+skeleton = NodePath("../..")
+
+[node name="BackRightWheel" type="RayCast3D" parent="Wheels"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, 0, 1.1918)
+script = ExtResource("2_2687u")
+
+[node name="Wheel" type="Node3D" parent="Wheels/BackRightWheel"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wheels/BackRightWheel/Wheel"]
+transform = Transform3D(-4.37114e-08, -0.999999, 0, 1, -4.37113e-08, 0, 0, 0, 0.999999, 0.5, 0, 0)
+mesh = SubResource("TorusMesh_542k1")
+skeleton = NodePath("../..")
+
+[node name="BackLeftWheel" type="RayCast3D" parent="Wheels"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7, 0, 1.2)
+script = ExtResource("2_2687u")
+
+[node name="Wheel" type="Node3D" parent="Wheels/BackLeftWheel"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wheels/BackLeftWheel/Wheel"]
+transform = Transform3D(-4.37114e-08, -0.999999, 0, 1, -4.37113e-08, 0, 0, 0, 0.999999, -0.5, 0, 0)
+mesh = SubResource("TorusMesh_542k1")
+skeleton = NodePath("../..")
+
+[node name="CameraRoot" type="Node3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 2, 0.0197153)
+script = ExtResource("3_eqbfd")
+
+[node name="CameraYaw" type="Node3D" parent="CameraRoot"]
+
+[node name="CameraPitch" type="Node3D" parent="CameraRoot/CameraYaw"]
+
+[node name="SpringArm3D" type="SpringArm3D" parent="CameraRoot/CameraYaw/CameraPitch"]
+shape = SubResource("SphereShape3D_ne7co")
+spring_length = 3.0
+
+[node name="Camera3D" type="Camera3D" parent="CameraRoot/CameraYaw/CameraPitch/SpringArm3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.04965)
+current = true
+
+[node name="PlayerDetect" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerDetect"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.26031, 0)
+shape = SubResource("BoxShape3D_5a73s")
+
+[node name="SpeedText" type="CanvasLayer" parent="."]
+
+[node name="SpeedCounter" type="Label" parent="SpeedText"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -102.0
+offset_top = -83.0
+offset_right = -62.0
+offset_bottom = -14.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 50
+metadata/_edit_use_anchors_ = true
+
+[node name="SpeedUnit" type="Label" parent="SpeedText"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -52.0
+offset_top = -48.0
+offset_right = -11.0
+offset_bottom = -25.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "km/h"
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.95, -0.21687)
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_afsww")
+
+[connection signal="body_entered" from="PlayerDetect" to="." method="_on_player_detect_body_entered"]
+[connection signal="body_exited" from="PlayerDetect" to="." method="_on_player_detect_body_exited"]

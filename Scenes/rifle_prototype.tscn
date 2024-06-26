@@ -1,0 +1,61 @@
+[gd_scene load_steps=6 format=3 uid="uid://bvkvxoqp0eys3"]
+
+[ext_resource type="PackedScene" uid="uid://dsoey86w5qs3b" path="res://Assets/Models/Items/Guns/rifle_prototype.glb" id="1_h5mhm"]
+[ext_resource type="AudioStream" uid="uid://dee8oa5gnc72n" path="res://Assets/Audios/snd_blaster/snd_blaster.ogg" id="2_7on44"]
+
+[sub_resource type="Animation" id="Animation_1i4pb"]
+resource_name = "Shoot"
+length = 0.1
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cube:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.01, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0.05), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5vn6j"]
+_data = {
+"Shoot": SubResource("Animation_1i4pb")
+}
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_8g1vd"]
+properties/0/path = NodePath("Cube:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath("Cube:rotation")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+properties/2/path = NodePath("RayCast3D:rotation")
+properties/2/spawn = true
+properties/2/replication_mode = 1
+properties/3/path = NodePath("RayCast3D:position")
+properties/3/spawn = true
+properties/3/replication_mode = 1
+
+[node name="rifle_prototype" instance=ExtResource("1_h5mhm")]
+
+[node name="Cube" parent="." index="0"]
+transform = Transform3D(4.29715e-08, 0, 0.028304, 0, 0.0403951, 0, -0.240314, 0, 5.06115e-09, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
+libraries = {
+"": SubResource("AnimationLibrary_5vn6j")
+}
+
+[node name="RayCast3D" type="RayCast3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00148539, 0.0674375, -0.935307)
+target_position = Vector3(0, 0, -1)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="3"]
+stream = ExtResource("2_7on44")
+volume_db = -10.0
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." index="4"]
+replication_config = SubResource("SceneReplicationConfig_8g1vd")
