@@ -60,6 +60,11 @@ func _on_host_button_down():
 	if error != OK:
 		print("Failed to create server! ", error)
 		return
+	var addresses = []
+	for ip in IP.get_local_addresses():
+		if ip.begins_with("10.") or ip.begins_with("172.16.") or ip.begins_with("192.168."):
+			addresses.push_back(ip)
+	DisplayServer.clipboard_set(addresses[-1])
 	peer.get_host().compress(ENetConnection.COMPRESS_RANGE_CODER)
 	multiplayer.set_multiplayer_peer(peer)
 	print("Waiting for players!")
