@@ -62,9 +62,9 @@ func _physics_process(delta):
 			$CollisionShape3D.disabled = false
 			camera.make_current()
 			do_physics_process(delta)
-	else:
-		hide()
-		$CollisionShape3D.disabled = true
+		else:
+			hide()
+			$CollisionShape3D.disabled = true
 
 func do_physics_process(delta):
 	# Add the gravity.
