@@ -20,35 +20,39 @@ var steering_input = 0
 
 var current_wheel_angle: float = 0.0
 
+func _ready():
+	multiplayer_synchronizer.set_multiplayer_authority(str(name).to_int())
+
 func _physics_process(delta):
-	if active:
-		accel_input = Input.get_axis("deccelerate", "accelerate")
-		steering_input = Input.get_axis("right", "left")
-		var target_steering_angle = steering_input * deg_to_rad(steering_angle)
-		var front_left_wheel = $Wheels/FrontLeftWheel
-		var front_right_wheel = $Wheels/FrontRightWheel
-		
-		var angle_difference = target_steering_angle - current_wheel_angle
-		var max_angle_change = steering_speed * delta
-		
-		if abs(angle_difference) < max_angle_change:
-			current_wheel_angle = target_steering_angle
+	if multiplayer_synchronizer.get_multiplayer_authority() == multiplayer.get_unique_id():
+		if active:
+			accel_input = Input.get_axis("deccelerate", "accelerate")
+			steering_input = Input.get_axis("right", "left")
+			var target_steering_angle = steering_input * deg_to_rad(steering_angle)
+			var front_left_wheel = $Wheels/FrontLeftWheel
+			var front_right_wheel = $Wheels/FrontRightWheel
+			
+			var angle_difference = target_steering_angle - current_wheel_angle
+			var max_angle_change = steering_speed * delta
+			
+			if abs(angle_difference) < max_angle_change:
+				current_wheel_angle = target_steering_angle
+			else:
+				current_wheel_angle += sign(angle_difference) * max_angle_change
+			
+			current_wheel_angle = clamp(current_wheel_angle, -deg_to_rad(steering_angle), deg_to_rad(steering_angle))
+			
+			front_left_wheel.rotation.y = current_wheel_angle
+			front_right_wheel.rotation.y = current_wheel_angle
+			
+			speed = int(linear_velocity.length())
+			speed_counter.text = str(speed)
+			$SpeedText.show()
+			camera_3d.make_current()
+			leaving_car()
 		else:
-			current_wheel_angle += sign(angle_difference) * max_angle_change
-		
-		current_wheel_angle = clamp(current_wheel_angle, -deg_to_rad(steering_angle), deg_to_rad(steering_angle))
-		
-		front_left_wheel.rotation.y = current_wheel_angle
-		front_right_wheel.rotation.y = current_wheel_angle
-		
-		speed = int(linear_velocity.length())
-		speed_counter.text = str(speed)
-		$SpeedText.show()
-		camera_3d.make_current()
-		leaving_car()
-	else:
-		$SpeedText.hide()
-		entering_car()
+			$SpeedText.hide()
+			entering_car()
 
 # Le reste du code reste inchangé
 func _on_player_detect_body_entered(body):
@@ -60,35 +64,32 @@ func _on_player_detect_body_exited(body):
 		car_zone = false
 
 func find_player():
-	if multiplayer_synchronizer.get_multiplayer_authority() == multiplayer.get_unique_id():
-		var character_bodies = get_tree().get_nodes_in_group("players")
-		for body in character_bodies:
-			if body is CharacterBody3D and body.is_multiplayer_authority():
-				return body
-		return null
+	var character_bodies = get_tree().get_nodes_in_group("players")
+	for body in character_bodies:
+		if body is CharacterBody3D:
+			return body
+	return null
 
 func entering_car():
 	if Input.is_action_just_pressed("use") && car_zone:
-		var hidden_player = find_player()
-		if hidden_player:
-			print(hidden_player)
-			hidden_player.active = false
-			hidden_player.hide()  # Hide the player
-			hidden_player.set_collision_layer_value(1, false)  # Disable collision
-			hidden_player.set_collision_mask_value(1, false)   # Disable collision
-			camera_3d.make_current()
+		var player = find_player()
+		if player:
 			active = true
-		
+			player.visible = false
+			player.set_physics_process(false)
+			player.set_process_input(false)
+			camera_3d.make_current()
+			$SpeedText.show()
+
 func leaving_car():
 	var vehicle = self
-	var hidden_player = find_player()
-	var newLoc = vehicle.global_transform.origin - 2 * vehicle.global_transform.basis.x
-
-	if Input.is_action_just_pressed("use"):
-		if hidden_player:
-			hidden_player.active = true
-			hidden_player.show()  # Show the player
-			hidden_player.set_collision_layer_value(1, true)  # Enable collision
-			hidden_player.set_collision_mask_value(1, true)   # Enable collision
-			hidden_player.global_transform.origin = newLoc
+	var player = find_player()
+	if Input.is_action_just_pressed("use") && active:
+		if player:
+			var exit_location = vehicle.global_transform.origin - 2 * vehicle.global_transform.basis.x
+			player.global_transform.origin = exit_location
+			player.visible = true
+			player.set_physics_process(true)
+			player.set_process_input(true)
 		active = false
+		$SpeedText.hide()

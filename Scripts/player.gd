@@ -6,7 +6,6 @@ extends CharacterBody3D
 @onready var gun_animation = $"Head/Camera3D/rifle_prototype/AnimationPlayer"
 @onready var gun_barrel = $"Head/Camera3D/rifle_prototype/RayCast3D"
 
-var active = true
 var speed
 const WALK_SPEED = 5.0
 const SPRINT_SPEED = 8.0
@@ -53,18 +52,13 @@ func _unhandled_input(event):
 
 func _physics_process(delta):
 	if multiplayer_synchronizer.get_multiplayer_authority() == multiplayer.get_unique_id():
-		if active == true:
-			if axis_x > 0.1 or axis_x < -0.1 or axis_y > 0.1 or axis_y < -0.1:
-				head.rotate_y(-axis_x * SENSITIVITY_JOYSTICK)
-				camera.rotate_x(-axis_y * SENSITIVITY_JOYSTICK)
-				camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90))
-			show()
-			$CollisionShape3D.disabled = false
-			camera.make_current()
-			do_physics_process(delta)
-		else:
-			hide()
-			$CollisionShape3D.disabled = true
+		if axis_x > 0.1 or axis_x < -0.1 or axis_y > 0.1 or axis_y < -0.1:
+			head.rotate_y(-axis_x * SENSITIVITY_JOYSTICK)
+			camera.rotate_x(-axis_y * SENSITIVITY_JOYSTICK)
+			camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90))
+		show()
+		camera.make_current()
+		do_physics_process(delta)
 
 func do_physics_process(delta):
 	# Add the gravity.
