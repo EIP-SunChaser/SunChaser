@@ -18,10 +18,16 @@ func peer_connected(id):
 	print("Peer connected " + str(id))
 	if multiplayer.is_server():
 		await get_tree().create_timer(1.0).timeout
-		start_game.rpc()
 
 func peer_disconnected(id):
 	print("Peer disconnected " + str(id))
+	if GameManager.Players.has(id):
+		GameManager.Players.erase(id)
+		var character_bodies = get_tree().get_nodes_in_group("players")
+		for body in character_bodies:
+			if body is CharacterBody3D and body.to_string().get_slice(":", 0) == str(id):
+				body.queue_free()
+		return null
 
 func connected_to_server():
 	print("Connected to server!")
@@ -44,12 +50,15 @@ func send_player_information(name, id):
 		for i in GameManager.Players:
 			send_player_information.rpc(GameManager.Players[i].name, i)
 
-@rpc("authority", "call_local")
+@rpc("any_peer", "call_local")
 func start_game():
 	print("Starting game...")
 	var scene = load("res://Scenes/world.tscn").instantiate()
 	get_tree().root.add_child(scene)
 	self.hide()
+
+func _on_start_button_down():
+	start_game.rpc()
 
 func _on_host_button_down():
 	peer = ENetMultiplayerPeer.new()
@@ -64,8 +73,8 @@ func _on_host_button_down():
 	DisplayServer.clipboard_set(addresses[-1])
 	peer.get_host().compress(ENetConnection.COMPRESS_RANGE_CODER)
 	multiplayer.set_multiplayer_peer(peer)
-	print("Waiting for players!")
 	send_player_information(pseudo.text, multiplayer.get_unique_id())
+	print("Waiting for players!")
 
 func _on_join_button_down():
 	peer = ENetMultiplayerPeer.new()
@@ -76,7 +85,11 @@ func _on_join_button_down():
 	peer.get_host().compress(ENetConnection.COMPRESS_RANGE_CODER)
 	multiplayer.set_multiplayer_peer(peer)
 
+func disconnect_multiplayer():
+	print("Disconnected from server")
+
 func _on_exit_button_down():
+	disconnect_multiplayer()
 	get_tree().quit()
 
 func _on_solo_button_down():
