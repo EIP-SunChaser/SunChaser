@@ -1,13 +1,14 @@
-[gd_scene load_steps=19 format=3 uid="uid://blivnvvrjxknm"]
+[gd_scene load_steps=20 format=3 uid="uid://blivnvvrjxknm"]
 
 [ext_resource type="Script" path="res://Scripts/world.gd" id="1_7ktf8"]
 [ext_resource type="PackedScene" uid="uid://br3uj74yu625n" path="res://Scenes/player.tscn" id="1_v1ikf"]
 [ext_resource type="Texture2D" uid="uid://3pkbnh1mtbjy" path="res://Assets/Images/grid.svg" id="3_3jwi4"]
 [ext_resource type="Script" path="res://Scripts/IP_ADRESS.gd" id="3_o26ad"]
-[ext_resource type="PackedScene" path="res://Scenes/fps_meter.tscn" id="4_1di6o"]
-[ext_resource type="PackedScene" path="res://Scenes/Water.tscn" id="5_p0cso"]
+[ext_resource type="PackedScene" uid="uid://b2ajj4fsrspvj" path="res://Scenes/fps_meter.tscn" id="4_1di6o"]
+[ext_resource type="PackedScene" uid="uid://bvb2eqpdwjg62" path="res://Scenes/Water.tscn" id="5_p0cso"]
 [ext_resource type="PackedScene" uid="uid://dahwjb1ic8es6" path="res://Scenes/jolt_car.tscn" id="6_6uxxm"]
 [ext_resource type="PackedScene" uid="uid://d5d7b87l2mmh" path="res://Scenes/U_montain.tscn" id="8_vck0d"]
+[ext_resource type="PackedScene" uid="uid://cktvp2sevtsm2" path="res://Scenes/hat_npc.tscn" id="9_gt0vc"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qiray"]
 
@@ -110,3 +111,6 @@ transform = Transform3D(2000, 0, 0, 0, 1, 0, 0, 0, 2000, 0, -1.3, 0)
 
 [node name="sans_nom" parent="." instance=ExtResource("8_vck0d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 300, 0.5, 0)
+
+[node name="Hat_npc" parent="." instance=ExtResource("9_gt0vc")]
+transform = Transform3D(0.590324, 0, 0.807166, 0, 1, 0, -0.807166, 0, 0.590324, 1.76559, 0.5, 3.58381)
