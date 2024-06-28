@@ -30,6 +30,9 @@ properties/5/replication_mode = 1
 properties/6/path = NodePath("Head/Camera3D:rotation")
 properties/6/spawn = true
 properties/6/replication_mode = 1
+properties/7/path = NodePath(".:visible")
+properties/7/spawn = true
+properties/7/replication_mode = 1
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_jfghs")

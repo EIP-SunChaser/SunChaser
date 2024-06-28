@@ -20,8 +20,8 @@ var steering_input = 0
 
 var current_wheel_angle: float = 0.0
 
-func _ready():
-	multiplayer_synchronizer.set_multiplayer_authority(str(name).to_int())
+#func _ready():
+	#multiplayer_synchronizer.set_multiplayer_authority(str(name).to_int())
 
 func _physics_process(delta):
 	if multiplayer_synchronizer.get_multiplayer_authority() == multiplayer.get_unique_id():
@@ -54,7 +54,6 @@ func _physics_process(delta):
 			$SpeedText.hide()
 			entering_car()
 
-# Le reste du code reste inchangé
 func _on_player_detect_body_entered(body):
 	if multiplayer_synchronizer.get_multiplayer_authority() == multiplayer.get_unique_id():
 		car_zone = true
@@ -78,6 +77,7 @@ func entering_car():
 			player.visible = false
 			player.set_physics_process(false)
 			player.set_process_input(false)
+			player.set_collision_layer_value(1, false)
 			camera_3d.make_current()
 			$SpeedText.show()
 
@@ -91,5 +91,6 @@ func leaving_car():
 			player.visible = true
 			player.set_physics_process(true)
 			player.set_process_input(true)
+			player.set_collision_layer_value(1, true)
 		active = false
 		$SpeedText.hide()
