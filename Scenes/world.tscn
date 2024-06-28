@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://blivnvvrjxknm"]
+[gd_scene load_steps=21 format=3 uid="uid://blivnvvrjxknm"]
 
 [ext_resource type="Script" path="res://Scripts/world.gd" id="1_7ktf8"]
 [ext_resource type="PackedScene" uid="uid://br3uj74yu625n" path="res://Scenes/player.tscn" id="1_v1ikf"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dahwjb1ic8es6" path="res://Scenes/jolt_car.tscn" id="6_6uxxm"]
 [ext_resource type="PackedScene" uid="uid://d5d7b87l2mmh" path="res://Scenes/U_montain.tscn" id="8_vck0d"]
 [ext_resource type="PackedScene" uid="uid://cktvp2sevtsm2" path="res://Scenes/hat_npc.tscn" id="9_gt0vc"]
+[ext_resource type="PackedScene" uid="uid://fhkexaseow2w" path="res://Scenes/bad_npc.tscn" id="10_you8p"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qiray"]
 
@@ -113,4 +114,7 @@ transform = Transform3D(2000, 0, 0, 0, 1, 0, 0, 0, 2000, 0, -1.3, 0)
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 300, 0.5, 0)
 
 [node name="Hat_npc" parent="." instance=ExtResource("9_gt0vc")]
-transform = Transform3D(0.590324, 0, 0.807166, 0, 1, 0, -0.807166, 0, 0.590324, -9.13913, 0.5, 6.13647)
+transform = Transform3D(0.590324, 0, 0.807166, 0, 1, 0, -0.807166, 0, 0.590324, -9.13913, 9.04325, 6.13647)
+
+[node name="Hat_npc2" parent="." instance=ExtResource("10_you8p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.87864, 6.42252, 12.3053)

@@ -15,7 +15,7 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 	talk()
-
+	move_and_slide()
 
 func _on_area_3d_body_entered(body):
 	if multiplayer_synchronizer.get_multiplayer_authority() == multiplayer.get_unique_id():
