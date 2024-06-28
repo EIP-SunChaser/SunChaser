@@ -48,6 +48,7 @@ data = PackedVector3Array(-2, 2, 2, 2, 2, 2, -2, -2, 2, 2, 2, 2, 2, -2, 2, -2, -
 [node name="World" type="Node3D"]
 script = ExtResource("1_7ktf8")
 player_scene = ExtResource("1_v1ikf")
+car_scene = ExtResource("6_6uxxm")
 
 [node name="Environnement" type="Node3D" parent="."]
 
@@ -103,9 +104,6 @@ font_size = 256
 script = ExtResource("3_o26ad")
 
 [node name="FPSMeter" parent="." instance=ExtResource("4_1di6o")]
-
-[node name="JoltCar" parent="." instance=ExtResource("6_6uxxm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5002, 1.75144, 0)
 
 [node name="WaterPlane" parent="." instance=ExtResource("5_p0cso")]
 transform = Transform3D(2000, 0, 0, 0, 1, 0, 0, 0, 2000, 0, -1.3, 0)
