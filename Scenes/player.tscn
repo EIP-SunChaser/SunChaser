@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_jfghs"]
 [ext_resource type="PackedScene" uid="uid://bvkvxoqp0eys3" path="res://Scenes/rifle_prototype.tscn" id="2_dmxaw"]
 [ext_resource type="Script" path="res://Scripts/Pseudo.gd" id="2_uisv7"]
-[ext_resource type="PackedScene" path="res://Scenes/health_bar.tscn" id="3_pnnwt"]
+[ext_resource type="PackedScene" uid="uid://bdjvvprw2achb" path="res://Scenes/health_bar.tscn" id="3_pnnwt"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_4vdd0"]
 
