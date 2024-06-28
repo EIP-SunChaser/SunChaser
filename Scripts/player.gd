@@ -7,6 +7,7 @@ extends CharacterBody3D
 @onready var gun_barrel = $"Head/Camera3D/rifle_prototype/RayCast3D"
 @onready var health_bar = $"Head/Camera3D/HealthBar"
 @onready var deathLabel = $"Head/Camera3D/DeathLabel"
+@onready var actionable_finder: Area3D = $Area3D
 
 var speed
 const WALK_SPEED = 5.0
@@ -50,12 +51,19 @@ func _unhandled_input(event):
 		head.rotate_y(-event.relative.x * SENSITIVITY)
 		camera.rotate_x(-event.relative.y * SENSITIVITY)
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90))
-		
+	
 	if event is InputEventJoypadMotion:
 		if event.axis == 2:  # Axe horizontal
 			axis_x = event.axis_value
 		elif event.axis == 3:  # Axe vertical
 			axis_y = event.axis_value
+	
+	if Input.is_action_just_pressed("use"):
+		var actionnables = actionable_finder.get_overlapping_areas()
+		if actionnables.size() > 0:
+			actionnables[0].action()
+			return
+
 
 func _physics_process(delta):
 	if multiplayer_synchronizer.get_multiplayer_authority() == multiplayer.get_unique_id():

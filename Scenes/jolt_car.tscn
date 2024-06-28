@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://dahwjb1ic8es6"]
+[gd_scene load_steps=17 format=3 uid="uid://dahwjb1ic8es6"]
 
 [ext_resource type="Script" path="res://Scripts/jolt_car.gd" id="1_v325y"]
 [ext_resource type="Script" path="res://Scripts/wheel.gd" id="2_2687u"]
 [ext_resource type="Script" path="res://Scripts/CameraController.gd" id="3_eqbfd"]
+[ext_resource type="Script" path="res://Scripts/actionnable_car.gd" id="4_uphqk"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g4php"]
 size = Vector3(2, 0.5, 3)
@@ -138,6 +139,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.04965)
 current = true
 
 [node name="PlayerDetect" type="Area3D" parent="."]
+script = ExtResource("4_uphqk")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerDetect"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.26031, 0)

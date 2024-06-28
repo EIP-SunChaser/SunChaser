@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://br3uj74yu625n"]
+[gd_scene load_steps=9 format=3 uid="uid://br3uj74yu625n"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_jfghs"]
 [ext_resource type="PackedScene" uid="uid://bvkvxoqp0eys3" path="res://Scenes/rifle_prototype.tscn" id="2_dmxaw"]
@@ -34,6 +34,9 @@ properties/6/replication_mode = 1
 properties/7/path = NodePath(".:visible")
 properties/7/spawn = true
 properties/7/replication_mode = 1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w4eic"]
+size = Vector3(1, 2, 1)
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_jfghs")
@@ -81,5 +84,11 @@ script = ExtResource("2_uisv7")
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_fjc4j")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -1)
+shape = SubResource("BoxShape3D_w4eic")
 
 [connection signal="health_depleted" from="Head/Camera3D/HealthBar" to="." method="_on_health_bar_health_depleted"]

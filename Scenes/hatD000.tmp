@@ -24,7 +24,7 @@ albedo_color = Color(0, 0, 0, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_lg3gj"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bv0ce"]
-size = Vector3(1, 2, 1)
+size = Vector3(3, 2, 3)
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_dqd1e"]
 properties/0/path = NodePath(".:position")
@@ -65,8 +65,11 @@ script = ExtResource("2_7ndyt")
 dialogue_ressource = ExtResource("3_vrnxl")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_bv0ce")
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_dqd1e")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
