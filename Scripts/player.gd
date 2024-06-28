@@ -5,6 +5,8 @@ extends CharacterBody3D
 @onready var head = $Head
 @onready var gun_animation = $"Head/Camera3D/rifle_prototype/AnimationPlayer"
 @onready var gun_barrel = $"Head/Camera3D/rifle_prototype/RayCast3D"
+@onready var health_bar = $"Head/Camera3D/HealthBar"
+@onready var deathLabel = $"Head/Camera3D/DeathLabel"
 
 var speed
 const WALK_SPEED = 5.0
@@ -29,6 +31,9 @@ const FOV_CAHNGE = 1.5
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = 9.8
 
+var isAiming = false
+var isAlive = true
+
 #Bullets
 @onready var bullet_sound = $"Head/Camera3D/rifle_prototype/AudioStreamPlayer"
 var bullet = load("res://Scenes/bullet.tscn")
@@ -37,6 +42,8 @@ var instance
 func _ready():
 	multiplayer_synchronizer.set_multiplayer_authority(str(name).to_int())
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	health_bar.init_health(100)
+	deathLabel.visible = false
 
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
@@ -98,23 +105,46 @@ func do_physics_process(delta):
 	var velocity_clamped = clamp(velocity.length(), 0.5, SPRINT_SPEED * 2)
 	var target_fov = BASE_FOV + FOV_CAHNGE * velocity_clamped
 	camera.fov = lerp(camera.fov, target_fov, delta * 8.0)
-
+	
+	if !Input.is_action_pressed("aim") && isAiming == true:
+		if !gun_animation.is_playing():
+			isAiming = false
+			gun_animation.play_backwards("Aim")
+	
 	shoot.rpc()
+	
+	# Aiming
+	if Input.is_action_pressed("aim") && isAiming == false:
+		if !gun_animation.is_playing():
+			isAiming = true
+			gun_animation.play("Aim")
 	move_and_slide()
 		
 @rpc("any_peer", "call_local")
-func shoot():
+func shoot():	
+	# Shooting
 	if Input.is_action_pressed("shoot"):
 		if !gun_animation.is_playing():
-			gun_animation.play("Shoot")
+			if (isAiming):
+				gun_animation.play("Aim_n_Shoot")
+			else:
+				gun_animation.play("Shoot")
 			bullet_sound.play()
 			instance = bullet.instantiate()
 			instance.position = gun_barrel.global_position
 			instance.transform.basis = gun_barrel.global_transform.basis
 			get_parent().add_child(instance)
+			health_bar.health = health_bar.health - 50
 
 func _headbob(time) -> Vector3:
 	var pos = Vector3.ZERO
 	pos.y = sin(time * BOB_FREQ) * BOB_AMP
 	pos.x = cos(time * BOB_FREQ / 2) * BOB_AMP
 	return pos
+	
+func _on_health_bar_health_depleted():
+	print("dead")
+	isAlive = false
+	deathLabel.visible = true
+	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)

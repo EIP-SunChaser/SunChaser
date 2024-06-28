@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://br3uj74yu625n"]
+[gd_scene load_steps=8 format=3 uid="uid://br3uj74yu625n"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_jfghs"]
 [ext_resource type="PackedScene" uid="uid://bvkvxoqp0eys3" path="res://Scenes/rifle_prototype.tscn" id="2_dmxaw"]
 [ext_resource type="Script" path="res://Scripts/Pseudo.gd" id="2_uisv7"]
+[ext_resource type="PackedScene" path="res://Scenes/health_bar.tscn" id="3_pnnwt"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_4vdd0"]
 
@@ -53,6 +54,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75, 0)
 [node name="rifle_prototype" parent="Head/Camera3D" instance=ExtResource("2_dmxaw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.32, -0.15, -0.55)
 
+[node name="HealthBar" parent="Head/Camera3D" instance=ExtResource("3_pnnwt")]
+offset_top = -30.0
+offset_right = 250.0
+
+[node name="DeathLabel" type="Label" parent="Head/Camera3D"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 9
+theme_override_font_sizes/font_size = 50
+text = "DEAD"
+
 [node name="Pseudo" type="Label3D" parent="Head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 billboard = 2
@@ -62,3 +81,5 @@ script = ExtResource("2_uisv7")
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_fjc4j")
+
+[connection signal="health_depleted" from="Head/Camera3D/HealthBar" to="." method="_on_health_bar_health_depleted"]
