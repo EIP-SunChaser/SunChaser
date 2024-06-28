@@ -1,11 +1,18 @@
 ~ start
 
-Cool hat dude: [wave amp=25 freq=10]Salut princesse~~~~[/wave]
-Cool hat dude: [wave amp=25 freq=10]T'as bien dormi ?[/wave]
-- Oui
-	Cool hat dude: Super !
-- Non
-	Cool hat dude: [shake rate=20 level=10][speed=0.1]Méchante...[/shake]
-
+if GlobalQuest.quest1 == false || GlobalQuest.entity_kill == 0:
+	Cool hat dude: [wave amp=25 freq=10]Salut princesse~~~~[/wave]
+	Cool hat dude: [wave amp=25 freq=10]T'as bien dormi ?[/wave]
+	- Oui
+		Cool hat dude: Super !
+	- Non
+		Cool hat dude: [shake rate=20 level=10][speed=0.1]Méchante...[/shake]
+	- Je veux juste la quête
+		Cool hat dude: Bon ok...
+		set GlobalQuest.quest1 = true
+	
+else:
+	Cool hat dude: Tu... as tué red !!!
+	Cool hat dude: [wave amp=25 freq=10]Super ![/wave]
 
 => END
