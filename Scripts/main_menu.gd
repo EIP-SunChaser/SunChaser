@@ -2,12 +2,14 @@ extends Control
 
 @onready var ip_address = $VBoxContainer2/Adress
 @onready var pseudo = $VBoxContainer2/Pseudo
+@onready var solo_button = $VBoxContainer/Solo
 
 const DEFAULT_PORT = "127.0.0.1"
 const PORT = 9999
 var peer
 
 func _ready():
+	solo_button.grab_focus()
 	ip_address.placeholder_text = DEFAULT_PORT
 	multiplayer.peer_connected.connect(peer_connected)
 	multiplayer.peer_disconnected.connect(peer_disconnected)
@@ -100,4 +102,5 @@ func _on_solo_button_down():
 		return
 	multiplayer.set_multiplayer_peer(peer)
 	send_player_information(pseudo.text, multiplayer.get_unique_id())
+	await get_tree().create_timer(0.001).timeout
 	start_game()

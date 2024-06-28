@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://blivnvvrjxknm"]
+[gd_scene load_steps=19 format=3 uid="uid://blivnvvrjxknm"]
 
 [ext_resource type="Script" path="res://Scripts/world.gd" id="1_7ktf8"]
 [ext_resource type="PackedScene" uid="uid://br3uj74yu625n" path="res://Scenes/player.tscn" id="1_v1ikf"]
@@ -21,25 +21,8 @@ sky_material = SubResource("ProceduralSkyMaterial_qiray")
 background_mode = 2
 sky = SubResource("Sky_ojdoe")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lybxb"]
-albedo_color = Color(0.882353, 0.054902, 0.458824, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_chjrh"]
-material = SubResource("StandardMaterial3D_lybxb")
-size = Vector3(4, 4, 4)
-
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_jrfsa"]
-data = PackedVector3Array(-2, 2, 2, 2, 2, 2, -2, -2, 2, 2, 2, 2, 2, -2, 2, -2, -2, 2, 2, 2, -2, -2, 2, -2, 2, -2, -2, -2, 2, -2, -2, -2, -2, 2, -2, -2, 2, 2, 2, 2, 2, -2, 2, -2, 2, 2, 2, -2, 2, -2, -2, 2, -2, 2, -2, 2, -2, -2, 2, 2, -2, -2, -2, -2, 2, 2, -2, -2, 2, -2, -2, -2, 2, 2, 2, -2, 2, 2, 2, 2, -2, -2, 2, 2, -2, 2, -2, 2, 2, -2, -2, -2, 2, 2, -2, 2, -2, -2, -2, 2, -2, 2, 2, -2, -2, -2, -2, -2)
-
-[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_5gsq0"]
-albedo_color = Color(0.956863, 0.611765, 0.109804, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_qvss6"]
-material = SubResource("ORMMaterial3D_5gsq0")
-size = Vector3(4, 4, 4)
-
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_j4h7k"]
-data = PackedVector3Array(-2, 2, 2, 2, 2, 2, -2, -2, 2, 2, 2, 2, 2, -2, 2, -2, -2, 2, 2, 2, -2, -2, 2, -2, 2, -2, -2, -2, 2, -2, -2, -2, -2, 2, -2, -2, 2, 2, 2, 2, 2, -2, 2, -2, 2, 2, 2, -2, 2, -2, -2, 2, -2, 2, -2, 2, -2, -2, 2, 2, -2, -2, -2, -2, 2, 2, -2, -2, 2, -2, -2, -2, 2, 2, 2, -2, 2, 2, 2, 2, -2, -2, 2, 2, -2, 2, -2, 2, 2, -2, -2, -2, 2, 2, -2, 2, -2, -2, -2, 2, -2, 2, 2, -2, -2, -2, -2, -2)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kokp3"]
+albedo_color = Color(1, 0.580392, 0.0588235, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hhno2"]
 
@@ -72,28 +55,45 @@ use_collision = true
 size = Vector3(200, 1, 200)
 material = ExtResource("4_dtse3")
 
-[node name="Cube" type="Node3D" parent="."]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Cube"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.86241, 0)
-mesh = SubResource("BoxMesh_chjrh")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Cube/MeshInstance3D"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube/MeshInstance3D/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_jrfsa")
-
-[node name="Cube2" type="Node3D" parent="."]
+[node name="Parkour" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.56718, -0.341972, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Cube2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.27841, 1, 0)
-mesh = SubResource("BoxMesh_qvss6")
+[node name="Box1" type="CSGBox3D" parent="Parkour"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 0.802, 0)
+use_collision = true
+size = Vector3(2, 2, 2)
+material = SubResource("StandardMaterial3D_kokp3")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Cube2/MeshInstance3D"]
+[node name="Box2" type="CSGBox3D" parent="Parkour"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.25, 1.7, 0)
+use_collision = true
+size = Vector3(4, 2.5, 4)
+material = SubResource("StandardMaterial3D_kokp3")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube2/MeshInstance3D/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_j4h7k")
+[node name="Box3" type="CSGBox3D" parent="Parkour"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 2.3, 0)
+use_collision = true
+size = Vector3(4, 3.7, 4)
+material = SubResource("StandardMaterial3D_kokp3")
+
+[node name="Box4" type="CSGBox3D" parent="Parkour"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7, 4.2, -5)
+use_collision = true
+size = Vector3(2, 2, 2)
+material = SubResource("StandardMaterial3D_kokp3")
+
+[node name="Box5" type="CSGPolygon3D" parent="Parkour"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 5, -5)
+use_collision = true
+polygon = PackedVector2Array(-0.0887864, 0.540408, 0.0731368, 0.568752, 0.181417, 1.44354, 1, 0, 0, 0)
+material = SubResource("StandardMaterial3D_kokp3")
+
+[node name="Box6" type="CSGPolygon3D" parent="Parkour"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3, 5, -12.4527)
+use_collision = true
+polygon = PackedVector2Array(0.1, 1, 1, 1.2, 1, -1, -1.2, -1, -1, 0)
+depth = 2.0
+material = SubResource("StandardMaterial3D_kokp3")
 
 [node name="SpawnLocations" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.2281, 0, 19.8094)
