@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://fhkexaseow2w"]
 
 [ext_resource type="Script" path="res://Scripts/npc.gd" id="1_1acwq"]
-[ext_resource type="Script" path="res://Scenes/BodyPart.gd" id="2_1ywgg"]
+[ext_resource type="Script" path="res://Scripts/BodyPart.gd" id="2_1ywgg"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mpp0y"]
 
