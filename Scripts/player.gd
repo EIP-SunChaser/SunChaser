@@ -142,7 +142,6 @@ func shoot():
 			instance.position = gun_barrel.global_position
 			instance.transform.basis = gun_barrel.global_transform.basis
 			get_parent().add_child(instance)
-			health_bar.health = health_bar.health - 50
 
 func _headbob(time) -> Vector3:
 	var pos = Vector3.ZERO

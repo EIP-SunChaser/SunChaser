@@ -1,0 +1,41 @@
+extends CharacterBody3D
+
+# Get the gravity from the project settings to be synced with RigidBody nodes.
+var gravity = 9.8
+
+var interact_zone = false
+@onready var multiplayer_synchronizer = $MultiplayerSynchronizer
+
+var health = 100
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+func _physics_process(delta):
+	if not is_on_floor():
+		velocity.y -= gravity * delta
+	move_and_slide()
+
+func _on_area_3d_body_entered(body):
+	if multiplayer_synchronizer.get_multiplayer_authority() == multiplayer.get_unique_id():
+		interact_zone = true
+
+
+func _on_area_3d_body_exited(body):
+	if multiplayer_synchronizer.get_multiplayer_authority() == multiplayer.get_unique_id():
+		interact_zone = false
+
+
+func talk():
+	if Input.is_action_just_pressed("use") && interact_zone:
+		DialogueManager.show_example_dialogue_balloon(load("res://Dialogue/main.dialogue"), "start")
+		return
+
+func _on_body_part_hit(dam):
+	health -= dam
+	if health <= 0:
+		if is_in_group("Bandits"):
+			print("Bandit is dead")
+		queue_free()
