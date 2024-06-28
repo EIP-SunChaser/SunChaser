@@ -62,7 +62,7 @@ func _unhandled_input(event):
 		var actionnables = actionable_finder.get_overlapping_areas()
 		if actionnables.size() > 0:
 			actionnables[0].action()
-			return
+			pass
 
 
 func _physics_process(delta):
