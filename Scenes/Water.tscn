@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bvb2eqpdwjg62"]
 
-[ext_resource type="Material" uid="uid://ci2fr53prs4yx" path="res://Shaders/Water.tres" id="1_fke1e"]
+[ext_resource type="Material" uid="uid://mr870xddgh46" path="res://Shaders/Water.tres" id="1_fke1e"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_q2d3h"]
 subdivide_width = 200

@@ -97,6 +97,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 10, -10)
 [node name="1" type="Node3D" parent="SpawnLocations" groups=["SpawnPoints"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 10, -10)
 
+[node name="2" type="Node3D" parent="SpawnLocations" groups=["SpawnPoints"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 20, -38.0606)
+
+[node name="3" type="Node3D" parent="SpawnLocations" groups=["SpawnPoints"]]
+transform = Transform3D(-0.476223, 0, 0.879324, 0, 1, 0, -0.879324, 0, -0.476223, 24.8853, 10, -10)
+
 [node name="IP_ADRESS" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0)
 billboard = 2
