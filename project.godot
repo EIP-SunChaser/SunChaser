@@ -21,6 +21,11 @@ config/icon="res://icon.svg"
 GameManager="*res://Scripts/Autoload/game_manager.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 
+[display]
+
+window/size/viewport_width=500
+window/size/viewport_height=500
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
