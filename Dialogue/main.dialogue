@@ -5,7 +5,7 @@ Cool hat dude: [wave amp=25 freq=10]T'as bien dormi ?[/wave]
 - Oui
 	Cool hat dude: Super !
 - Non
-	Cool hat dude: [shake rate=20 level=10]Méchante...[/shake]
+	Cool hat dude: [shake rate=20 level=10][speed=0.1]Méchante...[/shake]
 
 
 => END
