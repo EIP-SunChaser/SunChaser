@@ -20,12 +20,9 @@ func _process(delta):
 		mesh.visible = false
 		particles.emitting = true
 		ray.enabled = false
-		print("is Bandits")
 		if ray.get_collider().is_in_group("Bandits"):
-			print("yes")
 			ray.get_collider().hit()
-		else:
-			print("no")
+
 		await get_tree().create_timer(1.0).timeout
 		queue_free()
 

@@ -61,3 +61,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
 billboard = 2
 font_size = 256
 script = ExtResource("6_xrr28")
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("res://Scenes/jolt_car.tscn")
+spawn_path = NodePath("..")

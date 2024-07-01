@@ -26,7 +26,8 @@ var reset_rotation_speed = 1.5
 var target_rotation: Basis
 
 func _enter_tree():
-	set_multiplayer_authority(str(name).to_int())
+	set_multiplayer_authority(multiplayer.get_unique_id())
+
 
 func _ready():
 	if !is_multiplayer_authority(): return
