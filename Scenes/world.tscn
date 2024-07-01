@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cwfe4ax6jym2h" path="res://Scenes/main_menu.tscn" id="2_ak7c5"]
 [ext_resource type="PackedScene" uid="uid://b2ajj4fsrspvj" path="res://Scenes/fps_meter.tscn" id="3_nq26b"]
 [ext_resource type="PackedScene" uid="uid://d0yhvm1880vyv" path="res://Scenes/hat_npc.tscn" id="4_arjcc"]
-[ext_resource type="PackedScene" path="res://Scenes/bad_npc.tscn" id="5_hhx2q"]
+[ext_resource type="PackedScene" uid="uid://bw41xqawmw8pp" path="res://Scenes/bad_npc.tscn" id="5_hhx2q"]
 [ext_resource type="Script" path="res://Scripts/IP_ADDRESS.gd" id="6_xrr28"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2efs4"]
@@ -52,9 +52,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.755, 0.5, -5.5)
 
 [node name="Hat_npc" parent="." instance=ExtResource("4_arjcc")]
 transform = Transform3D(0.590324, 0, 0.807166, 0, 1, 0, -0.807166, 0, 0.590324, -9.13913, 9.04325, 6.13647)
+axis_lock_linear_x = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_z = true
 
 [node name="Hat_npc2" parent="." instance=ExtResource("5_hhx2q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.87864, 6.42252, 12.3053)
+axis_lock_linear_x = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_z = true
 
 [node name="IP_ADDRESS" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
