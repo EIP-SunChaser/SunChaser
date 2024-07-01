@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://bmc1fqst1lx1y"]
+[gd_scene load_steps=10 format=3 uid="uid://bmc1fqst1lx1y"]
 
 [ext_resource type="Material" uid="uid://3tfkfbvkum1p" path="res://Shaders/grid.tres" id="1_pb4wu"]
 [ext_resource type="PackedScene" uid="uid://d5d7b87l2mmh" path="res://Scenes/U_montain.tscn" id="3_e4254"]
 [ext_resource type="PackedScene" uid="uid://bvb2eqpdwjg62" path="res://Scenes/Water.tscn" id="4_axh3k"]
+[ext_resource type="PackedScene" uid="uid://buqstjbynyvcg" path="res://Scenes/charging_station.tscn" id="5_jtewa"]
 [ext_resource type="Texture2D" uid="uid://byf2ln775bpbe" path="res://Docs/Profil Pic/jules.png" id="5_o6ilq"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y48k7"]
@@ -450,3 +451,6 @@ use_collision = true
 polygon = PackedVector2Array(-4.5357, 0.00230455, -0.0691719, 0.831688, 1, 1, 1, 0)
 depth = 12.0
 material = ExtResource("1_pb4wu")
+
+[node name="charging_station" parent="." instance=ExtResource("5_jtewa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 0.5, 4)

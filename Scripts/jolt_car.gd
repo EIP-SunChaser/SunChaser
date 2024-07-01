@@ -27,9 +27,11 @@ var is_resetting = false
 var reset_rotation_speed = 1.5
 var target_rotation: Basis
 
+var parking_brake_engaged = false
+@export var parking_brake_force: float = 1000.0
+
 func _enter_tree():
 	set_multiplayer_authority(multiplayer.get_unique_id())
-
 
 func _ready():
 	if !is_multiplayer_authority(): return
@@ -38,10 +40,14 @@ func _ready():
 
 func _physics_process(delta):
 	if active:
+		if Input.is_action_just_pressed("brake"):
+			toggle_parking_brake()
+		
 		accel_input = Input.get_axis("deccelerate", "accelerate")
 		steering_input = Input.get_axis("right", "left")
-		var target_steering_angle = steering_input * deg_to_rad(steering_angle)
 		
+		# Apply steering
+		var target_steering_angle = steering_input * deg_to_rad(steering_angle)
 		var angle_difference = target_steering_angle - current_wheel_angle
 		var max_angle_change = steering_speed * delta
 		
@@ -70,6 +76,9 @@ func _physics_process(delta):
 		accel_input = 0
 		front_left_wheel.rotation.y = 0
 		front_right_wheel.rotation.y = 0
+
+func toggle_parking_brake():
+	parking_brake_engaged = !parking_brake_engaged
 
 func _on_player_detect_body_entered(body):
 	if body.is_in_group("Player"):

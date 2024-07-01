@@ -5,7 +5,6 @@ extends RayCast3D
 @onready var springMesh = $Spring
 var previous_spring_length: float = 0.0
 @export var is_front_wheel: bool
-
 var initial_spring_scale: Vector3
 var initial_spring_position: Vector3
 
@@ -23,6 +22,9 @@ func _physics_process(delta):
 		
 		apply_z_force(collision_point)
 		apply_x_force(delta, collision_point)
+		
+		if !is_front_wheel and car.parking_brake_engaged:
+			apply_parking_brake(collision_point)
 		
 		set_wheel_position(to_local(get_collision_point()).y + car.wheel_radius)
 	else:
@@ -42,11 +44,27 @@ func apply_x_force(delta, collision_point):
 	var state := PhysicsServer3D.body_get_direct_state(car.get_rid())
 	var tire_velocity := state.get_velocity_at_local_position(global_position - car.global_position)
 	var lateral_velocity: float = dir.dot(tire_velocity)
-	var grip = car.rear_tire_grip if not is_front_wheel else car.front_tire_grip
+	var grip = get_current_grip()
 	
 	var desired_velocity_change = -lateral_velocity * grip
 	var x_force = desired_velocity_change / delta
 	car.apply_force(dir * x_force, collision_point - car.global_position)
+
+func get_current_grip() -> float:
+	if is_front_wheel:
+		return car.front_tire_grip
+	else:
+		if car.parking_brake_engaged:
+			return car.rear_tire_grip * 0.2
+		else:
+			return car.rear_tire_grip
+
+func apply_parking_brake(collision_point):
+	var brake_dir = -car.linear_velocity.normalized()
+	var brake_force = car.parking_brake_force * 0.5 * brake_dir
+	
+	var point = Vector3(collision_point.x, collision_point.y + car.wheel_radius, collision_point.z)
+	car.apply_force(brake_force, point - car.global_position)
 	
 func set_wheel_position(new_y_position: float):
 	wheel.position.y = lerp(wheel.position.y, new_y_position, 0.6)
@@ -91,7 +109,6 @@ func suspension(delta, collision_point):
 	var point = Vector3(raycast_dest.x, raycast_dest.y + car.wheel_radius, raycast_dest.z)
 	
 	car.apply_force(suspension_dir * suspension_force, point - car.global_position)
-
 	update_spring_mesh(spring_length)
 
 func update_spring_mesh(spring_length: float):
