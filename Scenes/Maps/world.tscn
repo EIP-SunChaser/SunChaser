@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c4ca03hfvhrsd"]
+[gd_scene load_steps=12 format=3 uid="uid://c4ca03hfvhrsd"]
 
 [ext_resource type="PackedScene" uid="uid://bmc1fqst1lx1y" path="res://Scenes/Maps/environment.tscn" id="1_steub"]
 [ext_resource type="PackedScene" uid="uid://cwfe4ax6jym2h" path="res://Scenes/Menus/main_menu.tscn" id="2_ak7c5"]
@@ -19,6 +19,11 @@ background_mode = 2
 sky = SubResource("Sky_ep4jj")
 tonemap_mode = 2
 glow_enabled = true
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_pcb8c"]
+viewport_path = NodePath("CCTV/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1v8cc"]
 
 [node name="World" type="Node3D"]
 
@@ -71,5 +76,24 @@ font_size = 256
 script = ExtResource("6_xrr28")
 
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
-_spawnable_scenes = PackedStringArray("res://Scenes/jolt_car.tscn")
 spawn_path = NodePath("..")
+
+[node name="CCTV" type="Node3D" parent="."]
+
+[node name="SubViewport" type="SubViewport" parent="CCTV"]
+size_2d_override_stretch = true
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="CCTV/SubViewport"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 2.13681, 2.1994)
+
+[node name="Sprite3D" type="Sprite3D" parent="CCTV"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9.17353, 3.95155, -14.9465)
+flip_h = true
+texture = SubResource("ViewportTexture_pcb8c")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CCTV"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.63, 3.5, -15.1458)
+use_collision = true
+size = Vector3(1, 8, 10)
+material = SubResource("StandardMaterial3D_1v8cc")
