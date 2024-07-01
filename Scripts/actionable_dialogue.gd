@@ -4,5 +4,4 @@ extends Area3D
 @export var dialogue_start: String = "start"
 
 func action() -> void:
-	print("test")
 	DialogueManager.show_example_dialogue_balloon(dialogue_ressource, dialogue_start)
