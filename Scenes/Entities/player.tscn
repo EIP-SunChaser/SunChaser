@@ -1,12 +1,12 @@
 [gd_scene load_steps=22 format=3 uid="uid://cy7ywppb2i4ey"]
 
-[ext_resource type="Script" path="res://Scripts/player.gd" id="1_mpqcp"]
-[ext_resource type="Script" path="res://Scripts/Pseudo.gd" id="2_bmpr3"]
-[ext_resource type="Script" path="res://Scripts/BodyPart.gd" id="2_cnrj0"]
+[ext_resource type="Script" path="res://Scripts/Entities/player.gd" id="1_mpqcp"]
+[ext_resource type="Script" path="res://Scripts/Entities/Pseudo.gd" id="2_bmpr3"]
+[ext_resource type="Script" path="res://Scripts/Entities/BodyPart.gd" id="2_cnrj0"]
 [ext_resource type="Texture2D" uid="uid://c448q6matp4vx" path="res://Assets/Textures/Gun/star.png" id="3_fgshd"]
-[ext_resource type="PackedScene" uid="uid://bvkvxoqp0eys3" path="res://Scenes/rifle_prototype.tscn" id="3_xq2hx"]
-[ext_resource type="PackedScene" uid="uid://cdp8oynggphk4" path="res://Scenes/quest_ui.tscn" id="5_p4gfi"]
-[ext_resource type="PackedScene" uid="uid://bdjvvprw2achb" path="res://Scenes/health_bar.tscn" id="6_1voe1"]
+[ext_resource type="PackedScene" uid="uid://bvkvxoqp0eys3" path="res://Scenes/Items/rifle_prototype.tscn" id="3_xq2hx"]
+[ext_resource type="PackedScene" uid="uid://cdp8oynggphk4" path="res://Scenes/Ui/quest_ui.tscn" id="5_p4gfi"]
+[ext_resource type="PackedScene" uid="uid://bdjvvprw2achb" path="res://Scenes/Ui/health_bar.tscn" id="6_1voe1"]
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_1lcpa"]
 properties/0/path = NodePath(".:rotation")

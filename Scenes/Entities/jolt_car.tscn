@@ -1,9 +1,9 @@
 [gd_scene load_steps=20 format=3 uid="uid://dhdbxqqbo8gxi"]
 
-[ext_resource type="Script" path="res://Scripts/jolt_car.gd" id="1_v325y"]
-[ext_resource type="Script" path="res://Scripts/wheel.gd" id="2_2687u"]
-[ext_resource type="Script" path="res://Scripts/CameraController.gd" id="3_eqbfd"]
-[ext_resource type="Script" path="res://Scripts/actionnable_car.gd" id="4_uphqk"]
+[ext_resource type="Script" path="res://Scripts/Entities/jolt_car.gd" id="1_v325y"]
+[ext_resource type="Script" path="res://Scripts/Entities/wheel.gd" id="2_0xgju"]
+[ext_resource type="Script" path="res://Scripts/Entities/CameraController.gd" id="3_hjqr5"]
+[ext_resource type="Script" path="res://Scripts/Entities/actionnable_car.gd" id="4_uphqk"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g4php"]
 size = Vector3(2, 0.5, 3)
@@ -135,7 +135,7 @@ mesh = SubResource("BoxMesh_tphuy")
 
 [node name="FrontLeftWheel" type="RayCast3D" parent="Wheels"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7, 0, -1.2)
-script = ExtResource("2_2687u")
+script = ExtResource("2_0xgju")
 is_front_wheel = true
 
 [node name="Spring" type="MeshInstance3D" parent="Wheels/FrontLeftWheel"]
@@ -153,7 +153,7 @@ skeleton = NodePath("../..")
 
 [node name="FrontRightWheel" type="RayCast3D" parent="Wheels"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, 0, -1.2)
-script = ExtResource("2_2687u")
+script = ExtResource("2_0xgju")
 is_front_wheel = true
 
 [node name="Spring" type="MeshInstance3D" parent="Wheels/FrontRightWheel"]
@@ -171,7 +171,7 @@ skeleton = NodePath("../..")
 
 [node name="BackRightWheel" type="RayCast3D" parent="Wheels"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, 0, 1.1918)
-script = ExtResource("2_2687u")
+script = ExtResource("2_0xgju")
 
 [node name="Spring" type="MeshInstance3D" parent="Wheels/BackRightWheel"]
 transform = Transform3D(0.035, 0, 0, 0, 0.035, 0, 0, 0, 0.035, 0.545, -0.5, 0)
@@ -188,7 +188,7 @@ skeleton = NodePath("../..")
 
 [node name="BackLeftWheel" type="RayCast3D" parent="Wheels"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7, 0, 1.2)
-script = ExtResource("2_2687u")
+script = ExtResource("2_0xgju")
 
 [node name="Spring" type="MeshInstance3D" parent="Wheels/BackLeftWheel"]
 transform = Transform3D(0.035, 0, 0, 0, 0.035, 0, 0, 0, 0.035, -0.545, -0.5, 0)
@@ -205,7 +205,7 @@ skeleton = NodePath("../..")
 
 [node name="CameraRoot" type="Node3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 2, 0.0197153)
-script = ExtResource("3_eqbfd")
+script = ExtResource("3_hjqr5")
 
 [node name="CameraYaw" type="Node3D" parent="CameraRoot"]
 

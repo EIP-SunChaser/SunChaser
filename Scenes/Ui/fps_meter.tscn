@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b2ajj4fsrspvj"]
 
-[ext_resource type="Script" path="res://Scripts/FPSMeter.gd" id="1_m5lst"]
+[ext_resource type="Script" path="res://Scripts/Ui/FPSMeter.gd" id="1_m5lst"]
 
 [node name="FPSMeter" type="Control"]
 layout_mode = 3

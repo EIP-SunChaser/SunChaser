@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://bw41xqawmw8pp"]
 
-[ext_resource type="Script" path="res://Scripts/npc.gd" id="1_1acwq"]
-[ext_resource type="Script" path="res://Scripts/BodyPart.gd" id="2_1ywgg"]
+[ext_resource type="Script" path="res://Scripts/Entities/npc.gd" id="1_kvn8c"]
+[ext_resource type="Script" path="res://Scripts/Entities/BodyPart.gd" id="2_7qfvd"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mpp0y"]
 
@@ -31,7 +31,7 @@ properties/1/spawn = true
 properties/1/replication_mode = 1
 
 [node name="Bad_npc" type="CharacterBody3D"]
-script = ExtResource("1_1acwq")
+script = ExtResource("1_kvn8c")
 
 [node name="BodyCollision" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -44,7 +44,7 @@ skeleton = NodePath("../..")
 
 [node name="BodyArea" type="Area3D" parent="BodyCollision" groups=["Bandits"]]
 transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0, 0)
-script = ExtResource("2_1ywgg")
+script = ExtResource("2_7qfvd")
 damage = 20
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BodyCollision/BodyArea"]
@@ -71,7 +71,7 @@ mesh = SubResource("BoxMesh_lg3gj")
 
 [node name="EyeArea" type="Area3D" parent="EyeMesh" groups=["Bandits"]]
 transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0, 0)
-script = ExtResource("2_1ywgg")
+script = ExtResource("2_7qfvd")
 damage = 50
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="EyeMesh/EyeArea"]

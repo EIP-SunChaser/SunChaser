@@ -12,7 +12,7 @@ extends CharacterBody3D
 @onready var gun_animation = $"Head/Camera3D/rifle_prototype/AnimationPlayer"
 @onready var bullet_sound = $"Head/Camera3D/rifle_prototype/AudioStreamPlayer"
 @onready var gun_barrel = $"Head/Camera3D/rifle_prototype/RayCast3D"
-var bullet = load("res://Scenes/bullet.tscn")
+var bullet = load("res://Scenes/Items/bullet.tscn")
 var instance
 
 var input_dir = Vector2(0, 0)

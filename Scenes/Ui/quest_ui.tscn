@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cdp8oynggphk4"]
 
-[ext_resource type="Script" path="res://Scripts/quest.gd" id="1_mboc1"]
+[ext_resource type="Script" path="res://Scripts/Ui/quest.gd" id="1_304xk"]
 
 [node name="Quest_ui" type="CanvasLayer"]
 
@@ -10,7 +10,7 @@ offset_bottom = 45.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
 layout_mode = 2
-script = ExtResource("1_mboc1")
+script = ExtResource("1_304xk")
 
 [node name="Titre" type="Label" parent="PanelContainer/VBoxContainer"]
 custom_minimum_size = Vector2(50, 0)

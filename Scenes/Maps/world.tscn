@@ -1,11 +1,11 @@
 [gd_scene load_steps=10 format=3 uid="uid://c4ca03hfvhrsd"]
 
-[ext_resource type="PackedScene" uid="uid://bmc1fqst1lx1y" path="res://Scenes/environment.tscn" id="1_steub"]
-[ext_resource type="PackedScene" uid="uid://cwfe4ax6jym2h" path="res://Scenes/main_menu.tscn" id="2_ak7c5"]
-[ext_resource type="PackedScene" uid="uid://b2ajj4fsrspvj" path="res://Scenes/fps_meter.tscn" id="3_nq26b"]
-[ext_resource type="PackedScene" uid="uid://d0yhvm1880vyv" path="res://Scenes/hat_npc.tscn" id="4_arjcc"]
-[ext_resource type="PackedScene" uid="uid://bw41xqawmw8pp" path="res://Scenes/bad_npc.tscn" id="5_hhx2q"]
-[ext_resource type="Script" path="res://Scripts/IP_ADDRESS.gd" id="6_xrr28"]
+[ext_resource type="PackedScene" uid="uid://bmc1fqst1lx1y" path="res://Scenes/Maps/environment.tscn" id="1_steub"]
+[ext_resource type="PackedScene" uid="uid://cwfe4ax6jym2h" path="res://Scenes/Menus/main_menu.tscn" id="2_ak7c5"]
+[ext_resource type="PackedScene" uid="uid://b2ajj4fsrspvj" path="res://Scenes/Ui/fps_meter.tscn" id="3_nq26b"]
+[ext_resource type="PackedScene" uid="uid://d0yhvm1880vyv" path="res://Scenes/Entities/hat_npc.tscn" id="4_arjcc"]
+[ext_resource type="PackedScene" uid="uid://bw41xqawmw8pp" path="res://Scenes/Entities/bad_npc.tscn" id="5_hhx2q"]
+[ext_resource type="Script" path="res://Scripts/Ui/IP_ADDRESS.gd" id="6_xrr28"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2efs4"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)

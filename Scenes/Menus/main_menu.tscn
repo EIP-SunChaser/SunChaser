@@ -1,13 +1,13 @@
 [gd_scene load_steps=7 format=3 uid="uid://cwfe4ax6jym2h"]
 
-[ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_6v1ci"]
-[ext_resource type="PackedScene" uid="uid://cy7ywppb2i4ey" path="res://Scenes/player.tscn" id="2_tjd3f"]
-[ext_resource type="PackedScene" uid="uid://dhdbxqqbo8gxi" path="res://Scenes/jolt_car.tscn" id="3_utlbu"]
-[ext_resource type="Texture2D" uid="uid://d1jrknar7m7ug" path="res://Assets/Images/Outbound Main Art No Logo.png" id="4_53pt6"]
-[ext_resource type="FontFile" uid="uid://7x3cp1mf1vp4" path="res://Assets/Fonts/Switzer-BlackItalic.otf" id="5_f0rrh"]
+[ext_resource type="Script" path="res://Scripts/Menus/main_menu.gd" id="1_utaag"]
+[ext_resource type="PackedScene" uid="uid://cy7ywppb2i4ey" path="res://Scenes/Entities/player.tscn" id="2_1vl1a"]
+[ext_resource type="PackedScene" uid="uid://dhdbxqqbo8gxi" path="res://Scenes/Entities/jolt_car.tscn" id="3_6ksex"]
+[ext_resource type="Texture2D" uid="uid://d1jrknar7m7ug" path="res://Assets/Images/Outbound Main Art No Logo.png" id="4_1mb4y"]
+[ext_resource type="FontFile" uid="uid://7x3cp1mf1vp4" path="res://Assets/Fonts/Switzer-BlackItalic.otf" id="5_0vjv7"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_vunt7"]
-font = ExtResource("5_f0rrh")
+font = ExtResource("5_0vjv7")
 font_size = 64
 
 [node name="MainMenu" type="Control"]
@@ -17,9 +17,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_6v1ci")
-player_scene = ExtResource("2_tjd3f")
-car_scene = ExtResource("3_utlbu")
+script = ExtResource("1_utaag")
+player_scene = ExtResource("2_1vl1a")
+car_scene = ExtResource("3_6ksex")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
@@ -30,7 +30,7 @@ offset_left = -112.431
 offset_right = 112.431
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_53pt6")
+texture = ExtResource("4_1mb4y")
 expand_mode = 3
 
 [node name="Title" type="Label" parent="."]
@@ -92,7 +92,6 @@ layout_mode = 2
 text = "Exit"
 
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
-_spawnable_scenes = PackedStringArray("res://Scenes/player.tscn", "res://Scenes/jolt_car.tscn")
 spawn_path = NodePath("..")
 
 [connection signal="button_down" from="BoxContainer/VBoxContainer/Host" to="." method="_on_host_button_down"]

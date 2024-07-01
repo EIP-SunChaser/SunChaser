@@ -1,8 +1,8 @@
 [gd_scene load_steps=14 format=3 uid="uid://d0yhvm1880vyv"]
 
-[ext_resource type="Script" path="res://Scripts/npc.gd" id="1_rvmuh"]
-[ext_resource type="Script" path="res://Scripts/actionable_dialogue.gd" id="2_7ndyt"]
-[ext_resource type="Resource" uid="uid://80iuna024nxn" path="res://Dialogue/Quest_001.dialogue" id="3_c1al6"]
+[ext_resource type="Script" path="res://Scripts/Entities/npc.gd" id="1_f1q1f"]
+[ext_resource type="Script" path="res://Scripts/Entities/actionable_dialogue.gd" id="2_lvkr6"]
+[ext_resource type="Resource" uid="uid://80iuna024nxn" path="res://Dialogue/Quest_001.dialogue" id="3_lnmwh"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_in2gs"]
 
@@ -35,7 +35,7 @@ properties/1/spawn = true
 properties/1/replication_mode = 1
 
 [node name="Hat_npc" type="CharacterBody3D"]
-script = ExtResource("1_rvmuh")
+script = ExtResource("1_f1q1f")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -63,8 +63,8 @@ mesh = SubResource("BoxMesh_lg3gj")
 [node name="Area3D" type="Area3D" parent="."]
 collision_layer = 2
 collision_mask = 2
-script = ExtResource("2_7ndyt")
-dialogue_ressource = ExtResource("3_c1al6")
+script = ExtResource("2_lvkr6")
+dialogue_ressource = ExtResource("3_lnmwh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1)
