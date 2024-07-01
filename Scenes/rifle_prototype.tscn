@@ -121,7 +121,7 @@ libraries = {
 }
 
 [node name="RayCast3D" type="RayCast3D" parent="." index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06, -1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00148539, 0.0674375, -0.935307)
 target_position = Vector3(0, 0, -1)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="3"]

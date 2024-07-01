@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cwfe4ax6jym2h" path="res://Scenes/main_menu.tscn" id="2_ak7c5"]
 [ext_resource type="PackedScene" uid="uid://b2ajj4fsrspvj" path="res://Scenes/fps_meter.tscn" id="3_nq26b"]
 [ext_resource type="PackedScene" uid="uid://d0yhvm1880vyv" path="res://Scenes/hat_npc.tscn" id="4_arjcc"]
-[ext_resource type="PackedScene" uid="uid://bw41xqawmw8pp" path="res://Scenes/bad_npc.tscn" id="5_hhx2q"]
+[ext_resource type="PackedScene" uid="uid://fhkexaseow2w" path="res://Scenes/bad_npc.tscn" id="5_hhx2q"]
 [ext_resource type="Script" path="res://Scripts/IP_ADDRESS.gd" id="6_xrr28"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2efs4"]

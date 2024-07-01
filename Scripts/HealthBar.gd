@@ -1,6 +1,6 @@
 extends ProgressBar
 
-var health = 0 : set = _set_health
+var health = 100 : set = _set_health
 
 signal health_depleted
 

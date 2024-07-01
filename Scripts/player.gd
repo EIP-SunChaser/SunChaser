@@ -55,9 +55,11 @@ func _ready():
 	
 	health_bar.init_health(100)
 	deathLabel.visible = false
+	deathLabel.hide()
 	
 func _unhandled_input(event):
 	if !is_multiplayer_authority(): return
+	
 	if event is InputEventMouseMotion:
 		head.rotate_y(-event.relative.x * SENSITIVITY)
 		camera.rotate_x(-event.relative.y * SENSITIVITY)
