@@ -5,6 +5,7 @@ extends Control
 
 @onready var pseudo = $BoxContainer/VBoxContainer2/Pseudo
 @onready var ip_address = $BoxContainer/VBoxContainer2/IP_Address
+@onready var host = $BoxContainer/VBoxContainer/Host
 
 var current_spawn_index = 0
 
@@ -15,6 +16,7 @@ var peer = ENetMultiplayerPeer.new()
 func _ready():
 	ip_address.placeholder_text = "Enter the host IP! Default is " + DEFAULT_IP
 	multiplayer.connected_to_server.connect(connected_to_server)
+	host.grab_focus()
 
 func _process(delta):
 	pass
