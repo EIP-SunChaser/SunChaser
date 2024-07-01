@@ -16,7 +16,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.0001, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(-0.32, 0.025, 0)]
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(-0.55, 0.15, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -28,7 +28,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.0001, 0.0002, 0.0003, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(0.00148539, 0.0674375, -0.935307), Vector3(0.00148539, 0.0674375, -0.935307), Vector3(0.00148539, 0.0674375, -0.935307), Vector3(0.00148539, 0.0674375, -0.935307), Vector3(-0.32, 0.087, -0.935)]
+"values": [Vector3(0.00148539, 0.0674375, -0.935307), Vector3(0.00148539, 0.0674375, -0.935307), Vector3(0.00148539, 0.0674375, -0.935307), Vector3(0.00148539, 0.0674375, -0.935307), Vector3(-0.55, 0.15, -0.935)]
 }
 
 [sub_resource type="Animation" id="Animation_sykcn"]
@@ -45,7 +45,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.01, 0.1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(-0.32, 0.025, 0), Vector3(-0.32, 0.025, 0.1), Vector3(-0.32, 0.025, 0)]
+"values": [Vector3(-0.55, 0.15, 0), Vector3(-0.55, 0.15, 0.1), Vector3(-0.55, 0.15, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -57,7 +57,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.01, 0.1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(-0.32, 0.087, -0.935), Vector3(-0.32, 0.087, -0.835), Vector3(-0.32, 0.087, -0.935)]
+"values": [Vector3(-0.55, 0.22, -1), Vector3(-0.55, 0.22, -0.8), Vector3(-0.55, 0.22, -1)]
 }
 
 [sub_resource type="Animation" id="Animation_1i4pb"]
@@ -86,7 +86,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.01, 0.1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(0.00148539, 0.0674375, -0.935307), Vector3(0.001, 0.067, -0.835), Vector3(0.00148539, 0.0674375, -0.935307)]
+"values": [Vector3(0.00148539, 0.0674375, -0.935307), Vector3(0, 0.06, -0.8), Vector3(0, 0.06, -1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5vn6j"]
@@ -113,7 +113,7 @@ properties/3/replication_mode = 1
 [node name="rifle_prototype" instance=ExtResource("1_h5mhm")]
 
 [node name="Cube" parent="." index="0"]
-transform = Transform3D(4.29715e-08, 0, 0.028304, 0, 0.0403951, 0, -0.240314, 0, 5.06115e-09, -0.32, 0.025, 0)
+transform = Transform3D(4.29715e-08, 0, 0.028304, 0, 0.0403951, 0, -0.240314, 0, 5.06115e-09, 0, 0, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
 libraries = {
@@ -121,7 +121,7 @@ libraries = {
 }
 
 [node name="RayCast3D" type="RayCast3D" parent="." index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.32, 0.087, -0.935)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00148539, 0.0674375, -0.935307)
 target_position = Vector3(0, 0, -1)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="3"]

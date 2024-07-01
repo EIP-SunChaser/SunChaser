@@ -150,15 +150,17 @@ func do_physics_process(delta):
 @rpc("any_peer", "call_local")
 func play_shoot_effects():
 	if !gun_animation.is_playing():
-			bullet_sound.play()
-			instance = bullet.instantiate()
-			instance.position = gun_barrel.global_position
-			instance.transform.basis = gun_barrel.global_transform.basis
-			get_parent().add_child(instance)
-	animation_player.stop()
-	animation_player.play("shoot")
-	muzzle_flash.restart()
-	muzzle_flash.emitting = true
+		bullet_sound.play()
+		instance = bullet.instantiate()
+		instance.position = gun_barrel.global_position
+		instance.transform.basis = gun_barrel.global_transform.basis
+		get_parent().add_child(instance)
+		if isAiming:
+			gun_animation.play("Aim_n_Shoot")
+		else:
+			gun_animation.play("Shoot")
+		muzzle_flash.restart()
+		muzzle_flash.emitting = true
 
 func _headbob(time) -> Vector3:
 	var pos = Vector3.ZERO
@@ -177,3 +179,7 @@ func _on_health_bar_health_depleted():
 	deathLabel.visible = true
 	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
+
+func _on_body_part_hit(dam):
+	health_bar.value -= dam

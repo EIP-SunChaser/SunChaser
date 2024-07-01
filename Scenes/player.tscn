@@ -1,7 +1,8 @@
-[gd_scene load_steps=21 format=3 uid="uid://cy7ywppb2i4ey"]
+[gd_scene load_steps=22 format=3 uid="uid://cy7ywppb2i4ey"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_mpqcp"]
 [ext_resource type="Script" path="res://Scripts/Pseudo.gd" id="2_bmpr3"]
+[ext_resource type="Script" path="res://Scripts/BodyPart.gd" id="2_cnrj0"]
 [ext_resource type="Texture2D" uid="uid://c448q6matp4vx" path="res://Assets/Textures/Gun/star.png" id="3_fgshd"]
 [ext_resource type="PackedScene" uid="uid://bvkvxoqp0eys3" path="res://Scenes/rifle_prototype.tscn" id="3_xq2hx"]
 [ext_resource type="PackedScene" uid="uid://cdp8oynggphk4" path="res://Scenes/quest_ui.tscn" id="5_p4gfi"]
@@ -24,9 +25,11 @@ properties/4/path = NodePath("Head/Camera3D:rotation")
 properties/4/spawn = true
 properties/4/replication_mode = 1
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gfuv1"]
+
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_sbrlq"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gfuv1"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_d5hqf"]
 
 [sub_resource type="Gradient" id="Gradient_r3k3s"]
 offsets = PackedFloat32Array(0, 0.218182, 1)
@@ -130,40 +133,11 @@ tracks/0/keys = {
 "values": [Vector3(0.546027, -0.273746, -0.724783), Vector3(0.433559, -0.22744, -0.724783), Vector3(0.546027, -0.273746, -0.724783), Vector3(0.66199, -0.19412, -0.724783)]
 }
 
-[sub_resource type="Animation" id="Animation_m4k0n"]
-resource_name = "shoot"
-length = 0.4
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Head/Camera3D/rifle_prototype:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(0.5, 1),
-"update": 0,
-"values": [Vector3(0.546027, -0.122115, -0.724783), Vector3(0.546027, -0.273746, -0.724783)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Head/Camera3D/rifle_prototype:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(0.5, 1),
-"update": 0,
-"values": [Vector3(0.425058, 0, 0), Vector3(0, 0, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6rs1o"]
 _data = {
 "RESET": SubResource("Animation_e7y2j"),
 "idle": SubResource("Animation_gd6f8"),
-"move": SubResource("Animation_kofwg"),
-"shoot": SubResource("Animation_m4k0n")
+"move": SubResource("Animation_kofwg")
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wfju5"]
@@ -175,13 +149,21 @@ script = ExtResource("1_mpqcp")
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_1lcpa")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-mesh = SubResource("CapsuleMesh_sbrlq")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="BodyCollision" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_gfuv1")
+
+[node name="BodyMesh" type="MeshInstance3D" parent="BodyCollision"]
+mesh = SubResource("CapsuleMesh_sbrlq")
+skeleton = NodePath("../..")
+
+[node name="Area3D" type="Area3D" parent="BodyCollision" groups=["Players"]]
+script = ExtResource("2_cnrj0")
+damage = 20
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BodyCollision/Area3D"]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_d5hqf")
 
 [node name="Pseudo" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.40701, 0)
@@ -231,5 +213,6 @@ collision_mask = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -1)
 shape = SubResource("BoxShape3D_wfju5")
 
+[connection signal="body_part_hit" from="BodyCollision/Area3D" to="." method="_on_body_part_hit"]
 [connection signal="health_depleted" from="Head/Camera3D/HealthBar" to="." method="_on_health_bar_health_depleted"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
