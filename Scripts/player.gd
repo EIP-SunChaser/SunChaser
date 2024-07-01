@@ -23,6 +23,8 @@ const JUMP_VELOCITY = 4.5
 const SENSITIVITY = 0.003
 const SENSITIVITY_JOYSTICK = 0.06
 
+var is_in_car = false
+
 # Variables pour stocker les valeurs des axes pour les mouvements de camÃ©ra avec manette
 var axis_x = 0.0
 var axis_y = 0.0
@@ -88,7 +90,7 @@ func _unhandled_input(event):
 	else:
 		speed = WALK_SPEED
 	
-	if Input.is_action_just_pressed("shoot") and animation_player.current_animation != "shoot":
+	if Input.is_action_just_pressed("shoot") and animation_player.current_animation != "shoot" and not is_in_car:
 		play_shoot_effects.rpc()
 	
 	if Input.is_action_just_pressed("use"):
