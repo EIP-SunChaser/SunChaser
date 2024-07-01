@@ -3,7 +3,6 @@ extends CharacterBody3D
 @onready var camera = $Head/Camera3D
 @onready var head = $Head
 @onready var animation_player = $AnimationPlayer
-@onready var muzzle_flash = $Head/Camera3D/rifle_prototype/MuzzleFlash
 @onready var pseudo = $Pseudo
 @onready var actionable_finder: Area3D = $Area3D
 @onready var deathLabel = $"Head/Camera3D/DeathLabel"
@@ -136,14 +135,8 @@ func do_physics_process(delta):
 
 	if animation_player.current_animation == "shoot":
 		pass
-	elif input_dir != Vector2.ZERO and is_on_floor():
-		if not isAiming:
-			animation_player.play("move")
 	else:
-		if not isAiming:
-			animation_player.play("idle")
-		else:
-			animation_player.stop()
+		animation_player.stop()
 
 	# Aiming
 	if Input.is_action_pressed("aim") && isAiming == false:
@@ -164,19 +157,12 @@ func play_shoot_effects():
 			gun_animation.play("Aim_n_Shoot")
 		else:
 			gun_animation.play("Shoot")
-		muzzle_flash.restart()
-		muzzle_flash.emitting = true
 
 func _headbob(time) -> Vector3:
 	var pos = Vector3.ZERO
 	pos.y = sin(time * BOB_FREQ) * BOB_AMP
 	pos.x = cos(time * BOB_FREQ / 2) * BOB_AMP
 	return pos
-
-func _on_animation_player_animation_finished(anim_name):
-	if anim_name == "shoot":
-		animation_player.play("idle")
-
 
 func _on_health_bar_health_depleted():
 	print("dead")
