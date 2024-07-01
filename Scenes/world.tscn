@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://c4ca03hfvhrsd"]
+[gd_scene load_steps=10 format=3 uid="uid://c4ca03hfvhrsd"]
 
 [ext_resource type="PackedScene" uid="uid://bmc1fqst1lx1y" path="res://Scenes/environment.tscn" id="1_steub"]
 [ext_resource type="PackedScene" uid="uid://cwfe4ax6jym2h" path="res://Scenes/main_menu.tscn" id="2_ak7c5"]
 [ext_resource type="PackedScene" uid="uid://b2ajj4fsrspvj" path="res://Scenes/fps_meter.tscn" id="3_nq26b"]
 [ext_resource type="PackedScene" uid="uid://d0yhvm1880vyv" path="res://Scenes/hat_npc.tscn" id="4_arjcc"]
 [ext_resource type="PackedScene" path="res://Scenes/bad_npc.tscn" id="5_hhx2q"]
+[ext_resource type="Script" path="res://Scripts/IP_ADDRESS.gd" id="6_xrr28"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2efs4"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -54,3 +55,9 @@ transform = Transform3D(0.590324, 0, 0.807166, 0, 1, 0, -0.807166, 0, 0.590324, 
 
 [node name="Hat_npc2" parent="." instance=ExtResource("5_hhx2q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.87864, 6.42252, 12.3053)
+
+[node name="IP_ADDRESS" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
+billboard = 2
+font_size = 256
+script = ExtResource("6_xrr28")
