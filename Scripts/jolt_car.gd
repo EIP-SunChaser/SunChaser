@@ -21,6 +21,10 @@ var car_zone = false
 var players_in_zone = []
 var player_in_car = null
 
+var is_resetting = false
+var reset_rotation_speed = 1.5
+var target_rotation: Basis
+
 func _enter_tree():
 	set_multiplayer_authority(str(name).to_int())
 
@@ -52,6 +56,11 @@ func _physics_process(delta):
 		speed_counter.text = str(speed)
 		$SpeedText.show()
 		leaving_car()
+		
+		if Input.is_action_just_pressed("reset_car"):
+			reset_car_rotation()
+		
+		apply_smooth_rotation(delta)
 	else:
 		$SpeedText.hide()
 		entering_car()
@@ -75,6 +84,7 @@ func find_local_player():
 func entering_car():
 	if Input.is_action_just_pressed("use") and car_zone and not active:
 		var local_player = find_local_player()
+		print(local_player)
 		if local_player:
 			set_player_in_car.rpc(local_player.get_path())
 
@@ -108,7 +118,6 @@ func remove_player_from_car():
 		var player_head = player_in_car.get_node("Head")
 		var player_camera = player_head.get_node("Camera3D")
 		
-		print(player_camera)
 		if player_camera:
 			player_camera.current = true
 			camera_3d.current = false
@@ -117,3 +126,22 @@ func remove_player_from_car():
 	
 	active = false
 	$SpeedText.hide()
+
+func is_car_upside_down():
+	return global_transform.basis.y.dot(Vector3.UP) < 0
+
+func reset_car_rotation():
+	if is_car_upside_down() and not is_resetting:
+		is_resetting = true
+		var current_position = global_transform.origin
+		target_rotation = global_transform.basis.rotated(global_transform.basis.z, PI)
+		global_transform.origin = current_position + Vector3(0, 1, 0)
+
+func apply_smooth_rotation(delta):
+	if is_resetting:
+		var current_rotation = global_transform.basis
+		var new_rotation = current_rotation.slerp(target_rotation, reset_rotation_speed * delta)
+		global_transform.basis = new_rotation
+		
+		if current_rotation.y.dot(Vector3.UP) >= global_transform.basis.y.dot(Vector3.UP):
+			is_resetting = false
