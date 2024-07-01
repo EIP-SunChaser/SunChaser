@@ -8,7 +8,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if GlobalQuest.quest1:
-		get_node("Quest1").text = "Red kill: " + str(GlobalQuest.entity_kill)
+	if GlobalVariables.quest1:
+		get_node("Quest1").text = "Red kill: " + str(GlobalVariables.entity_kill)
 	else:
 		get_node("Quest1").text = "No quest !"

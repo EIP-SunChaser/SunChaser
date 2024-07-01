@@ -1,5 +1,7 @@
 ~ start
 
+set GlobalVariables.isInDialogue = true
+
 if GlobalVariables.quest1 == false || GlobalVariables.entity_kill == 0:
 	Cool hat dude: [wave amp=25 freq=10]Salut princesse~~~~[/wave]
 	Cool hat dude: [wave amp=25 freq=10]T'as bien dormi ?[/wave]
@@ -14,5 +16,7 @@ if GlobalVariables.quest1 == false || GlobalVariables.entity_kill == 0:
 else:
 	Cool hat dude: Tu... as tué red !!!
 	Cool hat dude: [wave amp=25 freq=10]Super ![/wave]
+
+set GlobalVariables.isInDialogue = false
 
 => END

@@ -98,7 +98,8 @@ func _unhandled_input(event):
 
 func _physics_process(delta):
 	if !is_multiplayer_authority(): return
-	do_physics_process(delta)
+	if GlobalVariables.isInDialogue == false:
+		do_physics_process(delta)
 
 func do_physics_process(delta):
 	# Add the gravity.
