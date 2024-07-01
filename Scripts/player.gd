@@ -183,4 +183,4 @@ func _on_health_bar_health_depleted():
 
 
 func _on_body_part_hit(dam):
-	health_bar.value -= dam
+	health_bar.health -= dam

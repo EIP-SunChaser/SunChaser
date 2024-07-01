@@ -12,9 +12,10 @@ func _set_health(new_health):
 	var prev_health = health
 	health = min(max_value, new_health)
 	value = health
-	
+	print("check life value: ", health)
 	if health <= 0:
 		health_depleted.emit()
+	print("still has health")
 	
 	health = new_health
 
