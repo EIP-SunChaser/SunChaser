@@ -52,6 +52,11 @@ func _unhandled_input(event):
 		camera.rotate_x(-event.relative.y * SENSITIVITY)
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90))
 	
+	if axis_x > 0.1 or axis_x < -0.1 or axis_y > 0.1 or axis_y < -0.1:
+		head.rotate_y(-axis_x * SENSITIVITY_JOYSTICK)
+		camera.rotate_x(-axis_y * SENSITIVITY_JOYSTICK)
+		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90))
+	
 	if event is InputEventJoypadMotion:
 		if event.axis == 2:  # Axe horizontal
 			axis_x = event.axis_value
@@ -67,10 +72,7 @@ func _unhandled_input(event):
 
 func _physics_process(delta):
 	if multiplayer_synchronizer.get_multiplayer_authority() == multiplayer.get_unique_id():
-		if axis_x > 0.1 or axis_x < -0.1 or axis_y > 0.1 or axis_y < -0.1:
-			head.rotate_y(-axis_x * SENSITIVITY_JOYSTICK)
-			camera.rotate_x(-axis_y * SENSITIVITY_JOYSTICK)
-			camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90))
+		print("hello")
 		show()
 		camera.make_current()
 		do_physics_process(delta)
