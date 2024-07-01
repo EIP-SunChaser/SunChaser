@@ -137,9 +137,13 @@ func do_physics_process(delta):
 	if animation_player.current_animation == "shoot":
 		pass
 	elif input_dir != Vector2.ZERO and is_on_floor():
-		animation_player.play("move")
+		if not isAiming:
+			animation_player.play("move")
 	else:
-		animation_player.play("idle")	
+		if not isAiming:
+			animation_player.play("idle")
+		else:
+			animation_player.stop()
 
 	# Aiming
 	if Input.is_action_pressed("aim") && isAiming == false:

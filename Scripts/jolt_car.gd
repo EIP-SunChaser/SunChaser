@@ -18,6 +18,8 @@ var car_zone = false
 @export var rear_tire_grip: float = 2.0
 @onready var multiplayer_synchronizer = $MultiplayerSynchronizer
 @export var current_wheel_angle: float = 0.0
+var front_left_wheel
+var front_right_wheel
 var players_in_zone = []
 var player_in_car = null
 
@@ -31,14 +33,14 @@ func _enter_tree():
 
 func _ready():
 	if !is_multiplayer_authority(): return
+	front_left_wheel = $Wheels/FrontLeftWheel
+	front_right_wheel = $Wheels/FrontRightWheel
 
 func _physics_process(delta):
 	if active:
 		accel_input = Input.get_axis("deccelerate", "accelerate")
 		steering_input = Input.get_axis("right", "left")
 		var target_steering_angle = steering_input * deg_to_rad(steering_angle)
-		var front_left_wheel = $Wheels/FrontLeftWheel
-		var front_right_wheel = $Wheels/FrontRightWheel
 		
 		var angle_difference = target_steering_angle - current_wheel_angle
 		var max_angle_change = steering_speed * delta
@@ -65,6 +67,9 @@ func _physics_process(delta):
 	else:
 		$SpeedText.hide()
 		entering_car()
+		accel_input = 0
+		front_left_wheel.rotation.y = 0
+		front_right_wheel.rotation.y = 0
 
 func _on_player_detect_body_entered(body):
 	if body.is_in_group("Player"):
