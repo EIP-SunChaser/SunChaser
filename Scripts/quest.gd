@@ -1,5 +1,7 @@
 extends VBoxContainer
 
+var check_quest = false
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -8,7 +10,9 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if GlobalVariables.quest1:
-		get_node("Quest1").text = "Red kill: " + str(GlobalVariables.entity_kill)
-	else:
-		get_node("Quest1").text = "No quest !"
+	if check_quest == false:
+		if GlobalVariables.quest1:
+			var name_label = Label.new()
+			name_label.text = "whatever"
+			add_child(name_label)
+			check_quest = true
