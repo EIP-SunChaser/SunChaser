@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dahwjb1ic8es6"]
+[gd_scene load_steps=20 format=3 uid="uid://dhdbxqqbo8gxi"]
 
 [ext_resource type="Script" path="res://Scripts/jolt_car.gd" id="1_v325y"]
 [ext_resource type="Script" path="res://Scripts/wheel.gd" id="2_2687u"]
@@ -94,6 +94,24 @@ properties/0/replication_mode = 1
 properties/1/path = NodePath(".:rotation")
 properties/1/spawn = true
 properties/1/replication_mode = 1
+properties/2/path = NodePath("CameraRoot/CameraYaw/CameraPitch/SpringArm3D/Camera3D:position")
+properties/2/spawn = true
+properties/2/replication_mode = 1
+properties/3/path = NodePath("CameraRoot/CameraYaw/CameraPitch/SpringArm3D/Camera3D:rotation")
+properties/3/spawn = true
+properties/3/replication_mode = 1
+properties/4/path = NodePath("CameraRoot:position")
+properties/4/spawn = true
+properties/4/replication_mode = 1
+properties/5/path = NodePath("CameraRoot:rotation")
+properties/5/spawn = true
+properties/5/replication_mode = 1
+properties/6/path = NodePath(".:steering_angle")
+properties/6/spawn = true
+properties/6/replication_mode = 1
+properties/7/path = NodePath(".:current_wheel_angle")
+properties/7/spawn = true
+properties/7/replication_mode = 1
 
 [node name="JoltCar" type="RigidBody3D"]
 mass = 10.0
@@ -198,7 +216,6 @@ spring_length = 3.0
 
 [node name="Camera3D" type="Camera3D" parent="CameraRoot/CameraYaw/CameraPitch/SpringArm3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.04965)
-current = true
 
 [node name="PlayerDetect" type="Area3D" parent="."]
 script = ExtResource("4_uphqk")

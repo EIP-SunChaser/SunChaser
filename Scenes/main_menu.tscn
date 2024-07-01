@@ -1,6 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://bnoqq43uj2kpe"]
+[gd_scene load_steps=7 format=3 uid="uid://cwfe4ax6jym2h"]
 
-[ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_nex48"]
+[ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_6v1ci"]
+[ext_resource type="PackedScene" uid="uid://cy7ywppb2i4ey" path="res://Scenes/player.tscn" id="2_tjd3f"]
+[ext_resource type="PackedScene" uid="uid://dhdbxqqbo8gxi" path="res://Scenes/jolt_car.tscn" id="3_utlbu"]
+[ext_resource type="Texture2D" uid="uid://d1jrknar7m7ug" path="res://Assets/Images/Outbound Main Art No Logo.png" id="4_53pt6"]
+[ext_resource type="FontFile" uid="uid://7x3cp1mf1vp4" path="res://Assets/Fonts/Switzer-BlackItalic.otf" id="5_f0rrh"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vunt7"]
+font = ExtResource("5_f0rrh")
+font_size = 64
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -9,68 +17,84 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_nex48")
+script = ExtResource("1_6v1ci")
+player_scene = ExtResource("2_tjd3f")
+car_scene = ExtResource("3_utlbu")
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -112.431
+offset_right = 112.431
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_53pt6")
+expand_mode = 3
+
+[node name="Title" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -101.0
-offset_top = 50.0
-offset_right = 101.0
-offset_bottom = 116.0
+offset_left = -171.0
+offset_top = 35.0
+offset_right = 171.0
+offset_bottom = 114.0
 grow_horizontal = 2
+text = "SunChaser"
+label_settings = SubResource("LabelSettings_vunt7")
 
-[node name="Adress" type="LineEdit" parent="VBoxContainer2"]
-layout_mode = 2
-
-[node name="Pseudo" type="LineEdit" parent="VBoxContainer2"]
-layout_mode = 2
-placeholder_text = "Enter your name"
-
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="BoxContainer" type="BoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -107.5
-offset_top = -68.0
-offset_right = 107.5
-offset_bottom = 68.0
+offset_left = -167.5
+offset_top = -112.5
+offset_right = 167.5
+offset_bottom = 112.5
 grow_horizontal = 2
 grow_vertical = 2
+vertical = true
 
-[node name="Solo" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-text = "Solo"
-
-[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="BoxContainer"]
 layout_mode = 2
 
-[node name="Start" type="Button" parent="VBoxContainer"]
+[node name="IP_Address" type="LineEdit" parent="BoxContainer/VBoxContainer2"]
 layout_mode = 2
-text = "Start"
 
-[node name="Host" type="Button" parent="VBoxContainer"]
+[node name="Pseudo" type="LineEdit" parent="BoxContainer/VBoxContainer2"]
+layout_mode = 2
+placeholder_text = "Enter your name here!"
+
+[node name="HSeparator" type="HSeparator" parent="BoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Host" type="Button" parent="BoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "Host"
 
-[node name="Join" type="Button" parent="VBoxContainer"]
+[node name="Join" type="Button" parent="BoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "Join"
 
-[node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
-layout_mode = 2
-
-[node name="Exit" type="Button" parent="VBoxContainer"]
+[node name="Exit" type="Button" parent="BoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "Exit"
 
-[connection signal="button_down" from="VBoxContainer/Solo" to="." method="_on_solo_button_down"]
-[connection signal="button_down" from="VBoxContainer/Start" to="." method="_on_start_button_down"]
-[connection signal="button_down" from="VBoxContainer/Host" to="." method="_on_host_button_down"]
-[connection signal="button_down" from="VBoxContainer/Join" to="." method="_on_join_button_down"]
-[connection signal="button_down" from="VBoxContainer/Exit" to="." method="_on_exit_button_down"]
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("res://Scenes/player.tscn", "res://Scenes/jolt_car.tscn")
+spawn_path = NodePath("..")
+
+[connection signal="button_down" from="BoxContainer/VBoxContainer/Host" to="." method="_on_host_button_down"]
+[connection signal="button_down" from="BoxContainer/VBoxContainer/Join" to="." method="_on_join_button_down"]
+[connection signal="button_down" from="BoxContainer/VBoxContainer/Exit" to="." method="_on_exit_button_down"]

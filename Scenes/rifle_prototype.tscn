@@ -113,7 +113,7 @@ properties/3/replication_mode = 1
 [node name="rifle_prototype" instance=ExtResource("1_h5mhm")]
 
 [node name="Cube" parent="." index="0"]
-transform = Transform3D(4.29715e-08, 0, 0.028304, 0, 0.0403951, 0, -0.240314, 0, 5.06115e-09, 0, 0, 0)
+transform = Transform3D(4.29715e-08, 0, 0.028304, 0, 0.0403951, 0, -0.240314, 0, 5.06115e-09, -0.32, 0.025, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
 libraries = {
@@ -121,7 +121,7 @@ libraries = {
 }
 
 [node name="RayCast3D" type="RayCast3D" parent="." index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00148539, 0.0674375, -0.935307)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.32, 0.087, -0.935)
 target_position = Vector3(0, 0, -1)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="3"]

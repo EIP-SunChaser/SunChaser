@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cktvp2sevtsm2"]
+[gd_scene load_steps=14 format=3 uid="uid://d0yhvm1880vyv"]
 
 [ext_resource type="Script" path="res://Scripts/npc.gd" id="1_rvmuh"]
 [ext_resource type="Script" path="res://Scripts/actionable_dialogue.gd" id="2_7ndyt"]
