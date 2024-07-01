@@ -19,7 +19,7 @@ func _physics_process(delta):
 func _on_body_part_hit(dam):
 	health -= dam
 	if health <= 0:
-		GlobalQuest.entity_kill += 1
+		GlobalVariables.entity_kill += 1
 		if is_in_group("Bandits"):
 			print("Bandit is dead")
 		queue_free()

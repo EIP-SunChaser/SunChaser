@@ -19,7 +19,7 @@ config/icon="res://icon.svg"
 
 PlayerManager="*res://Scripts/Autoload/player_manager.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
-GlobalQuest="*res://Scripts/global_quest.gd"
+GlobalVariables="*res://Scripts/global_variables.gd"
 
 [display]
 
