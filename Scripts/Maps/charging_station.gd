@@ -2,7 +2,7 @@ extends Node3D
 
 @export var recharge_amount: float = 10.0  # Amount to recharge per second
 @export var recharge_interval: float = 0.01  # How often to apply recharge (in seconds)
-@export var recharge_delay: float = 1  # Delay in seconds before recharging starts
+@export var recharge_delay: float = 1.0  # Delay in seconds before recharging starts
 
 var car_in_area: RigidBody3D = null
 var recharge_timer: float = 0.0
