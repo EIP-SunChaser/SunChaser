@@ -90,7 +90,7 @@ radius = 0.025
 [sub_resource type="BoxShape3D" id="BoxShape3D_5a73s"]
 size = Vector3(6.22852, 3.52063, 10.1758)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_751wa"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cx0u5"]
 bg_color = Color(0, 0, 0, 0)
 
 [sub_resource type="Gradient" id="Gradient_mbdqv"]
@@ -149,6 +149,7 @@ spring_force = 30.0
 wheel_radius = 0.5
 engine_power = 70.0
 parking_brake_force = 100.0
+battery_drain_rate = 1.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_g4php")
@@ -304,7 +305,7 @@ offset_top = -118.0
 offset_right = -12.0001
 offset_bottom = -88.0
 grow_horizontal = 0
-theme_override_styles/background = SubResource("StyleBoxFlat_751wa")
+theme_override_styles/background = SubResource("StyleBoxFlat_cx0u5")
 theme_override_styles/fill = SubResource("StyleBoxTexture_546eb")
 
 [node name="Node3D" type="Node3D" parent="."]
