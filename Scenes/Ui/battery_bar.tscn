@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://dea0kmuerk3wf"]
+
+[ext_resource type="Script" path="res://Scripts/Ui/battery_bar.gd" id="1_b2wo0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x1fys"]
+bg_color = Color(0, 0, 0, 0)
+
+[sub_resource type="Gradient" id="Gradient_mbdqv"]
+colors = PackedColorArray(0.372549, 0.866667, 0.403922, 1, 0.407843, 0.956863, 0.701961, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2qy87"]
+gradient = SubResource("Gradient_mbdqv")
+width = 100
+height = 30
+fill_from = Vector2(0, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j0jf7"]
+texture = SubResource("GradientTexture2D_2qy87")
+
+[node name="BatteryBar" type="ProgressBar"]
+custom_minimum_size = Vector2(0, 30)
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -27.0
+offset_right = 4.0
+grow_vertical = 0
+theme_override_styles/background = SubResource("StyleBoxFlat_x1fys")
+theme_override_styles/fill = SubResource("StyleBoxTexture_j0jf7")
+value = 100.0
+script = ExtResource("1_b2wo0")
+gradient = SubResource("Gradient_mbdqv")

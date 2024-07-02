@@ -30,8 +30,15 @@ var target_rotation: Basis
 var parking_brake_engaged = false
 @export var parking_brake_force: float = 1000.0
 
-#func _enter_tree():
+# Battery system variables
+@export var max_battery: float = 100.0
+@export var current_battery: float = 100.0
+@export var battery_drain_rate: float = 0.1
+@onready var battery_display = $BatteryText/BatteryBar
+
+func _enter_tree():
 	#set_multiplayer_authority(multiplayer.get_unique_id())
+	pass
 
 func _ready():
 	front_left_wheel = $Wheels/FrontLeftWheel
@@ -42,10 +49,16 @@ func _physics_process(delta):
 		if Input.is_action_just_pressed("brake"):
 			toggle_parking_brake()
 		
-		accel_input = Input.get_axis("deccelerate", "accelerate")
 		steering_input = Input.get_axis("right", "left")
 		
-		# Apply steering
+		if current_battery > 0:
+			accel_input = Input.get_axis("deccelerate", "accelerate")
+			current_battery -= battery_drain_rate * delta * abs(accel_input)
+			current_battery = max(current_battery, 0)
+		else:
+			accel_input = 0
+		
+		# Apply steering (allowed even with depleted battery)
 		var target_steering_angle = steering_input * deg_to_rad(steering_angle)
 		var angle_difference = target_steering_angle - current_wheel_angle
 		var max_angle_change = steering_speed * delta
@@ -63,6 +76,10 @@ func _physics_process(delta):
 		speed = int(linear_velocity.length())
 		speed_counter.text = str(speed)
 		$SpeedText.show()
+		
+		battery_display.battery = current_battery
+		$BatteryText.show()
+		
 		leaving_car()
 		
 		if Input.is_action_just_pressed("reset_car"):
@@ -71,6 +88,7 @@ func _physics_process(delta):
 		apply_smooth_rotation(delta)
 	else:
 		$SpeedText.hide()
+		$BatteryText.hide()
 		entering_car()
 		accel_input = 0
 		front_left_wheel.rotation.y = 0
@@ -108,6 +126,7 @@ func set_player_in_car(player_path: NodePath):
 	if player:
 		active = true
 		$SpeedText.show()
+		$BatteryText.show()
 		player.hide()
 		player_in_car = player
 		player_in_car.is_in_car = true
@@ -144,6 +163,7 @@ func remove_player_from_car():
 	
 	active = false
 	$SpeedText.hide()
+	$BatteryText.hide()
 
 func is_car_upside_down():
 	return global_transform.basis.y.dot(Vector3.UP) < 0
@@ -163,3 +183,7 @@ func apply_smooth_rotation(delta):
 		
 		if current_rotation.y.dot(Vector3.UP) >= global_transform.basis.y.dot(Vector3.UP):
 			is_resetting = false
+
+func recharge_battery(amount: float):
+	current_battery = min(current_battery + amount, max_battery)
+	battery_display.battery = current_battery

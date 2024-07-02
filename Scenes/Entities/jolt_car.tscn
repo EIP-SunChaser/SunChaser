@@ -1,9 +1,10 @@
-[gd_scene load_steps=21 format=3 uid="uid://dhdbxqqbo8gxi"]
+[gd_scene load_steps=25 format=3 uid="uid://dhdbxqqbo8gxi"]
 
 [ext_resource type="Script" path="res://Scripts/Entities/jolt_car.gd" id="1_v325y"]
 [ext_resource type="Script" path="res://Scripts/Entities/wheel.gd" id="2_0xgju"]
 [ext_resource type="Script" path="res://Scripts/Entities/CameraController.gd" id="3_hjqr5"]
 [ext_resource type="Script" path="res://Scripts/Entities/actionnable_car.gd" id="4_uphqk"]
+[ext_resource type="PackedScene" uid="uid://dea0kmuerk3wf" path="res://Scenes/Ui/battery_bar.tscn" id="5_0x0d3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g4php"]
 size = Vector3(2, 0.5, 3)
@@ -88,6 +89,26 @@ radius = 0.025
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5a73s"]
 size = Vector3(6.22852, 3.52063, 10.1758)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_534wc"]
+bg_color = Color(0, 0, 0, 0)
+
+[sub_resource type="Gradient" id="Gradient_mbdqv"]
+colors = PackedColorArray(0.372549, 0.866667, 0.403922, 1, 0.407843, 0.956863, 0.701961, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_40wrh"]
+gradient = SubResource("Gradient_mbdqv")
+width = 100
+height = 20
+fill_from = Vector2(0, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_546eb"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+texture = SubResource("GradientTexture2D_40wrh")
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_afsww"]
 properties/0/path = NodePath(".:position")
@@ -271,6 +292,20 @@ offset_bottom = -25.0
 grow_horizontal = 0
 grow_vertical = 0
 text = "km/h"
+
+[node name="BatteryText" type="CanvasLayer" parent="."]
+
+[node name="BatteryBar" parent="BatteryText" instance=ExtResource("5_0x0d3")]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -262.0
+offset_top = -118.0
+offset_right = -12.0001
+offset_bottom = -88.0
+grow_horizontal = 0
+theme_override_styles/background = SubResource("StyleBoxFlat_534wc")
+theme_override_styles/fill = SubResource("StyleBoxTexture_546eb")
 
 [node name="Node3D" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.95, -0.21687)
