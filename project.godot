@@ -23,8 +23,6 @@ GlobalVariables="*res://Scripts/global_variables.gd"
 
 [display]
 
-window/size/viewport_width=500
-window/size/viewport_height=500
 window/vsync/vsync_mode=0
 
 [editor_plugins]
