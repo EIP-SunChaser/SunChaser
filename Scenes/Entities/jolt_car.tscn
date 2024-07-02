@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dhdbxqqbo8gxi"]
+[gd_scene load_steps=21 format=3 uid="uid://dhdbxqqbo8gxi"]
 
 [ext_resource type="Script" path="res://Scripts/Entities/jolt_car.gd" id="1_v325y"]
 [ext_resource type="Script" path="res://Scripts/Entities/wheel.gd" id="2_0xgju"]
@@ -80,6 +80,8 @@ grow_amount = -0.34
 material = SubResource("StandardMaterial3D_dqdr2")
 inner_radius = 0.115
 outer_radius = 0.5
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ww5ne"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ne7co"]
 radius = 0.025
@@ -202,6 +204,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0)
 transform = Transform3D(-4.37114e-08, -0.999999, 0, 1, -4.37113e-08, 0, 0, 0, 0.999999, -0.5, 0, 0)
 mesh = SubResource("TorusMesh_542k1")
 skeleton = NodePath("../..")
+
+[node name="Node3D2" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D2"]
+transform = Transform3D(0.499691, -7.64885e-11, 0.017589, -0.017589, -4.3473e-09, 0.499691, 3.82443e-10, -0.1, -2.17365e-08, 0.396926, 0.394148, -1.49191)
+mesh = SubResource("CylinderMesh_ww5ne")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Node3D2"]
+transform = Transform3D(0.499691, -7.64885e-11, 0.017589, -0.017589, -4.3473e-09, 0.499691, 3.82443e-10, -0.1, -2.17365e-08, -0.397, 0.394, -1.492)
+mesh = SubResource("CylinderMesh_ww5ne")
 
 [node name="CameraRoot" type="Node3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 2, 0.0197153)
