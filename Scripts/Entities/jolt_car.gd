@@ -147,7 +147,7 @@ func remove_player_from_car():
 		var exit_location = global_transform.origin - 2 * global_transform.basis.x
 		player_in_car.global_transform.origin = exit_location
 		player_in_car.show()
-		player_in_car.set_collision_layer(1)
+		player_in_car.set_collision_layer(1, 2)
 		
 		var player_head = player_in_car.get_node("Head")
 		var player_camera = player_head.get_node("Camera3D")
