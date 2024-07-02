@@ -98,12 +98,10 @@ func toggle_parking_brake():
 	parking_brake_engaged = !parking_brake_engaged
 
 func _on_player_detect_body_entered(body):
-	if body.is_in_group("Player"):
 		players_in_zone.append(body)
 		car_zone = true
 
 func _on_player_detect_body_exited(body):
-	if body.is_in_group("Player"):
 		players_in_zone.erase(body)
 		car_zone = players_in_zone.size() > 0
 
