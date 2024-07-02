@@ -88,9 +88,9 @@ outer_radius = 0.5
 radius = 0.025
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5a73s"]
-size = Vector3(6.22852, 3.52063, 10.1758)
+size = Vector3(6.22852, 3.52063, 4)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iet1o"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h5j4y"]
 bg_color = Color(0, 0, 0, 0)
 
 [sub_resource type="Gradient" id="Gradient_mbdqv"]
@@ -139,7 +139,7 @@ properties/8/path = NodePath("MeshInstance3D:rotation")
 properties/8/spawn = true
 properties/8/replication_mode = 1
 
-[node name="JoltCar" type="RigidBody3D"]
+[node name="JoltCar" type="RigidBody3D" groups=["JoltCar"]]
 mass = 10.0
 center_of_mass_mode = 1
 center_of_mass = Vector3(0, -0.95, -0.12)
@@ -261,7 +261,7 @@ collision_mask = 2
 script = ExtResource("4_uphqk")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerDetect"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.26031, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.26031, -0.0879002)
 shape = SubResource("BoxShape3D_5a73s")
 
 [node name="SpeedText" type="CanvasLayer" parent="."]
@@ -307,7 +307,7 @@ offset_top = -118.0
 offset_right = -12.0001
 offset_bottom = -88.0
 grow_horizontal = 0
-theme_override_styles/background = SubResource("StyleBoxFlat_iet1o")
+theme_override_styles/background = SubResource("StyleBoxFlat_h5j4y")
 theme_override_styles/fill = SubResource("StyleBoxTexture_546eb")
 
 [node name="Node3D" type="Node3D" parent="."]

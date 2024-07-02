@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://buqstjbynyvcg"]
+[gd_scene load_steps=11 format=3 uid="uid://buqstjbynyvcg"]
 
+[ext_resource type="Script" path="res://Scripts/Maps/charging_station.gd" id="1_bwdsy"]
 [ext_resource type="Texture2D" uid="uid://qe8ttkpmjm1r" path="res://Assets/Textures/Grid/Orange/texture_09.png" id="1_skvna"]
 [ext_resource type="Texture2D" uid="uid://dojnvc1mivd1d" path="res://Assets/Textures/SolarPanel/others_0013_color_1k.jpg" id="2_6dd4a"]
 [ext_resource type="Texture2D" uid="uid://cb6mjq2g63cxp" path="res://Assets/Textures/SolarPanel/others_0013_height_1k.png" id="3_x14iq"]
@@ -22,7 +23,11 @@ heightmap_scale = -16.0
 heightmap_texture = ExtResource("3_x14iq")
 uv1_scale = Vector3(2, 1, 1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_q5e2v"]
+size = Vector3(4, 6, 4)
+
 [node name="charging_station" type="Node3D"]
+script = ExtResource("1_bwdsy")
 
 [node name="Pad" type="CSGPolygon3D" parent="."]
 use_collision = true
@@ -40,3 +45,12 @@ height = 4.0
 transform = Transform3D(0.764708, 0.644377, 0, -0.644377, 0.764708, 0, 0, 0, 1, 0, 2.05207, 0)
 size = Vector3(2, 0.05, 4)
 material = SubResource("StandardMaterial3D_wlcui")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 3, -2.5)
+shape = SubResource("BoxShape3D_q5e2v")
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
+[connection signal="area_exited" from="Area3D" to="." method="_on_area_3d_area_exited"]
