@@ -26,6 +26,17 @@ func _process(delta):
 
 func connected_to_server():
 	send_player_information.rpc_id(1, pseudo.text, multiplayer.get_unique_id())
+	
+func _on_prototype_button_down():
+	self.hide()
+	peer.create_server(PORT)
+	multiplayer.multiplayer_peer = peer
+	multiplayer.peer_connected.connect(add_player)
+	multiplayer.peer_disconnected.connect(delete_player)
+	send_player_information(pseudo.text, multiplayer.get_unique_id())
+	add_player(multiplayer.get_unique_id())
+	get_tree().change_scene_to_file("res://Scenes/Maps/prototype_map.tscn")
+
 
 func _on_host_button_down():
 	self.hide()
@@ -128,3 +139,5 @@ func upnp_setup():
 
 	print("UPNP Setup Successful! Join Address: ", external_address)
 	return true
+
+

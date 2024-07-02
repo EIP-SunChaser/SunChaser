@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://d5d7b87l2mmh"]
 
-[ext_resource type="PackedScene" uid="uid://mixqfp0sdpcd" path="res://sans_nom.glb" id="1_p4e7o"]
+[ext_resource type="PackedScene" uid="uid://mixqfp0sdpcd" path="res://Assets/Models/Maps/mountain.glb" id="1_p4e7o"]
 [ext_resource type="Texture2D" uid="uid://3pkbnh1mtbjy" path="res://Assets/Images/grid.svg" id="2_uvvvy"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sqvgp"]
