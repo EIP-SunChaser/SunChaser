@@ -30,11 +30,10 @@ var target_rotation: Basis
 var parking_brake_engaged = false
 @export var parking_brake_force: float = 1000.0
 
-func _enter_tree():
-	set_multiplayer_authority(multiplayer.get_unique_id())
+#func _enter_tree():
+	#set_multiplayer_authority(multiplayer.get_unique_id())
 
 func _ready():
-	if !is_multiplayer_authority(): return
 	front_left_wheel = $Wheels/FrontLeftWheel
 	front_right_wheel = $Wheels/FrontRightWheel
 

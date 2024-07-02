@@ -17,6 +17,9 @@ func _ready():
 	ip_address.placeholder_text = "Enter the host IP! Default is " + DEFAULT_IP
 	multiplayer.connected_to_server.connect(connected_to_server)
 	host.grab_focus()
+	
+	# Spawn already connected players
+	
 
 func _process(delta):
 	pass
@@ -35,12 +38,12 @@ func _on_host_button_down():
 	#upnp_setup()
 
 func _on_join_button_down():
-	self.hide()
 	if ip_address.text != "":
 		peer.create_client(ip_address.text, PORT)
 	else:
 		peer.create_client(DEFAULT_IP, PORT)
 	multiplayer.multiplayer_peer = peer
+	self.hide()
 
 func _on_exit_button_down():
 	get_tree().quit()
@@ -48,17 +51,16 @@ func _on_exit_button_down():
 func add_player(id: int):
 	if multiplayer.is_server():
 		var spawn_position = select_spawn_point()
-		spawn_player.rpc(id, spawn_position)
+		spawn_player(id, spawn_position)
 		
 		var car_spawn_position = select_car_spawn_point(spawn_position)
-		spawn_car.rpc(car_spawn_position)
+		spawn_car(car_spawn_position)
 
-@rpc("any_peer", "call_local")
 func spawn_car(spawn_position: Vector3):
 	var car = car_scene.instantiate()
 	car.name = "JoltCar"
 	car.add_to_group("Car")
-	add_child(car)
+	$"../Node3D".add_child(car, true)
 	car.global_position = spawn_position
 	print("JoltCar spawned!")
 
@@ -68,12 +70,12 @@ func delete_player(id: int):
 	if player:
 		player.queue_free()
 
-@rpc("any_peer", "call_local")
 func spawn_player(id: int, spawn_position: Vector3):
 	var player = player_scene.instantiate()
 	player.name = str(id)
 	player.add_to_group("Player")
-	add_child(player)
+	#add_child(player)
+	$"../Node3D".add_child(player, true)
 	# Use call_deferred to set the position after the node is added to the scene
 	player.call_deferred("set_global_position", spawn_position)
 	print("Player " + str(id) + " added!")

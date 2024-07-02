@@ -91,9 +91,6 @@ text = "Join"
 layout_mode = 2
 text = "Exit"
 
-[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
-spawn_path = NodePath("..")
-
 [connection signal="button_down" from="BoxContainer/VBoxContainer/Host" to="." method="_on_host_button_down"]
 [connection signal="button_down" from="BoxContainer/VBoxContainer/Join" to="." method="_on_join_button_down"]
 [connection signal="button_down" from="BoxContainer/VBoxContainer/Exit" to="." method="_on_exit_button_down"]
