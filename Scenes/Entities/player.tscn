@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cy7ywppb2i4ey"]
+[gd_scene load_steps=24 format=3 uid="uid://cy7ywppb2i4ey"]
 
 [ext_resource type="Script" path="res://Scripts/Entities/player.gd" id="1_mpqcp"]
 [ext_resource type="Script" path="res://Scripts/Entities/Pseudo.gd" id="2_bmpr3"]
@@ -27,9 +27,14 @@ properties/4/replication_mode = 1
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gfuv1"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e6ydu"]
+albedo_color = Color(0, 1, 0, 1)
+
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_sbrlq"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_d5hqf"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ipsvg"]
 
 [sub_resource type="Gradient" id="Gradient_r3k3s"]
 offsets = PackedFloat32Array(0, 0.218182, 1)
@@ -154,6 +159,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_gfuv1")
 
 [node name="BodyMesh" type="MeshInstance3D" parent="BodyCollision"]
+material_override = SubResource("StandardMaterial3D_e6ydu")
 mesh = SubResource("CapsuleMesh_sbrlq")
 skeleton = NodePath("../..")
 
@@ -174,6 +180,11 @@ script = ExtResource("2_bmpr3")
 
 [node name="Head" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.50028, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Head"]
+transform = Transform3D(0.765, 0, 0, 0, 0.33, 0, 0, 0, 0.705, 0, -0.000703454, -0.180768)
+mesh = SubResource("BoxMesh_ipsvg")
+skeleton = NodePath("../../BodyCollision")
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
 
