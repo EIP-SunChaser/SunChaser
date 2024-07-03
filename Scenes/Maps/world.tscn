@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c4ca03hfvhrsd"]
+[gd_scene load_steps=17 format=3 uid="uid://c4ca03hfvhrsd"]
 
 [ext_resource type="PackedScene" uid="uid://bmc1fqst1lx1y" path="res://Scenes/Maps/environment.tscn" id="1_steub"]
 [ext_resource type="PackedScene" uid="uid://cwfe4ax6jym2h" path="res://Scenes/Menus/main_menu.tscn" id="2_ak7c5"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://d0yhvm1880vyv" path="res://Scenes/Entities/hat_npc.tscn" id="4_arjcc"]
 [ext_resource type="PackedScene" uid="uid://bw41xqawmw8pp" path="res://Scenes/Entities/bad_npc.tscn" id="5_hhx2q"]
 [ext_resource type="Script" path="res://Scripts/Ui/IP_ADDRESS.gd" id="6_xrr28"]
+[ext_resource type="Script" path="res://Scripts/Maps/Area_quest1.gd" id="7_36gr5"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2efs4"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -32,6 +33,17 @@ properties/0/replication_mode = 1
 properties/1/path = NodePath(".:rotation")
 properties/1/spawn = true
 properties/1/replication_mode = 1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uwqf0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_20um2"]
+transparency = 1
+albedo_color = Color(0.243137, 1, 1, 0.160784)
+
+[sub_resource type="BoxMesh" id="BoxMesh_jpluy"]
+lightmap_size_hint = Vector2i(14, 21)
+material = SubResource("StandardMaterial3D_20um2")
+flip_faces = true
 
 [node name="World" type="Node3D"]
 
@@ -71,7 +83,7 @@ axis_lock_angular_x = true
 axis_lock_angular_z = true
 
 [node name="Hat_npc2" parent="." instance=ExtResource("5_hhx2q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.87864, 6.42252, 12.3053)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 291.411, 5.59542, 0.0472114)
 axis_lock_linear_x = true
 axis_lock_linear_z = true
 axis_lock_angular_x = true
@@ -113,3 +125,16 @@ root_path = NodePath("../Node3D")
 replication_config = SubResource("SceneReplicationConfig_lrq1y")
 
 [node name="Node3D" type="Node3D" parent="."]
+
+[node name="Quest1" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 271.881, 0, 0)
+
+[node name="Area3D" type="Area3D" parent="Quest1"]
+transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0, 0, 0)
+script = ExtResource("7_36gr5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Area3D"]
+shape = SubResource("BoxShape3D_uwqf0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Area3D"]
+mesh = SubResource("BoxMesh_jpluy")

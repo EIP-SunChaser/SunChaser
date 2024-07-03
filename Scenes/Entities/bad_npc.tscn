@@ -30,7 +30,7 @@ properties/1/path = NodePath(".:rotation")
 properties/1/spawn = true
 properties/1/replication_mode = 1
 
-[node name="Bad_npc" type="CharacterBody3D"]
+[node name="Bad_npc" type="CharacterBody3D" groups=["Bandits"]]
 script = ExtResource("1_kvn8c")
 
 [node name="BodyCollision" type="CollisionShape3D" parent="."]
