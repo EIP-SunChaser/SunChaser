@@ -104,6 +104,7 @@ func _unhandled_input(event):
 	
 	if Input.is_action_just_pressed("teleport"):
 			global_transform.origin = Vector3(0, 10, 0)
+
 	if Input.is_action_just_pressed("god"):
 		GODMOD = !GODMOD
 

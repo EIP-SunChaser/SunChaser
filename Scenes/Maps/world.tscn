@@ -176,12 +176,14 @@ transform = Transform3D(5, 0, 0, 0, 20, 0, 0, 0, 40, 101.607, 3.58, 4.904)
 use_collision = true
 
 [node name="Line 1" type="Node3D" parent="Quest1/Espace_zone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.471752, 0)
 
 [node name="Box1" type="RigidBody3D" parent="Quest1/Espace_zone/Line 1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 0)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 1/Box1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 1/Box1"]
@@ -193,6 +195,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 2)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 1/Box2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 1/Box2"]
@@ -204,6 +207,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 3)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 1/Box3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 1/Box3"]
@@ -215,6 +219,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 4)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 1/Box4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 1/Box4"]
@@ -226,6 +231,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, -1)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 1/Box5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 1/Box5"]
@@ -237,6 +243,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 0)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 1/Box6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 1/Box6"]
@@ -248,6 +255,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 1)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 1/Box7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 1/Box7"]
@@ -259,6 +267,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, -2)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 1/Box8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 1/Box8"]
@@ -270,6 +279,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, -3)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 1/Box9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 1/Box9"]
@@ -281,6 +291,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 5)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 1/Box10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 1/Box10"]
@@ -292,6 +303,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 6)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 1/Box11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 1/Box11"]
@@ -303,6 +315,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 7)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 1/Box12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 1/Box12"]
@@ -314,6 +327,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 8)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 1/Box13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 1/Box13"]
@@ -325,6 +339,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, -4)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 1/Box14"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 1/Box14"]
@@ -336,6 +351,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, -5)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 1/Box15"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 1/Box15"]
@@ -347,6 +363,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 9)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 1/Box16"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 1/Box16"]
@@ -358,6 +375,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 10)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 1/Box17"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 1/Box17"]
@@ -369,6 +387,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 11)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 1/Box18"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 1/Box18"]
@@ -380,6 +399,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 12)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 1/Box19"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 1/Box19"]
@@ -391,6 +411,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 13)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 1/Box20"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 1/Box20"]
@@ -402,6 +423,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 14)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 1/Box21"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 1/Box21"]
@@ -409,13 +431,14 @@ transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 
 mesh = ExtResource("8_kytmy")
 
 [node name="Line 2" type="Node3D" parent="Quest1/Espace_zone"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.528247, 0)
 
 [node name="Box1" type="RigidBody3D" parent="Quest1/Espace_zone/Line 2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 0)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 2/Box1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 2/Box1"]
@@ -427,6 +450,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 2)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 2/Box2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 2/Box2"]
@@ -438,6 +462,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 3)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 2/Box3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 2/Box3"]
@@ -449,6 +474,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 4)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 2/Box4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 2/Box4"]
@@ -460,6 +486,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, -1)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 2/Box5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 2/Box5"]
@@ -471,6 +498,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 0)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 2/Box6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 2/Box6"]
@@ -482,6 +510,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 1)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 2/Box7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 2/Box7"]
@@ -493,6 +522,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, -2)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 2/Box8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 2/Box8"]
@@ -504,6 +534,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, -3)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 2/Box9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 2/Box9"]
@@ -515,6 +546,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 5)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 2/Box10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 2/Box10"]
@@ -526,6 +558,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 6)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 2/Box11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 2/Box11"]
@@ -537,6 +570,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 7)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 2/Box12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 2/Box12"]
@@ -548,6 +582,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 8)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 2/Box13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 2/Box13"]
@@ -559,6 +594,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, -4)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 2/Box14"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 2/Box14"]
@@ -570,6 +606,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, -5)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 2/Box15"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 2/Box15"]
@@ -581,6 +618,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 9)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 2/Box16"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 2/Box16"]
@@ -592,6 +630,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 10)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 2/Box17"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 2/Box17"]
@@ -603,6 +642,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 11)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 2/Box18"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 2/Box18"]
@@ -614,6 +654,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 12)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 2/Box19"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 2/Box19"]
@@ -625,6 +666,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 13)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 2/Box20"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 2/Box20"]
@@ -636,6 +678,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 14)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 2/Box21"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 2/Box21"]
@@ -643,13 +686,14 @@ transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 
 mesh = ExtResource("8_kytmy")
 
 [node name="Line 3" type="Node3D" parent="Quest1/Espace_zone"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.52825, 0)
 
 [node name="Box1" type="RigidBody3D" parent="Quest1/Espace_zone/Line 3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 0)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 3/Box1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 3/Box1"]
@@ -661,6 +705,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 2)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 3/Box2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 3/Box2"]
@@ -672,6 +717,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 3)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 3/Box3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 3/Box3"]
@@ -683,6 +729,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 4)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 3/Box4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 3/Box4"]
@@ -694,6 +741,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, -1)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 3/Box5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 3/Box5"]
@@ -705,6 +753,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 0)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 3/Box6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 3/Box6"]
@@ -716,6 +765,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 1)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 3/Box7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 3/Box7"]
@@ -727,6 +777,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, -2)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 3/Box8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 3/Box8"]
@@ -738,6 +789,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, -3)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 3/Box9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 3/Box9"]
@@ -749,6 +801,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 5)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 3/Box10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 3/Box10"]
@@ -760,6 +813,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 6)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 3/Box11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 3/Box11"]
@@ -771,6 +825,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 7)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 3/Box12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 3/Box12"]
@@ -782,6 +837,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 8)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 3/Box13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 3/Box13"]
@@ -793,6 +849,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, -4)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 3/Box14"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 3/Box14"]
@@ -804,6 +861,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, -5)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 3/Box15"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 3/Box15"]
@@ -815,6 +873,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 9)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 3/Box16"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 3/Box16"]
@@ -826,6 +885,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 10)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 3/Box17"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 3/Box17"]
@@ -837,6 +897,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 11)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 3/Box18"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 3/Box18"]
@@ -848,6 +909,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 12)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 3/Box19"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 3/Box19"]
@@ -859,6 +921,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 13)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 3/Box20"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 3/Box20"]
@@ -870,6 +933,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 14)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 3/Box21"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 3/Box21"]
@@ -877,13 +941,14 @@ transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 
 mesh = ExtResource("8_kytmy")
 
 [node name="Line 4" type="Node3D" parent="Quest1/Espace_zone"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.52825, 0)
 
 [node name="Box1" type="RigidBody3D" parent="Quest1/Espace_zone/Line 4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 0)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 4/Box1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 4/Box1"]
@@ -895,6 +960,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 2)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 4/Box2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 4/Box2"]
@@ -906,6 +972,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 3)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 4/Box3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 4/Box3"]
@@ -917,6 +984,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 4)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 4/Box4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 4/Box4"]
@@ -928,6 +996,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, -1)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 4/Box5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 4/Box5"]
@@ -939,6 +1008,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 0)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 4/Box6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 4/Box6"]
@@ -950,6 +1020,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 1)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 4/Box7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 4/Box7"]
@@ -961,6 +1032,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, -2)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 4/Box8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 4/Box8"]
@@ -972,6 +1044,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, -3)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 4/Box9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 4/Box9"]
@@ -983,6 +1056,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 5)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 4/Box10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 4/Box10"]
@@ -994,6 +1068,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 6)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 4/Box11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 4/Box11"]
@@ -1005,6 +1080,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 7)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 4/Box12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 4/Box12"]
@@ -1016,6 +1092,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 8)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 4/Box13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 4/Box13"]
@@ -1027,6 +1104,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, -4)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 4/Box14"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 4/Box14"]
@@ -1038,6 +1116,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, -5)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 4/Box15"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 4/Box15"]
@@ -1049,6 +1128,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 9)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 4/Box16"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 4/Box16"]
@@ -1060,6 +1140,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 10)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 4/Box17"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 4/Box17"]
@@ -1071,6 +1152,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 11)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 4/Box18"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 4/Box18"]
@@ -1082,6 +1164,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 12)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 4/Box19"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 4/Box19"]
@@ -1093,6 +1176,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 13)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 4/Box20"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 4/Box20"]
@@ -1104,6 +1188,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 14)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 4/Box21"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 4/Box21"]
@@ -1111,13 +1196,14 @@ transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 
 mesh = ExtResource("8_kytmy")
 
 [node name="Line 5" type="Node3D" parent="Quest1/Espace_zone"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.52825, 0)
 
 [node name="Box1" type="RigidBody3D" parent="Quest1/Espace_zone/Line 5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 0)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 5/Box1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 5/Box1"]
@@ -1129,6 +1215,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 2)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 5/Box2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 5/Box2"]
@@ -1140,6 +1227,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 3)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 5/Box3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 5/Box3"]
@@ -1151,6 +1239,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 4)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 5/Box4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 5/Box4"]
@@ -1162,6 +1251,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, -1)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 5/Box5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 5/Box5"]
@@ -1173,6 +1263,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 0)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 5/Box6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 5/Box6"]
@@ -1184,6 +1275,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 1)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 5/Box7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 5/Box7"]
@@ -1195,6 +1287,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, -2)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 5/Box8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 5/Box8"]
@@ -1206,6 +1299,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, -3)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 5/Box9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 5/Box9"]
@@ -1217,6 +1311,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 5)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 5/Box10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 5/Box10"]
@@ -1228,6 +1323,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 6)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 5/Box11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 5/Box11"]
@@ -1239,6 +1335,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 7)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 5/Box12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 5/Box12"]
@@ -1250,6 +1347,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 8)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 5/Box13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 5/Box13"]
@@ -1261,6 +1359,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, -4)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 5/Box14"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 5/Box14"]
@@ -1272,6 +1371,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, -5)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 5/Box15"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 5/Box15"]
@@ -1283,6 +1383,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 9)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 5/Box16"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 5/Box16"]
@@ -1294,6 +1395,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 10)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 5/Box17"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 5/Box17"]
@@ -1305,6 +1407,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 11)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 5/Box18"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 5/Box18"]
@@ -1316,6 +1419,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 12)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 5/Box19"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 5/Box19"]
@@ -1327,6 +1431,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 13)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 5/Box20"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 5/Box20"]
@@ -1338,6 +1443,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 14)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 5/Box21"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 5/Box21"]
@@ -1345,13 +1451,14 @@ transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 
 mesh = ExtResource("8_kytmy")
 
 [node name="Line 6" type="Node3D" parent="Quest1/Espace_zone"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.52825, 0)
 
 [node name="Box1" type="RigidBody3D" parent="Quest1/Espace_zone/Line 6"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 0)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 6/Box1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 6/Box1"]
@@ -1363,6 +1470,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 2)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 6/Box2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 6/Box2"]
@@ -1374,6 +1482,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 3)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 6/Box3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 6/Box3"]
@@ -1385,6 +1494,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 4)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 6/Box4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 6/Box4"]
@@ -1396,6 +1506,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, -1)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 6/Box5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 6/Box5"]
@@ -1407,6 +1518,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 0)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 6/Box6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 6/Box6"]
@@ -1418,6 +1530,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 1)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 6/Box7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 6/Box7"]
@@ -1429,6 +1542,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, -2)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 6/Box8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 6/Box8"]
@@ -1440,6 +1554,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, -3)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 6/Box9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 6/Box9"]
@@ -1451,6 +1566,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 5)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 6/Box10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 6/Box10"]
@@ -1462,6 +1578,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 6)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 6/Box11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 6/Box11"]
@@ -1473,6 +1590,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 7)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 6/Box12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 6/Box12"]
@@ -1484,6 +1602,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 8)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 6/Box13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 6/Box13"]
@@ -1495,6 +1614,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, -4)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 6/Box14"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 6/Box14"]
@@ -1506,6 +1626,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, -5)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 6/Box15"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 6/Box15"]
@@ -1517,6 +1638,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 9)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 6/Box16"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 6/Box16"]
@@ -1528,6 +1650,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 10)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 6/Box17"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 6/Box17"]
@@ -1539,6 +1662,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 11)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 6/Box18"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 6/Box18"]
@@ -1550,6 +1674,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 12)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 6/Box19"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 6/Box19"]
@@ -1561,6 +1686,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 13)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 6/Box20"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 6/Box20"]
@@ -1572,6 +1698,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 14)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 6/Box21"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 6/Box21"]
@@ -1579,13 +1706,14 @@ transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 
 mesh = ExtResource("8_kytmy")
 
 [node name="Line 7" type="Node3D" parent="Quest1/Espace_zone"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.52825, 0)
 
 [node name="Box1" type="RigidBody3D" parent="Quest1/Espace_zone/Line 7"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 0)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 7/Box1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 7/Box1"]
@@ -1597,6 +1725,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 2)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 7/Box2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 7/Box2"]
@@ -1608,6 +1737,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 3)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 7/Box3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 7/Box3"]
@@ -1619,6 +1749,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 4)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 7/Box4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 7/Box4"]
@@ -1630,6 +1761,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, -1)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 7/Box5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 7/Box5"]
@@ -1641,6 +1773,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 0)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 7/Box6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 7/Box6"]
@@ -1652,6 +1785,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 1)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 7/Box7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 7/Box7"]
@@ -1663,6 +1797,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, -2)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 7/Box8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 7/Box8"]
@@ -1674,6 +1809,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, -3)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 7/Box9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 7/Box9"]
@@ -1685,6 +1821,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 5)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 7/Box10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 7/Box10"]
@@ -1696,6 +1833,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 6)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 7/Box11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 7/Box11"]
@@ -1707,6 +1845,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 7)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 7/Box12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 7/Box12"]
@@ -1718,6 +1857,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 8)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 7/Box13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 7/Box13"]
@@ -1729,6 +1869,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, -4)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 7/Box14"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 7/Box14"]
@@ -1740,6 +1881,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, -5)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 7/Box15"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 7/Box15"]
@@ -1751,6 +1893,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 9)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 7/Box16"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 7/Box16"]
@@ -1762,6 +1905,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 10)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 7/Box17"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 7/Box17"]
@@ -1773,6 +1917,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 11)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 7/Box18"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 7/Box18"]
@@ -1784,6 +1929,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 12)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 7/Box19"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 7/Box19"]
@@ -1795,6 +1941,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 13)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 7/Box20"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 7/Box20"]
@@ -1806,6 +1953,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 14)
 mass = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 7/Box21"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_rjj73")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 7/Box21"]

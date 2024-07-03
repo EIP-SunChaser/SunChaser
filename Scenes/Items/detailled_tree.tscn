@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://Scripts/Items/detailled_tree.gd" id="2_jvpuk"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ofq1h"]
-size = Vector3(1, 2, 1)
+size = Vector3(1.75409, 2, 1.82692)
 
 [node name="Detailled Tree" instance=ExtResource("1_mt6hq")]
 script = ExtResource("2_jvpuk")
@@ -16,5 +16,5 @@ collision_mask = 2
 script = ExtResource("2_jsu0d")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
-transform = Transform3D(1.75, 0, 0, 0, 1.75, 0, 0, 0, 1.75, 0, 1.75, 0)
+transform = Transform3D(1.75, 0, 0, 0, 1.75, 0, 0, 0, 1.75, 0.0351944, 1.75, 0.026289)
 shape = SubResource("BoxShape3D_ofq1h")
