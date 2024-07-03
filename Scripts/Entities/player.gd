@@ -105,6 +105,9 @@ func _unhandled_input(event):
 
 	if Input.is_action_just_pressed("pause"):
 		pauseMenu()
+	
+	if Input.is_action_just_pressed("teleport"):
+			global_transform.origin = Vector3(0, 10, 0)
 
 func _physics_process(delta):
 	if !is_multiplayer_authority(): return
