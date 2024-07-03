@@ -23,11 +23,14 @@ var input_dir = Vector2(0, 0)
 var speed = 0.0
 const WALK_SPEED = 5.0
 const SPRINT_SPEED = 8.0
+const CROUCH_SPEED = 2.5
 const JUMP_VELOCITY = 4.5
 const SENSITIVITY = 0.003
 var SENSITIVITY_JOYSTICK = 0.06
 
 var is_in_car = false
+var is_crouching = false
+@onready var collision_shape_3d = $BodyCollision/Area3D/CollisionShape3D
 
 # Variables pour stocker les valeurs des axes pour les mouvements de camÃ©ra avec manette
 var axis_x = 0.0
@@ -65,7 +68,7 @@ func _ready():
 	deathLabel.hide()
 
 func _unhandled_input(event):
-	if !is_multiplayer_authority(): return  # Added game_paused check
+	if !is_multiplayer_authority(): return
 	
 	if event is InputEventMouseMotion:
 		head.rotate_y(-event.relative.x * SENSITIVITY)
@@ -83,12 +86,6 @@ func _unhandled_input(event):
 	# Handle jump.
 	if Input.is_action_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-	
-	# Handle Speed
-	if Input.is_action_pressed("sprint"):
-		speed = SPRINT_SPEED
-	else:
-		speed = WALK_SPEED
 	
 	if Input.is_action_pressed("shoot") and animation_player.current_animation != "shoot" and not is_in_car:
 		play_shoot_effects.rpc()
@@ -108,6 +105,9 @@ func _unhandled_input(event):
 	if Input.is_action_just_pressed("god"):
 		GODMOD = !GODMOD
 
+	if Input.is_action_just_pressed("crouch"):
+		crouch()
+
 func _physics_process(delta):
 	if !is_multiplayer_authority(): return
 	if GlobalVariables.isInDialogue == false and !paused:
@@ -126,6 +126,7 @@ func do_physics_process(delta):
 	if GODMOD:
 		speed = 100
 		velocity.y
+
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction = (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
@@ -166,8 +167,32 @@ func do_physics_process(delta):
 		if !gun_animation.is_playing():
 			isAiming = true
 			gun_animation.play("Aim")
+
+	if is_crouching:
+		speed = CROUCH_SPEED
+	elif Input.is_action_pressed("sprint"):
+		speed = SPRINT_SPEED
+	else:
+		speed = WALK_SPEED
+
 	move_and_slide()
 
+func crouch():
+	if is_on_floor():
+		if not is_crouching:
+			is_crouching = true
+			scale_character(0.5)
+		else:
+			is_crouching = false
+			scale_character(2.0)
+
+func scale_character(scale_factor):
+	collision_shape_3d.scale.y *= scale_factor
+	
+	var camera_offset = camera.position.y - head.position.y
+	head.position.y *= scale_factor
+	camera.position.y = head.position.y + camera_offset
+	
 @rpc("any_peer", "call_local")
 func play_shoot_effects():
 	if !gun_animation.is_playing():
