@@ -21,7 +21,7 @@ func _ready():
 	# Spawn already connected players
 	
 
-func _process(delta):
+func _process(_delta):
 	pass
 
 func connected_to_server():
@@ -106,10 +106,10 @@ func select_car_spawn_point(base_spawn_position: Vector3) -> Vector3:
 	return base_spawn_position + Vector3(0, 10, 10)
 
 @rpc("any_peer")
-func send_player_information(name, id):
+func send_player_information(PlayerName, id):
 	if not PlayerManager.Players.has(id):
 		PlayerManager.Players[id] = {
-			"name": name,
+			"name": PlayerName,
 			"id": id
 		}
 	if multiplayer.is_server():

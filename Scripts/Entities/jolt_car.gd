@@ -60,13 +60,13 @@ func _physics_process(delta):
 		
 		# Apply steering (allowed even with depleted battery)
 		var target_steering_angle = steering_input * deg_to_rad(steering_angle)
-		var angle_difference = target_steering_angle - current_wheel_angle
+		var angle_difference_weel = target_steering_angle - current_wheel_angle
 		var max_angle_change = steering_speed * delta
 		
-		if abs(angle_difference) < max_angle_change:
+		if abs(angle_difference_weel) < max_angle_change:
 			current_wheel_angle = target_steering_angle
 		else:
-			current_wheel_angle += sign(angle_difference) * max_angle_change
+			current_wheel_angle += sign(angle_difference_weel) * max_angle_change
 		
 		current_wheel_angle = clamp(current_wheel_angle, -deg_to_rad(steering_angle), deg_to_rad(steering_angle))
 		

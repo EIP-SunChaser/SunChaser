@@ -10,7 +10,7 @@ func _ready():
 	if !is_multiplayer_authority(): return
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if multiplayer_synchronizer.get_multiplayer_authority() == multiplayer.get_unique_id():
 		var player_number = 1
 		for i in PlayerManager.Players:

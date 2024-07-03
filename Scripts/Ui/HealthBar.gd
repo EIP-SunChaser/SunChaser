@@ -9,7 +9,6 @@ func _ready():
 		self.hide()
 
 func _set_health(new_health):
-	var prev_health = health
 	health = min(max_value, new_health)
 	value = health
 	print("check life value: ", health)

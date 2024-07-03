@@ -40,7 +40,6 @@ func update_appearance():
 	add_theme_stylebox_override("background", background_style)
 
 func set_battery(new_battery):
-	var prev_battery = battery
 	battery = min(max_value, new_battery)
 	value = battery
 	if battery <= 0:
