@@ -25,6 +25,7 @@ func _on_body_part_hit(dam):
 				if GlobalVariables.quest_one == GlobalVariables.check_quest.KILL_RED_TWO:
 					GlobalVariables.quest_one = GlobalVariables.check_quest.GROW_TREE_ONE
 			else:
-				GlobalVariables.quest_one = GlobalVariables.check_quest.KILL_RED_ONE
+				if GlobalVariables.quest_one == GlobalVariables.check_quest.KILL_RED_TWO:
+					GlobalVariables.quest_one = GlobalVariables.check_quest.KILL_RED_ONE
 			print("Bandit is dead")
 		queue_free()

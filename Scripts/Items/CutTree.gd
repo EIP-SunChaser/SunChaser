@@ -9,4 +9,5 @@ func action() -> void:
 		if GlobalVariables.quest_one == GlobalVariables.check_quest.GROW_TREE_TWO:
 			GlobalVariables.quest_one = GlobalVariables.check_quest.END_ONE
 	else:
-		GlobalVariables.quest_one = GlobalVariables.check_quest.GROW_TREE_ONE
+		if GlobalVariables.quest_one == GlobalVariables.check_quest.GROW_TREE_TWO:
+			GlobalVariables.quest_one = GlobalVariables.check_quest.GROW_TREE_ONE
