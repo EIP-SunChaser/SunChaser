@@ -7,6 +7,9 @@ data = PackedVector3Array(-0.751, 0, 0.7497, -0.501, 0, 0.4997, -0.501, 0, 0.749
 
 [node name="Map Prototype v3" instance=ExtResource("1_iexq4")]
 
+[node name="Plane" parent="." index="0"]
+lod_bias = 0.001
+
 [node name="StaticBody3D" type="StaticBody3D" parent="Plane" index="0"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Plane/StaticBody3D" index="0"]
