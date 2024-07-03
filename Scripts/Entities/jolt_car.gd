@@ -130,10 +130,6 @@ func set_player_in_car(player_path: NodePath):
 		player_in_car.is_in_car = true
 		player.set_collision_layer(0)
 		
-		var player_camera = player.get_node("Camera3D")
-		if player_camera:
-			player_camera.current = false
-		
 		if player.is_multiplayer_authority():
 			camera_3d.current = true
 
