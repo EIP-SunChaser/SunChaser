@@ -18,7 +18,7 @@ func _process(_delta):
 			add_child(quest_one_label)
 			GlobalVariables.quest_one = GlobalVariables.check_quest.GO_CAMP_TWO
 		GlobalVariables.check_quest.KILL_RED_ONE:
-			quest_one_label.text = "Tuer red"
+			quest_one_label.text = "Tuer red: " +  str(GlobalVariables.entity_kill) + "/3"
 			GlobalVariables.quest_one = GlobalVariables.check_quest.KILL_RED_TWO
 		GlobalVariables.check_quest.END_ONE:
 			quest_one_label.text = "Retourner voir Mr le maire"

@@ -21,8 +21,10 @@ func _on_body_part_hit(dam):
 	if health <= 0:
 		if is_in_group("Bandits"):
 			GlobalVariables.entity_kill += 1
-			if GlobalVariables.entity_kill >= 1:
+			if GlobalVariables.entity_kill >= 3:
 				if GlobalVariables.quest_one == GlobalVariables.check_quest.KILL_RED_TWO:
 					GlobalVariables.quest_one = GlobalVariables.check_quest.END_ONE
+			else:
+				GlobalVariables.quest_one = GlobalVariables.check_quest.KILL_RED_ONE
 			print("Bandit is dead")
 		queue_free()

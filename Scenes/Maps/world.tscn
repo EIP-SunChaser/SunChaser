@@ -130,7 +130,7 @@ replication_config = SubResource("SceneReplicationConfig_lrq1y")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -179.745, 6.9132, -9.58796)
 
 [node name="Area3D" type="Area3D" parent="Quest1"]
-transform = Transform3D(50, 0, 0, 0, 350, 0, 0, 0, 70, -21.8246, 185.001, 6.49246)
+transform = Transform3D(100, 0, 0, 0, 350, 0, 0, 0, 70, -16.6167, 181.322, 6.49246)
 script = ExtResource("7_36gr5")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Area3D"]
@@ -141,6 +141,13 @@ mesh = SubResource("BoxMesh_jpluy")
 
 [node name="Hat_npc" parent="Quest1" instance=ExtResource("4_arjcc")]
 transform = Transform3D(-0.590324, 0, -0.807166, 0, 1, 0, 0.807166, 0, -0.590324, -1030.81, 11.8335, 6.34903)
+axis_lock_linear_x = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+
+[node name="Hat_npc2" parent="Quest1" instance=ExtResource("4_arjcc")]
+transform = Transform3D(-0.626875, 0, 0.779119, 0, 1, 0, -0.779119, 0, -0.626875, 171.052, -5.62002, 22.3982)
 axis_lock_linear_x = true
 axis_lock_linear_z = true
 axis_lock_angular_x = true

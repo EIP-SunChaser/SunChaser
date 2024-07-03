@@ -2,10 +2,11 @@
 
 set GlobalVariables.isInDialogue = true
 if GlobalVariables.quest_one == GlobalVariables.check_quest.END_TWO:
-	Gus, le maire: [wave amp=25 freq=5]MERCIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII[/wave]
+	Gus, le maire: [wave amp=25 freq=5]Bien joué ! Tu as fini la quête d'introduction[/wave]
+	Gus, le maire: Tu peux t'amuser dans le bac à sable maintenant. La plaque jaune permet de recharger ton véhicule si tu en as besoin.
 	set GlobalVariables.quest_one = GlobalVariables.check_quest.FINISH_ONE
 else if  GlobalVariables.quest_one == GlobalVariables.check_quest.FINISH_TWO:
-	Gus, le maire: Je n'ai plus rien à te demander.
+	Gus, le maire: Tu peux t'amuser dans le bac à sable maintenant. La plaque jaune permet de recharger ton véhicule si tu en as besoin.
 else:
 	Gus, le maire: Eh vous ! J'ai besoin de votre aide.
 	- Oui ?
