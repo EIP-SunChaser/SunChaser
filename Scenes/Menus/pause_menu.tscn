@@ -1,0 +1,62 @@
+[gd_scene load_steps=4 format=3 uid="uid://sgxyoglr7pux"]
+
+[ext_resource type="Script" path="res://Scripts/Menus/pause_menu.gd" id="1_4cbl7"]
+[ext_resource type="Shader" path="res://Shaders/blur.gdshader" id="1_qteiw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xwq1e"]
+shader = ExtResource("1_qteiw")
+shader_parameter/blur = 2.5
+shader_parameter/blur_brightness = 0.9
+
+[node name="pause_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4cbl7")
+
+[node name="blur_background" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_xwq1e")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ResumeButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Resume"
+
+[node name="Options" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Options"
+
+[node name="Back to main menu" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Exit to main menu"
+
+[node name="Exit to desktop" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Exit to desktop"
+
+[connection signal="button_down" from="VBoxContainer/ResumeButton" to="." method="_on_resume_button_button_down"]
+[connection signal="button_down" from="VBoxContainer/Options" to="." method="_on_options_button_down"]
+[connection signal="button_down" from="VBoxContainer/Back to main menu" to="." method="_on_back_to_main_menu_button_down"]
+[connection signal="button_down" from="VBoxContainer/Exit to desktop" to="." method="_on_exit_to_desktop_button_down"]

@@ -8,6 +8,10 @@ extends CharacterBody3D
 @onready var deathLabel = $"Head/Camera3D/DeathLabel"
 @onready var health_bar = $Head/Camera3D/HealthBar
 
+@onready var pause_menu = $pause_menu
+var paused = false
+var game_paused = false  # New variable to track game pause state
+
 #Bullets
 @onready var gun_animation = $"Head/Camera3D/rifle_prototype/AnimationPlayer"
 @onready var bullet_sound = $"Head/Camera3D/rifle_prototype/AudioStreamPlayer"
@@ -54,13 +58,13 @@ func _ready():
 	print(multiplayer.get_unique_id())
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	camera.current = true
-	
+	pause_menu.hide()
 	health_bar.init_health(100)
 	deathLabel.visible = false
 	deathLabel.hide()
-	
+
 func _unhandled_input(event):
-	if !is_multiplayer_authority(): return
+	if !is_multiplayer_authority(): return  # Added game_paused check
 	
 	if event is InputEventMouseMotion:
 		head.rotate_y(-event.relative.x * SENSITIVITY)
@@ -99,9 +103,12 @@ func _unhandled_input(event):
 			actionnables[0].action()
 			pass
 
+	if Input.is_action_just_pressed("pause"):
+		pauseMenu()
+
 func _physics_process(delta):
 	if !is_multiplayer_authority(): return
-	if GlobalVariables.isInDialogue == false:
+	if GlobalVariables.isInDialogue == false and !paused:
 		do_physics_process(delta)
 
 func do_physics_process(delta):
@@ -175,6 +182,17 @@ func _on_health_bar_health_depleted():
 	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
-
 func _on_body_part_hit(dam):
 	health_bar.health -= dam
+
+func pauseMenu():
+	if paused:
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		pause_menu.hide()
+		get_tree().paused = false
+	else:
+		get_tree().paused = true
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		pause_menu.show()
+
+	paused = !paused

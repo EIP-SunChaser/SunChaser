@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cy7ywppb2i4ey"]
+[gd_scene load_steps=25 format=3 uid="uid://cy7ywppb2i4ey"]
 
 [ext_resource type="Script" path="res://Scripts/Entities/player.gd" id="1_mpqcp"]
 [ext_resource type="Script" path="res://Scripts/Entities/Pseudo.gd" id="2_bmpr3"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bvkvxoqp0eys3" path="res://Scenes/Items/rifle_prototype.tscn" id="3_xq2hx"]
 [ext_resource type="PackedScene" uid="uid://cdp8oynggphk4" path="res://Scenes/Ui/quest_ui.tscn" id="5_p4gfi"]
 [ext_resource type="PackedScene" uid="uid://bdjvvprw2achb" path="res://Scenes/Ui/health_bar.tscn" id="6_1voe1"]
+[ext_resource type="PackedScene" uid="uid://sgxyoglr7pux" path="res://Scenes/Menus/pause_menu.tscn" id="8_hcrn3"]
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_1lcpa"]
 properties/0/path = NodePath(".:rotation")
@@ -152,6 +153,8 @@ size = Vector3(1, 2, 1)
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("1_mpqcp")
+
+[node name="pause_menu" parent="." instance=ExtResource("8_hcrn3")]
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_1lcpa")
