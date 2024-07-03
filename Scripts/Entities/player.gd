@@ -78,11 +78,6 @@ func _unhandled_input(event):
 		elif event.axis == 3:  # Axe vertical
 			axis_y = event.axis_value
 	
-	if axis_x > 0.1 or axis_x < -0.1 or axis_y > 0.1 or axis_y < -0.1:
-		head.rotate_y(-axis_x * SENSITIVITY_JOYSTICK)
-		camera.rotate_x(-axis_y * SENSITIVITY_JOYSTICK)
-		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90))
-	
 	input_dir = Input.get_vector("left", "right", "up", "down")
 	
 	# Handle jump.
@@ -118,6 +113,11 @@ func _physics_process(delta):
 		do_physics_process(delta)
 
 func do_physics_process(delta):
+	if axis_x > 0.1 or axis_x < -0.1 or axis_y > 0.1 or axis_y < -0.1:
+		head.rotate_y(-axis_x * SENSITIVITY_JOYSTICK)
+		camera.rotate_x(-axis_y * SENSITIVITY_JOYSTICK)
+		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90))
+	
 	# Add the gravity.
 	if not is_on_floor() and GODMOD == false:
 		velocity.y -= gravity * delta
