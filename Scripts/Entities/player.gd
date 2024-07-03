@@ -25,7 +25,7 @@ const WALK_SPEED = 5.0
 const SPRINT_SPEED = 8.0
 const JUMP_VELOCITY = 4.5
 const SENSITIVITY = 0.003
-const SENSITIVITY_JOYSTICK = 0.06
+var SENSITIVITY_JOYSTICK = 0.06
 
 var is_in_car = false
 
@@ -90,7 +90,7 @@ func _unhandled_input(event):
 	else:
 		speed = WALK_SPEED
 	
-	if Input.is_action_just_pressed("shoot") and animation_player.current_animation != "shoot" and not is_in_car:
+	if Input.is_action_pressed("shoot") and animation_player.current_animation != "shoot" and not is_in_car:
 		play_shoot_effects.rpc()
 	
 	if Input.is_action_just_pressed("use"):
@@ -149,6 +149,7 @@ func do_physics_process(delta):
 	camera.fov = lerp(camera.fov, target_fov, delta * 8.0)
 
 	if !Input.is_action_pressed("aim") && isAiming == true:
+		SENSITIVITY_JOYSTICK = 0.06
 		if !gun_animation.is_playing():
 			isAiming = false
 			gun_animation.play_backwards("Aim")
@@ -160,6 +161,7 @@ func do_physics_process(delta):
 
 	# Aiming
 	if Input.is_action_pressed("aim") && isAiming == false:
+		SENSITIVITY_JOYSTICK = 0.01
 		if !gun_animation.is_playing():
 			isAiming = true
 			gun_animation.play("Aim")

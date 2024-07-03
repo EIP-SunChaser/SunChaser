@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bvkvxoqp0eys3" path="res://Scenes/Items/rifle_prototype.tscn" id="3_xq2hx"]
 [ext_resource type="PackedScene" uid="uid://cdp8oynggphk4" path="res://Scenes/Ui/quest_ui.tscn" id="5_p4gfi"]
 [ext_resource type="PackedScene" uid="uid://bdjvvprw2achb" path="res://Scenes/Ui/health_bar.tscn" id="6_1voe1"]
-[ext_resource type="PackedScene" path="res://Scenes/Menus/pause_menu.tscn" id="8_hcrn3"]
+[ext_resource type="PackedScene" uid="uid://sgxyoglr7pux" path="res://Scenes/Menus/pause_menu.tscn" id="8_hcrn3"]
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_1lcpa"]
 properties/0/path = NodePath(".:rotation")
