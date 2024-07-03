@@ -79,10 +79,6 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Prototype" type="Button" parent="BoxContainer/VBoxContainer"]
-layout_mode = 2
-text = "Prototype"
-
 [node name="Host" type="Button" parent="BoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "Host"
@@ -99,7 +95,6 @@ text = "Exit"
 _spawnable_scenes = PackedStringArray("res://Scenes/Entities/player.tscn")
 spawn_path = NodePath("..")
 
-[connection signal="button_down" from="BoxContainer/VBoxContainer/Prototype" to="." method="_on_prototype_button_down"]
 [connection signal="button_down" from="BoxContainer/VBoxContainer/Host" to="." method="_on_host_button_down"]
 [connection signal="button_down" from="BoxContainer/VBoxContainer/Join" to="." method="_on_join_button_down"]
 [connection signal="button_down" from="BoxContainer/VBoxContainer/Exit" to="." method="_on_exit_button_down"]

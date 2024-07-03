@@ -21,7 +21,7 @@ var car_zone = false
 var front_left_wheel
 var front_right_wheel
 var players_in_zone = []
-var player_in_car = null
+var player_in_car = null 
 
 var is_resetting = false
 var reset_rotation_speed = 1.5
@@ -84,6 +84,10 @@ func _physics_process(delta):
 		
 		if Input.is_action_just_pressed("reset_car"):
 			reset_car_rotation()
+		
+		if Input.is_action_just_pressed("teleport"):
+			global_transform.origin = Vector3(-14, 5, 1)
+			self.set_global_rotation_degrees(Vector3(0, 90, 0))
 		
 		apply_smooth_rotation(delta)
 	else:
@@ -148,7 +152,7 @@ func remove_player_from_car():
 		var player_head = player_in_car.get_node("Head")
 		var player_camera = player_head.get_node("Camera3D")
 		
-		if player_camera:
+		if player_camera && player_camera.is_multiplayer_authority():
 			player_camera.current = true
 			camera_3d.current = false
 		
