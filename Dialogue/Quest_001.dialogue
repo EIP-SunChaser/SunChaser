@@ -3,6 +3,9 @@
 set GlobalVariables.isInDialogue = true
 if GlobalVariables.quest_one == GlobalVariables.check_quest.END_TWO:
 	Gus, le maire: [wave amp=25 freq=5]MERCIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII[/wave]
+	set GlobalVariables.quest_one = GlobalVariables.check_quest.FINISH_ONE
+else if  GlobalVariables.quest_one == GlobalVariables.check_quest.FINISH_TWO:
+	Gus, le maire: Je n'ai plus rien à te demander.
 else:
 	Gus, le maire: Eh vous ! J'ai besoin de votre aide.
 	- Oui ?
@@ -10,11 +13,13 @@ else:
 		Gus, le maire: Mon équipe de forestiers ne répond plus depuis un certain moment déjà.
 		Gus, le maire: Pouvez-vous aller jeter un œil à leur camp ? Il est au centre le la montagne.
 		Gus, le maire: Faites bien attention à vous... et merci d'aider un vieil homme comme moi.
-		set GlobalVariables.quest_one = GlobalVariables.check_quest.GO_CAMP_ONE
+		if GlobalVariables.quest_one == GlobalVariables.check_quest.NOTHING
+			set GlobalVariables.quest_one = GlobalVariables.check_quest.GO_CAMP_ONE
 	- Je n'ai pas le temps
 		Gus, le maire: Il n'y a personne d'autre ici...
 	- Quete
-		set GlobalVariables.quest_one = GlobalVariables.check_quest.GO_CAMP_ONE
+		if GlobalVariables.quest_one == GlobalVariables.check_quest.NOTHING
+			set GlobalVariables.quest_one = GlobalVariables.check_quest.GO_CAMP_ONE
 
 set GlobalVariables.isInDialogue = false
 

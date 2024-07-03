@@ -19,9 +19,10 @@ func _process(_delta):
 			GlobalVariables.quest_one = GlobalVariables.check_quest.GO_CAMP_TWO
 		GlobalVariables.check_quest.KILL_RED_ONE:
 			quest_one_label.text = "Tuer red"
-			add_child(quest_one_label)
 			GlobalVariables.quest_one = GlobalVariables.check_quest.KILL_RED_TWO
 		GlobalVariables.check_quest.END_ONE:
 			quest_one_label.text = "Retourner voir Mr le maire"
-			add_child(quest_one_label)
 			GlobalVariables.quest_one = GlobalVariables.check_quest.END_TWO
+		GlobalVariables.check_quest.FINISH_ONE:
+			quest_one_label.queue_free()
+			GlobalVariables.quest_one = GlobalVariables.check_quest.FINISH_TWO
