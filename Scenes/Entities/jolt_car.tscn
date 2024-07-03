@@ -254,7 +254,6 @@ spring_length = 3.0
 
 [node name="Camera3D" type="Camera3D" parent="CameraRoot/CameraYaw/CameraPitch/SpringArm3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.04965)
-current = true
 
 [node name="PlayerDetect" type="Area3D" parent="."]
 collision_layer = 2
