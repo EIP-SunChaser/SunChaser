@@ -16,7 +16,3 @@ func _process(_delta):
 func hit():
 	print("Hit")
 	emit_signal("body_part_hit", damage)
-
-
-func _on_body_entered(body):
-	pass # Replace with function body.
