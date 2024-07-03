@@ -21,7 +21,8 @@ func _process(delta):
 		particles.emitting = true
 		ray.enabled = false
 		if ray.get_collider().is_in_group("Bandits") or ray.get_collider().is_in_group("Players"):
-			ray.get_collider().hit()
+			if ray.get_collider().has_method("hit"):
+				ray.get_collider().hit()
 
 		await get_tree().create_timer(1.0).timeout
 		queue_free()
