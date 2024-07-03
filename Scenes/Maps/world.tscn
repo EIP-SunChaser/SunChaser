@@ -138,3 +138,6 @@ shape = SubResource("BoxShape3D_uwqf0")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Area3D"]
 mesh = SubResource("BoxMesh_jpluy")
+
+[connection signal="body_entered" from="Quest1/Area3D" to="Quest1/Area3D" method="_on_body_entered"]
+[connection signal="body_exited" from="Quest1/Area3D" to="Quest1/Area3D" method="_on_body_exited"]
