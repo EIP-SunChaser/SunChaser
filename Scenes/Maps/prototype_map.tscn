@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dn66daixe03wj"]
-
-[ext_resource type="PackedScene" uid="uid://dn8em3b55kvsd" path="res://Assets/Models/Maps/Map Prototype.glb" id="1_qxhlb"]
-
-[node name="PrototypeMap" type="Node3D"]
-
-[node name="Map Prototype" parent="." instance=ExtResource("1_qxhlb")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)

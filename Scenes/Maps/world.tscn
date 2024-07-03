@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c4ca03hfvhrsd"]
+[gd_scene load_steps=18 format=3 uid="uid://c4ca03hfvhrsd"]
 
 [ext_resource type="PackedScene" uid="uid://bmc1fqst1lx1y" path="res://Scenes/Maps/environment.tscn" id="1_steub"]
 [ext_resource type="PackedScene" uid="uid://cwfe4ax6jym2h" path="res://Scenes/Menus/main_menu.tscn" id="2_ak7c5"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bw41xqawmw8pp" path="res://Scenes/Entities/bad_npc.tscn" id="5_hhx2q"]
 [ext_resource type="Script" path="res://Scripts/Ui/IP_ADDRESS.gd" id="6_xrr28"]
 [ext_resource type="Script" path="res://Scripts/Maps/Area_quest1.gd" id="7_36gr5"]
+[ext_resource type="PackedScene" uid="uid://jljbx8y7gnw7" path="res://Scenes/Maps/map_prototype_v_2.tscn" id="8_3i30l"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2efs4"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -61,7 +62,7 @@ environment = SubResource("Environment_1pto3")
 [node name="FPSMeter" parent="." instance=ExtResource("3_nq26b")]
 
 [node name="SpawnLocations" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.77159, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1251.14, 38.9339, 0)
 
 [node name="0" type="Node3D" parent="SpawnLocations" groups=["SpawnPoints"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0.5, 0)
@@ -108,6 +109,7 @@ render_target_update_mode = 4
 
 [node name="Camera3D" type="Camera3D" parent="CCTV/SubViewport"]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 2.13681, 2.1994)
+current = true
 
 [node name="Sprite3D" type="Sprite3D" parent="CCTV"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9.17353, 3.95155, -14.9465)
@@ -138,6 +140,9 @@ shape = SubResource("BoxShape3D_uwqf0")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Area3D"]
 mesh = SubResource("BoxMesh_jpluy")
+
+[node name="Map Prototype v2" parent="." instance=ExtResource("8_3i30l")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -956.389, 26.4171, 62.8742)
 
 [connection signal="body_entered" from="Quest1/Area3D" to="Quest1/Area3D" method="_on_body_entered"]
 [connection signal="body_exited" from="Quest1/Area3D" to="Quest1/Area3D" method="_on_body_exited"]
