@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c4ca03hfvhrsd"]
+[gd_scene load_steps=22 format=3 uid="uid://c4ca03hfvhrsd"]
 
 [ext_resource type="PackedScene" uid="uid://bmc1fqst1lx1y" path="res://Scenes/Maps/environment.tscn" id="1_steub"]
 [ext_resource type="PackedScene" uid="uid://cwfe4ax6jym2h" path="res://Scenes/Menus/main_menu.tscn" id="2_ak7c5"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bw41xqawmw8pp" path="res://Scenes/Entities/bad_npc.tscn" id="5_hhx2q"]
 [ext_resource type="Script" path="res://Scripts/Ui/IP_ADDRESS.gd" id="6_xrr28"]
 [ext_resource type="Script" path="res://Scripts/Maps/Area_quest1.gd" id="7_36gr5"]
+[ext_resource type="Texture2D" uid="uid://byf2ln775bpbe" path="res://Docs/Profil Pic/jules.png" id="8_8n086"]
 [ext_resource type="PackedScene" uid="uid://blxihkmccrcyk" path="res://Scenes/Maps/map_prototype_v_3.tscn" id="8_rmqno"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2efs4"]
@@ -39,12 +40,23 @@ properties/1/replication_mode = 1
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_20um2"]
 transparency = 1
-albedo_color = Color(0.243137, 1, 1, 0.160784)
+albedo_color = Color(0.254118, 1, 0.994537, 0.478431)
 
 [sub_resource type="BoxMesh" id="BoxMesh_jpluy"]
 lightmap_size_hint = Vector2i(14, 21)
 material = SubResource("StandardMaterial3D_20um2")
 flip_faces = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rjj73"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vvnrm"]
+albedo_texture = ExtResource("8_8n086")
+heightmap_scale = 4.785
+uv1_scale = Vector3(2.345, 2.345, 2.345)
+uv1_offset = Vector3(1.225, -0.22, 0)
+
+[sub_resource type="BoxMesh" id="BoxMesh_s1dke"]
+material = SubResource("StandardMaterial3D_vvnrm")
 
 [node name="World" type="Node3D"]
 
@@ -76,20 +88,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.9, 3.8, 0)
 [node name="3" type="Node3D" parent="SpawnLocations" groups=["SpawnPoints"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.755, 0.5, -5.5)
 
-[node name="Hat_npc" parent="." instance=ExtResource("4_arjcc")]
-transform = Transform3D(0.590324, 0, 0.807166, 0, 1, 0, -0.807166, 0, 0.590324, -9.13913, 9.04325, 6.13647)
-axis_lock_linear_x = true
-axis_lock_linear_z = true
-axis_lock_angular_x = true
-axis_lock_angular_z = true
-
-[node name="Hat_npc2" parent="." instance=ExtResource("5_hhx2q")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 291.411, 5.59542, 0.0472114)
-axis_lock_linear_x = true
-axis_lock_linear_z = true
-axis_lock_angular_x = true
-axis_lock_angular_z = true
-
 [node name="IP_ADDRESS" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
 billboard = 2
@@ -108,16 +106,16 @@ size_2d_override_stretch = true
 render_target_update_mode = 4
 
 [node name="Camera3D" type="Camera3D" parent="CCTV/SubViewport"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 2.13681, 2.1994)
+transform = Transform3D(1.24225e-07, 0.320315, 0.947311, -4.20043e-08, 0.947311, -0.320315, -1, -1.06581e-14, 1.31134e-07, -72.5577, 19.5481, -4.67176)
 current = true
 
 [node name="Sprite3D" type="Sprite3D" parent="CCTV"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9.17353, 3.95155, -14.9465)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8.63, 3.95155, -15.1458)
 flip_h = true
 texture = SubResource("ViewportTexture_pcb8c")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="CCTV"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.63, 3.5, -15.1458)
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -9.17353, 3.5, -14.9465)
 use_collision = true
 size = Vector3(1, 8, 10)
 material = SubResource("StandardMaterial3D_1v8cc")
@@ -129,10 +127,10 @@ replication_config = SubResource("SceneReplicationConfig_lrq1y")
 [node name="Node3D" type="Node3D" parent="."]
 
 [node name="Quest1" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 271.881, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -179.745, 6.9132, -9.58796)
 
 [node name="Area3D" type="Area3D" parent="Quest1"]
-transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0, 0, 0)
+transform = Transform3D(50, 0, 0, 0, 350, 0, 0, 0, 70, -21.8246, 185.001, 6.49246)
 script = ExtResource("7_36gr5")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Area3D"]
@@ -140,6 +138,1533 @@ shape = SubResource("BoxShape3D_uwqf0")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Area3D"]
 mesh = SubResource("BoxMesh_jpluy")
+
+[node name="Hat_npc" parent="Quest1" instance=ExtResource("4_arjcc")]
+transform = Transform3D(-0.590324, 0, -0.807166, 0, 1, 0, 0.807166, 0, -0.590324, -1030.81, 11.8335, 6.34903)
+axis_lock_linear_x = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+
+[node name="Ennemies" type="Node3D" parent="Quest1"]
+
+[node name="Hat_npc2" parent="Quest1/Ennemies" instance=ExtResource("5_hhx2q")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 24.989, 11.274, 3.31596)
+axis_lock_linear_x = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+
+[node name="Hat_npc3" parent="Quest1/Ennemies" instance=ExtResource("5_hhx2q")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 26.2755, 11.274, -2.63484)
+axis_lock_linear_x = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+
+[node name="Hat_npc4" parent="Quest1/Ennemies" instance=ExtResource("5_hhx2q")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 24.9471, 12.5621, 9.63517)
+axis_lock_linear_x = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+
+[node name="Espace_zone" type="Node3D" parent="Quest1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.1766, -0.138566, 0)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Quest1/Espace_zone"]
+transform = Transform3D(5, 0, 0, 0, 20, 0, 0, 0, 40, 101.607, 3.58, 4.904)
+use_collision = true
+
+[node name="Line 1" type="Node3D" parent="Quest1/Espace_zone"]
+
+[node name="Box1" type="RigidBody3D" parent="Quest1/Espace_zone/Line 1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 0)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 1/Box1"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 1/Box1"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box2" type="RigidBody3D" parent="Quest1/Espace_zone/Line 1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 2)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 1/Box2"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 1/Box2"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box3" type="RigidBody3D" parent="Quest1/Espace_zone/Line 1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 3)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 1/Box3"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 1/Box3"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box4" type="RigidBody3D" parent="Quest1/Espace_zone/Line 1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 4)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 1/Box4"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 1/Box4"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box5" type="RigidBody3D" parent="Quest1/Espace_zone/Line 1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, -1)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 1/Box5"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 1/Box5"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box6" type="RigidBody3D" parent="Quest1/Espace_zone/Line 1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 0)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 1/Box6"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 1/Box6"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box7" type="RigidBody3D" parent="Quest1/Espace_zone/Line 1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 1)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 1/Box7"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 1/Box7"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box8" type="RigidBody3D" parent="Quest1/Espace_zone/Line 1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, -2)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 1/Box8"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 1/Box8"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box9" type="RigidBody3D" parent="Quest1/Espace_zone/Line 1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, -3)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 1/Box9"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 1/Box9"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box10" type="RigidBody3D" parent="Quest1/Espace_zone/Line 1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 5)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 1/Box10"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 1/Box10"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box11" type="RigidBody3D" parent="Quest1/Espace_zone/Line 1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 6)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 1/Box11"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 1/Box11"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box12" type="RigidBody3D" parent="Quest1/Espace_zone/Line 1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 7)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 1/Box12"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 1/Box12"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box13" type="RigidBody3D" parent="Quest1/Espace_zone/Line 1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 8)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 1/Box13"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 1/Box13"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box14" type="RigidBody3D" parent="Quest1/Espace_zone/Line 1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, -4)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 1/Box14"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 1/Box14"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box15" type="RigidBody3D" parent="Quest1/Espace_zone/Line 1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, -5)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 1/Box15"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 1/Box15"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box16" type="RigidBody3D" parent="Quest1/Espace_zone/Line 1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 9)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 1/Box16"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 1/Box16"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box17" type="RigidBody3D" parent="Quest1/Espace_zone/Line 1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 10)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 1/Box17"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 1/Box17"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box18" type="RigidBody3D" parent="Quest1/Espace_zone/Line 1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 11)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 1/Box18"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 1/Box18"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box19" type="RigidBody3D" parent="Quest1/Espace_zone/Line 1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 12)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 1/Box19"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 1/Box19"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box20" type="RigidBody3D" parent="Quest1/Espace_zone/Line 1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 13)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 1/Box20"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 1/Box20"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box21" type="RigidBody3D" parent="Quest1/Espace_zone/Line 1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 14)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 1/Box21"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 1/Box21"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Line 2" type="Node3D" parent="Quest1/Espace_zone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="Box1" type="RigidBody3D" parent="Quest1/Espace_zone/Line 2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 0)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 2/Box1"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 2/Box1"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box2" type="RigidBody3D" parent="Quest1/Espace_zone/Line 2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 2)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 2/Box2"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 2/Box2"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box3" type="RigidBody3D" parent="Quest1/Espace_zone/Line 2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 3)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 2/Box3"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 2/Box3"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box4" type="RigidBody3D" parent="Quest1/Espace_zone/Line 2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 4)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 2/Box4"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 2/Box4"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box5" type="RigidBody3D" parent="Quest1/Espace_zone/Line 2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, -1)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 2/Box5"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 2/Box5"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box6" type="RigidBody3D" parent="Quest1/Espace_zone/Line 2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 0)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 2/Box6"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 2/Box6"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box7" type="RigidBody3D" parent="Quest1/Espace_zone/Line 2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 1)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 2/Box7"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 2/Box7"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box8" type="RigidBody3D" parent="Quest1/Espace_zone/Line 2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, -2)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 2/Box8"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 2/Box8"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box9" type="RigidBody3D" parent="Quest1/Espace_zone/Line 2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, -3)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 2/Box9"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 2/Box9"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box10" type="RigidBody3D" parent="Quest1/Espace_zone/Line 2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 5)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 2/Box10"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 2/Box10"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box11" type="RigidBody3D" parent="Quest1/Espace_zone/Line 2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 6)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 2/Box11"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 2/Box11"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box12" type="RigidBody3D" parent="Quest1/Espace_zone/Line 2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 7)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 2/Box12"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 2/Box12"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box13" type="RigidBody3D" parent="Quest1/Espace_zone/Line 2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 8)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 2/Box13"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 2/Box13"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box14" type="RigidBody3D" parent="Quest1/Espace_zone/Line 2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, -4)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 2/Box14"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 2/Box14"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box15" type="RigidBody3D" parent="Quest1/Espace_zone/Line 2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, -5)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 2/Box15"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 2/Box15"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box16" type="RigidBody3D" parent="Quest1/Espace_zone/Line 2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 9)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 2/Box16"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 2/Box16"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box17" type="RigidBody3D" parent="Quest1/Espace_zone/Line 2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 10)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 2/Box17"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 2/Box17"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box18" type="RigidBody3D" parent="Quest1/Espace_zone/Line 2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 11)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 2/Box18"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 2/Box18"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box19" type="RigidBody3D" parent="Quest1/Espace_zone/Line 2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 12)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 2/Box19"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 2/Box19"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box20" type="RigidBody3D" parent="Quest1/Espace_zone/Line 2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 13)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 2/Box20"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 2/Box20"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box21" type="RigidBody3D" parent="Quest1/Espace_zone/Line 2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 14)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 2/Box21"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 2/Box21"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Line 3" type="Node3D" parent="Quest1/Espace_zone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="Box1" type="RigidBody3D" parent="Quest1/Espace_zone/Line 3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 0)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 3/Box1"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 3/Box1"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box2" type="RigidBody3D" parent="Quest1/Espace_zone/Line 3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 2)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 3/Box2"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 3/Box2"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box3" type="RigidBody3D" parent="Quest1/Espace_zone/Line 3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 3)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 3/Box3"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 3/Box3"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box4" type="RigidBody3D" parent="Quest1/Espace_zone/Line 3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 4)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 3/Box4"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 3/Box4"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box5" type="RigidBody3D" parent="Quest1/Espace_zone/Line 3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, -1)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 3/Box5"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 3/Box5"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box6" type="RigidBody3D" parent="Quest1/Espace_zone/Line 3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 0)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 3/Box6"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 3/Box6"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box7" type="RigidBody3D" parent="Quest1/Espace_zone/Line 3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 1)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 3/Box7"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 3/Box7"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box8" type="RigidBody3D" parent="Quest1/Espace_zone/Line 3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, -2)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 3/Box8"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 3/Box8"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box9" type="RigidBody3D" parent="Quest1/Espace_zone/Line 3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, -3)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 3/Box9"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 3/Box9"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box10" type="RigidBody3D" parent="Quest1/Espace_zone/Line 3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 5)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 3/Box10"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 3/Box10"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box11" type="RigidBody3D" parent="Quest1/Espace_zone/Line 3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 6)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 3/Box11"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 3/Box11"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box12" type="RigidBody3D" parent="Quest1/Espace_zone/Line 3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 7)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 3/Box12"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 3/Box12"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box13" type="RigidBody3D" parent="Quest1/Espace_zone/Line 3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 8)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 3/Box13"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 3/Box13"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box14" type="RigidBody3D" parent="Quest1/Espace_zone/Line 3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, -4)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 3/Box14"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 3/Box14"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box15" type="RigidBody3D" parent="Quest1/Espace_zone/Line 3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, -5)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 3/Box15"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 3/Box15"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box16" type="RigidBody3D" parent="Quest1/Espace_zone/Line 3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 9)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 3/Box16"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 3/Box16"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box17" type="RigidBody3D" parent="Quest1/Espace_zone/Line 3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 10)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 3/Box17"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 3/Box17"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box18" type="RigidBody3D" parent="Quest1/Espace_zone/Line 3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 11)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 3/Box18"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 3/Box18"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box19" type="RigidBody3D" parent="Quest1/Espace_zone/Line 3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 12)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 3/Box19"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 3/Box19"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box20" type="RigidBody3D" parent="Quest1/Espace_zone/Line 3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 13)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 3/Box20"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 3/Box20"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box21" type="RigidBody3D" parent="Quest1/Espace_zone/Line 3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 14)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 3/Box21"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 3/Box21"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Line 4" type="Node3D" parent="Quest1/Espace_zone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+
+[node name="Box1" type="RigidBody3D" parent="Quest1/Espace_zone/Line 4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 0)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 4/Box1"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 4/Box1"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box2" type="RigidBody3D" parent="Quest1/Espace_zone/Line 4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 2)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 4/Box2"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 4/Box2"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box3" type="RigidBody3D" parent="Quest1/Espace_zone/Line 4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 3)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 4/Box3"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 4/Box3"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box4" type="RigidBody3D" parent="Quest1/Espace_zone/Line 4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 4)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 4/Box4"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 4/Box4"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box5" type="RigidBody3D" parent="Quest1/Espace_zone/Line 4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, -1)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 4/Box5"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 4/Box5"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box6" type="RigidBody3D" parent="Quest1/Espace_zone/Line 4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 0)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 4/Box6"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 4/Box6"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box7" type="RigidBody3D" parent="Quest1/Espace_zone/Line 4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 1)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 4/Box7"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 4/Box7"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box8" type="RigidBody3D" parent="Quest1/Espace_zone/Line 4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, -2)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 4/Box8"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 4/Box8"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box9" type="RigidBody3D" parent="Quest1/Espace_zone/Line 4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, -3)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 4/Box9"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 4/Box9"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box10" type="RigidBody3D" parent="Quest1/Espace_zone/Line 4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 5)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 4/Box10"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 4/Box10"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box11" type="RigidBody3D" parent="Quest1/Espace_zone/Line 4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 6)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 4/Box11"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 4/Box11"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box12" type="RigidBody3D" parent="Quest1/Espace_zone/Line 4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 7)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 4/Box12"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 4/Box12"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box13" type="RigidBody3D" parent="Quest1/Espace_zone/Line 4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 8)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 4/Box13"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 4/Box13"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box14" type="RigidBody3D" parent="Quest1/Espace_zone/Line 4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, -4)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 4/Box14"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 4/Box14"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box15" type="RigidBody3D" parent="Quest1/Espace_zone/Line 4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, -5)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 4/Box15"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 4/Box15"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box16" type="RigidBody3D" parent="Quest1/Espace_zone/Line 4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 9)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 4/Box16"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 4/Box16"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box17" type="RigidBody3D" parent="Quest1/Espace_zone/Line 4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 10)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 4/Box17"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 4/Box17"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box18" type="RigidBody3D" parent="Quest1/Espace_zone/Line 4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 11)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 4/Box18"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 4/Box18"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box19" type="RigidBody3D" parent="Quest1/Espace_zone/Line 4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 12)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 4/Box19"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 4/Box19"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box20" type="RigidBody3D" parent="Quest1/Espace_zone/Line 4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 13)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 4/Box20"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 4/Box20"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box21" type="RigidBody3D" parent="Quest1/Espace_zone/Line 4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 14)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 4/Box21"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 4/Box21"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Line 5" type="Node3D" parent="Quest1/Espace_zone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+
+[node name="Box1" type="RigidBody3D" parent="Quest1/Espace_zone/Line 5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 0)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 5/Box1"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 5/Box1"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box2" type="RigidBody3D" parent="Quest1/Espace_zone/Line 5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 2)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 5/Box2"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 5/Box2"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box3" type="RigidBody3D" parent="Quest1/Espace_zone/Line 5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 3)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 5/Box3"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 5/Box3"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box4" type="RigidBody3D" parent="Quest1/Espace_zone/Line 5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 4)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 5/Box4"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 5/Box4"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box5" type="RigidBody3D" parent="Quest1/Espace_zone/Line 5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, -1)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 5/Box5"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 5/Box5"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box6" type="RigidBody3D" parent="Quest1/Espace_zone/Line 5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 0)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 5/Box6"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 5/Box6"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box7" type="RigidBody3D" parent="Quest1/Espace_zone/Line 5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 1)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 5/Box7"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 5/Box7"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box8" type="RigidBody3D" parent="Quest1/Espace_zone/Line 5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, -2)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 5/Box8"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 5/Box8"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box9" type="RigidBody3D" parent="Quest1/Espace_zone/Line 5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, -3)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 5/Box9"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 5/Box9"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box10" type="RigidBody3D" parent="Quest1/Espace_zone/Line 5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 5)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 5/Box10"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 5/Box10"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box11" type="RigidBody3D" parent="Quest1/Espace_zone/Line 5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 6)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 5/Box11"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 5/Box11"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box12" type="RigidBody3D" parent="Quest1/Espace_zone/Line 5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 7)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 5/Box12"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 5/Box12"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box13" type="RigidBody3D" parent="Quest1/Espace_zone/Line 5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 8)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 5/Box13"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 5/Box13"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box14" type="RigidBody3D" parent="Quest1/Espace_zone/Line 5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, -4)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 5/Box14"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 5/Box14"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box15" type="RigidBody3D" parent="Quest1/Espace_zone/Line 5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, -5)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 5/Box15"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 5/Box15"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box16" type="RigidBody3D" parent="Quest1/Espace_zone/Line 5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 9)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 5/Box16"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 5/Box16"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box17" type="RigidBody3D" parent="Quest1/Espace_zone/Line 5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 10)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 5/Box17"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 5/Box17"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box18" type="RigidBody3D" parent="Quest1/Espace_zone/Line 5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 11)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 5/Box18"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 5/Box18"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box19" type="RigidBody3D" parent="Quest1/Espace_zone/Line 5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 12)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 5/Box19"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 5/Box19"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box20" type="RigidBody3D" parent="Quest1/Espace_zone/Line 5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 13)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 5/Box20"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 5/Box20"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box21" type="RigidBody3D" parent="Quest1/Espace_zone/Line 5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 14)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 5/Box21"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 5/Box21"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Line 6" type="Node3D" parent="Quest1/Espace_zone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+
+[node name="Box1" type="RigidBody3D" parent="Quest1/Espace_zone/Line 6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 0)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 6/Box1"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 6/Box1"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box2" type="RigidBody3D" parent="Quest1/Espace_zone/Line 6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 2)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 6/Box2"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 6/Box2"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box3" type="RigidBody3D" parent="Quest1/Espace_zone/Line 6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 3)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 6/Box3"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 6/Box3"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box4" type="RigidBody3D" parent="Quest1/Espace_zone/Line 6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 4)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 6/Box4"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 6/Box4"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box5" type="RigidBody3D" parent="Quest1/Espace_zone/Line 6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, -1)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 6/Box5"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 6/Box5"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box6" type="RigidBody3D" parent="Quest1/Espace_zone/Line 6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 0)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 6/Box6"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 6/Box6"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box7" type="RigidBody3D" parent="Quest1/Espace_zone/Line 6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 1)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 6/Box7"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 6/Box7"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box8" type="RigidBody3D" parent="Quest1/Espace_zone/Line 6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, -2)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 6/Box8"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 6/Box8"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box9" type="RigidBody3D" parent="Quest1/Espace_zone/Line 6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, -3)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 6/Box9"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 6/Box9"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box10" type="RigidBody3D" parent="Quest1/Espace_zone/Line 6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 5)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 6/Box10"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 6/Box10"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box11" type="RigidBody3D" parent="Quest1/Espace_zone/Line 6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 6)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 6/Box11"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 6/Box11"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box12" type="RigidBody3D" parent="Quest1/Espace_zone/Line 6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 7)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 6/Box12"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 6/Box12"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box13" type="RigidBody3D" parent="Quest1/Espace_zone/Line 6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 8)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 6/Box13"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 6/Box13"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box14" type="RigidBody3D" parent="Quest1/Espace_zone/Line 6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, -4)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 6/Box14"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 6/Box14"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box15" type="RigidBody3D" parent="Quest1/Espace_zone/Line 6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, -5)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 6/Box15"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 6/Box15"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box16" type="RigidBody3D" parent="Quest1/Espace_zone/Line 6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 9)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 6/Box16"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 6/Box16"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box17" type="RigidBody3D" parent="Quest1/Espace_zone/Line 6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 10)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 6/Box17"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 6/Box17"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box18" type="RigidBody3D" parent="Quest1/Espace_zone/Line 6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 11)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 6/Box18"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 6/Box18"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box19" type="RigidBody3D" parent="Quest1/Espace_zone/Line 6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 12)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 6/Box19"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 6/Box19"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box20" type="RigidBody3D" parent="Quest1/Espace_zone/Line 6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 13)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 6/Box20"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 6/Box20"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box21" type="RigidBody3D" parent="Quest1/Espace_zone/Line 6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 14)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 6/Box21"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 6/Box21"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Line 7" type="Node3D" parent="Quest1/Espace_zone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+
+[node name="Box1" type="RigidBody3D" parent="Quest1/Espace_zone/Line 7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 0)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 7/Box1"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 7/Box1"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box2" type="RigidBody3D" parent="Quest1/Espace_zone/Line 7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 2)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 7/Box2"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 7/Box2"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box3" type="RigidBody3D" parent="Quest1/Espace_zone/Line 7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 3)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 7/Box3"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 7/Box3"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box4" type="RigidBody3D" parent="Quest1/Espace_zone/Line 7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 4)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 7/Box4"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 7/Box4"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box5" type="RigidBody3D" parent="Quest1/Espace_zone/Line 7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, -1)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 7/Box5"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 7/Box5"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box6" type="RigidBody3D" parent="Quest1/Espace_zone/Line 7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 0)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 7/Box6"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 7/Box6"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box7" type="RigidBody3D" parent="Quest1/Espace_zone/Line 7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 1)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 7/Box7"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 7/Box7"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box8" type="RigidBody3D" parent="Quest1/Espace_zone/Line 7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, -2)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 7/Box8"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 7/Box8"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box9" type="RigidBody3D" parent="Quest1/Espace_zone/Line 7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, -3)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 7/Box9"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 7/Box9"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box10" type="RigidBody3D" parent="Quest1/Espace_zone/Line 7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 5)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 7/Box10"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 7/Box10"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box11" type="RigidBody3D" parent="Quest1/Espace_zone/Line 7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 6)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 7/Box11"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 7/Box11"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box12" type="RigidBody3D" parent="Quest1/Espace_zone/Line 7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 7)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 7/Box12"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 7/Box12"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box13" type="RigidBody3D" parent="Quest1/Espace_zone/Line 7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 8)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 7/Box13"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 7/Box13"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box14" type="RigidBody3D" parent="Quest1/Espace_zone/Line 7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, -4)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 7/Box14"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 7/Box14"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box15" type="RigidBody3D" parent="Quest1/Espace_zone/Line 7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, -5)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 7/Box15"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 7/Box15"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box16" type="RigidBody3D" parent="Quest1/Espace_zone/Line 7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 9)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 7/Box16"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 7/Box16"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box17" type="RigidBody3D" parent="Quest1/Espace_zone/Line 7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 10)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 7/Box17"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 7/Box17"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box18" type="RigidBody3D" parent="Quest1/Espace_zone/Line 7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 11)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 7/Box18"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 7/Box18"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box19" type="RigidBody3D" parent="Quest1/Espace_zone/Line 7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 12)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 7/Box19"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 7/Box19"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box20" type="RigidBody3D" parent="Quest1/Espace_zone/Line 7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 13)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 7/Box20"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 7/Box20"]
+mesh = SubResource("BoxMesh_s1dke")
+
+[node name="Box21" type="RigidBody3D" parent="Quest1/Espace_zone/Line 7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.691, 14.0903, 14)
+mass = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Quest1/Espace_zone/Line 7/Box21"]
+shape = SubResource("BoxShape3D_rjj73")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Espace_zone/Line 7/Box21"]
+mesh = SubResource("BoxMesh_s1dke")
 
 [node name="Map Prototype v3" parent="." instance=ExtResource("8_rmqno")]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -943.449, 17.9682, 59.4432)

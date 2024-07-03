@@ -11,14 +11,14 @@ albedo_color = Color(1, 0.580392, 0.0588235, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gjbel"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vvnrm"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_un0n2"]
 albedo_texture = ExtResource("5_o6ilq")
 heightmap_scale = 4.785
 uv1_scale = Vector3(2.345, 2.345, 2.345)
 uv1_offset = Vector3(1.225, -0.22, 0)
 
 [sub_resource type="BoxMesh" id="BoxMesh_wo3k8"]
-material = SubResource("StandardMaterial3D_vvnrm")
+material = SubResource("StandardMaterial3D_un0n2")
 
 [node name="Environment" type="Node3D"]
 

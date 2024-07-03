@@ -11,7 +11,7 @@ else:
 	- Oui ?
 		Gus, le maire: Super !
 		Gus, le maire: Mon équipe de forestiers ne répond plus depuis un certain moment déjà.
-		Gus, le maire: Pouvez-vous aller jeter un œil à leur camp ? Il est au centre le la montagne.
+		Gus, le maire: Pouvez-vous aller jeter un œil à leur camp ? Il est au fond de la forêt.
 		Gus, le maire: Faites bien attention à vous... et merci d'aider un vieil homme comme moi.
 		if GlobalVariables.quest_one == GlobalVariables.check_quest.NOTHING
 			set GlobalVariables.quest_one = GlobalVariables.check_quest.GO_CAMP_ONE

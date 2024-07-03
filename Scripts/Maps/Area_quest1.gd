@@ -3,9 +3,14 @@ extends Area3D
 var local_player
 var quest_zone = false
 var players_in_zone = []
+@onready var mesh_instance_3d = $MeshInstance3D
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
+	if GlobalVariables.quest_one == GlobalVariables.check_quest.GO_CAMP_TWO:
+		mesh_instance_3d.show()
+	else:
+		mesh_instance_3d.hide()
 	if  quest_zone == true:
 		if GlobalVariables.quest_one == GlobalVariables.check_quest.GO_CAMP_TWO:
 			GlobalVariables.quest_one = GlobalVariables.check_quest.KILL_RED_ONE
