@@ -152,7 +152,7 @@ func remove_player_from_car():
 		var player_head = player_in_car.get_node("Head")
 		var player_camera = player_head.get_node("Camera3D")
 		
-		if player_camera:
+		if player_camera && player_camera.is_multiplayer_authority():
 			player_camera.current = true
 			camera_3d.current = false
 		
