@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bw41xqawmw8pp" path="res://Scenes/Entities/bad_npc.tscn" id="5_hhx2q"]
 [ext_resource type="Script" path="res://Scripts/Ui/IP_ADDRESS.gd" id="6_xrr28"]
 [ext_resource type="Script" path="res://Scripts/Maps/Area_quest1.gd" id="7_36gr5"]
-[ext_resource type="PackedScene" uid="uid://jljbx8y7gnw7" path="res://Scenes/Maps/map_prototype_v_2.tscn" id="8_3i30l"]
+[ext_resource type="PackedScene" uid="uid://blxihkmccrcyk" path="res://Scenes/Maps/map_prototype_v_3.tscn" id="8_rmqno"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2efs4"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -62,7 +62,7 @@ environment = SubResource("Environment_1pto3")
 [node name="FPSMeter" parent="." instance=ExtResource("3_nq26b")]
 
 [node name="SpawnLocations" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1251.14, 38.9339, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1240.18, 38.9339, -19.3334)
 
 [node name="0" type="Node3D" parent="SpawnLocations" groups=["SpawnPoints"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0.5, 0)
@@ -141,8 +141,8 @@ shape = SubResource("BoxShape3D_uwqf0")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Area3D"]
 mesh = SubResource("BoxMesh_jpluy")
 
-[node name="Map Prototype v2" parent="." instance=ExtResource("8_3i30l")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -956.389, 26.4171, 62.8742)
+[node name="Map Prototype v3" parent="." instance=ExtResource("8_rmqno")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -943.449, 17.9682, 59.4432)
 
 [connection signal="body_entered" from="Quest1/Area3D" to="Quest1/Area3D" method="_on_body_entered"]
 [connection signal="body_exited" from="Quest1/Area3D" to="Quest1/Area3D" method="_on_body_exited"]
