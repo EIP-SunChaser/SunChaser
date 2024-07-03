@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://c4ca03hfvhrsd"]
+[gd_scene load_steps=23 format=3 uid="uid://c4ca03hfvhrsd"]
 
 [ext_resource type="PackedScene" uid="uid://bmc1fqst1lx1y" path="res://Scenes/Maps/environment.tscn" id="1_steub"]
 [ext_resource type="PackedScene" uid="uid://cwfe4ax6jym2h" path="res://Scenes/Menus/main_menu.tscn" id="2_ak7c5"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://Scripts/Maps/Area_quest1.gd" id="7_36gr5"]
 [ext_resource type="Texture2D" uid="uid://byf2ln775bpbe" path="res://Docs/Profil Pic/jules.png" id="8_8n086"]
 [ext_resource type="PackedScene" uid="uid://blxihkmccrcyk" path="res://Scenes/Maps/map_prototype_v_3.tscn" id="8_rmqno"]
+[ext_resource type="PackedScene" uid="uid://onhbcns16fj8" path="res://Scenes/Items/detailled_tree.tscn" id="10_0abcx"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2efs4"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -1675,6 +1676,24 @@ mesh = SubResource("BoxMesh_s1dke")
 
 [node name="Map Prototype v3" parent="." instance=ExtResource("8_rmqno")]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -943.449, 17.9682, 59.4432)
+
+[node name="Detailled Tree" parent="." instance=ExtResource("10_0abcx")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -169.959, 19.5158, 24.5006)
+
+[node name="Detailled Tree2" parent="." instance=ExtResource("10_0abcx")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -202.445, 17.9682, 17.6048)
+
+[node name="Detailled Tree3" parent="." instance=ExtResource("10_0abcx")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -196.289, 17.9682, 37.2724)
+
+[node name="Detailled Tree4" parent="." instance=ExtResource("10_0abcx")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -168.609, 17.9682, -46.9266)
+
+[node name="Detailled Tree5" parent="." instance=ExtResource("10_0abcx")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -189.816, 17.9682, -31.6404)
+
+[node name="Detailled Tree6" parent="." instance=ExtResource("10_0abcx")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -200.682, 17.9682, -51.9646)
 
 [connection signal="body_entered" from="Quest1/Area3D" to="Quest1/Area3D" method="_on_body_entered"]
 [connection signal="body_exited" from="Quest1/Area3D" to="Quest1/Area3D" method="_on_body_exited"]
