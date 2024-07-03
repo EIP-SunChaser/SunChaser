@@ -9,7 +9,7 @@
 [ext_resource type="Script" path="res://Scripts/Maps/Area_quest1.gd" id="7_36gr5"]
 [ext_resource type="ArrayMesh" uid="uid://ctakldo0qp5pr" path="res://Shaders/box.tres" id="8_kytmy"]
 [ext_resource type="PackedScene" uid="uid://blxihkmccrcyk" path="res://Scenes/Maps/map_prototype_v_3.tscn" id="8_rmqno"]
-[ext_resource type="PackedScene" path="res://Scenes/Items/detailled_tree.tscn" id="10_0abcx"]
+[ext_resource type="PackedScene" uid="uid://onhbcns16fj8" path="res://Scenes/Items/detailled_tree.tscn" id="10_0abcx"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2efs4"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -1816,7 +1816,7 @@ mesh = ExtResource("8_kytmy")
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -943.449, 17.9682, 59.4432)
 
 [node name="Detailled Tree" parent="." instance=ExtResource("10_0abcx")]
-transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -169.959, 19.5158, 24.5006)
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -169.959, 18.0067, 24.5006)
 
 [node name="Detailled Tree2" parent="." instance=ExtResource("10_0abcx")]
 transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -202.445, 17.9682, 17.6048)
