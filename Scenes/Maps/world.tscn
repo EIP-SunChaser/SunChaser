@@ -9,7 +9,7 @@
 [ext_resource type="Script" path="res://Scripts/Maps/Area_quest1.gd" id="7_36gr5"]
 [ext_resource type="Texture2D" uid="uid://byf2ln775bpbe" path="res://Docs/Profil Pic/jules.png" id="8_8n086"]
 [ext_resource type="PackedScene" uid="uid://blxihkmccrcyk" path="res://Scenes/Maps/map_prototype_v_3.tscn" id="8_rmqno"]
-[ext_resource type="PackedScene" uid="uid://onhbcns16fj8" path="res://Scenes/Items/detailled_tree.tscn" id="10_0abcx"]
+[ext_resource type="PackedScene" path="res://Scenes/Items/detailled_tree.tscn" id="10_0abcx"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2efs4"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)

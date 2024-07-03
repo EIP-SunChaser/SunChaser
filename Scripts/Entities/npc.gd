@@ -23,7 +23,7 @@ func _on_body_part_hit(dam):
 			GlobalVariables.entity_kill += 1
 			if GlobalVariables.entity_kill >= 3:
 				if GlobalVariables.quest_one == GlobalVariables.check_quest.KILL_RED_TWO:
-					GlobalVariables.quest_one = GlobalVariables.check_quest.END_ONE
+					GlobalVariables.quest_one = GlobalVariables.check_quest.GROW_TREE_ONE
 			else:
 				GlobalVariables.quest_one = GlobalVariables.check_quest.KILL_RED_ONE
 			print("Bandit is dead")

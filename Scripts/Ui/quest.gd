@@ -20,6 +20,9 @@ func _process(_delta):
 		GlobalVariables.check_quest.KILL_RED_ONE:
 			quest_one_label.text = "Tuer red: " +  str(GlobalVariables.entity_kill) + "/3"
 			GlobalVariables.quest_one = GlobalVariables.check_quest.KILL_RED_TWO
+		GlobalVariables.check_quest.GROW_TREE_ONE:
+			quest_one_label.text = "Faire repousser des arbres: " + str(GlobalVariables.grow_tree) + "/6"
+			GlobalVariables.quest_one = GlobalVariables.check_quest.GROW_TREE_TWO
 		GlobalVariables.check_quest.END_ONE:
 			quest_one_label.text = "Retourner voir Mr le maire"
 			GlobalVariables.quest_one = GlobalVariables.check_quest.END_TWO
