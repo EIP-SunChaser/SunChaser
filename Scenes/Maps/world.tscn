@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bw41xqawmw8pp" path="res://Scenes/Entities/bad_npc.tscn" id="5_hhx2q"]
 [ext_resource type="Script" path="res://Scripts/Ui/IP_ADDRESS.gd" id="6_xrr28"]
 [ext_resource type="Script" path="res://Scripts/Maps/Area_quest1.gd" id="7_36gr5"]
-[ext_resource type="ArrayMesh" uid="uid://dh04assj3qn8k" path="res://Shaders/box.tres" id="8_kytmy"]
+[ext_resource type="ArrayMesh" uid="uid://ctakldo0qp5pr" path="res://Shaders/box.tres" id="8_kytmy"]
 [ext_resource type="PackedScene" uid="uid://blxihkmccrcyk" path="res://Scenes/Maps/map_prototype_v_3.tscn" id="8_rmqno"]
 [ext_resource type="PackedScene" path="res://Scenes/Items/detailled_tree.tscn" id="10_0abcx"]
 

@@ -45,6 +45,7 @@ const FOV_CAHNGE = 1.5
 var isAlive = true
 var isAiming = false
 var isInDialogue = false
+var GODMOD = false
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = 9.8
@@ -108,6 +109,8 @@ func _unhandled_input(event):
 	
 	if Input.is_action_just_pressed("teleport"):
 			global_transform.origin = Vector3(0, 10, 0)
+	if Input.is_action_just_pressed("god"):
+		GODMOD = !GODMOD
 
 func _physics_process(delta):
 	if !is_multiplayer_authority(): return
@@ -116,9 +119,11 @@ func _physics_process(delta):
 
 func do_physics_process(delta):
 	# Add the gravity.
-	if not is_on_floor():
+	if not is_on_floor() and GODMOD == false:
 		velocity.y -= gravity * delta
 
+	if GODMOD:
+		speed = 100
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction = (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()

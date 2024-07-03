@@ -90,7 +90,7 @@ radius = 0.025
 [sub_resource type="BoxShape3D" id="BoxShape3D_5a73s"]
 size = Vector3(6.22852, 3.52063, 4)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y35na"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y2ufy"]
 bg_color = Color(0, 0, 0, 0)
 
 [sub_resource type="Gradient" id="Gradient_mbdqv"]
@@ -254,6 +254,7 @@ spring_length = 3.0
 
 [node name="Camera3D" type="Camera3D" parent="CameraRoot/CameraYaw/CameraPitch/SpringArm3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.04965)
+current = true
 
 [node name="PlayerDetect" type="Area3D" parent="."]
 collision_layer = 2
@@ -307,7 +308,7 @@ offset_top = -118.0
 offset_right = -12.0001
 offset_bottom = -88.0
 grow_horizontal = 0
-theme_override_styles/background = SubResource("StyleBoxFlat_y35na")
+theme_override_styles/background = SubResource("StyleBoxFlat_y2ufy")
 theme_override_styles/fill = SubResource("StyleBoxTexture_546eb")
 
 [node name="Node3D" type="Node3D" parent="."]
