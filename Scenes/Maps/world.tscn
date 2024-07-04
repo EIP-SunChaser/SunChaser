@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://c4ca03hfvhrsd"]
+[gd_scene load_steps=24 format=3 uid="uid://c4ca03hfvhrsd"]
 
 [ext_resource type="PackedScene" uid="uid://bmc1fqst1lx1y" path="res://Scenes/Maps/environment.tscn" id="1_steub"]
 [ext_resource type="PackedScene" uid="uid://cwfe4ax6jym2h" path="res://Scenes/Menus/main_menu.tscn" id="2_ak7c5"]
@@ -7,10 +7,12 @@
 [ext_resource type="PackedScene" uid="uid://bw41xqawmw8pp" path="res://Scenes/Entities/bad_npc.tscn" id="5_hhx2q"]
 [ext_resource type="Script" path="res://Scripts/Ui/IP_ADDRESS.gd" id="6_xrr28"]
 [ext_resource type="Script" path="res://Scripts/Maps/Area_quest1.gd" id="7_36gr5"]
+[ext_resource type="Script" path="res://Scripts/Entities/quest_one_invisible_entity.gd" id="7_vr2ts"]
 [ext_resource type="ArrayMesh" uid="uid://ctakldo0qp5pr" path="res://Shaders/box.tres" id="8_kytmy"]
 [ext_resource type="PackedScene" uid="uid://blxihkmccrcyk" path="res://Scenes/Maps/map_prototype_v_3.tscn" id="8_rmqno"]
 [ext_resource type="PackedScene" uid="uid://onhbcns16fj8" path="res://Scenes/Items/detailled_tree.tscn" id="10_0abcx"]
 [ext_resource type="PackedScene" uid="uid://ddhu32xlnqaju" path="res://Scenes/Items/car_call_button.tscn" id="11_a1kia"]
+[ext_resource type="PackedScene" uid="uid://cvuvh31sst0u1" path="res://Scenes/Entities/forestier.tscn" id="13_tkqpx"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2efs4"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -139,12 +141,25 @@ axis_lock_linear_z = true
 axis_lock_angular_x = true
 axis_lock_angular_z = true
 
-[node name="Hat_npc2" parent="Quest1" instance=ExtResource("4_arjcc")]
-transform = Transform3D(-0.626875, 0, 0.779119, 0, 1, 0, -0.779119, 0, -0.626875, 171.052, -5.62002, 22.3982)
+[node name="Hidden npc" type="Node3D" parent="Quest1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 179.745, -6.9132, 9.58796)
+script = ExtResource("7_vr2ts")
+
+[node name="Hat_npc2" parent="Quest1/Hidden npc" instance=ExtResource("4_arjcc")]
+transform = Transform3D(-0.779119, 0, -0.626875, 0, 1, 0, 0.626875, 0, -0.779119, -154.854, 18.1333, 8.72752)
 axis_lock_linear_x = true
 axis_lock_linear_z = true
 axis_lock_angular_x = true
 axis_lock_angular_z = true
+
+[node name="Forestier" parent="Quest1/Hidden npc" instance=ExtResource("13_tkqpx")]
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, -154.451, 18.4564, -25.6629)
+
+[node name="Forestier2" parent="Quest1/Hidden npc" instance=ExtResource("13_tkqpx")]
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, -151.935, 18.6003, -27.0307)
+
+[node name="Forestier3" parent="Quest1/Hidden npc" instance=ExtResource("13_tkqpx")]
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, -154.868, 18.5862, -28.9941)
 
 [node name="Ennemies" type="Node3D" parent="Quest1"]
 

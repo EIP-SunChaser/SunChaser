@@ -1,7 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://cvuvh31sst0u1"]
+[gd_scene load_steps=17 format=3 uid="uid://cvuvh31sst0u1"]
 
 [ext_resource type="Script" path="res://Scripts/Entities/actionable_dialogue.gd" id="1_snbf1"]
-[ext_resource type="Resource" uid="uid://80iuna024nxn" path="res://Dialogue/Quest_001.dialogue" id="2_w0jfq"]
+[ext_resource type="Script" path="res://Scripts/Entities/npc.gd" id="1_y71eu"]
+[ext_resource type="Resource" uid="uid://cv2bn3qisdgxa" path="res://Dialogue/forestiers.dialogue" id="3_huwhw"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_k6e2y"]
 
@@ -158,6 +159,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_afapt")
 
 [node name="Forestier" type="CharacterBody3D"]
+script = ExtResource("1_y71eu")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -176,7 +178,7 @@ mesh = SubResource("BoxMesh_ju86a")
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_snbf1")
-dialogue_ressource = ExtResource("2_w0jfq")
+dialogue_ressource = ExtResource("3_huwhw")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1.3136)

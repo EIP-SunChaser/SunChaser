@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://cv2bn3qisdgxa"
+path="res://.godot/imported/forestiers.dialogue-f3623079572d39c8e57c6bac8ebd4304.tres"
+
+[deps]
+
+source_file="res://Dialogue/forestiers.dialogue"
+dest_files=["res://.godot/imported/forestiers.dialogue-f3623079572d39c8e57c6bac8ebd4304.tres"]
+
+[params]
+
+defaults=true
