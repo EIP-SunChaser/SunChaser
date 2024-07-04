@@ -17,6 +17,7 @@ func _ready():
 	ip_address.placeholder_text = "Enter the host IP! Default is " + DEFAULT_IP
 	multiplayer.connected_to_server.connect(connected_to_server)
 	host.grab_focus()
+	#Engine.max_fps = 30
 	
 	# Spawn already connected players
 	

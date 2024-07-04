@@ -14,7 +14,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _physics_process(delta):
 	position += transform.basis * Vector3(0, 0, -SPEED) * delta
 	if ray.is_colliding():
 		mesh.visible = false
