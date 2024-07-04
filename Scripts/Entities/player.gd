@@ -56,6 +56,8 @@ var gravity = 9.8
 var standing_height = 1.0
 var crouching_height = 0.5
 
+var respawn_point = Vector3(0, 10, 0)
+
 func _enter_tree():
 	set_multiplayer_authority(str(name).to_int())
 
@@ -122,6 +124,7 @@ func _unhandled_input(event):
 
 func _physics_process(delta):
 	if !is_multiplayer_authority(): return
+	if !isAlive: return
 	
 	if GlobalVariables.isInDialogue == true || GlobalVariables.isInPause == true:
 		health_bar.hide()
@@ -240,11 +243,10 @@ func _headbob(time) -> Vector3:
 	return pos
 
 func _on_health_bar_health_depleted():
-	print("dead")
 	isAlive = false
 	deathLabel.visible = true
-	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	await get_tree().create_timer(3.0).timeout
+	respawn()
 
 func _on_body_part_hit(dam):
 	health_bar.health -= dam
@@ -260,3 +262,13 @@ func pauseMenu():
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		pause_menu.show()
 		pass
+
+func respawn():
+	global_transform.origin = respawn_point
+	health_bar.init_health(100)
+	isAlive = true
+	deathLabel.visible = false
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
+func set_respawn_point(new_point: Vector3):
+	respawn_point = new_point
