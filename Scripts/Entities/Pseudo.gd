@@ -1,7 +1,5 @@
 extends Label3D
 
-@onready var multiplayer_synchronizer = $"../MultiplayerSynchronizer"
-
 func _enter_tree():
 	set_multiplayer_authority(str(name).to_int())
 
@@ -11,7 +9,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	if multiplayer_synchronizer.get_multiplayer_authority() == multiplayer.get_unique_id():
 		var player_number = 1
 		for i in PlayerManager.Players:
 			if PlayerManager.Players[i].id == multiplayer.get_unique_id():
