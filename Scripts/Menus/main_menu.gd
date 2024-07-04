@@ -6,6 +6,7 @@ extends Control
 @onready var pseudo = $BoxContainer/VBoxContainer2/Pseudo
 @onready var ip_address = $BoxContainer/VBoxContainer2/IP_Address
 @onready var host = $BoxContainer/VBoxContainer/Host
+@onready var upnp_checkbox = $BoxContainer/VBoxContainer/Host/upnp
 
 var current_spawn_index = 0
 
@@ -17,6 +18,7 @@ func _ready():
 	ip_address.placeholder_text = "Enter the host IP! Default is " + DEFAULT_IP
 	multiplayer.connected_to_server.connect(connected_to_server)
 	host.grab_focus()
+	upnp_checkbox.button_pressed = false
 	#Engine.max_fps = 30
 	
 	# Spawn already connected players
@@ -36,7 +38,8 @@ func _on_host_button_down():
 	multiplayer.peer_disconnected.connect(delete_player)
 	send_player_information(pseudo.text, multiplayer.get_unique_id())
 	add_player(multiplayer.get_unique_id())
-	upnp_setup()
+	if upnp_checkbox.button_pressed:
+		upnp_setup()
 
 func _on_join_button_down():
 	if ip_address.text != "":
