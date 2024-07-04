@@ -58,6 +58,8 @@ var crouching_height = 0.5
 
 var respawn_point = Vector3(0, 10, 0)
 
+var sprint_toggled = false
+
 func _enter_tree():
 	set_multiplayer_authority(str(name).to_int())
 
@@ -121,6 +123,11 @@ func _unhandled_input(event):
 
 	if Input.is_action_just_pressed("crouch"):
 		crouch()
+		
+	if event.is_action_pressed("sprint") and event is InputEventJoypadButton:
+		sprint_toggled = !sprint_toggled
+	elif event.is_action_released("sprint") and event is InputEventKey:
+		sprint_toggled = false
 
 func _physics_process(delta):
 	if !is_multiplayer_authority(): return
@@ -198,7 +205,7 @@ func do_physics_process(delta):
 
 	if is_crouching:
 		speed = CROUCH_SPEED
-	elif Input.is_action_pressed("sprint"):
+	elif Input.is_action_pressed("sprint") or sprint_toggled:
 		speed = SPRINT_SPEED
 	else:
 		speed = WALK_SPEED
