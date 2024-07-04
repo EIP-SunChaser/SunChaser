@@ -31,7 +31,7 @@ var SENSITIVITY_JOYSTICK = 0.06
 
 var is_in_car = false
 var is_crouching = false
-@onready var collision_shape_3d = $BodyCollision/Area3D/CollisionShape3D
+@onready var body_collision = $BodyCollision
 
 # Variables pour stocker les valeurs des axes pour les mouvements de camÃ©ra avec manette
 var axis_x = 0.0
@@ -54,6 +54,9 @@ var GODMOD = false
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = 9.8
 
+var standing_height = 1.0
+var crouching_height = 0.5
+
 func _enter_tree():
 	set_multiplayer_authority(str(name).to_int())
 
@@ -67,6 +70,9 @@ func _ready():
 	health_bar.init_health(100)
 	deathLabel.visible = false
 	deathLabel.hide()
+	
+	standing_height = body_collision.scale.y
+	crouching_height = standing_height * 0.8
 
 func _unhandled_input(event):
 	if !is_multiplayer_authority(): return
@@ -192,18 +198,20 @@ func crouch():
 	if is_on_floor():
 		if not is_crouching:
 			is_crouching = true
-			scale_character(0.5)
+			scale_character(crouching_height)
 		else:
 			is_crouching = false
-			scale_character(2.0)
+			scale_character(standing_height)
 
-func scale_character(scale_factor):
-	collision_shape_3d.scale.y *= scale_factor
+func scale_character(target_height):
+	var scale_factor = target_height / body_collision.scale.y
+	body_collision.scale.y = target_height
 	
+	# Adjust the camera position
 	var camera_offset = camera.position.y - head.position.y
 	head.position.y *= scale_factor
 	camera.position.y = head.position.y + camera_offset
-	
+
 @rpc("any_peer", "call_local")
 func play_shoot_effects():
 	if !gun_animation.is_playing():
