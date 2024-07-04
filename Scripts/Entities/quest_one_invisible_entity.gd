@@ -7,7 +7,7 @@ extends Node3D
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if GlobalVariables.quest_one >= 5:
 		forestier.show()
 		forestier_2.show()

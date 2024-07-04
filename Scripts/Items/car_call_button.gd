@@ -18,7 +18,6 @@ func _physics_process(_delta) -> void:
 	var car = cars.front()
 	var current_position = car.global_transform.origin
 	
-	var call_button = get_parent()	
 	target_position = Vector3(-14, 5, 1)
 	car.set_global_rotation_degrees(Vector3(0, 90, 0))
 	
