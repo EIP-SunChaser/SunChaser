@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://cy7ywppb2i4ey"]
+[gd_scene load_steps=25 format=3 uid="uid://cy7ywppb2i4ey"]
 
 [ext_resource type="Script" path="res://Scripts/Entities/player.gd" id="1_mpqcp"]
 [ext_resource type="Script" path="res://Scripts/Entities/Pseudo.gd" id="2_bmpr3"]
@@ -94,35 +94,6 @@ tracks/1/keys = {
 "values": [Vector3(0.546027, -0.273746, -0.724783)]
 }
 
-[sub_resource type="Animation" id="Animation_gd6f8"]
-resource_name = "idle"
-length = 3.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Head/Camera3D/rifle_prototype:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.5),
-"transitions": PackedFloat32Array(-2, -2),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(-0.131249, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Head/Camera3D/rifle_prototype:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.5),
-"transitions": PackedFloat32Array(-2, -2),
-"update": 0,
-"values": [Vector3(0.546027, -0.273746, -0.724783), Vector3(0.546027, -0.309973, -0.724783)]
-}
-
 [sub_resource type="Animation" id="Animation_kofwg"]
 resource_name = "move"
 loop_mode = 1
@@ -143,7 +114,6 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6rs1o"]
 _data = {
 "RESET": SubResource("Animation_e7y2j"),
-"idle": SubResource("Animation_gd6f8"),
 "move": SubResource("Animation_kofwg")
 }
 
