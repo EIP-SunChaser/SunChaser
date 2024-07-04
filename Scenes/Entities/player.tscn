@@ -227,6 +227,7 @@ theme_override_font_sizes/font_size = 80
 text = "DEAD"
 
 [node name="Press_e_ui" parent="Head/Camera3D" instance=ExtResource("9_hu5b3")]
+visible = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
