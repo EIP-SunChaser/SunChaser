@@ -65,10 +65,11 @@ func spawn_car(spawn_position: Vector3):
 	print("JoltCar spawned!")
 
 func delete_player(id: int):
-	var player = get_node_or_null(str(id))
-	print("Player " + str(id) + " deleted!")
-	if player:
-		player.queue_free()
+	var players = get_tree().get_nodes_in_group("Player")
+	for i in players:
+		if i.name == str(id):
+			print("Player " + str(id) + " deleted!")
+			i.queue_free()
 
 func spawn_player(id: int, spawn_position: Vector3):
 	var player = player_scene.instantiate()
