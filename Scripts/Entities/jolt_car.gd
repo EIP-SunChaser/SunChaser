@@ -88,6 +88,14 @@ func _physics_process(delta):
 		if Input.is_action_just_pressed("teleport"):
 			global_transform.origin = Vector3(-14, 5, 1)
 			self.set_global_rotation_degrees(Vector3(0, 90, 0))
+			
+		if Input.is_action_just_pressed("teleport-2"):
+			global_transform.origin = Vector3(-1220, 20, -15)
+			self.set_global_rotation_degrees(Vector3(0, -90, 0))
+			
+		if Input.is_action_just_pressed("teleport-3"):
+			global_transform.origin = Vector3(-230, 20, -10)
+			self.set_global_rotation_degrees(Vector3(0, -90, 0))
 		
 		apply_smooth_rotation(delta)
 	else:
