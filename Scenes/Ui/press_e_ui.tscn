@@ -1,6 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://x003u273j5s0"]
-
-[ext_resource type="Script" path="res://Scripts/Ui/key_label.gd" id="1_2ixl2"]
+[gd_scene load_steps=2 format=3 uid="uid://x003u273j5s0"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_bq7nn"]
 font_size = 24
@@ -24,4 +22,3 @@ grow_vertical = 2
 layout_mode = 2
 text = "Press E"
 label_settings = SubResource("LabelSettings_bq7nn")
-script = ExtResource("1_2ixl2")

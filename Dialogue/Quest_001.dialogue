@@ -18,9 +18,6 @@ else:
 			set GlobalVariables.quest_one = GlobalVariables.check_quest.GO_CAMP_ONE
 	- Je n'ai pas le temps
 		Gus, le maire: Il n'y a personne d'autre ici...
-	- Quete
-		if GlobalVariables.quest_one == GlobalVariables.check_quest.NOTHING
-			set GlobalVariables.quest_one = GlobalVariables.check_quest.GO_CAMP_ONE
 
 set GlobalVariables.isInDialogue = false
 
