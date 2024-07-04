@@ -203,7 +203,7 @@ func do_physics_process(delta):
 	move_and_slide()
 
 func crouch():
-	if is_on_floor():
+	if is_on_floor() and not is_in_car:
 		if not is_crouching:
 			is_crouching = true
 			scale_character(crouching_height)
