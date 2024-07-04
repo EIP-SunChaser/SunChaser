@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cy7ywppb2i4ey"]
+[gd_scene load_steps=26 format=3 uid="uid://cy7ywppb2i4ey"]
 
 [ext_resource type="Script" path="res://Scripts/Entities/player.gd" id="1_mpqcp"]
 [ext_resource type="Script" path="res://Scripts/Entities/Pseudo.gd" id="2_bmpr3"]
@@ -7,7 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://bvkvxoqp0eys3" path="res://Scenes/Items/rifle_prototype.tscn" id="3_xq2hx"]
 [ext_resource type="PackedScene" uid="uid://cdp8oynggphk4" path="res://Scenes/Ui/quest_ui.tscn" id="5_p4gfi"]
 [ext_resource type="PackedScene" uid="uid://bdjvvprw2achb" path="res://Scenes/Ui/health_bar.tscn" id="6_1voe1"]
-[ext_resource type="PackedScene" uid="uid://sgxyoglr7pux" path="res://Scenes/Menus/pause_menu.tscn" id="8_hcrn3"]
+[ext_resource type="PackedScene" path="res://Scenes/Menus/pause_menu.tscn" id="8_hcrn3"]
+[ext_resource type="PackedScene" uid="uid://x003u273j5s0" path="res://Scenes/Ui/press_e_ui.tscn" id="9_hu5b3"]
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_1lcpa"]
 properties/0/path = NodePath(".:rotation")
@@ -225,6 +226,8 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 13
 theme_override_font_sizes/font_size = 80
 text = "DEAD"
+
+[node name="Press_e_ui" parent="Head/Camera3D" instance=ExtResource("9_hu5b3")]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

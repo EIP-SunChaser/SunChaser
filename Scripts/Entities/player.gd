@@ -5,6 +5,7 @@ extends CharacterBody3D
 @onready var animation_player = $AnimationPlayer
 @onready var pseudo = $Pseudo
 @onready var actionable_finder: Area3D = $Area3D
+@onready var press_e_ui = $Head/Camera3D/Press_e_ui
 @onready var deathLabel = $"Head/Camera3D/DeathLabel"
 @onready var health_bar = $Head/Camera3D/HealthBar
 
@@ -111,6 +112,10 @@ func _unhandled_input(event):
 func _physics_process(delta):
 	if !is_multiplayer_authority(): return
 	if GlobalVariables.isInDialogue == false and !paused:
+		if actionable_finder.get_overlapping_areas():
+			press_e_ui.show()
+		else:
+			press_e_ui.hide()
 		do_physics_process(delta)
 
 func do_physics_process(delta):
