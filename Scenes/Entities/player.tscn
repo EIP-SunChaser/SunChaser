@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bvkvxoqp0eys3" path="res://Scenes/Items/rifle_prototype.tscn" id="3_xq2hx"]
 [ext_resource type="PackedScene" uid="uid://cdp8oynggphk4" path="res://Scenes/Ui/quest_ui.tscn" id="5_p4gfi"]
 [ext_resource type="PackedScene" uid="uid://bdjvvprw2achb" path="res://Scenes/Ui/health_bar.tscn" id="6_1voe1"]
-[ext_resource type="PackedScene" uid="uid://sgxyoglr7pux" path="res://Scenes/Menus/pause_menu.tscn" id="8_hcrn3"]
+[ext_resource type="PackedScene" path="res://Scenes/Menus/pause_menu.tscn" id="8_hcrn3"]
 [ext_resource type="PackedScene" uid="uid://x003u273j5s0" path="res://Scenes/Ui/press_e_ui.tscn" id="9_hu5b3"]
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_1lcpa"]
@@ -193,7 +193,6 @@ mesh = SubResource("BoxMesh_ipsvg")
 skeleton = NodePath("../../BodyCollision")
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
-current = true
 
 [node name="rifle_prototype" parent="Head/Camera3D" instance=ExtResource("3_xq2hx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.546027, -0.273746, -0.724783)
