@@ -45,7 +45,7 @@ func _ready():
 	front_right_wheel = $Wheels/FrontRightWheel
 
 func _physics_process(delta):
-	if active:
+	if active && GlobalVariables.isInPause == false:
 		if Input.is_action_just_pressed("brake"):
 			toggle_parking_brake()
 		

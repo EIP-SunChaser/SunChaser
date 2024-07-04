@@ -8,10 +8,9 @@ extends CharacterBody3D
 @onready var press_e_ui = $Head/Camera3D/Press_e_ui
 @onready var deathLabel = $"Head/Camera3D/DeathLabel"
 @onready var health_bar = $Head/Camera3D/HealthBar
+@onready var quest_ui = $Head/Camera3D/Quest_ui
 
 @onready var pause_menu = $pause_menu
-var paused = false
-var game_paused = false  # New variable to track game pause state
 
 #Bullets
 @onready var gun_animation = $"Head/Camera3D/rifle_prototype/AnimationPlayer"
@@ -123,7 +122,16 @@ func _unhandled_input(event):
 
 func _physics_process(delta):
 	if !is_multiplayer_authority(): return
-	if GlobalVariables.isInDialogue == false and !paused:
+	
+	if GlobalVariables.isInDialogue == true || GlobalVariables.isInPause == true:
+		health_bar.hide()
+		quest_ui.hide()
+		press_e_ui.hide()
+	else:
+		health_bar.show()
+		quest_ui.show()
+
+	if GlobalVariables.isInDialogue == false and !GlobalVariables.isInPause:
 		if actionable_finder.get_overlapping_areas():
 			var action_func = actionable_finder.get_overlapping_areas()
 			if action_func.size() > 0 && action_func[0].has_method("action"):
@@ -131,8 +139,6 @@ func _physics_process(delta):
 		else:
 			press_e_ui.hide()
 		do_physics_process(delta)
-	else:
-		press_e_ui.hide()
 
 func do_physics_process(delta):
 	if axis_x > 0.1 or axis_x < -0.1 or axis_y > 0.1 or axis_y < -0.1:
@@ -244,13 +250,13 @@ func _on_body_part_hit(dam):
 	health_bar.health -= dam
 
 func pauseMenu():
-	if paused:
+	if GlobalVariables.isInPause == true:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		pause_menu.hide()
-		get_tree().paused = false
+		GlobalVariables.isInPause = false
+		pass
 	else:
-		get_tree().paused = true
+		GlobalVariables.isInPause = true
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		pause_menu.show()
-
-	paused = !paused
+		pass
