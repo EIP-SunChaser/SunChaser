@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/Ui/quest.gd" id="1_304xk"]
 
 [node name="Quest_ui" type="CanvasLayer"]
+visible = false
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 offset_right = 368.0
