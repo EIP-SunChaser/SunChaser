@@ -36,7 +36,7 @@ func _on_host_button_down():
 	multiplayer.peer_disconnected.connect(delete_player)
 	send_player_information(pseudo.text, multiplayer.get_unique_id())
 	add_player(multiplayer.get_unique_id())
-	#upnp_setup()
+	upnp_setup()
 
 func _on_join_button_down():
 	if ip_address.text != "":
