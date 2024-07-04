@@ -131,6 +131,8 @@ func _physics_process(delta):
 		else:
 			press_e_ui.hide()
 		do_physics_process(delta)
+	else:
+		press_e_ui.hide()
 
 func do_physics_process(delta):
 	if axis_x > 0.1 or axis_x < -0.1 or axis_y > 0.1 or axis_y < -0.1:
