@@ -24,7 +24,7 @@ func _process(_delta):
 			quest_one_label.text = "Faire repousser des arbres: " + str(GlobalVariables.grow_tree) + "/6"
 			GlobalVariables.quest_one = GlobalVariables.check_quest.GROW_TREE_TWO
 		GlobalVariables.check_quest.END_ONE:
-			quest_one_label.text = "Retourner voir Mr le maire"
+			quest_one_label.text = "Retourner voir Gus, le maire"
 			GlobalVariables.quest_one = GlobalVariables.check_quest.END_TWO
 		GlobalVariables.check_quest.FINISH_ONE:
 			quest_one_label.queue_free()
