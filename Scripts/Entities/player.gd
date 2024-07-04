@@ -99,7 +99,7 @@ func _unhandled_input(event):
 	
 	if Input.is_action_just_pressed("use"):
 		var actionnables = actionable_finder.get_overlapping_areas()
-		if actionnables.size() > 0:
+		if actionnables.size() > 0 && actionnables[0].has_method("action"):
 			actionnables[0].action()
 			pass
 
@@ -125,7 +125,9 @@ func _physics_process(delta):
 	if !is_multiplayer_authority(): return
 	if GlobalVariables.isInDialogue == false and !paused:
 		if actionable_finder.get_overlapping_areas():
-			press_e_ui.show()
+			var action_func = actionable_finder.get_overlapping_areas()
+			if action_func.size() > 0 && action_func[0].has_method("action"):
+				press_e_ui.show()
 		else:
 			press_e_ui.hide()
 		do_physics_process(delta)
