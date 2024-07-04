@@ -2,7 +2,7 @@
 
 set GlobalVariables.isInDialogue = true
 
-Le boss: Peux-tu replanter les [wave amp=25 freq=10]six[/wave] arbres détruit par les bandits ?
+Le boss: Merci de nous avoir sauvés ! Peux-tu replanter les [wave amp=25 freq=10]six[/wave] arbres détruits par les bandits ?
 
 if  GlobalVariables.quest_one == GlobalVariables.check_quest.TALK_FORESTIERS_TWO
 	set GlobalVariables.quest_one = GlobalVariables.check_quest.GROW_TREE_ONE
