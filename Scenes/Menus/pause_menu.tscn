@@ -5,8 +5,10 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xwq1e"]
 shader = ExtResource("1_qteiw")
-shader_parameter/blur = 2.5
-shader_parameter/blur_brightness = 0.9
+shader_parameter/blur_radius = 0.2
+shader_parameter/blur_amount = 2.5
+shader_parameter/blur_inner = 0.0
+shader_parameter/blur_outer = 0.0
 
 [node name="pause_menu" type="Control"]
 layout_mode = 3
