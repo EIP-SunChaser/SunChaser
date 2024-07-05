@@ -14,6 +14,6 @@ func _input(event):
 
 func update_text():
 	if using_keyboard:
-		text = "Press E"
+		text = "Press F"
 	else:
 		text = "Press X"

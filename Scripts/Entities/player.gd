@@ -11,6 +11,7 @@ extends CharacterBody3D
 @onready var quest_ui = $Head/Camera3D/Quest_ui
 
 @onready var pause_menu = $pause_menu
+@onready var inventory = $Inventory
 
 #Bullets
 @onready var gun_animation = $"Head/Camera3D/rifle_prototype/AnimationPlayer"
@@ -109,6 +110,9 @@ func _unhandled_input(event):
 	if Input.is_action_just_pressed("pause"):
 		pauseMenu()
 	
+	if Input.is_action_just_pressed("inventory"):
+		inventoryMenu()
+	
 	if Input.is_action_just_pressed("teleport"):
 			global_transform.origin = Vector3(0, 10, 0)
 			
@@ -133,7 +137,7 @@ func _physics_process(delta):
 	if !is_multiplayer_authority(): return
 	if !isAlive: return
 	
-	if GlobalVariables.isInDialogue == true || GlobalVariables.isInPause == true:
+	if GlobalVariables.isInDialogue == true || GlobalVariables.isInPause == true || GlobalVariables.isInInventory == true:
 		health_bar.hide()
 		quest_ui.hide()
 		press_e_ui.hide()
@@ -141,7 +145,7 @@ func _physics_process(delta):
 		health_bar.show()
 		quest_ui.show()
 
-	if GlobalVariables.isInDialogue == false and !GlobalVariables.isInPause:
+	if GlobalVariables.isInDialogue == false and !GlobalVariables.isInPause and GlobalVariables.isInInventory == false:
 		if actionable_finder.get_overlapping_areas():
 			var action_func = actionable_finder.get_overlapping_areas()
 			if action_func.size() > 0 && action_func[0].has_method("action"):
@@ -268,6 +272,18 @@ func pauseMenu():
 		GlobalVariables.isInPause = true
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		pause_menu.show()
+		pass
+
+func inventoryMenu():
+	if GlobalVariables.isInInventory == true:
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		inventory.hide()
+		GlobalVariables.isInInventory = false
+		pass
+	else:
+		GlobalVariables.isInInventory = true
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		inventory.show()
 		pass
 
 func respawn():
