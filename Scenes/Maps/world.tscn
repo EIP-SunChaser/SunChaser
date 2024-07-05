@@ -11,7 +11,7 @@
 [ext_resource type="ArrayMesh" uid="uid://ctakldo0qp5pr" path="res://Shaders/box.tres" id="8_kytmy"]
 [ext_resource type="PackedScene" uid="uid://onhbcns16fj8" path="res://Scenes/Items/detailled_tree.tscn" id="10_0abcx"]
 [ext_resource type="PackedScene" uid="uid://ddhu32xlnqaju" path="res://Scenes/Items/car_call_button.tscn" id="11_a1kia"]
-[ext_resource type="PackedScene" uid="uid://p7qlo83l57tv" path="res://Scenes/Maps/map_prototype_v_4.tscn" id="11_xmsm6"]
+[ext_resource type="PackedScene" path="res://Scenes/Maps/map_prototype_v_4.tscn" id="11_xmsm6"]
 [ext_resource type="PackedScene" uid="uid://cvuvh31sst0u1" path="res://Scenes/Entities/forestier.tscn" id="13_tkqpx"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2efs4"]
