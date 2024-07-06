@@ -110,7 +110,7 @@ layout_mode = 2
 text = "Exit"
 
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
-_spawnable_scenes = PackedStringArray("res://Scenes/Entities/player.tscn")
+_spawnable_scenes = PackedStringArray("res://Scenes/Entities/player.tscn", "res://Scenes/Entities/jolt_car.tscn")
 spawn_path = NodePath("..")
 
 [connection signal="button_down" from="BoxContainer/VBoxContainer/Host" to="." method="_on_host_button_down"]
