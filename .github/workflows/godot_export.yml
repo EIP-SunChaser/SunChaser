@@ -18,11 +18,11 @@ jobs:
           lfs: true
       - name: Build
         id: build
-        uses: manleydev/build-godot-action@v1.4.1
+        uses: krynv/build-godot-action@v1.0.0
         with:
-          name: example
+          name: Godot export
           preset: ${{ matrix.platform }}
-          debugMode: "true"
+          debugMode: "false"
       - name: Upload Artifact
         uses: actions/upload-artifact@v2
         with:
