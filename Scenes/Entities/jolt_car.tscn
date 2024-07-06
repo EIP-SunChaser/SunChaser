@@ -90,7 +90,7 @@ radius = 0.025
 [sub_resource type="BoxShape3D" id="BoxShape3D_5a73s"]
 size = Vector3(6.22852, 3.52063, 4)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_it4m3"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i78ty"]
 bg_color = Color(0, 0, 0, 0)
 
 [sub_resource type="Gradient" id="Gradient_mbdqv"]
@@ -307,7 +307,7 @@ offset_top = -118.0
 offset_right = -12.0001
 offset_bottom = -88.0
 grow_horizontal = 0
-theme_override_styles/background = SubResource("StyleBoxFlat_it4m3")
+theme_override_styles/background = SubResource("StyleBoxFlat_i78ty")
 theme_override_styles/fill = SubResource("StyleBoxTexture_546eb")
 
 [node name="Node3D" type="Node3D" parent="."]
