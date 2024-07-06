@@ -2,6 +2,7 @@ extends Area3D
 
 var target_position: Vector3
 var is_moving: bool = false
+var is_spawned: bool = false
 
 func action() -> void:
 	is_moving = true
@@ -20,9 +21,11 @@ func _physics_process(_delta) -> void:
 	
 	target_position = Vector3(-14, 5, 1)
 	car.set_global_rotation_degrees(Vector3(0, 90, 0))
+	car.accel_input = 0
 	
-	if current_position.distance_to(target_position) > 0.1:
+	if current_position.distance_to(target_position) >= 0.1 and !is_spawned:
 		car.global_transform.origin = target_position
+		is_spawned = true
 	else:
 		car.global_transform.origin = target_position
 		is_moving = false
