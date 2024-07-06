@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=3 uid="uid://dhi3iq7ytdwdt"]
+
+[ext_resource type="FontFile" uid="uid://7x3cp1mf1vp4" path="res://Assets/Fonts/Switzer-BlackItalic.otf" id="1_cuvwu"]
+[ext_resource type="Script" path="res://Scripts/Menus/options_menu.gd" id="1_p88c3"]
+[ext_resource type="PackedScene" uid="uid://cpg5gc7d3x4xe" path="res://Scenes/Menus/settings_tab_container.tscn" id="3_go5hd"]
+
+[node name="options_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_p88c3")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = -48
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_cuvwu")
+theme_override_font_sizes/font_size = 32
+text = "OPTIONS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="settings_tab_container" parent="MarginContainer/VBoxContainer" instance=ExtResource("3_go5hd")]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ExitButton" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "Exit"
+
+[connection signal="button_down" from="MarginContainer/VBoxContainer/ExitButton" to="." method="_on_exit_button_button_down"]

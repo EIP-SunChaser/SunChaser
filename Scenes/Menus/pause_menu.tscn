@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://sgxyoglr7pux"]
+[gd_scene load_steps=5 format=3 uid="uid://sgxyoglr7pux"]
 
 [ext_resource type="Script" path="res://Scripts/Menus/pause_menu.gd" id="1_4cbl7"]
 [ext_resource type="Shader" path="res://Shaders/blur.gdshader" id="1_qteiw"]
+[ext_resource type="PackedScene" uid="uid://dhi3iq7ytdwdt" path="res://Scenes/Menus/options_menu.tscn" id="3_hdcut"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xwq1e"]
 shader = ExtResource("1_qteiw")
@@ -28,6 +29,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="options_menu" parent="." instance=ExtResource("3_hdcut")]
+visible = false
+layout_mode = 1
+
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
@@ -46,7 +51,7 @@ grow_vertical = 2
 layout_mode = 2
 text = "Resume"
 
-[node name="Options" type="Button" parent="VBoxContainer"]
+[node name="OptionsButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "Options"
 
@@ -59,6 +64,6 @@ layout_mode = 2
 text = "Exit to desktop"
 
 [connection signal="button_down" from="VBoxContainer/ResumeButton" to="." method="_on_resume_button_button_down"]
-[connection signal="button_down" from="VBoxContainer/Options" to="." method="_on_options_button_down"]
+[connection signal="button_down" from="VBoxContainer/OptionsButton" to="." method="_on_options_button_down"]
 [connection signal="button_down" from="VBoxContainer/Back to main menu" to="." method="_on_back_to_main_menu_button_down"]
 [connection signal="button_down" from="VBoxContainer/Exit to desktop" to="." method="_on_exit_to_desktop_button_down"]
