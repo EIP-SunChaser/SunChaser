@@ -34,11 +34,6 @@ var input_actions = {
 func _ready():
 	create_action_list()
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 func create_action_list():
 	InputMap.load_from_project_settings()
 	for item in action_list.get_children():

@@ -19,9 +19,6 @@ func _ready():
 	multiplayer.connected_to_server.connect(connected_to_server)
 	host.grab_focus()
 	upnp_checkbox.button_pressed = false
-	#Engine.max_fps = 30
-	
-	# Spawn already connected players
 	
 
 func _process(_delta):
@@ -57,7 +54,7 @@ func add_player(id: int):
 		var spawn_position = select_spawn_point()
 		spawn_player(id, spawn_position)
 		
-		var car_spawn_position = select_car_spawn_point(spawn_position)
+		var car_spawn_position = spawn_position + Vector3(0, 10, 10)
 		spawn_car(car_spawn_position)
 
 func spawn_car(spawn_position: Vector3):
@@ -66,7 +63,6 @@ func spawn_car(spawn_position: Vector3):
 	car.add_to_group("Car")
 	$"../Node3D".add_child(car, true)
 	car.global_position = spawn_position
-	print("JoltCar spawned!")
 
 func delete_player(id: int):
 	var players = get_tree().get_nodes_in_group("Player")
@@ -79,9 +75,7 @@ func spawn_player(id: int, spawn_position: Vector3):
 	var player = player_scene.instantiate()
 	player.name = str(id)
 	player.add_to_group("Player")
-	#add_child(player)
-	$"../Node3D".add_child(player, true)
-	# Use call_deferred to set the position after the node is added to the scene
+	add_child(player)
 	player.call_deferred("set_global_position", spawn_position)
 	print("Player " + str(id) + " added!")
 
@@ -94,10 +88,6 @@ func select_spawn_point() -> Vector3:
 	else:
 		print("Warning: No spawn points found!")
 		return Vector3.ZERO
-
-func select_car_spawn_point(base_spawn_position: Vector3) -> Vector3:
-	# Adjust the car spawn position relative to the base player spawn position
-	return base_spawn_position + Vector3(0, 10, 10)
 
 @rpc("any_peer")
 func send_player_information(PlayerName, id):

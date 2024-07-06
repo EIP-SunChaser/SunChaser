@@ -36,10 +36,6 @@ var parking_brake_engaged = false
 @export var battery_drain_rate: float = 0.1
 @onready var battery_display = $BatteryText/BatteryBar
 
-func _enter_tree():
-	#set_multiplayer_authority(multiplayer.get_unique_id())
-	pass
-
 func _ready():
 	front_left_wheel = $Wheels/FrontLeftWheel
 	front_right_wheel = $Wheels/FrontRightWheel
@@ -126,7 +122,6 @@ func find_local_player():
 func entering_car():
 	if Input.is_action_just_pressed("use") and car_zone and not active:
 		var local_player = find_local_player()
-		print(local_player)
 		if local_player:
 			set_player_in_car.rpc(local_player.get_path())
 
