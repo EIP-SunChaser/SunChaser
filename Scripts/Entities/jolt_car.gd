@@ -48,11 +48,10 @@ func _physics_process(delta):
 	if active && GlobalVariables.isInPause == false:
 		if Input.is_action_just_pressed("brake"):
 			toggle_parking_brake()
-		
+
 		if Input.is_action_just_pressed("radio"):
-			print("hello")
-			$AudioStreamPlayer.play()
-	
+			radio()
+		
 		steering_input = Input.get_axis("right", "left")
 		
 		if current_battery > 0:
@@ -200,3 +199,13 @@ func apply_smooth_rotation(delta):
 func recharge_battery(amount: float):
 	current_battery = min(current_battery + amount, max_battery)
 	battery_display.battery = current_battery
+	
+func radio():
+	if!$AudioStreamPlayer.playing:
+		print("play")
+		$AudioStreamPlayer.play()
+		pass
+	elif $AudioStreamPlayer.playing:
+		print("stop")
+		$AudioStreamPlayer.stop()
+		pass
