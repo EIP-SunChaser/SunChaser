@@ -13,7 +13,7 @@ func _input(event):
 		update_text()
 
 func update_text():
-		var events = InputMap.action_get_events("radio")
+		events = InputMap.action_get_events("radio")
 		for event in events:
 			if event is InputEventKey:
 				var key_name = OS.get_keycode_string(event.physical_keycode)
