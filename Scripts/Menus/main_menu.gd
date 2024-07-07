@@ -19,13 +19,13 @@ func _ready():
 	multiplayer.connected_to_server.connect(connected_to_server)
 	host.grab_focus()
 	upnp_checkbox.button_pressed = false
-	
 
 func _process(_delta):
 	pass
 
 func connected_to_server():
 	send_player_information.rpc_id(1, pseudo.text, multiplayer.get_unique_id())
+	
 	
 func _on_host_button_down():
 	self.hide()
@@ -50,6 +50,7 @@ func _on_exit_button_down():
 	get_tree().quit()
 
 func add_player(id: int):
+	await get_tree().create_timer(0.05).timeout
 	if multiplayer.is_server():
 		var spawn_position = select_spawn_point()
 		spawn_player(id, spawn_position)
