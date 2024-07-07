@@ -36,6 +36,10 @@ var parking_brake_engaged = false
 @export var battery_drain_rate: float = 0.1
 @onready var battery_display = $BatteryText/BatteryBar
 
+# Radio
+@onready var radio_text = $RadioText
+
+
 func _ready():
 	front_left_wheel = $Wheels/FrontLeftWheel
 	front_right_wheel = $Wheels/FrontRightWheel
@@ -45,6 +49,10 @@ func _physics_process(delta):
 		if Input.is_action_just_pressed("brake"):
 			toggle_parking_brake()
 		
+		if Input.is_action_just_pressed("radio"):
+			print("hello")
+			$AudioStreamPlayer.play()
+	
 		steering_input = Input.get_axis("right", "left")
 		
 		if current_battery > 0:
@@ -76,6 +84,8 @@ func _physics_process(delta):
 		battery_display.battery = current_battery
 		$BatteryText.show()
 		
+		$RadioText.show()
+		
 		leaving_car()
 		
 		if Input.is_action_just_pressed("reset_car"):
@@ -97,6 +107,7 @@ func _physics_process(delta):
 	else:
 		$SpeedText.hide()
 		$BatteryText.hide()
+		$RadioText.hide()
 		entering_car()
 		accel_input = 0
 		front_left_wheel.rotation.y = 0
@@ -165,6 +176,7 @@ func remove_player_from_car():
 	active = false
 	$SpeedText.hide()
 	$BatteryText.hide()
+	$RadioText.hide()
 
 func is_car_upside_down():
 	return global_transform.basis.y.dot(Vector3.UP) < 0

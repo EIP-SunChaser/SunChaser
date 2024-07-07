@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://tidejc3nmf5j"]
+
+[node name="Radio" type="VBoxContainer"]
+
+[node name="Title_song" type="Label" parent="."]
+layout_mode = 2
+text = "Press P to play"

@@ -1,10 +1,12 @@
-[gd_scene load_steps=26 format=3 uid="uid://dhdbxqqbo8gxi"]
+[gd_scene load_steps=28 format=3 uid="uid://dhdbxqqbo8gxi"]
 
 [ext_resource type="Script" path="res://Scripts/Entities/jolt_car.gd" id="1_v325y"]
 [ext_resource type="Script" path="res://Scripts/Entities/wheel.gd" id="2_0xgju"]
 [ext_resource type="Script" path="res://Scripts/Entities/CameraController.gd" id="3_hjqr5"]
 [ext_resource type="Script" path="res://Scripts/Entities/actionnable_car.gd" id="4_uphqk"]
 [ext_resource type="PackedScene" uid="uid://dea0kmuerk3wf" path="res://Scenes/Ui/battery_bar.tscn" id="5_0x0d3"]
+[ext_resource type="PackedScene" uid="uid://tidejc3nmf5j" path="res://Scenes/Ui/radio.tscn" id="6_ff0wm"]
+[ext_resource type="AudioStream" uid="uid://cijx6n856d2yy" path="res://Assets/Audios/Poker_face.mp3" id="7_q0kix"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g4php"]
 size = Vector3(2, 0.5, 3)
@@ -90,7 +92,7 @@ radius = 0.025
 [sub_resource type="BoxShape3D" id="BoxShape3D_5a73s"]
 size = Vector3(6.22852, 3.52063, 4)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i78ty"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kudms"]
 bg_color = Color(0, 0, 0, 0)
 
 [sub_resource type="Gradient" id="Gradient_mbdqv"]
@@ -138,6 +140,9 @@ properties/7/replication_mode = 1
 properties/8/path = NodePath("MeshInstance3D:rotation")
 properties/8/spawn = true
 properties/8/replication_mode = 1
+properties/9/path = NodePath("AudioStreamPlayer:playing")
+properties/9/spawn = true
+properties/9/replication_mode = 1
 
 [node name="JoltCar" type="RigidBody3D" groups=["JoltCar"]]
 mass = 10.0
@@ -307,11 +312,29 @@ offset_top = -118.0
 offset_right = -12.0001
 offset_bottom = -88.0
 grow_horizontal = 0
-theme_override_styles/background = SubResource("StyleBoxFlat_i78ty")
+theme_override_styles/background = SubResource("StyleBoxFlat_kudms")
 theme_override_styles/fill = SubResource("StyleBoxTexture_546eb")
+
+[node name="RadioText" type="CanvasLayer" parent="."]
+
+[node name="Radio" parent="RadioText" instance=ExtResource("6_ff0wm")]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -125.0
+offset_top = -164.0
+offset_right = -12.0
+offset_bottom = -141.0
+grow_horizontal = 0
+grow_vertical = 0
 
 [node name="Node3D" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.95, -0.21687)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_q0kix")
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_afsww")
