@@ -23,6 +23,7 @@ var input_actions = {
 	"deccelerate": "Deccelerate",
 	"reset_camera": "Reset camera",
 	"brake": "Parking brake",
+	"radio": "Radio",
 	"pause": "Pause",
 	"teleport": "teleport",
 	"teleport-2": "teleport-2",

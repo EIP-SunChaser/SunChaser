@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/Ui/battery_bar.gd" id="1_b2wo0"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5le60"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a8dlj"]
 bg_color = Color(0, 0, 0, 0)
 
 [sub_resource type="Gradient" id="Gradient_mbdqv"]
@@ -26,7 +26,7 @@ anchor_bottom = 1.0
 offset_top = -27.0
 offset_right = 4.0
 grow_vertical = 0
-theme_override_styles/background = SubResource("StyleBoxFlat_5le60")
+theme_override_styles/background = SubResource("StyleBoxFlat_a8dlj")
 theme_override_styles/fill = SubResource("StyleBoxTexture_j0jf7")
 value = 100.0
 script = ExtResource("1_b2wo0")

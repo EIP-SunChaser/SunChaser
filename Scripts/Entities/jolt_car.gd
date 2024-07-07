@@ -202,10 +202,6 @@ func recharge_battery(amount: float):
 	
 func radio():
 	if!$AudioStreamPlayer.playing:
-		print("play")
 		$AudioStreamPlayer.play()
-		pass
 	elif $AudioStreamPlayer.playing:
-		print("stop")
 		$AudioStreamPlayer.stop()
-		pass

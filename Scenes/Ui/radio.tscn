@@ -1,7 +1,14 @@
-[gd_scene format=3 uid="uid://tidejc3nmf5j"]
+[gd_scene load_steps=2 format=3 uid="uid://tidejc3nmf5j"]
 
-[node name="Radio" type="VBoxContainer"]
+[ext_resource type="Script" path="res://Scripts/Ui/radio.gd" id="1_a2q6q"]
+
+[node name="Radio" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_a2q6q")
 
 [node name="Title_song" type="Label" parent="."]
 layout_mode = 2
+offset_right = 113.0
+offset_bottom = 23.0
 text = "Press P to play"
