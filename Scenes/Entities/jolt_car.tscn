@@ -92,7 +92,7 @@ radius = 0.025
 [sub_resource type="BoxShape3D" id="BoxShape3D_5a73s"]
 size = Vector3(6.22852, 3.52063, 4)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_43da8"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ftyt"]
 bg_color = Color(0, 0, 0, 0)
 
 [sub_resource type="Gradient" id="Gradient_mbdqv"]
@@ -148,10 +148,10 @@ properties/10/spawn = true
 properties/10/replication_mode = 1
 properties/11/path = NodePath("AudioStreamPlayer3D:playing")
 properties/11/spawn = true
-properties/11/replication_mode = 2
+properties/11/replication_mode = 0
 properties/12/path = NodePath("AudioStreamPlayer:playing")
 properties/12/spawn = true
-properties/12/replication_mode = 2
+properties/12/replication_mode = 0
 
 [node name="JoltCar" type="RigidBody3D" groups=["JoltCar"]]
 mass = 10.0
@@ -321,7 +321,7 @@ offset_top = -118.0
 offset_right = -12.0001
 offset_bottom = -88.0
 grow_horizontal = 0
-theme_override_styles/background = SubResource("StyleBoxFlat_43da8")
+theme_override_styles/background = SubResource("StyleBoxFlat_6ftyt")
 theme_override_styles/fill = SubResource("StyleBoxTexture_546eb")
 
 [node name="RadioText" type="CanvasLayer" parent="."]
