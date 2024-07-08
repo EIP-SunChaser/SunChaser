@@ -38,7 +38,10 @@ var parking_brake_engaged = false
 
 # Radio
 @onready var radio_text = $RadioText
-
+@onready var audio_stream_player_3d = $AudioStreamPlayer3D
+@onready var audio_stream_player = $AudioStreamPlayer
+@export var radio_on = false
+@export var current_playback_position = 0.0
 
 func _ready():
 	front_left_wheel = $Wheels/FrontLeftWheel
@@ -116,12 +119,12 @@ func toggle_parking_brake():
 	parking_brake_engaged = !parking_brake_engaged
 
 func _on_player_detect_body_entered(body):
-		players_in_zone.append(body)
-		car_zone = true
+	players_in_zone.append(body)
+	car_zone = true
 
 func _on_player_detect_body_exited(body):
-		players_in_zone.erase(body)
-		car_zone = players_in_zone.size() > 0
+	players_in_zone.erase(body)
+	car_zone = players_in_zone.size() > 0
 
 func find_local_player():
 	for player in players_in_zone:
@@ -149,6 +152,7 @@ func set_player_in_car(player_path: NodePath):
 		
 		if player.is_multiplayer_authority():
 			camera_3d.current = true
+			update_radio_for_player()
 
 func leaving_car():
 	if Input.is_action_just_pressed("use") && active:
@@ -171,6 +175,7 @@ func remove_player_from_car():
 		
 		player_in_car.is_in_car = false
 		player_in_car = null
+		update_radio_for_player()
 	
 	active = false
 	$SpeedText.hide()
@@ -199,9 +204,27 @@ func apply_smooth_rotation(delta):
 func recharge_battery(amount: float):
 	current_battery = min(current_battery + amount, max_battery)
 	battery_display.battery = current_battery
-	
+
 func radio():
-	if!$AudioStreamPlayer.playing:
-		$AudioStreamPlayer.play()
-	elif $AudioStreamPlayer.playing:
-		$AudioStreamPlayer.stop()
+	radio_on = !radio_on
+	if radio_on:
+		if player_in_car and player_in_car.is_multiplayer_authority():
+			audio_stream_player.play(current_playback_position)
+			audio_stream_player_3d.stop()
+		else:
+			audio_stream_player.stop()
+			audio_stream_player_3d.play(current_playback_position)
+	else:
+		current_playback_position = audio_stream_player.get_playback_position() if audio_stream_player.playing else audio_stream_player_3d.get_playback_position()
+		audio_stream_player.stop()
+		audio_stream_player_3d.stop()
+
+func update_radio_for_player():
+	if radio_on:
+		current_playback_position = audio_stream_player.get_playback_position() if audio_stream_player.playing else audio_stream_player_3d.get_playback_position()
+		if player_in_car and player_in_car.is_multiplayer_authority():
+			audio_stream_player.play(current_playback_position)
+			audio_stream_player_3d.stop()
+		else:
+			audio_stream_player.stop()
+			audio_stream_player_3d.play(current_playback_position)
