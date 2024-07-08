@@ -15,8 +15,9 @@ extends CharacterBody3D
 
 #Bullets
 @onready var gun_animation = $"Head/Camera3D/rifle_prototype/AnimationPlayer"
-@onready var bullet_sound = $"Head/Camera3D/rifle_prototype/AudioStreamPlayer"
+#@onready var bullet_sound = $"Head/Camera3D/rifle_prototype/AudioStreamPlayer3D"
 @onready var gun_barrel = $"Head/Camera3D/rifle_prototype/RayCast3D"
+
 var bullet = load("res://Scenes/Items/bullet.tscn")
 var instance
 
@@ -236,15 +237,16 @@ func scale_character(target_height):
 @rpc("any_peer", "call_local")
 func play_shoot_effects():
 	if !gun_animation.is_playing():
-		bullet_sound.play()
 		instance = bullet.instantiate()
 		instance.position = gun_barrel.global_position
 		instance.transform.basis = gun_barrel.global_transform.basis
 		get_parent().add_child(instance)
+		instance.get_node("AudioStreamPlayer3D").play()
 		if isAiming:
 			gun_animation.play("Aim_n_Shoot")
 		else:
 			gun_animation.play("Shoot")
+
 
 func _headbob(time) -> Vector3:
 	var pos = Vector3.ZERO
