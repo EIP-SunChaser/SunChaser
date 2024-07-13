@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://sgxyoglr7pux"]
 
 [ext_resource type="Script" path="res://Scripts/Menus/pause_menu.gd" id="1_4cbl7"]
-[ext_resource type="Shader" path="res://Shaders/blur.gdshader" id="1_qteiw"]
+[ext_resource type="Shader" path="res://Assets/Shaders/blur.gdshader" id="1_qteiw"]
 [ext_resource type="PackedScene" uid="uid://dhi3iq7ytdwdt" path="res://Scenes/Menus/options_menu.tscn" id="3_hdcut"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xwq1e"]

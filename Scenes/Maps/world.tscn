@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://Scripts/Ui/IP_ADDRESS.gd" id="6_xrr28"]
 [ext_resource type="Script" path="res://Scripts/Maps/Area_quest1.gd" id="7_36gr5"]
 [ext_resource type="Script" path="res://Scripts/Entities/quest_one_invisible_entity.gd" id="7_vr2ts"]
-[ext_resource type="ArrayMesh" uid="uid://ctakldo0qp5pr" path="res://Shaders/box.tres" id="8_kytmy"]
+[ext_resource type="ArrayMesh" uid="uid://ctakldo0qp5pr" path="res://Assets/Meshs/box.tres" id="8_kytmy"]
 [ext_resource type="PackedScene" uid="uid://onhbcns16fj8" path="res://Scenes/Items/detailled_tree.tscn" id="10_0abcx"]
 [ext_resource type="PackedScene" uid="uid://ddhu32xlnqaju" path="res://Scenes/Items/car_call_button.tscn" id="11_a1kia"]
 [ext_resource type="PackedScene" uid="uid://p7qlo83l57tv" path="res://Scenes/Maps/map_prototype_v_4.tscn" id="11_xmsm6"]

@@ -1,11 +1,11 @@
 [gd_scene load_steps=12 format=3 uid="uid://bmc1fqst1lx1y"]
 
-[ext_resource type="Material" uid="uid://3tfkfbvkum1p" path="res://Shaders/grid.tres" id="1_pb4wu"]
+[ext_resource type="Material" uid="uid://3tfkfbvkum1p" path="res://Assets/Materials/grid.tres" id="1_pb4wu"]
 [ext_resource type="PackedScene" uid="uid://d5d7b87l2mmh" path="res://Scenes/Maps/U_montain.tscn" id="3_e4254"]
 [ext_resource type="PackedScene" uid="uid://bvb2eqpdwjg62" path="res://Scenes/Maps/Water.tscn" id="4_axh3k"]
 [ext_resource type="PackedScene" uid="uid://buqstjbynyvcg" path="res://Scenes/Maps/charging_station.tscn" id="5_jtewa"]
 [ext_resource type="Texture2D" uid="uid://byf2ln775bpbe" path="res://Docs/Profil Pic/jules.png" id="5_o6ilq"]
-[ext_resource type="ArrayMesh" uid="uid://ctakldo0qp5pr" path="res://Shaders/box.tres" id="6_06emj"]
+[ext_resource type="ArrayMesh" uid="uid://ctakldo0qp5pr" path="res://Assets/Meshs/box.tres" id="6_06emj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y48k7"]
 albedo_color = Color(1, 0.580392, 0.0588235, 1)

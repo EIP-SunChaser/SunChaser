@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cy7ywppb2i4ey" path="res://Scenes/Entities/player.tscn" id="1_v1ikf"]
 [ext_resource type="Script" path="res://Scripts/IP_ADRESS.gd" id="3_o26ad"]
 [ext_resource type="PackedScene" uid="uid://b2ajj4fsrspvj" path="res://Scenes/Ui/fps_meter.tscn" id="4_1di6o"]
-[ext_resource type="Material" uid="uid://3tfkfbvkum1p" path="res://Shaders/grid.tres" id="4_dtse3"]
+[ext_resource type="Material" uid="uid://3tfkfbvkum1p" path="res://Assets/Materials/grid.tres" id="4_dtse3"]
 [ext_resource type="PackedScene" uid="uid://bvb2eqpdwjg62" path="res://Scenes/Maps/Water.tscn" id="5_p0cso"]
 [ext_resource type="PackedScene" uid="uid://d5d7b87l2mmh" path="res://Scenes/Maps/U_montain.tscn" id="8_vck0d"]
 [ext_resource type="PackedScene" uid="uid://d0yhvm1880vyv" path="res://Scenes/Entities/hat_npc.tscn" id="9_gt0vc"]

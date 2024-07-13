@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://ddj7h6l2wjim8"]
 
-[ext_resource type="Shader" path="res://Shaders/blur.gdshader" id="1_gaq7q"]
+[ext_resource type="Shader" path="res://Assets/Shaders/blur.gdshader" id="1_gaq7q"]
 [ext_resource type="Script" path="res://Scripts/Menus/inventory.gd" id="1_v1b4a"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wlri2"]
