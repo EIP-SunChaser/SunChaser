@@ -219,4 +219,3 @@ shape = SubResource("BoxShape3D_wfju5")
 
 [connection signal="body_part_hit" from="BodyCollision/Area3D" to="." method="_on_body_part_hit"]
 [connection signal="health_depleted" from="Head/Camera3D/HealthBar" to="." method="_on_health_bar_health_depleted"]
-[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

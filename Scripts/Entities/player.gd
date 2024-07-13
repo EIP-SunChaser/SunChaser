@@ -25,7 +25,7 @@ var input_dir = Vector2(0, 0)
 var speed = 0.0
 const WALK_SPEED = 5.0
 const SPRINT_SPEED = 8.0
-const CROUCH_SPEED = 2.5
+const CROUCH_SPEED = 2.0
 const JUMP_VELOCITY = 4.5
 const SENSITIVITY = 0.003
 var SENSITIVITY_JOYSTICK = 0.06
@@ -33,6 +33,7 @@ var SENSITIVITY_JOYSTICK = 0.06
 var is_in_car = false
 var is_crouching = false
 @onready var body_collision = $BodyCollision
+@onready var body_mesh = $BodyCollision/BodyMesh
 
 # Variables pour stocker les valeurs des axes pour les mouvements de camÃ©ra avec manette
 var axis_x = 0.0
@@ -55,12 +56,12 @@ var GODMOD = false
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = 9.8
 
-var standing_height = 1.0
-var crouching_height = 0.5
-
 var respawn_point = Vector3(0, 10, 0)
 
 var sprint_toggled = false
+var standing_position = 2.0
+var crouch_position = 1.5
+var tween: Tween
 
 func _enter_tree():
 	set_multiplayer_authority(str(name).to_int())
@@ -74,9 +75,6 @@ func _ready():
 	health_bar.init_health(100)
 	deathLabel.visible = false
 	deathLabel.hide()
-	
-	standing_height = body_collision.scale.y
-	crouching_height = standing_height * 0.8
 
 func _unhandled_input(event):
 	if !is_multiplayer_authority(): return
@@ -126,7 +124,7 @@ func _unhandled_input(event):
 		GODMOD = !GODMOD
 
 	if Input.is_action_just_pressed("crouch"):
-		crouch()
+		is_crouching = !is_crouching
 		
 	if event.is_action_pressed("sprint") and event is InputEventJoypadButton:
 		sprint_toggled = !sprint_toggled
@@ -207,32 +205,29 @@ func do_physics_process(delta):
 			isAiming = true
 			gun_animation.play("Aim")
 
-	if is_crouching:
-		speed = CROUCH_SPEED
-	elif Input.is_action_pressed("sprint") or sprint_toggled:
-		speed = SPRINT_SPEED
-	else:
-		speed = WALK_SPEED
 
+	if Input.is_action_pressed("sprint") or sprint_toggled:
+		if is_crouching: speed = SPRINT_SPEED / CROUCH_SPEED
+		else: speed = SPRINT_SPEED
+	else:
+		if is_crouching: speed = WALK_SPEED / CROUCH_SPEED
+		else: speed = WALK_SPEED
+
+	crouch()
 	move_and_slide()
 
 func crouch():
-	if is_on_floor() and not is_in_car:
-		if not is_crouching:
-			is_crouching = true
-			scale_character(crouching_height)
-		else:
-			is_crouching = false
-			scale_character(standing_height)
+	if not is_in_car:
+		scale_character(standing_position if not is_crouching else crouch_position)
 
 func scale_character(target_height):
-	var scale_factor = target_height / body_collision.scale.y
-	body_collision.scale.y = target_height
+	tween = create_tween()
+	tween.set_parallel(true)
+	tween.set_ease(Tween.EASE_OUT)
+	tween.set_trans(Tween.TRANS_QUAD)
 	
-	# Adjust the camera position
-	var camera_offset = camera.position.y - head.position.y
-	head.position.y *= scale_factor
-	camera.position.y = head.position.y + camera_offset
+	tween.tween_property(body_collision.shape, "height", target_height, 0.2)
+	tween.tween_property(body_mesh.mesh, "height", target_height, 0.2)
 
 @rpc("any_peer", "call_local")
 func play_shoot_effects():
