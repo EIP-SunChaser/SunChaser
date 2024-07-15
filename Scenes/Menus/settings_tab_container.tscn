@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cpg5gc7d3x4xe"]
+[gd_scene load_steps=3 format=3 uid="uid://cpg5gc7d3x4xe"]
 
 [ext_resource type="PackedScene" uid="uid://co8ojandal2n6" path="res://Scenes/Menus/input_settings.tscn" id="1_1wta0"]
+[ext_resource type="PackedScene" uid="uid://daiq74vfbitwf" path="res://Scenes/Menus/general_settings.tscn" id="1_x64oy"]
 
 [node name="settings_tab_container" type="Control"]
 layout_mode = 3
@@ -44,6 +45,10 @@ theme_override_constants/margin_bottom = 24
 layout_mode = 2
 theme_override_constants/separation = 64
 alignment = 1
+
+[node name="general_settings" parent="TabContainer/General/MarginContainer/VBoxContainer" instance=ExtResource("1_x64oy")]
+layout_mode = 2
+size_flags_vertical = 3
 
 [node name="Graphics" type="TabBar" parent="TabContainer"]
 visible = false
