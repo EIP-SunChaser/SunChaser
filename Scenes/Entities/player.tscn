@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://cy7ywppb2i4ey"]
+[gd_scene load_steps=28 format=3 uid="uid://cy7ywppb2i4ey"]
 
 [ext_resource type="Script" path="res://Scripts/Entities/player.gd" id="1_mpqcp"]
 [ext_resource type="Script" path="res://Scripts/Entities/Pseudo.gd" id="2_bmpr3"]
@@ -36,6 +36,7 @@ albedo_color = Color(0, 1, 0, 1)
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_sbrlq"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_d5hqf"]
+radius = 0.55
 
 [sub_resource type="BoxMesh" id="BoxMesh_ipsvg"]
 
@@ -68,6 +69,9 @@ material = SubResource("StandardMaterial3D_cggjs")
 size = Vector2(0.5, 0.5)
 orientation = 2
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_wtfnw"]
+radius = 0.08
+
 [sub_resource type="Animation" id="Animation_e7y2j"]
 length = 0.001
 tracks/0/type = "value"
@@ -94,6 +98,54 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector3(0.546027, -0.273746, -0.724783)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BodyCollision/BodyMesh:mesh:height")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [2.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BodyCollision:shape:height")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [2.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Head:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.50028, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("DamageArea3D/CollisionShape3D:shape:height")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [2.0]
+}
 
 [sub_resource type="Animation" id="Animation_kofwg"]
 resource_name = "move"
@@ -112,8 +164,61 @@ tracks/0/keys = {
 "values": [Vector3(0.546027, -0.273746, -0.724783), Vector3(0.433559, -0.22744, -0.724783), Vector3(0.546027, -0.273746, -0.724783), Vector3(0.66199, -0.19412, -0.724783)]
 }
 
+[sub_resource type="Animation" id="Animation_yvogq"]
+resource_name = "Crouch"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BodyCollision/BodyMesh:mesh:height")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [2.0, 1.5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BodyCollision:shape:height")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [2.0, 1.5]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Head:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 1.50028, 0), Vector3(0, 1.2, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("DamageArea3D/CollisionShape3D:shape:height")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [2.0, 1.5]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6rs1o"]
 _data = {
+"Crouch": SubResource("Animation_yvogq"),
 "RESET": SubResource("Animation_e7y2j"),
 "move": SubResource("Animation_kofwg")
 }
@@ -142,12 +247,12 @@ material_override = SubResource("StandardMaterial3D_e6ydu")
 mesh = SubResource("CapsuleMesh_sbrlq")
 skeleton = NodePath("../..")
 
-[node name="Area3D" type="Area3D" parent="BodyCollision" groups=["Players"]]
+[node name="DamageArea3D" type="Area3D" parent="." groups=["Players"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 script = ExtResource("2_cnrj0")
 damage = 20
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="BodyCollision/Area3D"]
-transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0, 0)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DamageArea3D"]
 shape = SubResource("CapsuleShape3D_d5hqf")
 
 [node name="Pseudo" type="Label3D" parent="."]
@@ -202,6 +307,12 @@ text = "DEAD"
 [node name="Press_e_ui" parent="Head/Camera3D" instance=ExtResource("9_hu5b3")]
 visible = false
 
+[node name="HeadCast" type="ShapeCast3D" parent="Head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.485363, 0)
+shape = SubResource("SphereShape3D_wtfnw")
+target_position = Vector3(0, 0, 0)
+debug_shape_custom_color = Color(0.403922, 0.00392157, 1, 1)
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_6rs1o")
@@ -217,5 +328,6 @@ collision_mask = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -1)
 shape = SubResource("BoxShape3D_wfju5")
 
-[connection signal="body_part_hit" from="BodyCollision/Area3D" to="." method="_on_body_part_hit"]
+[connection signal="body_part_hit" from="DamageArea3D" to="." method="_on_body_part_hit"]
 [connection signal="health_depleted" from="Head/Camera3D/HealthBar" to="." method="_on_health_bar_health_depleted"]
+[connection signal="animation_started" from="AnimationPlayer" to="." method="_on_animation_player_animation_started"]

@@ -15,7 +15,6 @@ extends CharacterBody3D
 
 #Bullets
 @onready var gun_animation = $"Head/Camera3D/rifle_prototype/AnimationPlayer"
-#@onready var bullet_sound = $"Head/Camera3D/rifle_prototype/AudioStreamPlayer3D"
 @onready var gun_barrel = $"Head/Camera3D/rifle_prototype/RayCast3D"
 
 var bullet = load("res://Scenes/Items/bullet.tscn")
@@ -34,8 +33,9 @@ var is_in_car = false
 var is_crouching = false
 @onready var body_collision = $BodyCollision
 @onready var body_mesh = $BodyCollision/BodyMesh
+@onready var head_cast = $Head/HeadCast
+var animation_paused = false
 
-# Variables pour stocker les valeurs des axes pour les mouvements de camÃ©ra avec manette
 var axis_x = 0.0
 var axis_y = 0.0
 
@@ -53,15 +53,11 @@ var isAiming = false
 var isInDialogue = false
 var GODMOD = false
 
-# Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = 9.8
 
 var respawn_point = Vector3(0, 10, 0)
 
 var sprint_toggled = false
-var standing_position = 2.0
-var crouch_position = 1.5
-var tween: Tween
 
 func _enter_tree():
 	set_multiplayer_authority(str(name).to_int())
@@ -75,6 +71,7 @@ func _ready():
 	health_bar.init_health(100)
 	deathLabel.visible = false
 	deathLabel.hide()
+	head_cast.add_exception(self)
 
 func _unhandled_input(event):
 	if !is_multiplayer_authority(): return
@@ -92,7 +89,6 @@ func _unhandled_input(event):
 	
 	input_dir = Input.get_vector("left", "right", "up", "down")
 	
-	# Handle jump.
 	if Input.is_action_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 	
@@ -103,7 +99,6 @@ func _unhandled_input(event):
 		var actionnables = actionable_finder.get_overlapping_areas()
 		if actionnables.size() > 0 && actionnables[0].has_method("action"):
 			actionnables[0].action()
-			pass
 
 	if Input.is_action_just_pressed("pause"):
 		pauseMenu()
@@ -124,8 +119,8 @@ func _unhandled_input(event):
 		GODMOD = !GODMOD
 
 	if Input.is_action_just_pressed("crouch"):
-		is_crouching = !is_crouching
-		
+		crouch()
+
 	if event.is_action_pressed("sprint") and event is InputEventJoypadButton:
 		sprint_toggled = !sprint_toggled
 	elif event.is_action_released("sprint") and event is InputEventKey:
@@ -158,14 +153,12 @@ func do_physics_process(delta):
 		camera.rotate_x(-axis_y * SENSITIVITY_JOYSTICK)
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90))
 	
-	# Add the gravity.
 	if not is_on_floor() and GODMOD == false:
 		velocity.y -= gravity * delta
 
 	if GODMOD:
 		speed = 100
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
+
 	var direction = (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if is_on_floor():
 		if direction:
@@ -178,11 +171,9 @@ func do_physics_process(delta):
 		velocity.x = lerp(velocity.x, direction.x * speed, delta * 3.0)
 		velocity.z = lerp(velocity.z, direction.z * speed, delta * 3.0)
 
-	# Head bob
 	t_bob += delta * velocity.length() * float(is_on_floor())
 	camera.transform.origin = _headbob(t_bob)
 
-	# FOV
 	var velocity_clamped = clamp(velocity.length(), 0.5, SPRINT_SPEED * 2)
 	var target_fov = BASE_FOV + FOV_CAHNGE * velocity_clamped
 	camera.fov = lerp(camera.fov, target_fov, delta * 8.0)
@@ -193,41 +184,36 @@ func do_physics_process(delta):
 			isAiming = false
 			gun_animation.play_backwards("Aim")
 
-	if animation_player.current_animation == "shoot":
-		pass
-	else:
-		animation_player.stop()
-
-	# Aiming
 	if Input.is_action_pressed("aim") && isAiming == false:
 		SENSITIVITY_JOYSTICK = 0.01
 		if !gun_animation.is_playing():
 			isAiming = true
 			gun_animation.play("Aim")
 
-
 	if Input.is_action_pressed("sprint") or sprint_toggled:
-		if is_crouching: speed = SPRINT_SPEED / CROUCH_SPEED
-		else: speed = SPRINT_SPEED
+		speed = SPRINT_SPEED if !is_crouching else SPRINT_SPEED / CROUCH_SPEED
 	else:
-		if is_crouching: speed = WALK_SPEED / CROUCH_SPEED
-		else: speed = WALK_SPEED
+		speed = WALK_SPEED if !is_crouching else WALK_SPEED / CROUCH_SPEED
 
-	crouch()
+	check_head_collision()
 	move_and_slide()
 
 func crouch():
-	if not is_in_car:
-		scale_character(standing_position if not is_crouching else crouch_position)
-
-func scale_character(target_height):
-	tween = create_tween()
-	tween.set_parallel(true)
-	tween.set_ease(Tween.EASE_OUT)
-	tween.set_trans(Tween.TRANS_QUAD)
+	if is_crouching:
+		animation_player.play_backwards("Crouch")
+	elif !is_crouching:
+		animation_player.play("Crouch")
 	
-	tween.tween_property(body_collision.shape, "height", target_height, 0.2)
-	tween.tween_property(body_mesh.mesh, "height", target_height, 0.2)
+func check_head_collision():
+	if head_cast.is_colliding():
+		if !animation_paused and animation_player.current_animation == "Crouch":
+			animation_player.pause()
+			animation_paused = true
+	else:
+		if animation_paused:
+			animation_player.play_backwards()
+			is_crouching = false
+			animation_paused = false
 
 @rpc("any_peer", "call_local")
 func play_shoot_effects():
@@ -241,7 +227,6 @@ func play_shoot_effects():
 			gun_animation.play("Aim_n_Shoot")
 		else:
 			gun_animation.play("Shoot")
-
 
 func _headbob(time) -> Vector3:
 	var pos = Vector3.ZERO
@@ -263,24 +248,20 @@ func pauseMenu():
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		pause_menu.hide()
 		GlobalVariables.isInPause = false
-		pass
 	else:
 		GlobalVariables.isInPause = true
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		pause_menu.show()
-		pass
 
 func inventoryMenu():
 	if GlobalVariables.isInInventory == true:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		inventory.hide()
 		GlobalVariables.isInInventory = false
-		pass
 	else:
 		GlobalVariables.isInInventory = true
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		inventory.show()
-		pass
 
 func respawn():
 	global_transform.origin = respawn_point
@@ -291,3 +272,7 @@ func respawn():
 
 func set_respawn_point(new_point: Vector3):
 	respawn_point = new_point
+
+func _on_animation_player_animation_started(_anim_name):
+	if !head_cast.is_colliding():
+		is_crouching = !is_crouching

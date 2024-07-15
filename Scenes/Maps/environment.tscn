@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bmc1fqst1lx1y"]
+[gd_scene load_steps=15 format=3 uid="uid://bmc1fqst1lx1y"]
 
 [ext_resource type="Material" uid="uid://3tfkfbvkum1p" path="res://Assets/Materials/grid.tres" id="1_pb4wu"]
 [ext_resource type="PackedScene" uid="uid://d5d7b87l2mmh" path="res://Scenes/Maps/U_montain.tscn" id="3_e4254"]
@@ -9,6 +9,16 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y48k7"]
 albedo_color = Color(1, 0.580392, 0.0588235, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_87qxn"]
+albedo_color = Color(1, 0.580392, 0.0588235, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_r0wab"]
+material = SubResource("StandardMaterial3D_87qxn")
+size = Vector3(4, 0.1, 1)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_u3pm0"]
+data = PackedVector3Array(-2, 0.05, 0.5, 2, 0.05, 0.5, -2, -0.05, 0.5, 2, 0.05, 0.5, 2, -0.05, 0.5, -2, -0.05, 0.5, 2, 0.05, -0.5, -2, 0.05, -0.5, 2, -0.05, -0.5, -2, 0.05, -0.5, -2, -0.05, -0.5, 2, -0.05, -0.5, 2, 0.05, 0.5, 2, 0.05, -0.5, 2, -0.05, 0.5, 2, 0.05, -0.5, 2, -0.05, -0.5, 2, -0.05, 0.5, -2, 0.05, -0.5, -2, 0.05, 0.5, -2, -0.05, -0.5, -2, 0.05, 0.5, -2, -0.05, 0.5, -2, -0.05, -0.5, 2, 0.05, 0.5, -2, 0.05, 0.5, 2, 0.05, -0.5, -2, 0.05, 0.5, -2, 0.05, -0.5, 2, 0.05, -0.5, -2, -0.05, 0.5, 2, -0.05, 0.5, -2, -0.05, -0.5, 2, -0.05, 0.5, 2, -0.05, -0.5, -2, -0.05, -0.5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gjbel"]
 
@@ -75,6 +85,15 @@ use_collision = true
 polygon = PackedVector2Array(0.1, 1, 1, 1.2, 1, -1, -1.2, -1, -1, 0)
 depth = 2.0
 material = SubResource("StandardMaterial3D_y48k7")
+
+[node name="Box7" type="MeshInstance3D" parent="Parkour"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.525, 2.4, -5.5)
+mesh = SubResource("BoxMesh_r0wab")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Parkour/Box7"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Parkour/Box7/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_u3pm0")
 
 [node name="CubeWall" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90, 1, 0)
