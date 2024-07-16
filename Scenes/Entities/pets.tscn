@@ -1,0 +1,53 @@
+[gd_scene load_steps=9 format=3 uid="uid://dfb2jorn13mqh"]
+
+[ext_resource type="Script" path="res://Scripts/Entities/pets.gd" id="1_h81hw"]
+[ext_resource type="Texture2D" uid="uid://cglywf484u7r5" path="res://icon.svg" id="2_nb77u"]
+[ext_resource type="Script" path="res://Scripts/Entities/Pets_Area3D.gd" id="3_rl0w5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gtjth"]
+albedo_texture = ExtResource("2_nb77u")
+uv1_offset = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_sx60n"]
+material = SubResource("StandardMaterial3D_gtjth")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_x2xpf"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mphpu"]
+size = Vector3(5, 5, 5)
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_gjtr2"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:rotation")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+properties/2/path = NodePath(".:movement_speed")
+properties/2/spawn = true
+properties/2/replication_mode = 1
+
+[node name="Pets" type="CharacterBody3D"]
+script = ExtResource("1_h81hw")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_sx60n")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_x2xpf")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("3_rl0w5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("BoxShape3D_mphpu")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_gjtr2")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

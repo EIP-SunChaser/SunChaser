@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://c4ca03hfvhrsd"]
+[gd_scene load_steps=25 format=3 uid="uid://c4ca03hfvhrsd"]
 
 [ext_resource type="PackedScene" uid="uid://bmc1fqst1lx1y" path="res://Scenes/Maps/environment.tscn" id="1_steub"]
 [ext_resource type="PackedScene" uid="uid://cwfe4ax6jym2h" path="res://Scenes/Menus/main_menu.tscn" id="2_ak7c5"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://ddhu32xlnqaju" path="res://Scenes/Items/car_call_button.tscn" id="11_a1kia"]
 [ext_resource type="PackedScene" uid="uid://p7qlo83l57tv" path="res://Scenes/Maps/map_prototype_v_4.tscn" id="11_xmsm6"]
 [ext_resource type="PackedScene" uid="uid://cvuvh31sst0u1" path="res://Scenes/Entities/forestier.tscn" id="13_tkqpx"]
+[ext_resource type="PackedScene" uid="uid://dfb2jorn13mqh" path="res://Scenes/Entities/pets.tscn" id="14_avud1"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2efs4"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -2003,6 +2004,9 @@ skeleton = NodePath("")
 
 [node name="car_call_button" parent="." instance=ExtResource("11_a1kia")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -14.756, 0.5, 7.26141)
+
+[node name="Pets" parent="." instance=ExtResource("14_avud1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.8, 1, 4.956)
 
 [connection signal="body_entered" from="Quest1/Area3D" to="Quest1/Area3D" method="_on_body_entered"]
 [connection signal="body_exited" from="Quest1/Area3D" to="Quest1/Area3D" method="_on_body_exited"]
