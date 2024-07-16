@@ -9,6 +9,7 @@ extends CharacterBody3D
 @onready var deathLabel = $"Head/Camera3D/DeathLabel"
 @onready var health_bar = $Head/Camera3D/HealthBar
 @onready var quest_ui = $Head/Camera3D/Quest_ui
+@onready var speed_label = $SpeedLabel
 
 @onready var pause_menu = $pause_menu
 @onready var inventory = $Inventory
@@ -52,6 +53,7 @@ var isAlive = true
 var isAiming = false
 var isInDialogue = false
 var GODMOD = false
+var god_mode_speed = 100.0
 
 var gravity = 9.8
 
@@ -87,6 +89,13 @@ func _unhandled_input(event):
 		elif event.axis == 3:  # Axe vertical
 			axis_y = event.axis_value
 	
+	if GODMOD and event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
+			god_mode_speed *= 1.1
+		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
+			god_mode_speed *= 0.9
+		god_mode_speed = clamp(god_mode_speed, 1.0, 1000.0)
+	
 	input_dir = Input.get_vector("left", "right", "up", "down")
 	
 	if Input.is_action_pressed("jump") and is_on_floor():
@@ -115,7 +124,7 @@ func _unhandled_input(event):
 	if Input.is_action_just_pressed("teleport-3"):
 			global_transform.origin = Vector3(-230, 20, -10)
 
-	if Input.is_action_just_pressed("god"):
+	if Input.is_action_pressed ("god"):
 		GODMOD = !GODMOD
 
 	if Input.is_action_just_pressed("crouch"):
@@ -157,7 +166,28 @@ func do_physics_process(delta):
 		velocity.y -= gravity * delta
 
 	if GODMOD:
-		speed = 100
+		set_collision_mask_value(1, false)
+		set_collision_layer_value(1, false)
+		
+		var camera_basis = camera.get_global_transform().basis
+		var god_direction = -camera_basis.z.normalized()
+		
+		if Input.is_action_pressed("up"):
+			global_transform.origin += god_direction * god_mode_speed * delta
+		if Input.is_action_pressed("down"):
+			global_transform.origin -= god_direction * god_mode_speed * delta
+		if Input.is_action_pressed("left"):
+			global_transform.origin -= camera_basis.x.normalized() * god_mode_speed * delta
+		if Input.is_action_pressed("right"):
+			global_transform.origin += camera_basis.x.normalized() * god_mode_speed * delta
+		if Input.is_action_pressed("jump") or Input.is_action_pressed("sprint"):
+			global_transform.origin += Vector3.UP * god_mode_speed * delta
+		if Input.is_action_pressed("crouch"):
+			global_transform.origin += Vector3.DOWN * god_mode_speed * delta
+		return
+	else:
+		set_collision_mask_value(1, true)
+		set_collision_layer_value(1, true)
 
 	var direction = (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if is_on_floor():
@@ -197,6 +227,13 @@ func do_physics_process(delta):
 
 	check_head_collision()
 	move_and_slide()
+
+func _process(_delta):
+	if GODMOD:
+		speed_label.text = "God Mode Speed: " + str(int(god_mode_speed))
+		speed_label.show()
+	else:
+		speed_label.hide()
 
 func crouch():
 	if is_crouching:

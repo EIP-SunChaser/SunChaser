@@ -231,6 +231,15 @@ collision_layer = 3
 collision_mask = 3
 script = ExtResource("1_mpqcp")
 
+[node name="SpeedLabel" type="Label" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_top = 25.0
+offset_bottom = 48.0
+grow_horizontal = 0
+
 [node name="pause_menu" parent="." instance=ExtResource("8_hcrn3")]
 
 [node name="Inventory" parent="." instance=ExtResource("3_ajgpe")]
