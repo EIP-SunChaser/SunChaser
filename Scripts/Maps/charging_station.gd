@@ -35,5 +35,6 @@ func _on_area_3d_area_entered(area):
 func _on_area_3d_area_exited(area):
 	var potential_car = area.get_parent()
 	if potential_car == car_in_area:
+		car_in_area.is_being_charged = false
 		car_in_area = null
 		is_charging = false

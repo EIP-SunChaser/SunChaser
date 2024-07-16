@@ -35,6 +35,7 @@ var parking_brake_engaged = false
 @export var current_battery: float = 100.0
 @export var battery_drain_rate: float = 0.1
 @onready var battery_display = $BatteryText/BatteryBar
+var is_being_charged = false
 
 # Radio
 @onready var radio_text = $RadioText
@@ -59,8 +60,9 @@ func _physics_process(delta):
 		
 		if current_battery > 0:
 			accel_input = Input.get_axis("deccelerate", "accelerate")
-			current_battery -= battery_drain_rate * delta * abs(accel_input)
-			current_battery = max(current_battery, 0)
+			if not is_being_charged:
+				current_battery -= battery_drain_rate * delta * abs(accel_input)
+				current_battery = max(current_battery, 0)
 		else:
 			accel_input = 0
 		
@@ -202,6 +204,7 @@ func apply_smooth_rotation(delta):
 			is_resetting = false
 
 func recharge_battery(amount: float):
+	is_being_charged = true
 	current_battery = min(current_battery + amount, max_battery)
 	battery_display.battery = current_battery
 
