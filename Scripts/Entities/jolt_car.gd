@@ -198,7 +198,7 @@ func apply_smooth_rotation(delta):
 		var new_rotation = current_rotation.slerp(target_rotation, reset_rotation_speed * delta)
 		global_transform.basis = new_rotation
 		
-		if current_rotation.y.dot(Vector3.UP) >= global_transform.basis.y.dot(Vector3.UP):
+		if abs(new_rotation.y.dot(Vector3.UP) - 1.0) < 0.01:
 			is_resetting = false
 
 func recharge_battery(amount: float):
