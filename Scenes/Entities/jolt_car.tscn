@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://Scripts/Entities/actionnable_car.gd" id="4_uphqk"]
 [ext_resource type="PackedScene" uid="uid://dea0kmuerk3wf" path="res://Scenes/Ui/battery_bar.tscn" id="5_0x0d3"]
 [ext_resource type="PackedScene" uid="uid://tidejc3nmf5j" path="res://Scenes/Ui/radio.tscn" id="6_ff0wm"]
-[ext_resource type="AudioStream" uid="uid://cijx6n856d2yy" path="res://Assets/Audios/International_love.mp3" id="7_q0kix"]
+[ext_resource type="AudioStream" uid="uid://cijx6n856d2yy" path="res://Assets/Audios/Musics/International_love.mp3" id="7_q0kix"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g4php"]
 size = Vector3(2, 0.5, 3)
@@ -92,7 +92,7 @@ radius = 0.025
 [sub_resource type="BoxShape3D" id="BoxShape3D_5a73s"]
 size = Vector3(6.22852, 3.52063, 4)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4cfo8"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dkyke"]
 bg_color = Color(0, 0, 0, 0)
 
 [sub_resource type="Gradient" id="Gradient_mbdqv"]
@@ -322,7 +322,7 @@ offset_top = -118.0
 offset_right = -12.0001
 offset_bottom = -88.0
 grow_horizontal = 0
-theme_override_styles/background = SubResource("StyleBoxFlat_4cfo8")
+theme_override_styles/background = SubResource("StyleBoxFlat_dkyke")
 theme_override_styles/fill = SubResource("StyleBoxTexture_546eb")
 
 [node name="RadioText" type="CanvasLayer" parent="."]
