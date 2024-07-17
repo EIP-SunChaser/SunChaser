@@ -47,10 +47,10 @@ var is_being_charged = false
 @onready var left_head_light = $HeadLight/LeftHeadLight
 @onready var right_head_light = $HeadLight/RightHeadLight
 
-@onready var left_tail_spot_light = $TailLight/LeftTailSpotLight
-@onready var right_tail_spot_light = $TailLight/RightTailSpotLight
-@onready var left_tail_omni_light = $TailLight/LeftTailOmniLight
-@onready var right_tail_omni_light = $TailLight/RightTailOmniLight
+@onready var left_tail_light = $TailLight/LeftTailLight
+@onready var right_tail_light = $TailLight/RightTailLight
+var left_tail_light_material: StandardMaterial3D
+var right_tail_light_material: StandardMaterial3D
 
 var red_color = Color(1, 0, 0, 1)
 var white_color = Color(0.646, 0.646, 0.646, 1)
@@ -58,12 +58,8 @@ var white_color = Color(0.646, 0.646, 0.646, 1)
 func _ready():
 	front_left_wheel = $Wheels/FrontLeftWheel
 	front_right_wheel = $Wheels/FrontRightWheel
-	left_head_light.light_energy = 0
-	right_head_light.light_energy = 0
-	left_tail_spot_light.light_energy = 0
-	right_tail_spot_light.light_energy = 0
-	left_tail_omni_light.light_energy = 0
-	right_tail_omni_light.light_energy = 0
+	left_tail_light_material = left_tail_light.get_active_material(0)
+	right_tail_light_material = right_tail_light.get_active_material(0)
 
 func _physics_process(delta):
 	if active && GlobalVariables.isInPause == false:
@@ -83,27 +79,7 @@ func _physics_process(delta):
 		else:
 			accel_input = 0
 		
-		if Input.is_action_pressed("deccelerate"):
-			left_tail_spot_light.light_energy = 2
-			right_tail_spot_light.light_energy = 2
-			left_tail_omni_light.light_energy = 0.5
-			right_tail_omni_light.light_energy = 0.5
-			
-			if linear_velocity.dot(-global_transform.basis.z) > 0:
-				left_tail_spot_light.light_color = red_color
-				right_tail_spot_light.light_color = red_color
-				left_tail_omni_light.light_color = red_color
-				right_tail_omni_light.light_color = red_color
-			else:
-				left_tail_spot_light.light_color = white_color
-				right_tail_spot_light.light_color = white_color
-				left_tail_omni_light.light_color = white_color
-				right_tail_omni_light.light_color = white_color
-		else:
-			left_tail_spot_light.light_energy = 0
-			right_tail_spot_light.light_energy = 0
-			left_tail_omni_light.light_energy = 0
-			right_tail_omni_light.light_energy = 0
+		update_tail_lights()
 		
 		# Apply steering (allowed even with depleted battery)
 		var target_steering_angle = steering_input * deg_to_rad(steering_angle)
@@ -147,12 +123,8 @@ func _physics_process(delta):
 			self.set_global_rotation_degrees(Vector3(0, -90, 0))
 		
 		if Input.is_action_just_pressed("headlight"):
-			if left_head_light.light_energy != 0:
-				left_head_light.light_energy = 0
-				right_head_light.light_energy = 0
-			else:
-				left_head_light.light_energy = 2
-				right_head_light.light_energy = 2
+			left_head_light.visible = !left_head_light.visible
+			right_head_light.visible = !right_head_light.visible
 		
 		apply_smooth_rotation(delta)
 	else:
@@ -163,6 +135,18 @@ func _physics_process(delta):
 		accel_input = 0
 		front_left_wheel.rotation.y = 0
 		front_right_wheel.rotation.y = 0
+
+func update_tail_lights():
+	var braking = Input.is_action_pressed("deccelerate")
+	var reversing = linear_velocity.dot(-global_transform.basis.z) > 0
+
+	left_tail_light_material.emission_enabled = braking
+	right_tail_light_material.emission_enabled = braking
+
+	if braking:
+		var emission_color = red_color if reversing else white_color
+		left_tail_light_material.emission = emission_color
+		right_tail_light_material.emission = emission_color
 
 func toggle_parking_brake():
 	parking_brake_engaged = !parking_brake_engaged

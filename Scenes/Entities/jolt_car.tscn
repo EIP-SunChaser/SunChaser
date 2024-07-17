@@ -1,7 +1,8 @@
-[gd_scene load_steps=29 format=3 uid="uid://dhdbxqqbo8gxi"]
+[gd_scene load_steps=31 format=3 uid="uid://dhdbxqqbo8gxi"]
 
 [ext_resource type="Script" path="res://Scripts/Entities/jolt_car.gd" id="1_v325y"]
 [ext_resource type="Script" path="res://Scripts/Entities/wheel.gd" id="2_0xgju"]
+[ext_resource type="Texture2D" uid="uid://ccgta3050isxh" path="res://Assets/Textures/Grid/Light/texture_06.png" id="2_wku7g"]
 [ext_resource type="Script" path="res://Scripts/Entities/CameraController.gd" id="3_hjqr5"]
 [ext_resource type="Script" path="res://Scripts/Entities/actionnable_car.gd" id="4_uphqk"]
 [ext_resource type="PackedScene" uid="uid://dea0kmuerk3wf" path="res://Scenes/Ui/battery_bar.tscn" id="5_0x0d3"]
@@ -11,14 +12,13 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_g4php"]
 size = Vector3(2, 0.5, 3)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m22cp"]
-vertex_color_is_srgb = true
-albedo_color = Color(0.830798, 0.410607, 0.274639, 1)
-emission_enabled = true
-emission = Color(0.964706, 0, 0, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sakff"]
+albedo_texture = ExtResource("2_wku7g")
+uv1_scale = Vector3(-0.245, -0.245, -0.245)
+uv1_triplanar = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_tphuy"]
-material = SubResource("StandardMaterial3D_m22cp")
+material = SubResource("StandardMaterial3D_sakff")
 size = Vector3(2, 0.5, 3)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3k77u"]
@@ -86,10 +86,13 @@ outer_radius = 0.5
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_ww5ne"]
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_kys40"]
-top_radius = 0.4
-bottom_radius = 0.3
-height = 1.0
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4hkpc"]
+emission = Color(1, 0, 0, 1)
+emission_energy_multiplier = 16.0
+
+[sub_resource type="PrismMesh" id="PrismMesh_wyplg"]
+material = SubResource("StandardMaterial3D_4hkpc")
+size = Vector3(0.9, 1, 1)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ne7co"]
 radius = 0.025
@@ -97,7 +100,7 @@ radius = 0.025
 [sub_resource type="BoxShape3D" id="BoxShape3D_5a73s"]
 size = Vector3(6.22852, 3.52063, 4)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bc3ir"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_02pdm"]
 bg_color = Color(0, 0, 0, 0)
 
 [sub_resource type="Gradient" id="Gradient_mbdqv"]
@@ -254,12 +257,14 @@ skeleton = NodePath("../..")
 
 [node name="LeftHeadLight" type="SpotLight3D" parent="HeadLight"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0.4, -1.77028)
+visible = false
 light_energy = 2.0
 shadow_enabled = true
 spot_range = 20.0
 
 [node name="RightHeadLight" type="SpotLight3D" parent="HeadLight"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 0.4, -1.77028)
+visible = false
 light_energy = 2.0
 shadow_enabled = true
 spot_range = 20.0
@@ -275,39 +280,13 @@ mesh = SubResource("CylinderMesh_ww5ne")
 [node name="TailLight" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 3)
 
-[node name="LeftTailSpotLight" type="SpotLight3D" parent="TailLight"]
-transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, -0.55, 0.404, -3)
-light_color = Color(1, 0, 0, 1)
-light_energy = 2.0
-shadow_enabled = true
-spot_range = 20.0
+[node name="LeftTailLight" type="MeshInstance3D" parent="TailLight"]
+transform = Transform3D(-1.1945e-09, -7.54979e-09, 0.5, 0.497407, -0.0101716, -2.65137e-09, 0.0508581, 0.0994814, 3.76747e-08, -0.55, 0.403975, -1.50318)
+mesh = SubResource("PrismMesh_wyplg")
 
-[node name="RightTailSpotLight" type="SpotLight3D" parent="TailLight"]
-transform = Transform3D(1, 3.10588e-22, 3.55271e-15, 0, -1, 8.74228e-08, 3.55271e-15, -8.74228e-08, -1, 0.55, 0.404, -3)
-light_color = Color(1, 0, 0, 1)
-light_energy = 2.0
-shadow_enabled = true
-spot_range = 20.0
-
-[node name="LeftTailOmniLight" type="OmniLight3D" parent="TailLight"]
-transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, -0.55, 0.404, -1.174)
-light_color = Color(1, 0, 0, 1)
-light_energy = 0.5
-omni_range = 0.5
-
-[node name="RightTailOmniLight" type="OmniLight3D" parent="TailLight"]
-transform = Transform3D(1, 3.10588e-22, 3.55271e-15, 0, -1, 8.74228e-08, 3.55271e-15, -8.74228e-08, -1, 0.55, 0.404, -1.174)
-light_color = Color(1, 0, 0, 1)
-light_energy = 0.5
-omni_range = 0.5
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="TailLight"]
-transform = Transform3D(9.55344e-16, -4.37114e-09, 0.5, -0.5, -4.37114e-09, 0, 2.18557e-08, -0.1, -2.18557e-08, 0.55, 0.394, -1.52363)
-mesh = SubResource("CylinderMesh_kys40")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="TailLight"]
-transform = Transform3D(9.55344e-16, -4.37114e-09, 0.5, -0.5, -4.37114e-09, 0, 2.18557e-08, -0.1, -2.18557e-08, -0.55, 0.394, -1.52363)
-mesh = SubResource("CylinderMesh_kys40")
+[node name="RightTailLight" type="MeshInstance3D" parent="TailLight"]
+transform = Transform3D(-1.1945e-09, -7.54979e-09, 0.5, 0.497407, -0.0101716, -2.65137e-09, 0.0508581, 0.0994814, 3.76747e-08, 0.55, 0.403975, -1.50318)
+mesh = SubResource("PrismMesh_wyplg")
 
 [node name="CameraRoot" type="Node3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 2, 0.0197153)
@@ -376,7 +355,7 @@ offset_top = -118.0
 offset_right = -12.0001
 offset_bottom = -88.0
 grow_horizontal = 0
-theme_override_styles/background = SubResource("StyleBoxFlat_bc3ir")
+theme_override_styles/background = SubResource("StyleBoxFlat_02pdm")
 theme_override_styles/fill = SubResource("StyleBoxTexture_546eb")
 
 [node name="RadioText" type="CanvasLayer" parent="."]
