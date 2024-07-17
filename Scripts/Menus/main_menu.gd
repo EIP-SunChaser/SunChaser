@@ -57,6 +57,11 @@ func add_player(id: int):
 		
 		var car_spawn_position = spawn_position + Vector3(0, 10, 10)
 		spawn_car(car_spawn_position)
+	else:
+		var player = player_scene.instantiate()
+		player.name = str(id)
+		player.add_to_group("Player")
+		add_child(player)
 
 func spawn_car(spawn_position: Vector3):
 	var car = car_scene.instantiate()
@@ -77,8 +82,14 @@ func spawn_player(id: int, spawn_position: Vector3):
 	player.name = str(id)
 	player.add_to_group("Player")
 	add_child(player)
-	player.call_deferred("set_global_position", spawn_position)
+	set_player_position.rpc(id, spawn_position)
 	print("Player " + str(id) + " added!")
+
+@rpc("any_peer", "call_local")
+func set_player_position(id: int, position: Vector3):
+	var player = get_node_or_null(str(id))
+	if player:
+		player.global_position = position
 
 func select_spawn_point() -> Vector3:
 	var spawn_points = get_tree().get_nodes_in_group("SpawnPoints")
