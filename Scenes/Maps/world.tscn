@@ -2006,7 +2006,7 @@ skeleton = NodePath("")
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -14.756, 0.5, 7.26141)
 
 [node name="Pets" parent="." instance=ExtResource("14_avud1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.8, 1, 4.956)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 5.8, 1, 4.956)
 
 [connection signal="body_entered" from="Quest1/Area3D" to="Quest1/Area3D" method="_on_body_entered"]
 [connection signal="body_exited" from="Quest1/Area3D" to="Quest1/Area3D" method="_on_body_exited"]

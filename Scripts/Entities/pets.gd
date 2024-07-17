@@ -3,6 +3,7 @@ extends CharacterBody3D
 @export var movement_speed: float = 8.0
 @export var follow_distance: float = 4.0
 @onready var area_3d = $Area3D
+@onready var animation_player = $AnimationPlayer
 
 var players_in_zone = []
 var player = null
@@ -20,8 +21,19 @@ func _physics_process(_delta):
 		var player_current_position = player.global_position
 		if player_current_position != previous_player_position:
 			var player_direction = (player_current_position - previous_player_position).normalized()
+			var player_speed = (player_current_position - previous_player_position).length() / _delta
 			previous_player_position = player_current_position
 			target_position = player.global_position - (player_direction * follow_distance)
+			if is_on_floor():
+				animation_player.play("run_animation")
+				var animation_speed = (player_speed / movement_speed) * 2.0
+				animation_player.set_speed_scale(animation_speed)
+			else:
+				animation_player.play("jump_animation")
+				animation_player.set_speed_scale(1.0)
+		else:
+			animation_player.play("idle_animation")
+			animation_player.set_speed_scale(1.0)
 		
 		var desired_velocity: Vector3 = global_position.direction_to(target_position) * movement_speed
 		
