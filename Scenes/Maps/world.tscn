@@ -136,7 +136,7 @@ shape = SubResource("BoxShape3D_uwqf0")
 mesh = SubResource("BoxMesh_jpluy")
 
 [node name="Hat_npc" parent="Quest1" instance=ExtResource("4_arjcc")]
-transform = Transform3D(-0.590324, 0, -0.807166, 0, 1, 0, 0.807166, 0, -0.590324, -602.015, 11.8335, -6.13579)
+transform = Transform3D(-0.590324, 0, -0.807166, 0, 1, 0, 0.807166, 0, -0.590324, -602.015, 11.2, -6.136)
 axis_lock_linear_x = true
 axis_lock_linear_z = true
 axis_lock_angular_x = true
@@ -147,39 +147,39 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 179.745, -6.9132, 9.58796)
 script = ExtResource("7_vr2ts")
 
 [node name="Hat_npc2" parent="Quest1/Hidden npc" instance=ExtResource("4_arjcc")]
-transform = Transform3D(-0.779119, 0, -0.626875, 0, 1, 0, 0.626875, 0, -0.779119, -154.854, 18.1333, 8.72752)
+transform = Transform3D(-0.779119, 0, -0.626875, 0, 1, 0, 0.626875, 0, -0.779119, -154.854, 18, 8.728)
 axis_lock_linear_x = true
 axis_lock_linear_z = true
 axis_lock_angular_x = true
 axis_lock_angular_z = true
 
 [node name="Forestier" parent="Quest1/Hidden npc" instance=ExtResource("13_tkqpx")]
-transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, -154.451, 18.4564, -25.6629)
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, -154.451, 18, -25.663)
 
 [node name="Forestier2" parent="Quest1/Hidden npc" instance=ExtResource("13_tkqpx")]
-transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, -151.935, 18.6003, -27.0307)
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, -151.935, 18, -27.031)
 
 [node name="Forestier3" parent="Quest1/Hidden npc" instance=ExtResource("13_tkqpx")]
-transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, -154.868, 18.5862, -28.9941)
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, -154.868, 18, -28.994)
 
 [node name="Ennemies" type="Node3D" parent="Quest1"]
 
 [node name="Hat_npc2" parent="Quest1/Ennemies" instance=ExtResource("5_hhx2q")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 24.989, 11.274, 3.31596)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 24.989, 11, 3.316)
 axis_lock_linear_x = true
 axis_lock_linear_z = true
 axis_lock_angular_x = true
 axis_lock_angular_z = true
 
 [node name="Hat_npc3" parent="Quest1/Ennemies" instance=ExtResource("5_hhx2q")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 26.2755, 11.274, -2.63484)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 26.275, 11, -2.635)
 axis_lock_linear_x = true
 axis_lock_linear_z = true
 axis_lock_angular_x = true
 axis_lock_angular_z = true
 
 [node name="Hat_npc4" parent="Quest1/Ennemies" instance=ExtResource("5_hhx2q")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 24.9471, 12.5621, 9.63517)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 24.947, 11, 9.635)
 axis_lock_linear_x = true
 axis_lock_linear_z = true
 axis_lock_angular_x = true
