@@ -168,6 +168,7 @@ func do_physics_process(delta):
 	if GODMOD:
 		set_collision_mask_value(1, false)
 		set_collision_layer_value(1, false)
+		velocity = Vector3.ZERO
 		
 		var camera_basis = camera.get_global_transform().basis
 		var move = Vector3.ZERO
