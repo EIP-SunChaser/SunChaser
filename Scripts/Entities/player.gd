@@ -170,21 +170,14 @@ func do_physics_process(delta):
 		set_collision_layer_value(1, false)
 		
 		var camera_basis = camera.get_global_transform().basis
-		var god_direction = -camera_basis.z.normalized()
+		var move = Vector3.ZERO
 		
-		if Input.is_action_pressed("up"):
-			global_transform.origin += god_direction * god_mode_speed * delta
-		if Input.is_action_pressed("down"):
-			global_transform.origin -= god_direction * god_mode_speed * delta
-		if Input.is_action_pressed("left"):
-			global_transform.origin -= camera_basis.x.normalized() * god_mode_speed * delta
-		if Input.is_action_pressed("right"):
-			global_transform.origin += camera_basis.x.normalized() * god_mode_speed * delta
-		if Input.is_action_pressed("jump") or Input.is_action_pressed("sprint"):
-			global_transform.origin += Vector3.UP * god_mode_speed * delta
-		if Input.is_action_pressed("crouch"):
-			global_transform.origin += Vector3.DOWN * god_mode_speed * delta
-		return
+		move += Input.get_axis("down", "up") * -camera_basis.z
+		move += Input.get_axis("left", "right") * camera_basis.x
+		move += Input.get_axis("crouch", "jump") * Vector3.UP
+		move += Input.get_axis("crouch", "sprint") * Vector3.UP
+		
+		global_transform.origin += move.normalized() * god_mode_speed * delta
 	else:
 		set_collision_mask_value(1, true)
 		set_collision_layer_value(1, true)
