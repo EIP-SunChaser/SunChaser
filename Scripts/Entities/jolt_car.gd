@@ -44,9 +44,26 @@ var is_being_charged = false
 @export var radio_on = false
 @export var current_playback_position = 0.0
 
+@onready var left_head_light = $HeadLight/LeftHeadLight
+@onready var right_head_light = $HeadLight/RightHeadLight
+
+@onready var left_tail_spot_light = $TailLight/LeftTailSpotLight
+@onready var right_tail_spot_light = $TailLight/RightTailSpotLight
+@onready var left_tail_omni_light = $TailLight/LeftTailOmniLight
+@onready var right_tail_omni_light = $TailLight/RightTailOmniLight
+
+var red_color = Color(1, 0, 0, 1)
+var white_color = Color(0.646, 0.646, 0.646, 1)
+
 func _ready():
 	front_left_wheel = $Wheels/FrontLeftWheel
 	front_right_wheel = $Wheels/FrontRightWheel
+	left_head_light.light_energy = 0
+	right_head_light.light_energy = 0
+	left_tail_spot_light.light_energy = 0
+	right_tail_spot_light.light_energy = 0
+	left_tail_omni_light.light_energy = 0
+	right_tail_omni_light.light_energy = 0
 
 func _physics_process(delta):
 	if active && GlobalVariables.isInPause == false:
@@ -65,6 +82,28 @@ func _physics_process(delta):
 				current_battery = max(current_battery, 0)
 		else:
 			accel_input = 0
+		
+		if Input.is_action_pressed("deccelerate"):
+			left_tail_spot_light.light_energy = 2
+			right_tail_spot_light.light_energy = 2
+			left_tail_omni_light.light_energy = 0.5
+			right_tail_omni_light.light_energy = 0.5
+			
+			if linear_velocity.dot(-global_transform.basis.z) > 0:
+				left_tail_spot_light.light_color = red_color
+				right_tail_spot_light.light_color = red_color
+				left_tail_omni_light.light_color = red_color
+				right_tail_omni_light.light_color = red_color
+			else:
+				left_tail_spot_light.light_color = white_color
+				right_tail_spot_light.light_color = white_color
+				left_tail_omni_light.light_color = white_color
+				right_tail_omni_light.light_color = white_color
+		else:
+			left_tail_spot_light.light_energy = 0
+			right_tail_spot_light.light_energy = 0
+			left_tail_omni_light.light_energy = 0
+			right_tail_omni_light.light_energy = 0
 		
 		# Apply steering (allowed even with depleted battery)
 		var target_steering_angle = steering_input * deg_to_rad(steering_angle)
@@ -106,6 +145,14 @@ func _physics_process(delta):
 		if Input.is_action_just_pressed("teleport-3"):
 			global_transform.origin = Vector3(-230, 20, -10)
 			self.set_global_rotation_degrees(Vector3(0, -90, 0))
+		
+		if Input.is_action_just_pressed("headlight"):
+			if left_head_light.light_energy != 0:
+				left_head_light.light_energy = 0
+				right_head_light.light_energy = 0
+			else:
+				left_head_light.light_energy = 2
+				right_head_light.light_energy = 2
 		
 		apply_smooth_rotation(delta)
 	else:
