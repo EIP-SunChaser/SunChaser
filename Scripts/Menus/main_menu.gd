@@ -86,10 +86,10 @@ func spawn_player(id: int, spawn_position: Vector3):
 	print("Player " + str(id) + " added!")
 
 @rpc("any_peer", "call_local")
-func set_player_position(id: int, position: Vector3):
+func set_player_position(id: int, choosed_position: Vector3):
 	var player = get_node_or_null(str(id))
 	if player:
-		player.global_position = position
+		player.global_position = choosed_position
 
 func select_spawn_point() -> Vector3:
 	var spawn_points = get_tree().get_nodes_in_group("SpawnPoints")
