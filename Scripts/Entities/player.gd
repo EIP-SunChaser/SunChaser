@@ -31,7 +31,7 @@ const SENSITIVITY = 0.003
 var SENSITIVITY_JOYSTICK = 0.06
 
 var is_in_car = false
-var is_crouching = false
+@export var is_crouching = false
 @onready var body_collision = $BodyCollision
 @onready var body_mesh = $BodyCollision/BodyMesh
 @onready var head_cast = $Head/HeadCast
@@ -128,7 +128,7 @@ func _unhandled_input(event):
 		GODMOD = !GODMOD
 
 	if Input.is_action_just_pressed("crouch"):
-		crouch()
+		crouch.rpc()
 
 	if event.is_action_pressed("sprint") and event is InputEventJoypadButton:
 		sprint_toggled = !sprint_toggled
@@ -229,6 +229,7 @@ func _process(_delta):
 	else:
 		speed_label.hide()
 
+@rpc("any_peer", "call_local")
 func crouch():
 	if is_crouching:
 		animation_player.play_backwards("Crouch")

@@ -27,15 +27,21 @@ properties/3/replication_mode = 1
 properties/4/path = NodePath("Head/Camera3D:rotation")
 properties/4/spawn = true
 properties/4/replication_mode = 1
+properties/5/path = NodePath(".:is_crouching")
+properties/5/spawn = true
+properties/5/replication_mode = 1
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gfuv1"]
+resource_local_to_scene = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e6ydu"]
 albedo_color = Color(0, 1, 0, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_sbrlq"]
+resource_local_to_scene = true
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_d5hqf"]
+resource_local_to_scene = true
 radius = 0.55
 
 [sub_resource type="BoxMesh" id="BoxMesh_ipsvg"]
