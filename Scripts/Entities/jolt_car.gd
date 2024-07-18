@@ -181,7 +181,7 @@ func set_player_in_car(player_path: NodePath):
 		player.hide()
 		player_in_car = player
 		player_in_car.is_in_car = true
-		player.set_collision_layer(0)
+		player.get_node("BodyCollision").disabled = true
 		
 		if player.is_multiplayer_authority():
 			camera_3d.current = true
@@ -197,7 +197,7 @@ func remove_player_from_car():
 		var exit_location = global_transform.origin - 2 * global_transform.basis.x
 		player_in_car.global_transform.origin = exit_location
 		player_in_car.show()
-		player_in_car.set_collision_layer(3)
+		player_in_car.get_node("BodyCollision").disabled = false
 		
 		var player_head = player_in_car.get_node("Head")
 		var player_camera = player_head.get_node("Camera3D")
