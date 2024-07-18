@@ -29,6 +29,7 @@ var target_rotation: Basis
 
 var parking_brake_engaged = false
 @export var parking_brake_force: float = 1000.0
+var is_stationary = false
 
 # Battery system variables
 @export var max_battery: float = 100.0
@@ -73,11 +74,21 @@ func _physics_process(delta):
 		
 		if current_battery > 0:
 			accel_input = Input.get_axis("deccelerate", "accelerate")
-			if not is_being_charged:
+			if not is_being_charged and not is_stationary:
 				current_battery -= battery_drain_rate * delta * abs(accel_input)
 				current_battery = max(current_battery, 0)
 		else:
 			accel_input = 0
+		
+		if parking_brake_engaged:
+			if speed == 0:
+				is_stationary = true
+				linear_velocity.z = 0
+				if abs(linear_velocity.y) < 0.1:
+					linear_velocity.y = 0
+					linear_velocity.x = 0
+		else:
+			is_stationary = false
 		
 		update_tail_lights()
 		

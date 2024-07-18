@@ -15,6 +15,7 @@ func _ready():
 	initial_spring_position = springMesh.transform.origin
 
 func _physics_process(delta):
+
 	var collision_point = get_collision_point()
 	if is_colliding():
 		suspension(delta, collision_point)
@@ -65,7 +66,7 @@ func apply_parking_brake(collision_point):
 	
 	var point = Vector3(collision_point.x, collision_point.y + car.wheel_radius, collision_point.z)
 	car.apply_force(brake_force, point - car.global_position)
-	
+
 func set_wheel_position(new_y_position: float):
 	wheel.position.y = lerp(wheel.position.y, new_y_position, 0.6)
 	
@@ -76,7 +77,7 @@ func rotate_wheel(delta: float):
 	wheel.rotate_x(rotation_direction * car.linear_velocity.length() * delta)
 		
 func acceleration(collision_point):
-	if is_front_wheel:
+	if is_front_wheel or car.is_stationary:
 		return
 	var accel_dir = -global_basis.z
 	
