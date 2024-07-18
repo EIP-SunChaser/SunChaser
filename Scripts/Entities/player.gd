@@ -36,6 +36,7 @@ var is_in_car = false
 @onready var body_mesh = $BodyCollision/BodyMesh
 @onready var head_cast = $Head/HeadCast
 var animation_paused = false
+var uncrouch_buffer = false
 
 var axis_x = 0.0
 var axis_y = 0.0
@@ -218,8 +219,8 @@ func do_physics_process(delta):
 		speed = SPRINT_SPEED if !is_crouching else SPRINT_SPEED / CROUCH_SPEED
 	else:
 		speed = WALK_SPEED if !is_crouching else WALK_SPEED / CROUCH_SPEED
-
-	check_head_collision()
+	
+	check_head_collision.rpc()
 	move_and_slide()
 
 func _process(_delta):
@@ -231,21 +232,18 @@ func _process(_delta):
 
 @rpc("any_peer", "call_local")
 func crouch():
-	if is_crouching:
-		animation_player.play_backwards("Crouch")
-	elif !is_crouching:
+	if !is_crouching:
 		animation_player.play("Crouch")
-	
-func check_head_collision():
-	if head_cast.is_colliding():
-		if !animation_paused and animation_player.current_animation == "Crouch":
-			animation_player.pause()
-			animation_paused = true
+		is_crouching = true
 	else:
-		if animation_paused:
-			animation_player.play_backwards()
-			is_crouching = false
-			animation_paused = false
+		uncrouch_buffer = true
+
+@rpc("any_peer", "call_local")
+func check_head_collision():
+	if uncrouch_buffer and !head_cast.is_colliding():
+		animation_player.play_backwards("Crouch")
+		is_crouching = false
+		uncrouch_buffer = false
 
 @rpc("any_peer", "call_local")
 func play_shoot_effects():
@@ -304,7 +302,3 @@ func respawn():
 
 func set_respawn_point(new_point: Vector3):
 	respawn_point = new_point
-
-func _on_animation_player_animation_started(_anim_name):
-	if !head_cast.is_colliding():
-		is_crouching = !is_crouching

@@ -323,7 +323,7 @@ text = "DEAD"
 visible = false
 
 [node name="HeadCast" type="ShapeCast3D" parent="Head"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.485363, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.668725, 0)
 shape = SubResource("SphereShape3D_wtfnw")
 target_position = Vector3(0, 0, 0)
 debug_shape_custom_color = Color(0.403922, 0.00392157, 1, 1)
@@ -345,4 +345,3 @@ shape = SubResource("BoxShape3D_wfju5")
 
 [connection signal="body_part_hit" from="DamageArea3D" to="." method="_on_body_part_hit"]
 [connection signal="health_depleted" from="Head/Camera3D/HealthBar" to="." method="_on_health_bar_health_depleted"]
-[connection signal="animation_started" from="AnimationPlayer" to="." method="_on_animation_player_animation_started"]
