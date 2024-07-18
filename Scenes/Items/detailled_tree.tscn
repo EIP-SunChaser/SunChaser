@@ -10,6 +10,18 @@ size = Vector3(1.75409, 2, 1.82692)
 [node name="Detailled Tree" instance=ExtResource("1_mt6hq")]
 script = ExtResource("2_jvpuk")
 
+[node name="Cone_003" parent="." index="0"]
+lod_bias = 0.001
+
+[node name="Cone" parent="Cone_003" index="0"]
+lod_bias = 0.001
+
+[node name="Cone_001" parent="Cone_003" index="1"]
+lod_bias = 0.001
+
+[node name="Cylinder_001" parent="." index="1"]
+lod_bias = 0.001
+
 [node name="Area3D" type="Area3D" parent="." index="2"]
 collision_layer = 2
 collision_mask = 2

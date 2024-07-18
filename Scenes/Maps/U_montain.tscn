@@ -16,6 +16,7 @@ data = PackedVector3Array(195.453, -0.0007, -195.459, 200, -0.0007, -200, 200, -
 
 [node name="Plan" parent="." index="1"]
 material_override = SubResource("StandardMaterial3D_sqvgp")
+lod_bias = 0.02
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Plan" index="0"]
 

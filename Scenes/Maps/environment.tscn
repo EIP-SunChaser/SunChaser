@@ -378,6 +378,7 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 300, 0
 
 [node name="WaterPlane" parent="." instance=ExtResource("4_axh3k")]
 transform = Transform3D(2000, 0, 0, 0, 1, 0, 0, 0, 2000, 0, -1.3, 0)
+lod_bias = 0.001
 
 [node name="Parkour" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.56718, -0.341972, 0)
@@ -833,6 +834,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar0/Box2"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box3" type="RigidBody3D" parent="Pillar/Pillar0"]
@@ -845,6 +847,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar0/Box3"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box4" type="RigidBody3D" parent="Pillar/Pillar0"]
@@ -857,6 +860,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar0/Box4"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box5" type="RigidBody3D" parent="Pillar/Pillar0"]
@@ -869,6 +873,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar0/Box5"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box6" type="RigidBody3D" parent="Pillar/Pillar0"]
@@ -881,6 +886,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar0/Box6"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box7" type="RigidBody3D" parent="Pillar/Pillar0"]
@@ -893,6 +899,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar0/Box7"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box8" type="RigidBody3D" parent="Pillar/Pillar0"]
@@ -905,6 +912,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar0/Box8"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box9" type="RigidBody3D" parent="Pillar/Pillar0"]
@@ -917,6 +925,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar0/Box9"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box10" type="RigidBody3D" parent="Pillar/Pillar0"]
@@ -929,6 +938,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar0/Box10"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box11" type="RigidBody3D" parent="Pillar/Pillar0"]
@@ -941,6 +951,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar0/Box11"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box12" type="RigidBody3D" parent="Pillar/Pillar0"]
@@ -953,6 +964,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar0/Box12"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box13" type="RigidBody3D" parent="Pillar/Pillar0"]
@@ -965,6 +977,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar0/Box13"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box14" type="RigidBody3D" parent="Pillar/Pillar0"]
@@ -977,6 +990,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar0/Box14"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box15" type="RigidBody3D" parent="Pillar/Pillar0"]
@@ -989,6 +1003,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar0/Box15"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box16" type="RigidBody3D" parent="Pillar/Pillar0"]
@@ -1001,6 +1016,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar0/Box16"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box17" type="RigidBody3D" parent="Pillar/Pillar0"]
@@ -1013,6 +1029,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar0/Box17"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box18" type="RigidBody3D" parent="Pillar/Pillar0"]
@@ -1025,6 +1042,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar0/Box18"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box19" type="RigidBody3D" parent="Pillar/Pillar0"]
@@ -1037,6 +1055,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar0/Box19"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box20" type="RigidBody3D" parent="Pillar/Pillar0"]
@@ -1049,6 +1068,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar0/Box20"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box21" type="RigidBody3D" parent="Pillar/Pillar0"]
@@ -1061,6 +1081,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar0/Box21"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box22" type="RigidBody3D" parent="Pillar/Pillar0"]
@@ -1073,6 +1094,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar0/Box22"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box23" type="RigidBody3D" parent="Pillar/Pillar0"]
@@ -1085,6 +1107,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar0/Box23"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box24" type="RigidBody3D" parent="Pillar/Pillar0"]
@@ -1097,6 +1120,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar0/Box24"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box25" type="RigidBody3D" parent="Pillar/Pillar0"]
@@ -1109,6 +1133,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar0/Box25"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Pillar2" type="Node3D" parent="Pillar"]
@@ -1123,6 +1148,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar2/Box2"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box3" type="RigidBody3D" parent="Pillar/Pillar2"]
@@ -1135,6 +1161,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar2/Box3"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box4" type="RigidBody3D" parent="Pillar/Pillar2"]
@@ -1147,6 +1174,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar2/Box4"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box5" type="RigidBody3D" parent="Pillar/Pillar2"]
@@ -1159,6 +1187,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar2/Box5"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box6" type="RigidBody3D" parent="Pillar/Pillar2"]
@@ -1171,6 +1200,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar2/Box6"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box7" type="RigidBody3D" parent="Pillar/Pillar2"]
@@ -1183,6 +1213,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar2/Box7"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box8" type="RigidBody3D" parent="Pillar/Pillar2"]
@@ -1195,6 +1226,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar2/Box8"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box9" type="RigidBody3D" parent="Pillar/Pillar2"]
@@ -1207,6 +1239,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar2/Box9"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box10" type="RigidBody3D" parent="Pillar/Pillar2"]
@@ -1219,6 +1252,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar2/Box10"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box11" type="RigidBody3D" parent="Pillar/Pillar2"]
@@ -1231,6 +1265,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar2/Box11"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box12" type="RigidBody3D" parent="Pillar/Pillar2"]
@@ -1243,6 +1278,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar2/Box12"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box13" type="RigidBody3D" parent="Pillar/Pillar2"]
@@ -1255,6 +1291,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar2/Box13"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box14" type="RigidBody3D" parent="Pillar/Pillar2"]
@@ -1267,6 +1304,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar2/Box14"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box15" type="RigidBody3D" parent="Pillar/Pillar2"]
@@ -1279,6 +1317,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar2/Box15"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box16" type="RigidBody3D" parent="Pillar/Pillar2"]
@@ -1291,6 +1330,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar2/Box16"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box17" type="RigidBody3D" parent="Pillar/Pillar2"]
@@ -1303,6 +1343,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar2/Box17"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box18" type="RigidBody3D" parent="Pillar/Pillar2"]
@@ -1315,6 +1356,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar2/Box18"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box19" type="RigidBody3D" parent="Pillar/Pillar2"]
@@ -1327,6 +1369,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar2/Box19"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box20" type="RigidBody3D" parent="Pillar/Pillar2"]
@@ -1339,6 +1382,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar2/Box20"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box21" type="RigidBody3D" parent="Pillar/Pillar2"]
@@ -1351,6 +1395,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar2/Box21"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box22" type="RigidBody3D" parent="Pillar/Pillar2"]
@@ -1363,6 +1408,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar2/Box22"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box23" type="RigidBody3D" parent="Pillar/Pillar2"]
@@ -1375,6 +1421,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar2/Box23"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box24" type="RigidBody3D" parent="Pillar/Pillar2"]
@@ -1387,6 +1434,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar2/Box24"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box25" type="RigidBody3D" parent="Pillar/Pillar2"]
@@ -1399,6 +1447,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar2/Box25"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Pillar3" type="Node3D" parent="Pillar"]
@@ -1413,6 +1462,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar3/Box2"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box3" type="RigidBody3D" parent="Pillar/Pillar3"]
@@ -1425,6 +1475,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar3/Box3"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box4" type="RigidBody3D" parent="Pillar/Pillar3"]
@@ -1437,6 +1488,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar3/Box4"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box5" type="RigidBody3D" parent="Pillar/Pillar3"]
@@ -1449,6 +1501,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar3/Box5"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box6" type="RigidBody3D" parent="Pillar/Pillar3"]
@@ -1461,6 +1514,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar3/Box6"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box7" type="RigidBody3D" parent="Pillar/Pillar3"]
@@ -1473,6 +1527,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar3/Box7"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box8" type="RigidBody3D" parent="Pillar/Pillar3"]
@@ -1485,6 +1540,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar3/Box8"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box9" type="RigidBody3D" parent="Pillar/Pillar3"]
@@ -1497,6 +1553,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar3/Box9"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box10" type="RigidBody3D" parent="Pillar/Pillar3"]
@@ -1509,6 +1566,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar3/Box10"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box11" type="RigidBody3D" parent="Pillar/Pillar3"]
@@ -1521,6 +1579,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar3/Box11"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box12" type="RigidBody3D" parent="Pillar/Pillar3"]
@@ -1533,6 +1592,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar3/Box12"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box13" type="RigidBody3D" parent="Pillar/Pillar3"]
@@ -1545,6 +1605,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar3/Box13"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box14" type="RigidBody3D" parent="Pillar/Pillar3"]
@@ -1557,6 +1618,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar3/Box14"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box15" type="RigidBody3D" parent="Pillar/Pillar3"]
@@ -1569,6 +1631,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar3/Box15"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box16" type="RigidBody3D" parent="Pillar/Pillar3"]
@@ -1581,6 +1644,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar3/Box16"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box17" type="RigidBody3D" parent="Pillar/Pillar3"]
@@ -1593,6 +1657,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar3/Box17"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box18" type="RigidBody3D" parent="Pillar/Pillar3"]
@@ -1605,6 +1670,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar3/Box18"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box19" type="RigidBody3D" parent="Pillar/Pillar3"]
@@ -1617,6 +1683,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar3/Box19"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box20" type="RigidBody3D" parent="Pillar/Pillar3"]
@@ -1629,6 +1696,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar3/Box20"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box21" type="RigidBody3D" parent="Pillar/Pillar3"]
@@ -1641,6 +1709,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar3/Box21"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box22" type="RigidBody3D" parent="Pillar/Pillar3"]
@@ -1653,6 +1722,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar3/Box22"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box23" type="RigidBody3D" parent="Pillar/Pillar3"]
@@ -1665,6 +1735,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar3/Box23"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box24" type="RigidBody3D" parent="Pillar/Pillar3"]
@@ -1677,6 +1748,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar3/Box24"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box25" type="RigidBody3D" parent="Pillar/Pillar3"]
@@ -1689,6 +1761,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar3/Box25"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Pillar4" type="Node3D" parent="Pillar"]
@@ -1703,6 +1776,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar4/Box2"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box3" type="RigidBody3D" parent="Pillar/Pillar4"]
@@ -1715,6 +1789,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar4/Box3"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box4" type="RigidBody3D" parent="Pillar/Pillar4"]
@@ -1727,6 +1802,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar4/Box4"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box5" type="RigidBody3D" parent="Pillar/Pillar4"]
@@ -1739,6 +1815,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar4/Box5"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box6" type="RigidBody3D" parent="Pillar/Pillar4"]
@@ -1751,6 +1828,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar4/Box6"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box7" type="RigidBody3D" parent="Pillar/Pillar4"]
@@ -1763,6 +1841,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar4/Box7"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box8" type="RigidBody3D" parent="Pillar/Pillar4"]
@@ -1775,6 +1854,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar4/Box8"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box9" type="RigidBody3D" parent="Pillar/Pillar4"]
@@ -1787,6 +1867,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar4/Box9"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box10" type="RigidBody3D" parent="Pillar/Pillar4"]
@@ -1799,6 +1880,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar4/Box10"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box11" type="RigidBody3D" parent="Pillar/Pillar4"]
@@ -1811,6 +1893,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar4/Box11"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box12" type="RigidBody3D" parent="Pillar/Pillar4"]
@@ -1823,6 +1906,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar4/Box12"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box13" type="RigidBody3D" parent="Pillar/Pillar4"]
@@ -1835,6 +1919,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar4/Box13"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box14" type="RigidBody3D" parent="Pillar/Pillar4"]
@@ -1847,6 +1932,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar4/Box14"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box15" type="RigidBody3D" parent="Pillar/Pillar4"]
@@ -1859,6 +1945,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar4/Box15"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box16" type="RigidBody3D" parent="Pillar/Pillar4"]
@@ -1871,6 +1958,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar4/Box16"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box17" type="RigidBody3D" parent="Pillar/Pillar4"]
@@ -1883,6 +1971,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar4/Box17"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box18" type="RigidBody3D" parent="Pillar/Pillar4"]
@@ -1895,6 +1984,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar4/Box18"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box19" type="RigidBody3D" parent="Pillar/Pillar4"]
@@ -1907,6 +1997,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar4/Box19"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box20" type="RigidBody3D" parent="Pillar/Pillar4"]
@@ -1919,6 +2010,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar4/Box20"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box21" type="RigidBody3D" parent="Pillar/Pillar4"]
@@ -1931,6 +2023,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar4/Box21"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box22" type="RigidBody3D" parent="Pillar/Pillar4"]
@@ -1943,6 +2036,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar4/Box22"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box23" type="RigidBody3D" parent="Pillar/Pillar4"]
@@ -1955,6 +2049,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar4/Box23"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box24" type="RigidBody3D" parent="Pillar/Pillar4"]
@@ -1967,6 +2062,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar4/Box24"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box25" type="RigidBody3D" parent="Pillar/Pillar4"]
@@ -1979,6 +2075,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar4/Box25"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Pillar5" type="Node3D" parent="Pillar"]
@@ -1993,6 +2090,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar5/Box2"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box3" type="RigidBody3D" parent="Pillar/Pillar5"]
@@ -2005,6 +2103,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar5/Box3"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box4" type="RigidBody3D" parent="Pillar/Pillar5"]
@@ -2017,6 +2116,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar5/Box4"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box5" type="RigidBody3D" parent="Pillar/Pillar5"]
@@ -2029,6 +2129,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar5/Box5"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box6" type="RigidBody3D" parent="Pillar/Pillar5"]
@@ -2041,6 +2142,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar5/Box6"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box7" type="RigidBody3D" parent="Pillar/Pillar5"]
@@ -2053,6 +2155,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar5/Box7"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box8" type="RigidBody3D" parent="Pillar/Pillar5"]
@@ -2065,6 +2168,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar5/Box8"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box9" type="RigidBody3D" parent="Pillar/Pillar5"]
@@ -2077,6 +2181,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar5/Box9"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box10" type="RigidBody3D" parent="Pillar/Pillar5"]
@@ -2089,6 +2194,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar5/Box10"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box11" type="RigidBody3D" parent="Pillar/Pillar5"]
@@ -2101,6 +2207,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar5/Box11"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box12" type="RigidBody3D" parent="Pillar/Pillar5"]
@@ -2113,6 +2220,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar5/Box12"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box13" type="RigidBody3D" parent="Pillar/Pillar5"]
@@ -2125,6 +2233,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar5/Box13"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box14" type="RigidBody3D" parent="Pillar/Pillar5"]
@@ -2137,6 +2246,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar5/Box14"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box15" type="RigidBody3D" parent="Pillar/Pillar5"]
@@ -2149,6 +2259,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar5/Box15"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box16" type="RigidBody3D" parent="Pillar/Pillar5"]
@@ -2161,6 +2272,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar5/Box16"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box17" type="RigidBody3D" parent="Pillar/Pillar5"]
@@ -2173,6 +2285,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar5/Box17"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box18" type="RigidBody3D" parent="Pillar/Pillar5"]
@@ -2185,6 +2298,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar5/Box18"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box19" type="RigidBody3D" parent="Pillar/Pillar5"]
@@ -2197,6 +2311,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar5/Box19"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box20" type="RigidBody3D" parent="Pillar/Pillar5"]
@@ -2209,6 +2324,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar5/Box20"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box21" type="RigidBody3D" parent="Pillar/Pillar5"]
@@ -2221,6 +2337,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar5/Box21"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box22" type="RigidBody3D" parent="Pillar/Pillar5"]
@@ -2233,6 +2350,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar5/Box22"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box23" type="RigidBody3D" parent="Pillar/Pillar5"]
@@ -2245,6 +2363,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar5/Box23"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box24" type="RigidBody3D" parent="Pillar/Pillar5"]
@@ -2257,6 +2376,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar5/Box24"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box25" type="RigidBody3D" parent="Pillar/Pillar5"]
@@ -2269,6 +2389,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar5/Box25"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Pillar6" type="Node3D" parent="Pillar"]
@@ -2283,6 +2404,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar6/Box2"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box3" type="RigidBody3D" parent="Pillar/Pillar6"]
@@ -2295,6 +2417,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar6/Box3"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box4" type="RigidBody3D" parent="Pillar/Pillar6"]
@@ -2307,6 +2430,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar6/Box4"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box5" type="RigidBody3D" parent="Pillar/Pillar6"]
@@ -2319,6 +2443,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar6/Box5"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box6" type="RigidBody3D" parent="Pillar/Pillar6"]
@@ -2331,6 +2456,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar6/Box6"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box7" type="RigidBody3D" parent="Pillar/Pillar6"]
@@ -2343,6 +2469,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar6/Box7"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box8" type="RigidBody3D" parent="Pillar/Pillar6"]
@@ -2355,6 +2482,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar6/Box8"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box9" type="RigidBody3D" parent="Pillar/Pillar6"]
@@ -2367,6 +2495,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar6/Box9"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box10" type="RigidBody3D" parent="Pillar/Pillar6"]
@@ -2379,6 +2508,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar6/Box10"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box11" type="RigidBody3D" parent="Pillar/Pillar6"]
@@ -2391,6 +2521,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar6/Box11"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box12" type="RigidBody3D" parent="Pillar/Pillar6"]
@@ -2403,6 +2534,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar6/Box12"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box13" type="RigidBody3D" parent="Pillar/Pillar6"]
@@ -2415,6 +2547,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar6/Box13"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box14" type="RigidBody3D" parent="Pillar/Pillar6"]
@@ -2427,6 +2560,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar6/Box14"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box15" type="RigidBody3D" parent="Pillar/Pillar6"]
@@ -2439,6 +2573,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar6/Box15"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box16" type="RigidBody3D" parent="Pillar/Pillar6"]
@@ -2451,6 +2586,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar6/Box16"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box17" type="RigidBody3D" parent="Pillar/Pillar6"]
@@ -2463,6 +2599,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar6/Box17"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box18" type="RigidBody3D" parent="Pillar/Pillar6"]
@@ -2475,6 +2612,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar6/Box18"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box19" type="RigidBody3D" parent="Pillar/Pillar6"]
@@ -2487,6 +2625,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar6/Box19"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box20" type="RigidBody3D" parent="Pillar/Pillar6"]
@@ -2499,6 +2638,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar6/Box20"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box21" type="RigidBody3D" parent="Pillar/Pillar6"]
@@ -2511,6 +2651,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar6/Box21"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box22" type="RigidBody3D" parent="Pillar/Pillar6"]
@@ -2523,6 +2664,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar6/Box22"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box23" type="RigidBody3D" parent="Pillar/Pillar6"]
@@ -2535,6 +2677,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar6/Box23"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box24" type="RigidBody3D" parent="Pillar/Pillar6"]
@@ -2547,6 +2690,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar6/Box24"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box25" type="RigidBody3D" parent="Pillar/Pillar6"]
@@ -2559,6 +2703,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar6/Box25"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Pillar7" type="Node3D" parent="Pillar"]
@@ -2573,6 +2718,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar7/Box2"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box3" type="RigidBody3D" parent="Pillar/Pillar7"]
@@ -2585,6 +2731,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar7/Box3"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box4" type="RigidBody3D" parent="Pillar/Pillar7"]
@@ -2597,6 +2744,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar7/Box4"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box5" type="RigidBody3D" parent="Pillar/Pillar7"]
@@ -2609,6 +2757,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar7/Box5"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box6" type="RigidBody3D" parent="Pillar/Pillar7"]
@@ -2621,6 +2770,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar7/Box6"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box7" type="RigidBody3D" parent="Pillar/Pillar7"]
@@ -2633,6 +2783,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar7/Box7"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box8" type="RigidBody3D" parent="Pillar/Pillar7"]
@@ -2645,6 +2796,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar7/Box8"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box9" type="RigidBody3D" parent="Pillar/Pillar7"]
@@ -2657,6 +2809,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar7/Box9"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box10" type="RigidBody3D" parent="Pillar/Pillar7"]
@@ -2669,6 +2822,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar7/Box10"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box11" type="RigidBody3D" parent="Pillar/Pillar7"]
@@ -2681,6 +2835,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar7/Box11"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box12" type="RigidBody3D" parent="Pillar/Pillar7"]
@@ -2693,6 +2848,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar7/Box12"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box13" type="RigidBody3D" parent="Pillar/Pillar7"]
@@ -2705,6 +2861,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar7/Box13"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box14" type="RigidBody3D" parent="Pillar/Pillar7"]
@@ -2717,6 +2874,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar7/Box14"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box15" type="RigidBody3D" parent="Pillar/Pillar7"]
@@ -2729,6 +2887,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar7/Box15"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box16" type="RigidBody3D" parent="Pillar/Pillar7"]
@@ -2741,6 +2900,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar7/Box16"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box17" type="RigidBody3D" parent="Pillar/Pillar7"]
@@ -2753,6 +2913,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar7/Box17"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box18" type="RigidBody3D" parent="Pillar/Pillar7"]
@@ -2765,6 +2926,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar7/Box18"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box19" type="RigidBody3D" parent="Pillar/Pillar7"]
@@ -2777,6 +2939,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar7/Box19"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box20" type="RigidBody3D" parent="Pillar/Pillar7"]
@@ -2789,6 +2952,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar7/Box20"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box21" type="RigidBody3D" parent="Pillar/Pillar7"]
@@ -2801,6 +2965,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar7/Box21"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box22" type="RigidBody3D" parent="Pillar/Pillar7"]
@@ -2813,6 +2978,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar7/Box22"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box23" type="RigidBody3D" parent="Pillar/Pillar7"]
@@ -2825,6 +2991,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar7/Box23"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box24" type="RigidBody3D" parent="Pillar/Pillar7"]
@@ -2837,6 +3004,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar7/Box24"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box25" type="RigidBody3D" parent="Pillar/Pillar7"]
@@ -2849,6 +3017,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar7/Box25"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Pillar8" type="Node3D" parent="Pillar"]
@@ -2863,6 +3032,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar8/Box2"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box3" type="RigidBody3D" parent="Pillar/Pillar8"]
@@ -2875,6 +3045,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar8/Box3"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box4" type="RigidBody3D" parent="Pillar/Pillar8"]
@@ -2887,6 +3058,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar8/Box4"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box5" type="RigidBody3D" parent="Pillar/Pillar8"]
@@ -2899,6 +3071,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar8/Box5"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box6" type="RigidBody3D" parent="Pillar/Pillar8"]
@@ -2911,6 +3084,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar8/Box6"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box7" type="RigidBody3D" parent="Pillar/Pillar8"]
@@ -2923,6 +3097,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar8/Box7"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box8" type="RigidBody3D" parent="Pillar/Pillar8"]
@@ -2935,6 +3110,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar8/Box8"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box9" type="RigidBody3D" parent="Pillar/Pillar8"]
@@ -2947,6 +3123,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar8/Box9"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box10" type="RigidBody3D" parent="Pillar/Pillar8"]
@@ -2959,6 +3136,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar8/Box10"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box11" type="RigidBody3D" parent="Pillar/Pillar8"]
@@ -2971,6 +3149,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar8/Box11"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box12" type="RigidBody3D" parent="Pillar/Pillar8"]
@@ -2983,6 +3162,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar8/Box12"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box13" type="RigidBody3D" parent="Pillar/Pillar8"]
@@ -2995,6 +3175,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar8/Box13"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box14" type="RigidBody3D" parent="Pillar/Pillar8"]
@@ -3007,6 +3188,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar8/Box14"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box15" type="RigidBody3D" parent="Pillar/Pillar8"]
@@ -3019,6 +3201,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar8/Box15"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box16" type="RigidBody3D" parent="Pillar/Pillar8"]
@@ -3031,6 +3214,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar8/Box16"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box17" type="RigidBody3D" parent="Pillar/Pillar8"]
@@ -3043,6 +3227,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar8/Box17"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box18" type="RigidBody3D" parent="Pillar/Pillar8"]
@@ -3055,6 +3240,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar8/Box18"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box19" type="RigidBody3D" parent="Pillar/Pillar8"]
@@ -3067,6 +3253,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar8/Box19"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box20" type="RigidBody3D" parent="Pillar/Pillar8"]
@@ -3079,6 +3266,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar8/Box20"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box21" type="RigidBody3D" parent="Pillar/Pillar8"]
@@ -3091,6 +3279,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar8/Box21"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box22" type="RigidBody3D" parent="Pillar/Pillar8"]
@@ -3103,6 +3292,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar8/Box22"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box23" type="RigidBody3D" parent="Pillar/Pillar8"]
@@ -3115,6 +3305,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar8/Box23"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box24" type="RigidBody3D" parent="Pillar/Pillar8"]
@@ -3127,6 +3318,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar8/Box24"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box25" type="RigidBody3D" parent="Pillar/Pillar8"]
@@ -3139,6 +3331,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar8/Box25"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Pillar9" type="Node3D" parent="Pillar"]
@@ -3153,6 +3346,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar9/Box2"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box3" type="RigidBody3D" parent="Pillar/Pillar9"]
@@ -3165,6 +3359,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar9/Box3"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box4" type="RigidBody3D" parent="Pillar/Pillar9"]
@@ -3177,6 +3372,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar9/Box4"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box5" type="RigidBody3D" parent="Pillar/Pillar9"]
@@ -3189,6 +3385,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar9/Box5"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box6" type="RigidBody3D" parent="Pillar/Pillar9"]
@@ -3201,6 +3398,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar9/Box6"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box7" type="RigidBody3D" parent="Pillar/Pillar9"]
@@ -3213,6 +3411,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar9/Box7"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box8" type="RigidBody3D" parent="Pillar/Pillar9"]
@@ -3225,6 +3424,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar9/Box8"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box9" type="RigidBody3D" parent="Pillar/Pillar9"]
@@ -3237,6 +3437,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar9/Box9"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box10" type="RigidBody3D" parent="Pillar/Pillar9"]
@@ -3249,6 +3450,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar9/Box10"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box11" type="RigidBody3D" parent="Pillar/Pillar9"]
@@ -3261,6 +3463,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar9/Box11"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box12" type="RigidBody3D" parent="Pillar/Pillar9"]
@@ -3273,6 +3476,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar9/Box12"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box13" type="RigidBody3D" parent="Pillar/Pillar9"]
@@ -3285,6 +3489,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar9/Box13"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box14" type="RigidBody3D" parent="Pillar/Pillar9"]
@@ -3297,6 +3502,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar9/Box14"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box15" type="RigidBody3D" parent="Pillar/Pillar9"]
@@ -3309,6 +3515,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar9/Box15"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box16" type="RigidBody3D" parent="Pillar/Pillar9"]
@@ -3321,6 +3528,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar9/Box16"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box17" type="RigidBody3D" parent="Pillar/Pillar9"]
@@ -3333,6 +3541,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar9/Box17"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box18" type="RigidBody3D" parent="Pillar/Pillar9"]
@@ -3345,6 +3554,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar9/Box18"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box19" type="RigidBody3D" parent="Pillar/Pillar9"]
@@ -3357,6 +3567,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar9/Box19"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box20" type="RigidBody3D" parent="Pillar/Pillar9"]
@@ -3369,6 +3580,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar9/Box20"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box21" type="RigidBody3D" parent="Pillar/Pillar9"]
@@ -3381,6 +3593,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar9/Box21"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box22" type="RigidBody3D" parent="Pillar/Pillar9"]
@@ -3393,6 +3606,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar9/Box22"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box23" type="RigidBody3D" parent="Pillar/Pillar9"]
@@ -3405,6 +3619,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar9/Box23"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box24" type="RigidBody3D" parent="Pillar/Pillar9"]
@@ -3417,6 +3632,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar9/Box24"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box25" type="RigidBody3D" parent="Pillar/Pillar9"]
@@ -3429,6 +3645,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar9/Box25"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Pillar10" type="Node3D" parent="Pillar"]
@@ -3443,6 +3660,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar10/Box2"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box3" type="RigidBody3D" parent="Pillar/Pillar10"]
@@ -3455,6 +3673,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar10/Box3"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box4" type="RigidBody3D" parent="Pillar/Pillar10"]
@@ -3467,6 +3686,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar10/Box4"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box5" type="RigidBody3D" parent="Pillar/Pillar10"]
@@ -3479,6 +3699,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar10/Box5"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box6" type="RigidBody3D" parent="Pillar/Pillar10"]
@@ -3491,6 +3712,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar10/Box6"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box7" type="RigidBody3D" parent="Pillar/Pillar10"]
@@ -3503,6 +3725,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar10/Box7"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box8" type="RigidBody3D" parent="Pillar/Pillar10"]
@@ -3515,6 +3738,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar10/Box8"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box9" type="RigidBody3D" parent="Pillar/Pillar10"]
@@ -3527,6 +3751,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar10/Box9"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box10" type="RigidBody3D" parent="Pillar/Pillar10"]
@@ -3539,6 +3764,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar10/Box10"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box11" type="RigidBody3D" parent="Pillar/Pillar10"]
@@ -3551,6 +3777,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar10/Box11"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box12" type="RigidBody3D" parent="Pillar/Pillar10"]
@@ -3563,6 +3790,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar10/Box12"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box13" type="RigidBody3D" parent="Pillar/Pillar10"]
@@ -3575,6 +3803,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar10/Box13"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box14" type="RigidBody3D" parent="Pillar/Pillar10"]
@@ -3587,6 +3816,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar10/Box14"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box15" type="RigidBody3D" parent="Pillar/Pillar10"]
@@ -3599,6 +3829,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar10/Box15"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box16" type="RigidBody3D" parent="Pillar/Pillar10"]
@@ -3611,6 +3842,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar10/Box16"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box17" type="RigidBody3D" parent="Pillar/Pillar10"]
@@ -3623,6 +3855,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar10/Box17"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box18" type="RigidBody3D" parent="Pillar/Pillar10"]
@@ -3635,6 +3868,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar10/Box18"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box19" type="RigidBody3D" parent="Pillar/Pillar10"]
@@ -3647,6 +3881,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar10/Box19"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box20" type="RigidBody3D" parent="Pillar/Pillar10"]
@@ -3659,6 +3894,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar10/Box20"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box21" type="RigidBody3D" parent="Pillar/Pillar10"]
@@ -3671,6 +3907,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar10/Box21"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box22" type="RigidBody3D" parent="Pillar/Pillar10"]
@@ -3683,6 +3920,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar10/Box22"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box23" type="RigidBody3D" parent="Pillar/Pillar10"]
@@ -3695,6 +3933,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar10/Box23"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box24" type="RigidBody3D" parent="Pillar/Pillar10"]
@@ -3707,6 +3946,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar10/Box24"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box25" type="RigidBody3D" parent="Pillar/Pillar10"]
@@ -3719,6 +3959,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar10/Box25"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Pillar11" type="Node3D" parent="Pillar"]
@@ -3733,6 +3974,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar11/Box2"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box3" type="RigidBody3D" parent="Pillar/Pillar11"]
@@ -3745,6 +3987,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar11/Box3"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box4" type="RigidBody3D" parent="Pillar/Pillar11"]
@@ -3757,6 +4000,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar11/Box4"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box5" type="RigidBody3D" parent="Pillar/Pillar11"]
@@ -3769,6 +4013,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar11/Box5"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box6" type="RigidBody3D" parent="Pillar/Pillar11"]
@@ -3781,6 +4026,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar11/Box6"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box7" type="RigidBody3D" parent="Pillar/Pillar11"]
@@ -3793,6 +4039,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar11/Box7"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box8" type="RigidBody3D" parent="Pillar/Pillar11"]
@@ -3805,6 +4052,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar11/Box8"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box9" type="RigidBody3D" parent="Pillar/Pillar11"]
@@ -3817,6 +4065,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar11/Box9"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box10" type="RigidBody3D" parent="Pillar/Pillar11"]
@@ -3829,6 +4078,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar11/Box10"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box11" type="RigidBody3D" parent="Pillar/Pillar11"]
@@ -3841,6 +4091,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar11/Box11"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box12" type="RigidBody3D" parent="Pillar/Pillar11"]
@@ -3853,6 +4104,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar11/Box12"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box13" type="RigidBody3D" parent="Pillar/Pillar11"]
@@ -3865,6 +4117,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar11/Box13"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box14" type="RigidBody3D" parent="Pillar/Pillar11"]
@@ -3877,6 +4130,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar11/Box14"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box15" type="RigidBody3D" parent="Pillar/Pillar11"]
@@ -3889,6 +4143,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar11/Box15"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box16" type="RigidBody3D" parent="Pillar/Pillar11"]
@@ -3901,6 +4156,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar11/Box16"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box17" type="RigidBody3D" parent="Pillar/Pillar11"]
@@ -3913,6 +4169,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar11/Box17"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box18" type="RigidBody3D" parent="Pillar/Pillar11"]
@@ -3925,6 +4182,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar11/Box18"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box19" type="RigidBody3D" parent="Pillar/Pillar11"]
@@ -3937,6 +4195,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar11/Box19"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box20" type="RigidBody3D" parent="Pillar/Pillar11"]
@@ -3949,6 +4208,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar11/Box20"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box21" type="RigidBody3D" parent="Pillar/Pillar11"]
@@ -3961,6 +4221,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar11/Box21"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box22" type="RigidBody3D" parent="Pillar/Pillar11"]
@@ -3973,6 +4234,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar11/Box22"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box23" type="RigidBody3D" parent="Pillar/Pillar11"]
@@ -3985,6 +4247,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar11/Box23"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box24" type="RigidBody3D" parent="Pillar/Pillar11"]
@@ -3997,6 +4260,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar11/Box24"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box25" type="RigidBody3D" parent="Pillar/Pillar11"]
@@ -4009,6 +4273,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar11/Box25"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Pillar12" type="Node3D" parent="Pillar"]
@@ -4023,6 +4288,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar12/Box2"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box3" type="RigidBody3D" parent="Pillar/Pillar12"]
@@ -4035,6 +4301,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar12/Box3"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box4" type="RigidBody3D" parent="Pillar/Pillar12"]
@@ -4047,6 +4314,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar12/Box4"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box5" type="RigidBody3D" parent="Pillar/Pillar12"]
@@ -4059,6 +4327,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar12/Box5"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box6" type="RigidBody3D" parent="Pillar/Pillar12"]
@@ -4071,6 +4340,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar12/Box6"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box7" type="RigidBody3D" parent="Pillar/Pillar12"]
@@ -4083,6 +4353,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar12/Box7"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box8" type="RigidBody3D" parent="Pillar/Pillar12"]
@@ -4095,6 +4366,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar12/Box8"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box9" type="RigidBody3D" parent="Pillar/Pillar12"]
@@ -4107,6 +4379,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar12/Box9"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box10" type="RigidBody3D" parent="Pillar/Pillar12"]
@@ -4119,6 +4392,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar12/Box10"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box11" type="RigidBody3D" parent="Pillar/Pillar12"]
@@ -4131,6 +4405,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar12/Box11"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box12" type="RigidBody3D" parent="Pillar/Pillar12"]
@@ -4143,6 +4418,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar12/Box12"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box13" type="RigidBody3D" parent="Pillar/Pillar12"]
@@ -4155,6 +4431,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar12/Box13"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box14" type="RigidBody3D" parent="Pillar/Pillar12"]
@@ -4167,6 +4444,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar12/Box14"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box15" type="RigidBody3D" parent="Pillar/Pillar12"]
@@ -4179,6 +4457,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar12/Box15"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box16" type="RigidBody3D" parent="Pillar/Pillar12"]
@@ -4191,6 +4470,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar12/Box16"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box17" type="RigidBody3D" parent="Pillar/Pillar12"]
@@ -4203,6 +4483,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar12/Box17"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box18" type="RigidBody3D" parent="Pillar/Pillar12"]
@@ -4215,6 +4496,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar12/Box18"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box19" type="RigidBody3D" parent="Pillar/Pillar12"]
@@ -4227,6 +4509,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar12/Box19"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box20" type="RigidBody3D" parent="Pillar/Pillar12"]
@@ -4239,6 +4522,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar12/Box20"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box21" type="RigidBody3D" parent="Pillar/Pillar12"]
@@ -4251,6 +4535,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar12/Box21"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box22" type="RigidBody3D" parent="Pillar/Pillar12"]
@@ -4263,6 +4548,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar12/Box22"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box23" type="RigidBody3D" parent="Pillar/Pillar12"]
@@ -4275,6 +4561,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar12/Box23"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box24" type="RigidBody3D" parent="Pillar/Pillar12"]
@@ -4287,6 +4574,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar12/Box24"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box25" type="RigidBody3D" parent="Pillar/Pillar12"]
@@ -4299,6 +4587,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar12/Box25"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Pillar13" type="Node3D" parent="Pillar"]
@@ -4313,6 +4602,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar13/Box2"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box3" type="RigidBody3D" parent="Pillar/Pillar13"]
@@ -4325,6 +4615,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar13/Box3"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box4" type="RigidBody3D" parent="Pillar/Pillar13"]
@@ -4337,6 +4628,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar13/Box4"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box5" type="RigidBody3D" parent="Pillar/Pillar13"]
@@ -4349,6 +4641,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar13/Box5"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box6" type="RigidBody3D" parent="Pillar/Pillar13"]
@@ -4361,6 +4654,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar13/Box6"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box7" type="RigidBody3D" parent="Pillar/Pillar13"]
@@ -4373,6 +4667,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar13/Box7"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box8" type="RigidBody3D" parent="Pillar/Pillar13"]
@@ -4385,6 +4680,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar13/Box8"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box9" type="RigidBody3D" parent="Pillar/Pillar13"]
@@ -4397,6 +4693,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar13/Box9"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box10" type="RigidBody3D" parent="Pillar/Pillar13"]
@@ -4409,6 +4706,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar13/Box10"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box11" type="RigidBody3D" parent="Pillar/Pillar13"]
@@ -4421,6 +4719,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar13/Box11"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box12" type="RigidBody3D" parent="Pillar/Pillar13"]
@@ -4433,6 +4732,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar13/Box12"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box13" type="RigidBody3D" parent="Pillar/Pillar13"]
@@ -4445,6 +4745,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar13/Box13"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box14" type="RigidBody3D" parent="Pillar/Pillar13"]
@@ -4457,6 +4758,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar13/Box14"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box15" type="RigidBody3D" parent="Pillar/Pillar13"]
@@ -4469,6 +4771,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar13/Box15"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box16" type="RigidBody3D" parent="Pillar/Pillar13"]
@@ -4481,6 +4784,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar13/Box16"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box17" type="RigidBody3D" parent="Pillar/Pillar13"]
@@ -4493,6 +4797,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar13/Box17"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box18" type="RigidBody3D" parent="Pillar/Pillar13"]
@@ -4505,6 +4810,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar13/Box18"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box19" type="RigidBody3D" parent="Pillar/Pillar13"]
@@ -4517,6 +4823,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar13/Box19"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box20" type="RigidBody3D" parent="Pillar/Pillar13"]
@@ -4529,6 +4836,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar13/Box20"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box21" type="RigidBody3D" parent="Pillar/Pillar13"]
@@ -4541,6 +4849,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar13/Box21"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box22" type="RigidBody3D" parent="Pillar/Pillar13"]
@@ -4553,6 +4862,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar13/Box22"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box23" type="RigidBody3D" parent="Pillar/Pillar13"]
@@ -4565,6 +4875,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar13/Box23"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box24" type="RigidBody3D" parent="Pillar/Pillar13"]
@@ -4577,6 +4888,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar13/Box24"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box25" type="RigidBody3D" parent="Pillar/Pillar13"]
@@ -4589,6 +4901,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar13/Box25"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Pillar14" type="Node3D" parent="Pillar"]
@@ -4603,6 +4916,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar14/Box2"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box3" type="RigidBody3D" parent="Pillar/Pillar14"]
@@ -4615,6 +4929,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar14/Box3"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box4" type="RigidBody3D" parent="Pillar/Pillar14"]
@@ -4627,6 +4942,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar14/Box4"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box5" type="RigidBody3D" parent="Pillar/Pillar14"]
@@ -4639,6 +4955,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar14/Box5"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box6" type="RigidBody3D" parent="Pillar/Pillar14"]
@@ -4651,6 +4968,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar14/Box6"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box7" type="RigidBody3D" parent="Pillar/Pillar14"]
@@ -4663,6 +4981,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar14/Box7"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box8" type="RigidBody3D" parent="Pillar/Pillar14"]
@@ -4675,6 +4994,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar14/Box8"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box9" type="RigidBody3D" parent="Pillar/Pillar14"]
@@ -4687,6 +5007,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar14/Box9"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box10" type="RigidBody3D" parent="Pillar/Pillar14"]
@@ -4699,6 +5020,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar14/Box10"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box11" type="RigidBody3D" parent="Pillar/Pillar14"]
@@ -4711,6 +5033,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar14/Box11"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box12" type="RigidBody3D" parent="Pillar/Pillar14"]
@@ -4723,6 +5046,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar14/Box12"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box13" type="RigidBody3D" parent="Pillar/Pillar14"]
@@ -4735,6 +5059,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar14/Box13"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box14" type="RigidBody3D" parent="Pillar/Pillar14"]
@@ -4747,6 +5072,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar14/Box14"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box15" type="RigidBody3D" parent="Pillar/Pillar14"]
@@ -4759,6 +5085,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar14/Box15"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box16" type="RigidBody3D" parent="Pillar/Pillar14"]
@@ -4771,6 +5098,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar14/Box16"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box17" type="RigidBody3D" parent="Pillar/Pillar14"]
@@ -4783,6 +5111,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar14/Box17"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box18" type="RigidBody3D" parent="Pillar/Pillar14"]
@@ -4795,6 +5124,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar14/Box18"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box19" type="RigidBody3D" parent="Pillar/Pillar14"]
@@ -4807,6 +5137,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar14/Box19"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box20" type="RigidBody3D" parent="Pillar/Pillar14"]
@@ -4819,6 +5150,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar14/Box20"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box21" type="RigidBody3D" parent="Pillar/Pillar14"]
@@ -4831,6 +5163,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar14/Box21"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box22" type="RigidBody3D" parent="Pillar/Pillar14"]
@@ -4843,6 +5176,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar14/Box22"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box23" type="RigidBody3D" parent="Pillar/Pillar14"]
@@ -4855,6 +5189,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar14/Box23"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box24" type="RigidBody3D" parent="Pillar/Pillar14"]
@@ -4867,6 +5202,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar14/Box24"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box25" type="RigidBody3D" parent="Pillar/Pillar14"]
@@ -4879,6 +5215,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar14/Box25"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Pillar15" type="Node3D" parent="Pillar"]
@@ -4893,6 +5230,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar15/Box2"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box3" type="RigidBody3D" parent="Pillar/Pillar15"]
@@ -4905,6 +5243,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar15/Box3"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box4" type="RigidBody3D" parent="Pillar/Pillar15"]
@@ -4917,6 +5256,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar15/Box4"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box5" type="RigidBody3D" parent="Pillar/Pillar15"]
@@ -4929,6 +5269,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar15/Box5"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box6" type="RigidBody3D" parent="Pillar/Pillar15"]
@@ -4941,6 +5282,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar15/Box6"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box7" type="RigidBody3D" parent="Pillar/Pillar15"]
@@ -4953,6 +5295,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar15/Box7"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box8" type="RigidBody3D" parent="Pillar/Pillar15"]
@@ -4965,6 +5308,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar15/Box8"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box9" type="RigidBody3D" parent="Pillar/Pillar15"]
@@ -4977,6 +5321,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar15/Box9"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box10" type="RigidBody3D" parent="Pillar/Pillar15"]
@@ -4989,6 +5334,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar15/Box10"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box11" type="RigidBody3D" parent="Pillar/Pillar15"]
@@ -5001,6 +5347,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar15/Box11"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box12" type="RigidBody3D" parent="Pillar/Pillar15"]
@@ -5013,6 +5360,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar15/Box12"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box13" type="RigidBody3D" parent="Pillar/Pillar15"]
@@ -5025,6 +5373,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar15/Box13"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box14" type="RigidBody3D" parent="Pillar/Pillar15"]
@@ -5037,6 +5386,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar15/Box14"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box15" type="RigidBody3D" parent="Pillar/Pillar15"]
@@ -5049,6 +5399,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar15/Box15"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box16" type="RigidBody3D" parent="Pillar/Pillar15"]
@@ -5061,6 +5412,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar15/Box16"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box17" type="RigidBody3D" parent="Pillar/Pillar15"]
@@ -5073,6 +5425,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar15/Box17"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box18" type="RigidBody3D" parent="Pillar/Pillar15"]
@@ -5085,6 +5438,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar15/Box18"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box19" type="RigidBody3D" parent="Pillar/Pillar15"]
@@ -5097,6 +5451,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar15/Box19"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box20" type="RigidBody3D" parent="Pillar/Pillar15"]
@@ -5109,6 +5464,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar15/Box20"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box21" type="RigidBody3D" parent="Pillar/Pillar15"]
@@ -5121,6 +5477,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar15/Box21"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box22" type="RigidBody3D" parent="Pillar/Pillar15"]
@@ -5133,6 +5490,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar15/Box22"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box23" type="RigidBody3D" parent="Pillar/Pillar15"]
@@ -5145,6 +5503,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar15/Box23"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box24" type="RigidBody3D" parent="Pillar/Pillar15"]
@@ -5157,6 +5516,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar15/Box24"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box25" type="RigidBody3D" parent="Pillar/Pillar15"]
@@ -5169,6 +5529,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar15/Box25"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Pillar16" type="Node3D" parent="Pillar"]
@@ -5183,6 +5544,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar16/Box2"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box3" type="RigidBody3D" parent="Pillar/Pillar16"]
@@ -5195,6 +5557,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar16/Box3"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box4" type="RigidBody3D" parent="Pillar/Pillar16"]
@@ -5207,6 +5570,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar16/Box4"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box5" type="RigidBody3D" parent="Pillar/Pillar16"]
@@ -5219,6 +5583,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar16/Box5"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box6" type="RigidBody3D" parent="Pillar/Pillar16"]
@@ -5231,6 +5596,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar16/Box6"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box7" type="RigidBody3D" parent="Pillar/Pillar16"]
@@ -5243,6 +5609,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar16/Box7"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box8" type="RigidBody3D" parent="Pillar/Pillar16"]
@@ -5255,6 +5622,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar16/Box8"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box9" type="RigidBody3D" parent="Pillar/Pillar16"]
@@ -5267,6 +5635,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar16/Box9"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box10" type="RigidBody3D" parent="Pillar/Pillar16"]
@@ -5279,6 +5648,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar16/Box10"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box11" type="RigidBody3D" parent="Pillar/Pillar16"]
@@ -5291,6 +5661,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar16/Box11"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box12" type="RigidBody3D" parent="Pillar/Pillar16"]
@@ -5303,6 +5674,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar16/Box12"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box13" type="RigidBody3D" parent="Pillar/Pillar16"]
@@ -5315,6 +5687,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar16/Box13"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box14" type="RigidBody3D" parent="Pillar/Pillar16"]
@@ -5327,6 +5700,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar16/Box14"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box15" type="RigidBody3D" parent="Pillar/Pillar16"]
@@ -5339,6 +5713,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar16/Box15"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box16" type="RigidBody3D" parent="Pillar/Pillar16"]
@@ -5351,6 +5726,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar16/Box16"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box17" type="RigidBody3D" parent="Pillar/Pillar16"]
@@ -5363,6 +5739,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar16/Box17"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box18" type="RigidBody3D" parent="Pillar/Pillar16"]
@@ -5375,6 +5752,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar16/Box18"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box19" type="RigidBody3D" parent="Pillar/Pillar16"]
@@ -5387,6 +5765,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar16/Box19"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box20" type="RigidBody3D" parent="Pillar/Pillar16"]
@@ -5399,6 +5778,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar16/Box20"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box21" type="RigidBody3D" parent="Pillar/Pillar16"]
@@ -5411,6 +5791,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar16/Box21"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box22" type="RigidBody3D" parent="Pillar/Pillar16"]
@@ -5423,6 +5804,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar16/Box22"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box23" type="RigidBody3D" parent="Pillar/Pillar16"]
@@ -5435,6 +5817,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar16/Box23"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box24" type="RigidBody3D" parent="Pillar/Pillar16"]
@@ -5447,6 +5830,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar16/Box24"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="Box25" type="RigidBody3D" parent="Pillar/Pillar16"]
@@ -5459,6 +5843,7 @@ shape = SubResource("BoxShape3D_g8gwo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pillar/Pillar16/Box25"]
 transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
+lod_bias = 0.001
 mesh = ExtResource("6_06emj")
 
 [node name="ReverseRamp" type="Node3D" parent="."]
@@ -5466,6 +5851,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.2568, 1.07375, -85.4374)
 
 [node name="Cube" type="MeshInstance3D" parent="ReverseRamp"]
 transform = Transform3D(-4.2222e-08, 1.13133e-08, 1, 0.0735515, 0.997291, -8.17721e-09, -0.997291, 0.0735515, -4.29397e-08, 0, -0.742141, 0)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_tmpsd")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="ReverseRamp/Cube"]
@@ -5475,6 +5861,7 @@ shape = SubResource("ConcavePolygonShape3D_ipxwd")
 
 [node name="Cube2" type="MeshInstance3D" parent="ReverseRamp"]
 transform = Transform3D(-4.2222e-08, 1.13133e-08, 1, 0.571587, 0.820541, 1.48505e-08, -0.820541, 0.571587, -4.11114e-08, 0, 1.67895, -6.10008)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_tmpsd")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="ReverseRamp/Cube2"]
@@ -5484,6 +5871,7 @@ shape = SubResource("ConcavePolygonShape3D_ipxwd")
 
 [node name="Cube3" type="MeshInstance3D" parent="ReverseRamp"]
 transform = Transform3D(-4.2222e-08, 1.13133e-08, 1, 0.901243, 0.433313, 3.315e-08, -0.433313, 0.901243, -2.84914e-08, 0, 5.66194, -9.40822)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_tmpsd")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="ReverseRamp/Cube3"]
@@ -5493,6 +5881,7 @@ shape = SubResource("ConcavePolygonShape3D_ipxwd")
 
 [node name="Cube4" type="MeshInstance3D" parent="ReverseRamp"]
 transform = Transform3D(-4.2222e-08, 1.13133e-08, 1, 0.978667, 0.205453, 3.89969e-08, -0.205453, 0.978667, -1.97466e-08, 0, 7.89802, -10.1708)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_tmpsd")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="ReverseRamp/Cube4"]
@@ -5502,6 +5891,7 @@ shape = SubResource("ConcavePolygonShape3D_ipxwd")
 
 [node name="Cube5" type="MeshInstance3D" parent="ReverseRamp"]
 transform = Transform3D(-4.2222e-08, 1.13133e-08, 1, 0.907931, -0.419119, 4.30763e-08, 0.419119, 0.907931, 7.42431e-09, 0, 9.71496, -11.0014)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_tmpsd")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="ReverseRamp/Cube5"]
@@ -5512,6 +5902,7 @@ shape = SubResource("ConcavePolygonShape3D_ipxwd")
 
 [node name="Cube6" type="MeshInstance3D" parent="ReverseRamp"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 4.9951, -0.974403)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_tmpsd")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="ReverseRamp/Cube6"]
@@ -5521,6 +5912,7 @@ shape = SubResource("ConcavePolygonShape3D_ipxwd")
 
 [node name="Cube7" type="MeshInstance3D" parent="ReverseRamp"]
 transform = Transform3D(-3.79956e-08, -0.34202, 0.939693, -1.5704e-08, 0.939693, 0.34202, -1, -1.76169e-09, -4.10753e-08, -14.225, 1.605, -0.974)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_1f0vy")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="ReverseRamp/Cube7"]
@@ -5530,6 +5922,7 @@ shape = SubResource("ConcavePolygonShape3D_kbxgg")
 
 [node name="Cube8" type="MeshInstance3D" parent="ReverseRamp"]
 transform = Transform3D(0.000768021, 0.34202, -0.939692, -1.9877e-09, 0.939693, 0.34202, 1, -0.000262677, 0.000721704, 14.22, 1.605, -0.97)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_1f0vy")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="ReverseRamp/Cube8"]
@@ -5543,6 +5936,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66.5862, 0, -86.9336)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -15.565)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_uijr1")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -5553,6 +5947,7 @@ shape = SubResource("ConcavePolygonShape3D_37x61")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -20.565)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_uijr1")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -5563,6 +5958,7 @@ shape = SubResource("ConcavePolygonShape3D_dylan")
 
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, -4.21735, -20.565)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_uijr1")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -5573,6 +5969,7 @@ shape = SubResource("ConcavePolygonShape3D_sduqu")
 
 [node name="MeshInstance3D6" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, -6.21735, -11.565)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_uijr1")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -5583,6 +5980,7 @@ shape = SubResource("ConcavePolygonShape3D_0yq3o")
 
 [node name="MeshInstance3D7" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, -6.21735, -6.565)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_uijr1")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -5593,6 +5991,7 @@ shape = SubResource("ConcavePolygonShape3D_cc4e8")
 
 [node name="MeshInstance3D8" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, -6.21735, -1.565)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_uijr1")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -5603,6 +6002,7 @@ shape = SubResource("ConcavePolygonShape3D_6jm87")
 
 [node name="MeshInstance3D9" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, -6.21735, 3.435)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_uijr1")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -5613,6 +6013,7 @@ shape = SubResource("ConcavePolygonShape3D_wlnwl")
 
 [node name="MeshInstance3D10" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.5, -6.21735, 3.435)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_uijr1")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -5623,6 +6024,7 @@ shape = SubResource("ConcavePolygonShape3D_5n1do")
 
 [node name="MeshInstance3D11" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, -6.21735, 3.435)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_uijr1")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -5633,6 +6035,7 @@ shape = SubResource("ConcavePolygonShape3D_vcv8g")
 
 [node name="MeshInstance3D12" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, -6.21735, 8.435)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_uijr1")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -5643,6 +6046,7 @@ shape = SubResource("ConcavePolygonShape3D_frrcq")
 
 [node name="MeshInstance3D13" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, -6.21735, 8.435)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_uijr1")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -5653,6 +6057,7 @@ shape = SubResource("ConcavePolygonShape3D_anyxr")
 
 [node name="MeshInstance3D20" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, -6.21735, 8.435)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_uijr1")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -5663,6 +6068,7 @@ shape = SubResource("ConcavePolygonShape3D_b5wpm")
 
 [node name="MeshInstance3D21" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, -6.21735, 8.435)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_uijr1")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -5673,6 +6079,7 @@ shape = SubResource("ConcavePolygonShape3D_wm30u")
 
 [node name="MeshInstance3D22" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, -6.21735, 8.435)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_uijr1")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -5683,6 +6090,7 @@ shape = SubResource("ConcavePolygonShape3D_b476y")
 
 [node name="MeshInstance3D23" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.5, -6.21735, 8.435)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_uijr1")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -5693,6 +6101,7 @@ shape = SubResource("ConcavePolygonShape3D_emxtg")
 
 [node name="MeshInstance3D73" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, -13.5, -3.21735, 8.435)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_uijr1")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -5703,6 +6112,7 @@ shape = SubResource("ConcavePolygonShape3D_b53rt")
 
 [node name="MeshInstance3D24" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -11.5, -3.21735, 5.435)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_uijr1")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -5713,6 +6123,7 @@ shape = SubResource("ConcavePolygonShape3D_gmb0n")
 
 [node name="MeshInstance3D25" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -11.5, -3.21735, 11.435)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_uijr1")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -5723,6 +6134,7 @@ shape = SubResource("ConcavePolygonShape3D_mgqwv")
 
 [node name="MeshInstance3D26" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -11.5, -3.21735, 11.435)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_uijr1")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -5733,6 +6145,7 @@ shape = SubResource("ConcavePolygonShape3D_ssavh")
 
 [node name="MeshInstance3D27" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -6.5, -3.21735, 11.435)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_uijr1")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -5743,6 +6156,7 @@ shape = SubResource("ConcavePolygonShape3D_57j8u")
 
 [node name="MeshInstance3D28" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -1.5, -3.21735, 11.435)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_uijr1")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -5753,6 +6167,7 @@ shape = SubResource("ConcavePolygonShape3D_8ixi4")
 
 [node name="MeshInstance3D29" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 3.5, -3.21735, 11.435)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_uijr1")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -5763,6 +6178,7 @@ shape = SubResource("ConcavePolygonShape3D_aj07a")
 
 [node name="MeshInstance3D30" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 3.5, -3.21735, 5.435)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_uijr1")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -5773,6 +6189,7 @@ shape = SubResource("ConcavePolygonShape3D_h28do")
 
 [node name="MeshInstance3D33" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 8.5, -3.21735, 0.434998)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_uijr1")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -5783,6 +6200,7 @@ shape = SubResource("ConcavePolygonShape3D_7b4k4")
 
 [node name="MeshInstance3D34" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 18.5, -3.21735, 0.434998)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_uijr1")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -5793,6 +6211,7 @@ shape = SubResource("ConcavePolygonShape3D_i2f8v")
 
 [node name="MeshInstance3D35" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 18.5, -3.21735, 16.435)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_uijr1")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -5803,6 +6222,7 @@ shape = SubResource("ConcavePolygonShape3D_ayur5")
 
 [node name="MeshInstance3D36" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 13.5, -3.21735, 16.435)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_uijr1")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -5813,6 +6233,7 @@ shape = SubResource("ConcavePolygonShape3D_tcbql")
 
 [node name="MeshInstance3D37" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 8.5, -3.21735, 16.435)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_uijr1")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -5823,6 +6244,7 @@ shape = SubResource("ConcavePolygonShape3D_0ydsf")
 
 [node name="MeshInstance3D38" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 5.5, -3.21735, 14.435)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_uijr1")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -5833,6 +6255,7 @@ shape = SubResource("ConcavePolygonShape3D_vy4k6")
 
 [node name="MeshInstance3D39" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 5.5, -3.21735, 2.435)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_uijr1")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -5843,6 +6266,7 @@ shape = SubResource("ConcavePolygonShape3D_uuj6l")
 
 [node name="MeshInstance3D40" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 21.5, -3.21735, 2.435)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_uijr1")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -5853,6 +6277,7 @@ shape = SubResource("ConcavePolygonShape3D_kjvbl")
 
 [node name="MeshInstance3D41" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 21.5, -3.21735, 7.435)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_uijr1")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -5863,6 +6288,7 @@ shape = SubResource("ConcavePolygonShape3D_n6wjv")
 
 [node name="MeshInstance3D42" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 21.5, -3.21735, 12.435)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_uijr1")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -5873,6 +6299,7 @@ shape = SubResource("ConcavePolygonShape3D_i66nh")
 
 [node name="MeshInstance3D43" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 21.5, -3.21735, 17.435)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_uijr1")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -5883,6 +6310,7 @@ shape = SubResource("ConcavePolygonShape3D_14q3s")
 
 [node name="MeshInstance3D44" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 21.5, -3.21735, 17.435)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_uijr1")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -5893,6 +6321,7 @@ shape = SubResource("ConcavePolygonShape3D_qkmeb")
 
 [node name="MeshInstance3D45" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 16.5, -3.21735, -2.565)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_uijr1")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -5903,6 +6332,7 @@ shape = SubResource("ConcavePolygonShape3D_ns3ub")
 
 [node name="MeshInstance3D46" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 16.5, -3.21735, -7.565)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_uijr1")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -5913,6 +6343,7 @@ shape = SubResource("ConcavePolygonShape3D_tmy6m")
 
 [node name="MeshInstance3D47" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 16.5, -3.21735, -12.565)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_uijr1")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -5923,6 +6354,7 @@ shape = SubResource("ConcavePolygonShape3D_g8oas")
 
 [node name="MeshInstance3D48" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 10.5, -3.21735, -12.565)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_uijr1")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -5933,6 +6365,7 @@ shape = SubResource("ConcavePolygonShape3D_axvi4")
 
 [node name="MeshInstance3D49" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 10.5, -3.21735, -7.565)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_uijr1")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -5943,6 +6376,7 @@ shape = SubResource("ConcavePolygonShape3D_8ht3j")
 
 [node name="MeshInstance3D50" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 10.5, -3.21735, -2.565)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_uijr1")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -5953,6 +6387,7 @@ shape = SubResource("ConcavePolygonShape3D_rihl6")
 
 [node name="MeshInstance3D51" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 10.5, -3.21735, -16.565)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_vaxgk")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -5963,6 +6398,7 @@ shape = SubResource("ConcavePolygonShape3D_g6msb")
 
 [node name="MeshInstance3D52" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 16.5, -3.21735, -16.565)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_vaxgk")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -5973,6 +6409,7 @@ shape = SubResource("ConcavePolygonShape3D_kq26b")
 
 [node name="MeshInstance3D53" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 16.5, -3.21735, -19.565)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_vaxgk")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -5983,6 +6420,7 @@ shape = SubResource("ConcavePolygonShape3D_oajwc")
 
 [node name="MeshInstance3D54" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 16.5, -3.21735, -22.565)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_vaxgk")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -5993,6 +6431,7 @@ shape = SubResource("ConcavePolygonShape3D_pl2wo")
 
 [node name="MeshInstance3D55" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 15.5, -3.21735, -23.565)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_vaxgk")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -6003,6 +6442,7 @@ shape = SubResource("ConcavePolygonShape3D_bl2ti")
 
 [node name="MeshInstance3D56" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 12.5, -3.21735, -23.565)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_vaxgk")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -6013,6 +6453,7 @@ shape = SubResource("ConcavePolygonShape3D_pwjw2")
 
 [node name="MeshInstance3D57" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 9.5, -3.21735, -23.565)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_vaxgk")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -6023,6 +6464,7 @@ shape = SubResource("ConcavePolygonShape3D_72e7a")
 
 [node name="MeshInstance3D58" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 6.5, -3.21735, -23.565)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_vaxgk")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -6033,6 +6475,7 @@ shape = SubResource("ConcavePolygonShape3D_rqwvt")
 
 [node name="MeshInstance3D59" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 3.5, -3.21735, -23.565)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_vaxgk")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -6043,6 +6486,7 @@ shape = SubResource("ConcavePolygonShape3D_h1v3b")
 
 [node name="MeshInstance3D60" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.5, -3.21735, -23.565)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_vaxgk")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -6053,6 +6497,7 @@ shape = SubResource("ConcavePolygonShape3D_1hyvv")
 
 [node name="MeshInstance3D61" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -2.5, -3.21735, -23.565)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_vaxgk")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -6063,6 +6508,7 @@ shape = SubResource("ConcavePolygonShape3D_fh6ec")
 
 [node name="MeshInstance3D62" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 6.5, 1.78265, -23.565)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_u4epb")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -6073,6 +6519,7 @@ shape = SubResource("ConcavePolygonShape3D_l7r5x")
 
 [node name="MeshInstance3D63" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, -3.5, 1.78265, -18.565)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_2ts0i")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -6083,6 +6530,7 @@ shape = SubResource("ConcavePolygonShape3D_bs1ig")
 
 [node name="MeshInstance3D64" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6.5, 4.78265, -18.565)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_50t3q")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -6093,6 +6541,7 @@ shape = SubResource("ConcavePolygonShape3D_26crr")
 
 [node name="MeshInstance3D65" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 16.5, 1.78265, -18.565)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_yb5di")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -6103,6 +6552,7 @@ shape = SubResource("ConcavePolygonShape3D_tex0y")
 
 [node name="MeshInstance3D66" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 2.5, 1.78265, -15.565)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_vgiao")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -6113,6 +6563,7 @@ shape = SubResource("ConcavePolygonShape3D_d21hr")
 
 [node name="MeshInstance3D67" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 5.5, 1.78265, -17.565)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_vgiao")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -6123,6 +6574,7 @@ shape = SubResource("ConcavePolygonShape3D_bjcuy")
 
 [node name="MeshInstance3D68" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 5.5, -3.21735, -17.565)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_vgiao")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -6133,6 +6585,7 @@ shape = SubResource("ConcavePolygonShape3D_x8uqs")
 
 [node name="MeshInstance3D69" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 9.5, 1.78265, -17.565)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_kayl3")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -6143,6 +6596,7 @@ shape = SubResource("ConcavePolygonShape3D_ysbdf")
 
 [node name="MeshInstance3D71" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 9.5, -3.21735, -17.565)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_kayl3")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -6153,6 +6607,7 @@ shape = SubResource("ConcavePolygonShape3D_hsdp1")
 
 [node name="MeshInstance3D70" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 10.5, 1.78265, -15.565)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_b3mxd")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -6163,6 +6618,7 @@ shape = SubResource("ConcavePolygonShape3D_ut5co")
 
 [node name="MeshInstance3D72" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 13.5, 1.78265, -13.565)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_b3mxd")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -6173,6 +6629,7 @@ shape = SubResource("ConcavePolygonShape3D_wrlx3")
 
 [node name="MeshInstance3D74" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 7.5, 1.78265, -13.565)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_b3mxd")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -6183,6 +6640,7 @@ shape = SubResource("ConcavePolygonShape3D_hla0j")
 
 [node name="MeshInstance3D75" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 5.5, 1.78265, -13.565)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_b3mxd")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -6193,6 +6651,7 @@ shape = SubResource("ConcavePolygonShape3D_tsygy")
 
 [node name="MeshInstance3D31" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -1.5, -3.21735, 5.435)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_uijr1")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -6203,6 +6662,7 @@ shape = SubResource("ConcavePolygonShape3D_ceyec")
 
 [node name="MeshInstance3D32" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -6.5, -3.21735, 5.435)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_uijr1")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -6213,6 +6673,7 @@ shape = SubResource("ConcavePolygonShape3D_bdcw2")
 
 [node name="MeshInstance3D14" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, -6.21735, 8.435)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_uijr1")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -6223,6 +6684,7 @@ shape = SubResource("ConcavePolygonShape3D_cn042")
 
 [node name="MeshInstance3D15" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.5, -6.21735, 8.435)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_uijr1")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -6233,6 +6695,7 @@ shape = SubResource("ConcavePolygonShape3D_qtfnb")
 
 [node name="MeshInstance3D16" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.5, -6.21735, 13.435)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_uijr1")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -6243,6 +6706,7 @@ shape = SubResource("ConcavePolygonShape3D_t8wso")
 
 [node name="MeshInstance3D17" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, -6.21735, 13.435)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_uijr1")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -6253,6 +6717,7 @@ shape = SubResource("ConcavePolygonShape3D_kl1am")
 
 [node name="MeshInstance3D18" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, -6.21735, 13.435)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_uijr1")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -6263,6 +6728,7 @@ shape = SubResource("ConcavePolygonShape3D_rtaed")
 
 [node name="MeshInstance3D76" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, -0.217349, 13.435)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_uijr1")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -6273,6 +6739,7 @@ shape = SubResource("ConcavePolygonShape3D_exu76")
 
 [node name="MeshInstance3D77" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, -0.217349, 13.435)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_uijr1")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -6283,6 +6750,7 @@ shape = SubResource("ConcavePolygonShape3D_4px4c")
 
 [node name="MeshInstance3D78" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.5, -0.217349, 13.435)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_uijr1")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -6293,6 +6761,7 @@ shape = SubResource("ConcavePolygonShape3D_gr0fj")
 
 [node name="MeshInstance3D79" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.5, -0.217349, 8.435)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_uijr1")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -6303,6 +6772,7 @@ shape = SubResource("ConcavePolygonShape3D_2lag4")
 
 [node name="MeshInstance3D80" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, -0.217349, 8.435)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_uijr1")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -6313,6 +6783,7 @@ shape = SubResource("ConcavePolygonShape3D_nd427")
 
 [node name="MeshInstance3D81" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, -0.217349, 8.435)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_uijr1")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -6323,6 +6794,7 @@ shape = SubResource("ConcavePolygonShape3D_81gjk")
 
 [node name="MeshInstance3D82" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, -0.217349, 3.435)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_uijr1")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -6333,6 +6805,7 @@ shape = SubResource("ConcavePolygonShape3D_nl8fi")
 
 [node name="MeshInstance3D83" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, -0.217349, 3.435)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_uijr1")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -6343,6 +6816,7 @@ shape = SubResource("ConcavePolygonShape3D_rowd7")
 
 [node name="MeshInstance3D84" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.5, -0.217349, 3.435)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_uijr1")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -6353,6 +6827,7 @@ shape = SubResource("ConcavePolygonShape3D_tut68")
 
 [node name="MeshInstance3D85" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, -0.217349, -1.565)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_uijr1")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -6363,6 +6838,7 @@ shape = SubResource("ConcavePolygonShape3D_mborj")
 
 [node name="MeshInstance3D86" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, -0.217349, -6.565)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_uijr1")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -6373,6 +6849,7 @@ shape = SubResource("ConcavePolygonShape3D_0l1c6")
 
 [node name="MeshInstance3D87" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, -0.217349, -10.565)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_uijr1")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -6383,6 +6860,7 @@ shape = SubResource("ConcavePolygonShape3D_pxr6u")
 
 [node name="MeshInstance3D88" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, -0.217349, 8.435)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_uijr1")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -6393,6 +6871,7 @@ shape = SubResource("ConcavePolygonShape3D_jsgdd")
 
 [node name="MeshInstance3D89" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, -0.217349, 8.435)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_uijr1")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -6403,6 +6882,7 @@ shape = SubResource("ConcavePolygonShape3D_8ckro")
 
 [node name="MeshInstance3D90" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, -0.217349, 8.435)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_uijr1")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -6413,6 +6893,7 @@ shape = SubResource("ConcavePolygonShape3D_ceju7")
 
 [node name="MeshInstance3D91" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.5, -0.217349, 8.435)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_uijr1")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -6423,6 +6904,7 @@ shape = SubResource("ConcavePolygonShape3D_l3thh")
 
 [node name="MeshInstance3D19" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, -6.21735, 13.435)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_uijr1")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -6433,6 +6915,7 @@ shape = SubResource("ConcavePolygonShape3D_aygiy")
 
 [node name="MeshInstance3D5" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(1, 0, 0, 0, 0.906308, -0.422618, 0, 0.422618, 0.906308, 13.5, -5.226, -16.014)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_uijr1")
 surface_material_override/0 = ExtResource("1_pb4wu")
 
@@ -6443,6 +6926,7 @@ shape = SubResource("ConcavePolygonShape3D_wjg1s")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="Underground"]
 transform = Transform3D(0.906308, 0.422618, 0, -0.422618, 0.906308, 0, 0, 0, 1, 6.314, -2.064, -20.565)
+lod_bias = 0.001
 mesh = SubResource("BoxMesh_luclx")
 surface_material_override/0 = ExtResource("1_pb4wu")
 

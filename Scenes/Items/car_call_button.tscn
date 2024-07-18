@@ -11,6 +11,9 @@ size = Vector3(1, 2, 2.01856)
 
 [node name="car_call_button" instance=ExtResource("1_liboh")]
 
+[node name="Cylinder" parent="." index="0"]
+lod_bias = 0.15
+
 [node name="StaticBody3D" type="StaticBody3D" parent="Cylinder" index="0"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cylinder/StaticBody3D" index="0"]

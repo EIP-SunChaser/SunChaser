@@ -1998,10 +1998,6 @@ transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -189.816, 17.9682, -31.
 [node name="Detailled Tree6" parent="." instance=ExtResource("10_0abcx")]
 transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -200.682, 17.9682, -51.9646)
 
-[node name="box" type="MeshInstance3D" parent="."]
-mesh = ExtResource("8_kytmy")
-skeleton = NodePath("")
-
 [node name="car_call_button" parent="." instance=ExtResource("11_a1kia")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -14.756, 0.5, 7.26141)
 
