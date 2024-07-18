@@ -102,9 +102,6 @@ func _unhandled_input(event):
 	if Input.is_action_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 	
-	if Input.is_action_pressed("shoot") and animation_player.current_animation != "shoot" and not is_in_car:
-		play_shoot_effects.rpc()
-	
 	if Input.is_action_just_pressed("use"):
 		var actionnables = actionable_finder.get_overlapping_areas()
 		if actionnables.size() > 0 && actionnables[0].has_method("action"):
@@ -203,17 +200,20 @@ func do_physics_process(delta):
 	var target_fov = BASE_FOV + FOV_CAHNGE * velocity_clamped
 	camera.fov = lerp(camera.fov, target_fov, delta * 8.0)
 
+	if Input.is_action_pressed("shoot") and not is_in_car:
+		play_shoot_effects.rpc()
+
 	if !Input.is_action_pressed("aim") && isAiming == true:
 		SENSITIVITY_JOYSTICK = 0.06
 		if !gun_animation.is_playing():
 			isAiming = false
-			gun_animation.play_backwards("Aim")
+			gun_animation.play_backwards("aim")
 
 	if Input.is_action_pressed("aim") && isAiming == false:
 		SENSITIVITY_JOYSTICK = 0.01
 		if !gun_animation.is_playing():
 			isAiming = true
-			gun_animation.play("Aim")
+			gun_animation.play("aim")
 
 	if Input.is_action_pressed("sprint") or sprint_toggled:
 		speed = SPRINT_SPEED if !is_crouching else SPRINT_SPEED / CROUCH_SPEED
@@ -233,7 +233,7 @@ func _process(_delta):
 @rpc("any_peer", "call_local")
 func crouch():
 	if !is_crouching:
-		animation_player.play("Crouch")
+		animation_player.play("crouch")
 		is_crouching = true
 	else:
 		uncrouch_buffer = true
@@ -241,7 +241,7 @@ func crouch():
 @rpc("any_peer", "call_local")
 func check_head_collision():
 	if uncrouch_buffer and !head_cast.is_colliding():
-		animation_player.play_backwards("Crouch")
+		animation_player.play_backwards("crouch")
 		is_crouching = false
 		uncrouch_buffer = false
 
@@ -254,9 +254,9 @@ func play_shoot_effects():
 		get_parent().add_child(instance)
 		instance.get_node("AudioStreamPlayer3D").play()
 		if isAiming:
-			gun_animation.play("Aim_n_Shoot")
+			gun_animation.play("aim_n_shoot")
 		else:
-			gun_animation.play("Shoot")
+			gun_animation.play("shoot")
 
 func _headbob(time) -> Vector3:
 	var pos = Vector3.ZERO

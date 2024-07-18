@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dsoey86w5qs3b" path="res://Assets/Models/Items/Guns/rifle_prototype.glb" id="1_h5mhm"]
 
 [sub_resource type="Animation" id="Animation_ui4hj"]
-resource_name = "Aim"
+resource_name = "aim"
 length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -30,37 +30,8 @@ tracks/1/keys = {
 "values": [Vector3(0.00148539, 0.0674375, -0.935307), Vector3(0.00148539, 0.0674375, -0.935307), Vector3(0.00148539, 0.0674375, -0.935307), Vector3(0.00148539, 0.0674375, -0.935307), Vector3(-0.55, 0.15, -0.935)]
 }
 
-[sub_resource type="Animation" id="Animation_sykcn"]
-resource_name = "Aim_n_Shoot"
-length = 0.5
-step = 0.01
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Cube:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.01, 0.1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(-0.55, 0.15, 0), Vector3(-0.55, 0.15, 0.1), Vector3(-0.55, 0.15, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("RayCast3D:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.01, 0.1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(-0.55, 0.22, -1), Vector3(-0.55, 0.22, -0.8), Vector3(-0.55, 0.22, -1)]
-}
-
 [sub_resource type="Animation" id="Animation_1i4pb"]
-resource_name = "Shoot"
+resource_name = "shoot"
 length = 0.5
 step = 0.01
 tracks/0/type = "value"
@@ -88,11 +59,40 @@ tracks/1/keys = {
 "values": [Vector3(0.00148539, 0.0674375, -0.935307), Vector3(0, 0.06, -0.8), Vector3(0, 0.06, -1)]
 }
 
+[sub_resource type="Animation" id="Animation_sykcn"]
+resource_name = "aim_n_shoot"
+length = 0.5
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cube:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.01, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.55, 0.15, 0), Vector3(-0.55, 0.15, 0.1), Vector3(-0.55, 0.15, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RayCast3D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.01, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.55, 0.22, -1), Vector3(-0.55, 0.22, -0.8), Vector3(-0.55, 0.22, -1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5vn6j"]
 _data = {
-"Aim": SubResource("Animation_ui4hj"),
-"Aim_n_Shoot": SubResource("Animation_sykcn"),
-"Shoot": SubResource("Animation_1i4pb")
+"aim": SubResource("Animation_ui4hj"),
+"aim_n_shoot": SubResource("Animation_sykcn"),
+"shoot": SubResource("Animation_1i4pb")
 }
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_8g1vd"]
