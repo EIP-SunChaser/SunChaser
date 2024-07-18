@@ -188,10 +188,10 @@ func do_physics_process(delta):
 			velocity.z = direction.z * speed
 		else:
 			velocity.x = lerp(velocity.x, direction.x * speed, delta * 7.0)
-			velocity.z = lerp(velocity.z, direction.z * speed, delta * 7.0)
+			velocity.z = lerp(velocity.z, direction.x * speed, delta * 7.0)
 	else:
 		velocity.x = lerp(velocity.x, direction.x * speed, delta * 3.0)
-		velocity.z = lerp(velocity.z, direction.z * speed, delta * 3.0)
+		velocity.z = lerp(velocity.z, direction.x * speed, delta * 3.0)
 
 	t_bob += delta * velocity.length() * float(is_on_floor())
 	camera.transform.origin = _headbob(t_bob)
@@ -203,22 +203,21 @@ func do_physics_process(delta):
 	if Input.is_action_pressed("shoot") and not is_in_car:
 		play_shoot_effects.rpc()
 
-	if !Input.is_action_pressed("aim") && isAiming == true:
+	if Input.is_action_pressed("aim"):
+		SENSITIVITY_JOYSTICK = 0.01
+		if not isAiming:
+			isAiming = true
+			gun_animation.play("aim")
+	else:
 		SENSITIVITY_JOYSTICK = 0.06
-		if !gun_animation.is_playing():
+		if isAiming:
 			isAiming = false
 			gun_animation.play_backwards("aim")
 
-	if Input.is_action_pressed("aim") && isAiming == false:
-		SENSITIVITY_JOYSTICK = 0.01
-		if !gun_animation.is_playing():
-			isAiming = true
-			gun_animation.play("aim")
-
 	if Input.is_action_pressed("sprint") or sprint_toggled:
-		speed = SPRINT_SPEED if !is_crouching else SPRINT_SPEED / CROUCH_SPEED
+		speed = SPRINT_SPEED if not is_crouching else SPRINT_SPEED / CROUCH_SPEED
 	else:
-		speed = WALK_SPEED if !is_crouching else WALK_SPEED / CROUCH_SPEED
+		speed = WALK_SPEED if not is_crouching else WALK_SPEED / CROUCH_SPEED
 	
 	check_head_collision.rpc()
 	move_and_slide()
@@ -232,7 +231,7 @@ func _process(_delta):
 
 @rpc("any_peer", "call_local")
 func crouch():
-	if !is_crouching:
+	if not is_crouching:
 		animation_player.play("crouch")
 		is_crouching = true
 	else:
@@ -240,14 +239,14 @@ func crouch():
 
 @rpc("any_peer", "call_local")
 func check_head_collision():
-	if uncrouch_buffer and !head_cast.is_colliding():
+	if uncrouch_buffer and not head_cast.is_colliding():
 		animation_player.play_backwards("crouch")
 		is_crouching = false
 		uncrouch_buffer = false
 
 @rpc("any_peer", "call_local")
 func play_shoot_effects():
-	if !gun_animation.is_playing():
+	if not gun_animation.is_playing():
 		instance = bullet.instantiate()
 		instance.position = gun_barrel.global_position
 		instance.transform.basis = gun_barrel.global_transform.basis
