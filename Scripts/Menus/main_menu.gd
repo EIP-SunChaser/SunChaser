@@ -7,7 +7,7 @@ extends Control
 @onready var ip_address = $BoxContainer/VBoxContainer2/IP_Address
 @onready var host = $BoxContainer/VBoxContainer/Host
 @onready var upnp_checkbox = $BoxContainer/VBoxContainer/Host/upnp
-
+@export var world_scene = preload("res://Scenes/Maps/world.tscn")
 var current_spawn_index = 0
 
 const PORT = 9999
@@ -25,8 +25,7 @@ func _process(_delta):
 
 func connected_to_server():
 	send_player_information.rpc_id(1, pseudo.text, multiplayer.get_unique_id())
-	
-	
+
 func _on_host_button_down():
 	self.hide()
 	peer.create_server(PORT)
@@ -37,6 +36,9 @@ func _on_host_button_down():
 	add_player(multiplayer.get_unique_id())
 	if upnp_checkbox.button_pressed:
 		upnp_setup()
+	var scene = world_scene.instantiate()
+	get_tree().root.add_child(scene)
+	get_tree().current_scene = scene
 
 func _on_join_button_down():
 	if ip_address.text != "":
@@ -45,6 +47,9 @@ func _on_join_button_down():
 		peer.create_client(DEFAULT_IP, PORT)
 	multiplayer.multiplayer_peer = peer
 	self.hide()
+	var scene = world_scene.instantiate()
+	get_tree().root.add_child(scene)
+	get_tree().current_scene = scene
 
 func _on_exit_button_down():
 	get_tree().quit()
@@ -67,7 +72,7 @@ func spawn_car(spawn_position: Vector3):
 	var car = car_scene.instantiate()
 	car.name = "JoltCar"
 	car.add_to_group("Car")
-	$"../Node3D".add_child(car, true)
+	add_child(car, true)
 	car.global_position = spawn_position
 
 func delete_player(id: int):
@@ -135,5 +140,3 @@ func upnp_setup():
 
 	print("UPNP Setup Successful! Join Address: ", external_address)
 	return true
-
-

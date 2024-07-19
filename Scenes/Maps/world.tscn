@@ -1,7 +1,6 @@
-[gd_scene load_steps=25 format=3 uid="uid://c4ca03hfvhrsd"]
+[gd_scene load_steps=26 format=3 uid="uid://c4ca03hfvhrsd"]
 
 [ext_resource type="PackedScene" uid="uid://bmc1fqst1lx1y" path="res://Scenes/Maps/environment.tscn" id="1_steub"]
-[ext_resource type="PackedScene" uid="uid://cwfe4ax6jym2h" path="res://Scenes/Menus/main_menu.tscn" id="2_ak7c5"]
 [ext_resource type="PackedScene" uid="uid://b2ajj4fsrspvj" path="res://Scenes/Ui/fps_meter.tscn" id="3_nq26b"]
 [ext_resource type="PackedScene" uid="uid://d0yhvm1880vyv" path="res://Scenes/Entities/hat_npc.tscn" id="4_arjcc"]
 [ext_resource type="PackedScene" uid="uid://bw41xqawmw8pp" path="res://Scenes/Entities/bad_npc.tscn" id="5_hhx2q"]
@@ -14,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://p7qlo83l57tv" path="res://Scenes/Maps/map_prototype_v_4.tscn" id="11_xmsm6"]
 [ext_resource type="PackedScene" uid="uid://cvuvh31sst0u1" path="res://Scenes/Entities/forestier.tscn" id="13_tkqpx"]
 [ext_resource type="PackedScene" uid="uid://dfb2jorn13mqh" path="res://Scenes/Entities/pets.tscn" id="14_avud1"]
+[ext_resource type="Script" path="res://Scripts/Maps/TP_TestWorld.gd" id="14_rtuf3"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2efs4"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -44,17 +44,20 @@ properties/1/replication_mode = 1
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_sdet3"]
 data = PackedVector3Array(50, 175, 35, -50, 175, 35, -50, -175, 35, 50, -175, 35, 50, 175, 35, -50, -175, 35, -50, 175, -35, 50, 175, -35, 50, -175, -35, -50, -175, -35, -50, 175, -35, 50, -175, -35, 50, 175, -35, 50, 175, 35, 50, -175, 35, 50, -175, -35, 50, 175, -35, 50, -175, 35, -50, 175, 35, -50, 175, -35, -50, -175, -35, -50, -175, 35, -50, 175, 35, -50, -175, -35, -50, 175, 35, 50, 175, 35, 50, 175, -35, -50, 175, -35, -50, 175, 35, 50, 175, -35, 50, -175, 35, -50, -175, 35, -50, -175, -35, 50, -175, -35, 50, -175, 35, -50, -175, -35)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_20um2"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v1xee"]
 transparency = 1
 albedo_color = Color(0.254118, 1, 0.994537, 0.478431)
 
 [sub_resource type="BoxMesh" id="BoxMesh_jpluy"]
 lightmap_size_hint = Vector2i(14, 21)
-material = SubResource("StandardMaterial3D_20um2")
+material = SubResource("StandardMaterial3D_v1xee")
 flip_faces = true
-size = Vector3(100, 350, 70)
+size = Vector3(5, 5, 5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rjj73"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tehmd"]
+size = Vector3(5, 5, 5)
 
 [node name="World" type="Node3D"]
 
@@ -66,8 +69,6 @@ shadow_enabled = true
 environment = SubResource("Environment_1pto3")
 
 [node name="Environment" parent="." instance=ExtResource("1_steub")]
-
-[node name="MainMenu" parent="." instance=ExtResource("2_ak7c5")]
 
 [node name="FPSMeter" parent="." instance=ExtResource("3_nq26b")]
 
@@ -2006,5 +2007,16 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -14.75
 [node name="Pets" parent="." instance=ExtResource("14_avud1")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 5.8, 1, 4.956)
 
+[node name="TP_TestWorld" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.16, 3.005, 82.859)
+script = ExtResource("14_rtuf3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TP_TestWorld"]
+shape = SubResource("BoxShape3D_tehmd")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TP_TestWorld"]
+mesh = SubResource("BoxMesh_jpluy")
+
 [connection signal="body_entered" from="Quest1/Area3D" to="Quest1/Area3D" method="_on_body_entered"]
 [connection signal="body_exited" from="Quest1/Area3D" to="Quest1/Area3D" method="_on_body_exited"]
+[connection signal="body_entered" from="TP_TestWorld" to="TP_TestWorld" method="_on_body_entered"]

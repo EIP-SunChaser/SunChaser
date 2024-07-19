@@ -63,6 +63,8 @@ func _ready():
 	right_tail_light_material = right_tail_light.get_active_material(0)
 
 func _physics_process(delta):
+	if !is_multiplayer_authority(): return
+	
 	if active && GlobalVariables.isInPause == false:
 		if Input.is_action_just_pressed("brake"):
 			toggle_parking_brake()
@@ -113,9 +115,7 @@ func _physics_process(delta):
 		
 		battery_display.battery = current_battery
 		$BatteryText.show()
-		
 		$RadioText.show()
-		
 		leaving_car()
 		
 		if Input.is_action_just_pressed("reset_car"):
@@ -184,6 +184,7 @@ func entering_car():
 
 @rpc("any_peer", "call_local")
 func set_player_in_car(player_path: NodePath):
+	if !is_multiplayer_authority(): return
 	var player = get_node(player_path)
 	if player:
 		active = true

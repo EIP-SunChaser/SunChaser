@@ -9,8 +9,7 @@ signal battery_depleted
 @export var background_color: Color = Color(0, 0, 0, 0)
 
 func _ready():
-	if !is_multiplayer_authority():
-		self.hide()
+	if !is_multiplayer_authority(): return
 	
 	if not gradient:
 		gradient = Gradient.new()

@@ -100,7 +100,7 @@ radius = 0.025
 [sub_resource type="BoxShape3D" id="BoxShape3D_5a73s"]
 size = Vector3(6.22852, 3.52063, 4)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h3jrk"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a56u6"]
 bg_color = Color(0, 0, 0, 0)
 
 [sub_resource type="Gradient" id="Gradient_mbdqv"]
@@ -313,6 +313,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.26031, -0.0879002)
 shape = SubResource("BoxShape3D_5a73s")
 
 [node name="SpeedText" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="SpeedCounter" type="Label" parent="SpeedText"]
 anchors_preset = 3
@@ -345,6 +346,7 @@ grow_vertical = 0
 text = "km/h"
 
 [node name="BatteryText" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="BatteryBar" parent="BatteryText" instance=ExtResource("5_0x0d3")]
 anchors_preset = 3
@@ -355,10 +357,11 @@ offset_top = -118.0
 offset_right = -12.0001
 offset_bottom = -88.0
 grow_horizontal = 0
-theme_override_styles/background = SubResource("StyleBoxFlat_h3jrk")
+theme_override_styles/background = SubResource("StyleBoxFlat_a56u6")
 theme_override_styles/fill = SubResource("StyleBoxTexture_546eb")
 
 [node name="RadioText" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Radio" parent="RadioText" instance=ExtResource("6_ff0wm")]
 anchors_preset = 3

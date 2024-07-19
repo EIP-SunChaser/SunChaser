@@ -243,6 +243,7 @@ skeleton = NodePath("../../BodyCollision")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.546027, -0.273746, -0.724783)
 
 [node name="Quest_ui" parent="Head/Camera3D" instance=ExtResource("5_p4gfi")]
+visible = false
 
 [node name="HealthBar" parent="Head/Camera3D" instance=ExtResource("6_1voe1")]
 

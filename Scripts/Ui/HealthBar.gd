@@ -5,8 +5,7 @@ var health = 100 : set = _set_health
 signal health_depleted
 
 func _ready():
-	if !is_multiplayer_authority():
-		self.hide()
+	if !is_multiplayer_authority(): return
 
 func _set_health(new_health):
 	if !is_multiplayer_authority(): return

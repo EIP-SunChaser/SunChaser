@@ -10,6 +10,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
+	if !is_multiplayer_authority(): return
 	test = GlobalVariables.quest_one
 	match GlobalVariables.quest_one:
 		GlobalVariables.check_quest.GO_CAMP_ONE:
