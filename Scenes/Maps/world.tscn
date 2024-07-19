@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://c4ca03hfvhrsd"]
+[gd_scene load_steps=27 format=3 uid="uid://c4ca03hfvhrsd"]
 
 [ext_resource type="PackedScene" uid="uid://bmc1fqst1lx1y" path="res://Scenes/Maps/environment.tscn" id="1_steub"]
 [ext_resource type="PackedScene" uid="uid://b2ajj4fsrspvj" path="res://Scenes/Ui/fps_meter.tscn" id="3_nq26b"]
@@ -48,15 +48,21 @@ data = PackedVector3Array(50, 175, 35, -50, 175, 35, -50, -175, 35, 50, -175, 35
 transparency = 1
 albedo_color = Color(0.254118, 1, 0.994537, 0.478431)
 
-[sub_resource type="BoxMesh" id="BoxMesh_jpluy"]
+[sub_resource type="BoxMesh" id="BoxMesh_prrjs"]
 lightmap_size_hint = Vector2i(14, 21)
 material = SubResource("StandardMaterial3D_v1xee")
 flip_faces = true
-size = Vector3(5, 5, 5)
+size = Vector3(100, 350, 70)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rjj73"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tehmd"]
+size = Vector3(5, 5, 5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_jpluy"]
+lightmap_size_hint = Vector2i(14, 21)
+material = SubResource("StandardMaterial3D_v1xee")
+flip_faces = true
 size = Vector3(5, 5, 5)
 
 [node name="World" type="Node3D"]
@@ -136,7 +142,7 @@ script = ExtResource("7_36gr5")
 shape = SubResource("ConcavePolygonShape3D_sdet3")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Quest1/Area3D"]
-mesh = SubResource("BoxMesh_jpluy")
+mesh = SubResource("BoxMesh_prrjs")
 
 [node name="Hat_npc" parent="Quest1" instance=ExtResource("4_arjcc")]
 transform = Transform3D(-0.590324, 0, -0.807166, 0, 1, 0, 0.807166, 0, -0.590324, -602.015, 11.2, -6.136)

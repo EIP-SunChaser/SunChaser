@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bw41xqawmw8pp"]
+[gd_scene load_steps=11 format=3 uid="uid://bw41xqawmw8pp"]
 
 [ext_resource type="Script" path="res://Scripts/Entities/npc.gd" id="1_kvn8c"]
 [ext_resource type="Script" path="res://Scripts/Entities/BodyPart.gd" id="2_7qfvd"]
@@ -21,14 +21,6 @@ size = Vector3(0.2, 2, 0.5)
 [sub_resource type="BoxMesh" id="BoxMesh_lg3gj"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g7swa"]
-
-[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_dqd1e"]
-properties/0/path = NodePath(".:position")
-properties/0/spawn = true
-properties/0/replication_mode = 1
-properties/1/path = NodePath(".:rotation")
-properties/1/spawn = true
-properties/1/replication_mode = 1
 
 [node name="Bad_npc" type="CharacterBody3D" groups=["Bandits"]]
 script = ExtResource("1_kvn8c")
@@ -76,9 +68,6 @@ damage = 50
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="EyeMesh/EyeArea"]
 shape = SubResource("BoxShape3D_g7swa")
-
-[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
-replication_config = SubResource("SceneReplicationConfig_dqd1e")
 
 [connection signal="body_part_hit" from="BodyCollision/BodyArea" to="." method="_on_body_part_hit"]
 [connection signal="body_part_hit" from="EyeMesh/EyeArea" to="." method="_on_body_part_hit"]

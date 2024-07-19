@@ -67,7 +67,6 @@ func _enter_tree():
 
 func _ready():
 	if !is_multiplayer_authority(): return
-
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	camera.current = true
 	pause_menu.hide()

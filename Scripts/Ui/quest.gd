@@ -1,17 +1,9 @@
 extends VBoxContainer
 
-@export var quest_one_label: Label
-@export var test = 0
+var quest_one_label: Label
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	if !is_multiplayer_authority(): return
-	test = GlobalVariables.quest_one
 	match GlobalVariables.quest_one:
 		GlobalVariables.check_quest.GO_CAMP_ONE:
 			quest_one_label = Label.new()
