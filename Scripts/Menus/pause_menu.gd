@@ -32,8 +32,9 @@ func on_exit_options_menu():
 func _on_back_to_main_menu_button_down():
 	player.pauseMenu()
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	if multiplayer.has_multiplayer_peer():
+		multiplayer.multiplayer_peer.close()
 	get_tree().change_scene_to_file("res://Scenes/Menus/main_menu.tscn")
-
 
 func _on_exit_to_desktop_button_down():
 	get_tree().quit()
