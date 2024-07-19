@@ -150,14 +150,18 @@ func _physics_process(delta):
 func update_tail_lights():
 	var braking = Input.is_action_pressed("deccelerate")
 	var reversing = linear_velocity.dot(-global_transform.basis.z) > 0
-
-	left_tail_light_material.emission_enabled = braking
-	right_tail_light_material.emission_enabled = braking
+	var emission_color: Color
 
 	if braking:
-		var emission_color = red_color if reversing else white_color
-		left_tail_light_material.emission = emission_color
-		right_tail_light_material.emission = emission_color
+		emission_color = red_color if reversing else white_color
+	sync_tail_lights.rpc(braking, emission_color)
+
+@rpc("any_peer", "call_local")
+func sync_tail_lights(braking: bool, emission_color: Color):
+	left_tail_light_material.emission_enabled = braking
+	right_tail_light_material.emission_enabled = braking
+	left_tail_light_material.emission = emission_color
+	right_tail_light_material.emission = emission_color
 
 func toggle_parking_brake():
 	parking_brake_engaged = !parking_brake_engaged

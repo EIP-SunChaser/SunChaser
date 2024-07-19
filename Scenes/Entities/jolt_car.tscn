@@ -160,6 +160,12 @@ properties/11/replication_mode = 0
 properties/12/path = NodePath("AudioStreamPlayer:playing")
 properties/12/spawn = true
 properties/12/replication_mode = 0
+properties/13/path = NodePath("HeadLight/LeftHeadLight:visible")
+properties/13/spawn = true
+properties/13/replication_mode = 1
+properties/14/path = NodePath("HeadLight/RightHeadLight:visible")
+properties/14/spawn = true
+properties/14/replication_mode = 1
 
 [node name="JoltCar" type="RigidBody3D" groups=["JoltCar"]]
 mass = 10.0

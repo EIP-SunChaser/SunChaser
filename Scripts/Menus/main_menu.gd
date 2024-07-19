@@ -59,14 +59,9 @@ func add_player(id: int):
 	if multiplayer.is_server():
 		var spawn_position = select_spawn_point()
 		spawn_player(id, spawn_position)
-		
+
 		var car_spawn_position = spawn_position + Vector3(0, 10, 10)
 		spawn_car(car_spawn_position)
-	else:
-		var player = player_scene.instantiate()
-		player.name = str(id)
-		player.add_to_group("Player")
-		add_child(player)
 
 func spawn_car(spawn_position: Vector3):
 	var car = car_scene.instantiate()
