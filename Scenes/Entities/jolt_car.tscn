@@ -100,7 +100,7 @@ radius = 0.025
 [sub_resource type="BoxShape3D" id="BoxShape3D_5a73s"]
 size = Vector3(6.22852, 3.52063, 4)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_84anv"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ssgs8"]
 bg_color = Color(0, 0, 0, 0)
 
 [sub_resource type="Gradient" id="Gradient_mbdqv"]
@@ -173,9 +173,11 @@ center_of_mass_mode = 1
 center_of_mass = Vector3(0, -0.95, -0.12)
 script = ExtResource("1_v325y")
 spring_strength = 500.0
-spring_force = 30.0
+spring_force = 50.0
 wheel_radius = 0.5
 engine_power = 70.0
+front_tire_grip = 1.0
+rear_tire_grip = 1.0
 parking_brake_force = 100.0
 battery_drain_rate = 1.0
 
@@ -363,7 +365,7 @@ offset_top = -118.0
 offset_right = -12.0001
 offset_bottom = -88.0
 grow_horizontal = 0
-theme_override_styles/background = SubResource("StyleBoxFlat_84anv")
+theme_override_styles/background = SubResource("StyleBoxFlat_ssgs8")
 theme_override_styles/fill = SubResource("StyleBoxTexture_546eb")
 
 [node name="RadioText" type="CanvasLayer" parent="."]
