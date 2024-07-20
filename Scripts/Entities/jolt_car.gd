@@ -136,8 +136,6 @@ func _physics_process(delta):
 		if Input.is_action_just_pressed("headlight"):
 			left_head_light.visible = !left_head_light.visible
 			right_head_light.visible = !right_head_light.visible
-		
-		apply_smooth_rotation(delta)
 	else:
 		$SpeedText.hide()
 		$BatteryText.hide()
@@ -146,6 +144,8 @@ func _physics_process(delta):
 		accel_input = 0
 		front_left_wheel.rotation.y = 0
 		front_right_wheel.rotation.y = 0
+	
+	apply_smooth_rotation(delta)	
 
 func update_tail_lights():
 	var braking = Input.is_action_pressed("deccelerate")
@@ -184,7 +184,10 @@ func entering_car():
 	if Input.is_action_just_pressed("use") and car_zone and not active:
 		var local_player = find_local_player()
 		if local_player:
-			set_player_in_car.rpc(local_player.get_path())
+			if is_car_upside_down() and not is_resetting:
+				reset_car_rotation()
+			else:
+				set_player_in_car.rpc(local_player.get_path())
 
 @rpc("any_peer", "call_local")
 func set_player_in_car(player_path: NodePath):
