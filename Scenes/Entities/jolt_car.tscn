@@ -10,7 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://cijx6n856d2yy" path="res://Assets/Audios/Musics/International_love.mp3" id="7_q0kix"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g4php"]
-size = Vector3(2, 0.5, 3)
+size = Vector3(3.78675, 0.950195, 3.41965)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sakff"]
 albedo_texture = ExtResource("2_wku7g")
@@ -102,7 +102,7 @@ radius = 0.025
 [sub_resource type="BoxShape3D" id="BoxShape3D_5a73s"]
 size = Vector3(6.22852, 3.52063, 4)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6n7yr"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2c1tw"]
 bg_color = Color(0, 0, 0, 0)
 
 [sub_resource type="Gradient" id="Gradient_mbdqv"]
@@ -184,7 +184,7 @@ parking_brake_force = 100.0
 battery_drain_rate = 1.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00164413, -0.025, -0.00308533)
 shape = SubResource("BoxShape3D_g4php")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -194,17 +194,17 @@ mesh = SubResource("BoxMesh_tphuy")
 [node name="Wheels" type="Node3D" parent="."]
 
 [node name="FrontLeftWheel" type="RayCast3D" parent="Wheels"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7, 0, -1.2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7, 0, -1.2)
 script = ExtResource("2_0xgju")
 is_front_wheel = true
 
 [node name="Spring" type="MeshInstance3D" parent="Wheels/FrontLeftWheel"]
-transform = Transform3D(0.035, 0, 0, 0, 0.035, 0, 0, 0, 0.035, -0.545, -0.5, 0)
+transform = Transform3D(0.035, 0, 0, 0, 0.035, 0, 0, 0, 0.035, 0.5, -0.5, 0)
 mesh = SubResource("ArrayMesh_o2057")
 skeleton = NodePath("")
 
 [node name="Wheel" type="Node3D" parent="Wheels/FrontLeftWheel"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Wheels/FrontLeftWheel/Wheel"]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.5, 0, 0)
@@ -212,17 +212,17 @@ mesh = SubResource("TorusMesh_542k1")
 skeleton = NodePath("../..")
 
 [node name="FrontRightWheel" type="RayCast3D" parent="Wheels"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, 0, -1.2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7, 0, -1.2)
 script = ExtResource("2_0xgju")
 is_front_wheel = true
 
 [node name="Spring" type="MeshInstance3D" parent="Wheels/FrontRightWheel"]
-transform = Transform3D(0.035, 0, 0, 0, 0.035, 0, 0, 0, 0.035, 0.545, -0.5, 0)
+transform = Transform3D(0.035, 0, 0, 0, 0.035, 0, 0, 0, 0.035, -0.5, -0.5, 0)
 mesh = SubResource("ArrayMesh_o2057")
 skeleton = NodePath("")
 
 [node name="Wheel" type="Node3D" parent="Wheels/FrontRightWheel"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Wheels/FrontRightWheel/Wheel"]
 transform = Transform3D(-4.37114e-08, -0.999999, 0, 1, -4.37113e-08, 0, 0, 0, 0.999999, 0.5, 0, 0)
@@ -230,16 +230,16 @@ mesh = SubResource("TorusMesh_542k1")
 skeleton = NodePath("../..")
 
 [node name="BackRightWheel" type="RayCast3D" parent="Wheels"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, 0, 1.1918)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7, 0, 1.1918)
 script = ExtResource("2_0xgju")
 
 [node name="Spring" type="MeshInstance3D" parent="Wheels/BackRightWheel"]
-transform = Transform3D(0.035, 0, 0, 0, 0.035, 0, 0, 0, 0.035, 0.545, -0.5, 0)
+transform = Transform3D(0.035, 0, 0, 0, 0.035, 0, 0, 0, 0.035, -0.5, -0.5, 0)
 mesh = SubResource("ArrayMesh_o2057")
 skeleton = NodePath("")
 
 [node name="Wheel" type="Node3D" parent="Wheels/BackRightWheel"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Wheels/BackRightWheel/Wheel"]
 transform = Transform3D(-4.37114e-08, -0.999999, 0, 1, -4.37113e-08, 0, 0, 0, 0.999999, 0.5, 0, 0)
@@ -247,16 +247,16 @@ mesh = SubResource("TorusMesh_542k1")
 skeleton = NodePath("../..")
 
 [node name="BackLeftWheel" type="RayCast3D" parent="Wheels"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7, 0, 1.2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7, 0, 1.2)
 script = ExtResource("2_0xgju")
 
 [node name="Spring" type="MeshInstance3D" parent="Wheels/BackLeftWheel"]
-transform = Transform3D(0.035, 0, 0, 0, 0.035, 0, 0, 0, 0.035, -0.545, -0.5, 0)
+transform = Transform3D(0.035, 0, 0, 0, 0.035, 0, 0, 0, 0.035, 0.5, -0.5, 0)
 mesh = SubResource("ArrayMesh_o2057")
 skeleton = NodePath("")
 
 [node name="Wheel" type="Node3D" parent="Wheels/BackLeftWheel"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Wheels/BackLeftWheel/Wheel"]
 transform = Transform3D(-4.37114e-08, -0.999999, 0, 1, -4.37113e-08, 0, 0, 0, 0.999999, -0.5, 0, 0)
@@ -367,7 +367,7 @@ offset_top = -118.0
 offset_right = -12.0001
 offset_bottom = -88.0
 grow_horizontal = 0
-theme_override_styles/background = SubResource("StyleBoxFlat_6n7yr")
+theme_override_styles/background = SubResource("StyleBoxFlat_2c1tw")
 theme_override_styles/fill = SubResource("StyleBoxTexture_546eb")
 
 [node name="RadioText" type="CanvasLayer" parent="."]
