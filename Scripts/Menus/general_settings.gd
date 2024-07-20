@@ -13,19 +13,32 @@ extends Control
 @onready var framerate_option = $MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Display/Framerate/FramerateOption
 
 var is_fullscreen: bool = false
+var display_settings
+var audio_settings
 
 func _ready():
-	master_slider.value = db_to_linear(AudioServer.get_bus_volume_db(0))
-	music_slider.value = db_to_linear(AudioServer.get_bus_volume_db(1))
-	sound_effects_slider.value = db_to_linear(AudioServer.get_bus_volume_db(2))
-	
 	populate_resolution_options()
 	populate_window_mode()
 	populate_framerate_options()
-	resolution_option.selected = 0
-	fullscreen_option.selected = DisplayServer.window_get_mode()
-	vsync_check.button_pressed = DisplayServer.window_get_vsync_mode() == DisplayServer.VSYNC_ENABLED
-	framerate_option.selected = 5
+	apply_settings()
+
+func apply_settings():
+	display_settings = ConfigFileHandler.load_display_settings()
+	audio_settings = ConfigFileHandler.load_audio_settings()
+
+	resolution_option.selected = display_settings.resolution
+	fullscreen_option.selected = display_settings.window_mode
+	vsync_check.button_pressed = display_settings.vsync
+	framerate_option.selected = display_settings.framerate
+	
+	master_slider.value = audio_settings.master_volume
+	music_slider.value = audio_settings.music_volume
+	sound_effects_slider.value = audio_settings.sfx_volume
+	
+	_on_resolution_option_item_selected(display_settings.resolution)
+	_on_fullscreen_option_item_selected(display_settings.window_mode)
+	_on_v_sync_check_toggled(display_settings.vsync)
+	_on_framerate_option_item_selected(display_settings.framerate)
 
 func populate_resolution_options():
 	var current_resolution = get_window().size
@@ -50,7 +63,7 @@ func populate_window_mode():
 			fullscreen_option.select(i)
 
 func populate_framerate_options():
-	var framerates = [30, 60, 120, 144, 240, 0]  # 0 means unlimited
+	var framerates = [30, 60, 120, 144, 240, 0]
 	var current_framerate = Engine.max_fps
 	
 	for i in range(framerates.size()):
@@ -59,41 +72,51 @@ func populate_framerate_options():
 		if framerates[i] == current_framerate:
 			framerate_option.select(i)
 
-func _on_master_slider_value_changed(value):
-	master_percentage.text = str(master_slider.value * 100) + "%"
-	AudioServer.set_bus_volume_db(0, linear_to_db(master_slider.value))
-
-func _on_music_slider_value_changed(value):
-	music_percentage.text = str(music_slider.value * 100) + "%"
-	AudioServer.set_bus_volume_db(1, linear_to_db(music_slider.value))
-
-func _on_sound_effects_slider_value_changed(value):
-	sound_effects_percentage.text = str(sound_effects_slider.value * 100) + "%"
-	AudioServer.set_bus_volume_db(2, linear_to_db(sound_effects_slider.value))
-
 func _on_resolution_option_item_selected(index):
 	var selected_resolution = resolution_option.get_item_text(index).split("x")
 	get_window().size = Vector2(int(selected_resolution[0]), int(selected_resolution[1]))
+	ConfigFileHandler.save_display_settings("resolution", index)
 
 func _on_fullscreen_option_item_selected(index):
 	var selected_mode = fullscreen_option.get_item_id(index)
 	DisplayServer.window_set_mode(selected_mode)
+	ConfigFileHandler.save_display_settings("window_mode", index)
 
 func _on_v_sync_check_toggled(button_pressed):
 	DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED if button_pressed else DisplayServer.VSYNC_DISABLED)
+	ConfigFileHandler.save_display_settings("vsync", button_pressed)
 
 func _on_framerate_option_item_selected(index):
 	var selected_framerate = framerate_option.get_item_id(index)
 	Engine.max_fps = selected_framerate
+	ConfigFileHandler.save_display_settings("framerate", index)
+
+func _on_master_slider_value_changed(value):
+	master_percentage.text = str(master_slider.value * 100) + "%"
+	AudioServer.set_bus_volume_db(0, linear_to_db(master_slider.value))
+	ConfigFileHandler.save_audio_settings("master_volume", value)
+
+func _on_music_slider_value_changed(value):
+	music_percentage.text = str(music_slider.value * 100) + "%"
+	AudioServer.set_bus_volume_db(1, linear_to_db(music_slider.value))
+	ConfigFileHandler.save_audio_settings("music_volume", value)
+
+func _on_sound_effects_slider_value_changed(value):
+	sound_effects_percentage.text = str(sound_effects_slider.value * 100) + "%"
+	AudioServer.set_bus_volume_db(2, linear_to_db(sound_effects_slider.value))
+	ConfigFileHandler.save_audio_settings("sfx_volume", value)
 
 func _on_reset_button_pressed():
 	master_slider.value = 1
 	music_slider.value = 1
 	sound_effects_slider.value = 1
+
+	resolution_option.selected = 0
+	fullscreen_option.selected = 0
+	vsync_check.button_pressed = 1
+	framerate_option.selected = 5
 	
-	resolution_option.select(0)
-	fullscreen_option.select(0)
-	DisplayServer.window_set_mode(fullscreen_option.get_item_id(0))
-	vsync_check.button_pressed = false
-	framerate_option.select(5)
-	Engine.max_fps = framerate_option.get_item_id(5)
+	_on_resolution_option_item_selected(resolution_option.selected)
+	_on_fullscreen_option_item_selected(fullscreen_option.selected)
+	_on_v_sync_check_toggled(vsync_check.button_pressed)
+	_on_framerate_option_item_selected(framerate_option.selected)
