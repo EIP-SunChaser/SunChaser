@@ -73,103 +73,109 @@ material = SubResource("ShaderMaterial_bk2py")
 custom_minimum_size = Vector2(420, 0)
 layout_mode = 2
 size_flags_horizontal = 0
+size_flags_vertical = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="LeftMenu"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LeftMenu/VBoxContainer"]
 custom_minimum_size = Vector2(420, 0)
 layout_mode = 2
 size_flags_horizontal = 0
+size_flags_vertical = 3
 alignment = 1
 
-[node name="TitleMenu" type="Label" parent="LeftMenu/VBoxContainer"]
+[node name="TitleMenu" type="Label" parent="LeftMenu/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Car custom"
 label_settings = SubResource("LabelSettings_n7x1j")
 
-[node name="CarParts" type="GridContainer" parent="LeftMenu/VBoxContainer"]
+[node name="CarParts" type="GridContainer" parent="LeftMenu/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 columns = 3
 
-[node name="Wheels" type="Button" parent="LeftMenu/VBoxContainer/CarParts"]
+[node name="Wheels" type="Button" parent="LeftMenu/VBoxContainer/VBoxContainer/CarParts"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 text = "Wheels"
 
-[node name="Spring" type="Button" parent="LeftMenu/VBoxContainer/CarParts"]
+[node name="Spring" type="Button" parent="LeftMenu/VBoxContainer/VBoxContainer/CarParts"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 text = "Spring"
 
-[node name="Hood" type="Button" parent="LeftMenu/VBoxContainer/CarParts"]
+[node name="Hood" type="Button" parent="LeftMenu/VBoxContainer/VBoxContainer/CarParts"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 text = "Hood"
 
-[node name="Button4" type="Button" parent="LeftMenu/VBoxContainer/CarParts"]
+[node name="Button4" type="Button" parent="LeftMenu/VBoxContainer/VBoxContainer/CarParts"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 text = "Button 1"
 
-[node name="Button5" type="Button" parent="LeftMenu/VBoxContainer/CarParts"]
+[node name="Button5" type="Button" parent="LeftMenu/VBoxContainer/VBoxContainer/CarParts"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 text = "Button 1"
 
-[node name="Button6" type="Button" parent="LeftMenu/VBoxContainer/CarParts"]
+[node name="Button6" type="Button" parent="LeftMenu/VBoxContainer/VBoxContainer/CarParts"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 text = "Button 1"
 
-[node name="HSeparator" type="HSeparator" parent="LeftMenu/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="LeftMenu/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="SpecificParts" type="GridContainer" parent="LeftMenu/VBoxContainer"]
+[node name="SpecificParts" type="GridContainer" parent="LeftMenu/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 columns = 3
 
-[node name="Button" type="Button" parent="LeftMenu/VBoxContainer/SpecificParts"]
+[node name="Button" type="Button" parent="LeftMenu/VBoxContainer/VBoxContainer/SpecificParts"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 text = "Wheels 1"
 
-[node name="Button2" type="Button" parent="LeftMenu/VBoxContainer/SpecificParts"]
+[node name="Button2" type="Button" parent="LeftMenu/VBoxContainer/VBoxContainer/SpecificParts"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 text = "Wheels 2"
 
-[node name="Button3" type="Button" parent="LeftMenu/VBoxContainer/SpecificParts"]
+[node name="Button3" type="Button" parent="LeftMenu/VBoxContainer/VBoxContainer/SpecificParts"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 text = "Wheels 3"
 
-[node name="Button4" type="Button" parent="LeftMenu/VBoxContainer/SpecificParts"]
+[node name="Button4" type="Button" parent="LeftMenu/VBoxContainer/VBoxContainer/SpecificParts"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 text = "Wheels 4"
 
-[node name="Button5" type="Button" parent="LeftMenu/VBoxContainer/SpecificParts"]
+[node name="Button5" type="Button" parent="LeftMenu/VBoxContainer/VBoxContainer/SpecificParts"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 text = "Wheels 5"
 
-[node name="Button6" type="Button" parent="LeftMenu/VBoxContainer/SpecificParts"]
+[node name="Button6" type="Button" parent="LeftMenu/VBoxContainer/VBoxContainer/SpecificParts"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 text = "Wheels 6"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="LeftMenu/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="LeftMenu/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 10
 alignment = 1
 
-[node name="CancelButton" type="Button" parent="LeftMenu/VBoxContainer/HBoxContainer"]
+[node name="CancelButton" type="Button" parent="LeftMenu/VBoxContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Cancel"
 
-[node name="SaveButton" type="Button" parent="LeftMenu/VBoxContainer/HBoxContainer"]
+[node name="SaveButton" type="Button" parent="LeftMenu/VBoxContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Save"
@@ -183,8 +189,8 @@ libraries = {
 "": SubResource("AnimationLibrary_e5g38")
 }
 
-[connection signal="pressed" from="LeftMenu/VBoxContainer/SpecificParts/Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="LeftMenu/VBoxContainer/SpecificParts/Button2" to="." method="_on_button_2_pressed"]
-[connection signal="pressed" from="LeftMenu/VBoxContainer/SpecificParts/Button3" to="." method="_on_button_3_pressed"]
-[connection signal="pressed" from="LeftMenu/VBoxContainer/HBoxContainer/CancelButton" to="." method="_on_cancel_button_pressed"]
-[connection signal="pressed" from="LeftMenu/VBoxContainer/HBoxContainer/SaveButton" to="." method="_on_save_button_pressed"]
+[connection signal="pressed" from="LeftMenu/VBoxContainer/VBoxContainer/SpecificParts/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="LeftMenu/VBoxContainer/VBoxContainer/SpecificParts/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="LeftMenu/VBoxContainer/VBoxContainer/SpecificParts/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="LeftMenu/VBoxContainer/VBoxContainer/HBoxContainer/CancelButton" to="." method="_on_cancel_button_pressed"]
+[connection signal="pressed" from="LeftMenu/VBoxContainer/VBoxContainer/HBoxContainer/SaveButton" to="." method="_on_save_button_pressed"]
