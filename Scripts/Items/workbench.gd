@@ -20,6 +20,7 @@ func _on_area_3d_body_entered(body):
 	if !is_multiplayer_authority(): return
 	if body.is_in_group("JoltCar"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		GlobalVariables.isInDialogue = true
 		workbench_menu.show()
 		animation_player.play("menu_opening")
 		car = body
@@ -88,12 +89,14 @@ func start_reverse_movement():
 func _on_save_button_pressed():
 	if !is_entering:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		GlobalVariables.isInDialogue = false
 		animation_player.play_backwards("menu_opening")
 		start_reverse_movement()
 
 func _on_cancel_button_pressed():
 	if !is_entering:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		GlobalVariables.isInDialogue = false
 		toggle_wheels(original_wheel)
 		animation_player.play_backwards("menu_opening")
 		start_reverse_movement()

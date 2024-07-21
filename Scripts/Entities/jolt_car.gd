@@ -73,7 +73,7 @@ func _ready():
 func _physics_process(delta):
 	if !is_multiplayer_authority(): return
 	
-	if active && GlobalVariables.isInPause == false:
+	if active && !GlobalVariables.isInPause && !GlobalVariables.isInDialogue:
 		if Input.is_action_just_pressed("brake"):
 			toggle_parking_brake()
 
