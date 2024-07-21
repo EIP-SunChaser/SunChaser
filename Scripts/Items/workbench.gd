@@ -17,6 +17,7 @@ var is_reversing = false
 var original_wheel
 
 func _on_area_3d_body_entered(body):
+	if !is_multiplayer_authority(): return
 	if body.is_in_group("JoltCar"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		workbench_menu.show()
