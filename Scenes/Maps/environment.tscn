@@ -1,4 +1,4 @@
-[gd_scene load_steps=141 format=3 uid="uid://bmc1fqst1lx1y"]
+[gd_scene load_steps=140 format=3 uid="uid://bmc1fqst1lx1y"]
 
 [ext_resource type="Material" uid="uid://3tfkfbvkum1p" path="res://Assets/Materials/grid.tres" id="1_pb4wu"]
 [ext_resource type="PackedScene" uid="uid://d5d7b87l2mmh" path="res://Scenes/Maps/U_montain.tscn" id="3_e4254"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://buqstjbynyvcg" path="res://Scenes/Items/charging_station.tscn" id="5_jtewa"]
 [ext_resource type="Texture2D" uid="uid://byf2ln775bpbe" path="res://Docs/Profil Pic/jules.png" id="5_o6ilq"]
 [ext_resource type="ArrayMesh" uid="uid://ctakldo0qp5pr" path="res://Assets/Meshs/box.tres" id="6_06emj"]
-[ext_resource type="Script" path="res://Scripts/Items/workbench.gd" id="7_df8a5"]
 [ext_resource type="PackedScene" uid="uid://dfto1y416y1cm" path="res://Scenes/Menus/workbench_menu.tscn" id="7_lqkox"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_2g8a3"]
@@ -7385,7 +7384,6 @@ shape = SubResource("ConcavePolygonShape3D_vt7vf")
 
 [node name="Area3D" type="Area3D" parent="Garage/Workbench"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.072, -0.64, -4)
-script = ExtResource("7_df8a5")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Garage/Workbench/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.97223, 1.83295, 0.059021)
@@ -7394,11 +7392,4 @@ shape = SubResource("BoxShape3D_i20hq")
 [node name="Node3D" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31, 0.5, -108)
 
-[connection signal="pressed" from="Garage/Workbench/WorkbenchMenu/LeftMenu/MarginContainer/VBoxContainer/SpecificParts/Button" to="Garage/Workbench/Area3D" method="_on_button_pressed"]
-[connection signal="pressed" from="Garage/Workbench/WorkbenchMenu/LeftMenu/MarginContainer/VBoxContainer/SpecificParts/Button2" to="Garage/Workbench/Area3D" method="_on_button_2_pressed"]
-[connection signal="pressed" from="Garage/Workbench/WorkbenchMenu/LeftMenu/MarginContainer/VBoxContainer/SpecificParts/Button3" to="Garage/Workbench/Area3D" method="_on_button_3_pressed"]
-[connection signal="pressed" from="Garage/Workbench/WorkbenchMenu/LeftMenu/MarginContainer/VBoxContainer/HBoxContainer/CancelButton" to="Garage/Workbench/Area3D" method="_on_cancel_button_pressed"]
-[connection signal="pressed" from="Garage/Workbench/WorkbenchMenu/LeftMenu/MarginContainer/VBoxContainer/HBoxContainer/SaveButton" to="Garage/Workbench/Area3D" method="_on_save_button_pressed"]
-[connection signal="body_entered" from="Garage/Workbench/Area3D" to="Garage/Workbench/Area3D" method="_on_body_entered"]
-
-[editable path="Garage/Workbench/WorkbenchMenu"]
+[connection signal="body_entered" from="Garage/Workbench/Area3D" to="Garage/Workbench/WorkbenchMenu" method="_on_area_3d_body_entered"]

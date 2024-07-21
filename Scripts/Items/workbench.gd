@@ -1,4 +1,4 @@
-extends Area3D
+extends Control
 
 @onready var workbench_menu = $"../WorkbenchMenu"
 @onready var animation_player = $"../WorkbenchMenu/AnimationPlayer"
@@ -16,7 +16,7 @@ var is_entering = false
 var is_reversing = false
 var original_wheel
 
-func _on_body_entered(body):
+func _on_area_3d_body_entered(body):
 	if body.is_in_group("JoltCar"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		workbench_menu.show()
