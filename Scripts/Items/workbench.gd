@@ -14,6 +14,7 @@ var initial_position: Vector3
 var target_rotation: Vector3
 var is_entering = false
 var is_reversing = false
+var original_wheel
 
 func _on_body_entered(body):
 	if body.is_in_group("JoltCar"):
@@ -22,7 +23,7 @@ func _on_body_entered(body):
 		animation_player.play("menu_opening")
 		car = body
 		car.linear_velocity = Vector3.ZERO
-
+		store_original_wheels()
 		initialize_enter_movement()
 
 func _physics_process(_delta):
@@ -90,6 +91,7 @@ func _on_save_button_pressed():
 
 func _on_cancel_button_pressed():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	toggle_wheels(original_wheel)
 	animation_player.play_backwards("menu_opening")
 	start_reverse_movement()
 
@@ -99,6 +101,15 @@ func toggle_wheels(wheel_index: int):
 			pair[0].visible = (wheel_index == 0)
 			pair[1].visible = (wheel_index == 1)
 			pair[2].visible = (wheel_index == 2)
+
+func store_original_wheels():
+	if car:
+		var index := 0
+		for pair in car.wheel_pairs:
+			if pair[index].visible == true:
+				original_wheel = index
+				return
+			index += 1
 
 func _on_button_pressed():
 		toggle_wheels(0)
