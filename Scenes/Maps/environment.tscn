@@ -1,4 +1,4 @@
-[gd_scene load_steps=138 format=3 uid="uid://bmc1fqst1lx1y"]
+[gd_scene load_steps=141 format=3 uid="uid://bmc1fqst1lx1y"]
 
 [ext_resource type="Material" uid="uid://3tfkfbvkum1p" path="res://Assets/Materials/grid.tres" id="1_pb4wu"]
 [ext_resource type="PackedScene" uid="uid://d5d7b87l2mmh" path="res://Scenes/Maps/U_montain.tscn" id="3_e4254"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://buqstjbynyvcg" path="res://Scenes/Items/charging_station.tscn" id="5_jtewa"]
 [ext_resource type="Texture2D" uid="uid://byf2ln775bpbe" path="res://Docs/Profil Pic/jules.png" id="5_o6ilq"]
 [ext_resource type="ArrayMesh" uid="uid://ctakldo0qp5pr" path="res://Assets/Meshs/box.tres" id="6_06emj"]
+[ext_resource type="Script" path="res://Scripts/Items/workbench.gd" id="7_df8a5"]
+[ext_resource type="PackedScene" uid="uid://dfto1y416y1cm" path="res://Scenes/Menus/workbench_menu.tscn" id="7_lqkox"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_2g8a3"]
 material = ExtResource("1_pb4wu")
@@ -409,6 +411,9 @@ size = Vector3(1, 1, 2)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_vt7vf"]
 data = PackedVector3Array(-0.5, 0.5, 1, 0.5, 0.5, 1, -0.5, -0.5, 1, 0.5, 0.5, 1, 0.5, -0.5, 1, -0.5, -0.5, 1, 0.5, 0.5, -1, -0.5, 0.5, -1, 0.5, -0.5, -1, -0.5, 0.5, -1, -0.5, -0.5, -1, 0.5, -0.5, -1, 0.5, 0.5, 1, 0.5, 0.5, -1, 0.5, -0.5, 1, 0.5, 0.5, -1, 0.5, -0.5, -1, 0.5, -0.5, 1, -0.5, 0.5, -1, -0.5, 0.5, 1, -0.5, -0.5, -1, -0.5, 0.5, 1, -0.5, -0.5, 1, -0.5, -0.5, -1, 0.5, 0.5, 1, -0.5, 0.5, 1, 0.5, 0.5, -1, -0.5, 0.5, 1, -0.5, 0.5, -1, 0.5, 0.5, -1, -0.5, -0.5, 1, 0.5, -0.5, 1, -0.5, -0.5, -1, 0.5, -0.5, 1, 0.5, -0.5, -1, -0.5, -0.5, -1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_i20hq"]
+size = Vector3(14.9445, 4.66589, 14.6842)
 
 [node name="Environment" type="Node3D"]
 
@@ -869,7 +874,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 0.5, 4)
 
 [node name="Pillar" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.383, 0.5, -22.962)
-visible = false
 
 [node name="Pillar0" type="Node3D" parent="Pillar"]
 
@@ -7367,6 +7371,9 @@ mesh = SubResource("BoxMesh_cd0bs")
 [node name="Workbench" type="Node3D" parent="Garage"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.41018, 1.64413, -16.4873)
 
+[node name="WorkbenchMenu" parent="Garage/Workbench" instance=ExtResource("7_lqkox")]
+visible = false
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Garage/Workbench"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.07166, -0.640187, -4)
 mesh = SubResource("BoxMesh_y3b54")
@@ -7375,3 +7382,22 @@ mesh = SubResource("BoxMesh_y3b54")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Garage/Workbench/MeshInstance3D/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_vt7vf")
+
+[node name="Area3D" type="Area3D" parent="Garage/Workbench"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.072, -0.64, -4)
+script = ExtResource("7_df8a5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Garage/Workbench/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.97223, 1.83295, 0.059021)
+shape = SubResource("BoxShape3D_i20hq")
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31, 0.5, -108)
+
+[connection signal="pressed" from="Garage/Workbench/WorkbenchMenu/LeftMenu/MarginContainer/VBoxContainer/SpecificParts/Button" to="Garage/Workbench/Area3D" method="_on_button_pressed"]
+[connection signal="pressed" from="Garage/Workbench/WorkbenchMenu/LeftMenu/MarginContainer/VBoxContainer/SpecificParts/Button2" to="Garage/Workbench/Area3D" method="_on_button_2_pressed"]
+[connection signal="pressed" from="Garage/Workbench/WorkbenchMenu/LeftMenu/MarginContainer/VBoxContainer/HBoxContainer/CancelButton" to="Garage/Workbench/Area3D" method="_on_cancel_button_pressed"]
+[connection signal="pressed" from="Garage/Workbench/WorkbenchMenu/LeftMenu/MarginContainer/VBoxContainer/HBoxContainer/SaveButton" to="Garage/Workbench/Area3D" method="_on_save_button_pressed"]
+[connection signal="body_entered" from="Garage/Workbench/Area3D" to="Garage/Workbench/Area3D" method="_on_body_entered"]
+
+[editable path="Garage/Workbench/WorkbenchMenu"]

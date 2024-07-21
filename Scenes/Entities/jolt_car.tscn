@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://dhdbxqqbo8gxi"]
+[gd_scene load_steps=35 format=3 uid="uid://dhdbxqqbo8gxi"]
 
 [ext_resource type="Script" path="res://Scripts/Entities/jolt_car.gd" id="1_v325y"]
 [ext_resource type="Script" path="res://Scripts/Entities/wheel.gd" id="2_0xgju"]
@@ -84,6 +84,18 @@ material = SubResource("StandardMaterial3D_dqdr2")
 inner_radius = 0.115
 outer_radius = 0.5
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_g21fb"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_u4ply"]
+noise = SubResource("FastNoiseLite_g21fb")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j8jvf"]
+albedo_texture = SubResource("NoiseTexture2D_u4ply")
+
+[sub_resource type="SphereMesh" id="SphereMesh_6m2ya"]
+material = SubResource("StandardMaterial3D_j8jvf")
+height = 0.5
+
 [sub_resource type="CylinderMesh" id="CylinderMesh_ww5ne"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4hkpc"]
@@ -102,7 +114,7 @@ radius = 0.025
 [sub_resource type="BoxShape3D" id="BoxShape3D_5a73s"]
 size = Vector3(6.22852, 3.52063, 4)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_77lwe"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sx2tr"]
 bg_color = Color(0, 0, 0, 0)
 
 [sub_resource type="Gradient" id="Gradient_mbdqv"]
@@ -206,9 +218,15 @@ skeleton = NodePath("")
 [node name="Wheel" type="Node3D" parent="Wheels/FrontLeftWheel"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Wheels/FrontLeftWheel/Wheel"]
+[node name="1" type="MeshInstance3D" parent="Wheels/FrontLeftWheel/Wheel"]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.5, 0, 0)
 mesh = SubResource("TorusMesh_542k1")
+skeleton = NodePath("../..")
+
+[node name="2" type="MeshInstance3D" parent="Wheels/FrontLeftWheel/Wheel"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.5, 0, 0)
+visible = false
+mesh = SubResource("SphereMesh_6m2ya")
 skeleton = NodePath("../..")
 
 [node name="FrontRightWheel" type="RayCast3D" parent="Wheels"]
@@ -224,9 +242,15 @@ skeleton = NodePath("")
 [node name="Wheel" type="Node3D" parent="Wheels/FrontRightWheel"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Wheels/FrontRightWheel/Wheel"]
+[node name="1" type="MeshInstance3D" parent="Wheels/FrontRightWheel/Wheel"]
 transform = Transform3D(-4.37114e-08, -0.999999, 0, 1, -4.37113e-08, 0, 0, 0, 0.999999, 0.5, 0, 0)
 mesh = SubResource("TorusMesh_542k1")
+skeleton = NodePath("../..")
+
+[node name="2" type="MeshInstance3D" parent="Wheels/FrontRightWheel/Wheel"]
+transform = Transform3D(-4.37114e-08, -0.999999, 0, 1, -4.37113e-08, 0, 0, 0, 0.999999, 0.5, 0, 0)
+visible = false
+mesh = SubResource("SphereMesh_6m2ya")
 skeleton = NodePath("../..")
 
 [node name="BackRightWheel" type="RayCast3D" parent="Wheels"]
@@ -241,9 +265,15 @@ skeleton = NodePath("")
 [node name="Wheel" type="Node3D" parent="Wheels/BackRightWheel"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Wheels/BackRightWheel/Wheel"]
+[node name="1" type="MeshInstance3D" parent="Wheels/BackRightWheel/Wheel"]
 transform = Transform3D(-4.37114e-08, -0.999999, 0, 1, -4.37113e-08, 0, 0, 0, 0.999999, 0.5, 0, 0)
 mesh = SubResource("TorusMesh_542k1")
+skeleton = NodePath("../..")
+
+[node name="2" type="MeshInstance3D" parent="Wheels/BackRightWheel/Wheel"]
+transform = Transform3D(-4.37114e-08, -0.999999, 0, 1, -4.37113e-08, 0, 0, 0, 0.999999, 0.5, 0, 0)
+visible = false
+mesh = SubResource("SphereMesh_6m2ya")
 skeleton = NodePath("../..")
 
 [node name="BackLeftWheel" type="RayCast3D" parent="Wheels"]
@@ -258,9 +288,15 @@ skeleton = NodePath("")
 [node name="Wheel" type="Node3D" parent="Wheels/BackLeftWheel"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Wheels/BackLeftWheel/Wheel"]
+[node name="1" type="MeshInstance3D" parent="Wheels/BackLeftWheel/Wheel"]
 transform = Transform3D(-4.37114e-08, -0.999999, 0, 1, -4.37113e-08, 0, 0, 0, 0.999999, -0.5, 0, 0)
 mesh = SubResource("TorusMesh_542k1")
+skeleton = NodePath("../..")
+
+[node name="2" type="MeshInstance3D" parent="Wheels/BackLeftWheel/Wheel"]
+transform = Transform3D(-4.37114e-08, -0.999999, 0, 1, -4.37113e-08, 0, 0, 0, 0.999999, -0.5, 0, 0)
+visible = false
+mesh = SubResource("SphereMesh_6m2ya")
 skeleton = NodePath("../..")
 
 [node name="HeadLight" type="Node3D" parent="."]
@@ -367,7 +403,7 @@ offset_top = -118.0
 offset_right = -12.0001
 offset_bottom = -88.0
 grow_horizontal = 0
-theme_override_styles/background = SubResource("StyleBoxFlat_77lwe")
+theme_override_styles/background = SubResource("StyleBoxFlat_sx2tr")
 theme_override_styles/fill = SubResource("StyleBoxTexture_546eb")
 
 [node name="RadioText" type="CanvasLayer" parent="."]

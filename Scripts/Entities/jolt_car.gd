@@ -56,6 +56,20 @@ var right_tail_light_material: StandardMaterial3D
 var red_color = Color(1, 0, 0, 1)
 var white_color = Color(0.646, 0.646, 0.646, 1)
 
+@onready var wheel_1_meshs = [
+	$"Wheels/FrontLeftWheel/Wheel/1",
+	$"Wheels/FrontRightWheel/Wheel/1",
+	$"Wheels/BackRightWheel/Wheel/1",
+	$"Wheels/BackLeftWheel/Wheel/1"
+]
+
+@onready var wheel_2_meshs  = [
+	$"Wheels/FrontLeftWheel/Wheel/2",
+	$"Wheels/FrontRightWheel/Wheel/2",
+	$"Wheels/BackRightWheel/Wheel/2",
+	$"Wheels/BackLeftWheel/Wheel/2"
+]
+
 func _ready():
 	front_left_wheel = $Wheels/FrontLeftWheel
 	front_right_wheel = $Wheels/FrontRightWheel
