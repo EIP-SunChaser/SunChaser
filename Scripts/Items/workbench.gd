@@ -86,15 +86,17 @@ func start_reverse_movement():
 		set_physics_process(true)
 
 func _on_save_button_pressed():
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	animation_player.play_backwards("menu_opening")
-	start_reverse_movement()
+	if !is_entering:
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		animation_player.play_backwards("menu_opening")
+		start_reverse_movement()
 
 func _on_cancel_button_pressed():
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	toggle_wheels(original_wheel)
-	animation_player.play_backwards("menu_opening")
-	start_reverse_movement()
+	if !is_entering:
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		toggle_wheels(original_wheel)
+		animation_player.play_backwards("menu_opening")
+		start_reverse_movement()
 
 func toggle_wheels(wheel_index: int):
 	if car:
