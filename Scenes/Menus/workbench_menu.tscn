@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dfto1y416y1cm"]
+[gd_scene load_steps=8 format=3 uid="uid://dfto1y416y1cm"]
 
 [ext_resource type="Shader" path="res://Assets/Shaders/blur.gdshader" id="1_6envq"]
 [ext_resource type="FontFile" uid="uid://7x3cp1mf1vp4" path="res://Assets/Fonts/Switzer-BlackItalic.otf" id="3_dugss"]
@@ -14,10 +14,53 @@ shader_parameter/blur_outer = 0.0
 font = ExtResource("3_dugss")
 font_size = 32
 
-[node name="WorkbenchMenu" type="CanvasLayer"]
+[sub_resource type="Animation" id="Animation_k60md"]
+resource_name = "menu_opening"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LeftMenu:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(-2, -0.5),
+"update": 0,
+"values": [Vector2(-420, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_m501i"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LeftMenu:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e5g38"]
+_data = {
+"RESET": SubResource("Animation_m501i"),
+"menu_opening": SubResource("Animation_k60md")
+}
+
+[node name="WorkbenchMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="LeftMenu" type="Control" parent="."]
-layout_mode = 3
+layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
 offset_right = 420.0
@@ -25,10 +68,9 @@ grow_vertical = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="LeftMenu"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = 9
 anchor_bottom = 1.0
-grow_horizontal = 2
+offset_right = 424.0
 grow_vertical = 2
 
 [node name="blur_background" type="ColorRect" parent="LeftMenu/MarginContainer"]
@@ -132,6 +174,11 @@ custom_minimum_size = Vector2(210, 0)
 layout_mode = 2
 text = "Save"
 
-[node name="Camera3D" type="Camera3D" parent="LeftMenu"]
+[node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-0.715693, -0.174869, 0.676169, 0, 0.968148, 0.25038, -0.698415, 0.179195, -0.692897, 3.88159, 1.34904, -3.91656)
 fov = 45.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_e5g38")
+}

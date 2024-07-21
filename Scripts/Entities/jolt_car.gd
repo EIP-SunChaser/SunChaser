@@ -22,6 +22,7 @@ var front_left_wheel
 var front_right_wheel
 var players_in_zone = []
 var player_in_car = null 
+var steering_enabled := true
 
 var is_resetting = false
 var reset_rotation_speed = 1.5
@@ -56,18 +57,11 @@ var right_tail_light_material: StandardMaterial3D
 var red_color = Color(1, 0, 0, 1)
 var white_color = Color(0.646, 0.646, 0.646, 1)
 
-@onready var wheel_1_meshs = [
-	$"Wheels/FrontLeftWheel/Wheel/1",
-	$"Wheels/FrontRightWheel/Wheel/1",
-	$"Wheels/BackRightWheel/Wheel/1",
-	$"Wheels/BackLeftWheel/Wheel/1"
-]
-
-@onready var wheel_2_meshs  = [
-	$"Wheels/FrontLeftWheel/Wheel/2",
-	$"Wheels/FrontRightWheel/Wheel/2",
-	$"Wheels/BackRightWheel/Wheel/2",
-	$"Wheels/BackLeftWheel/Wheel/2"
+@onready var wheel_pairs = [
+	[$"Wheels/FrontLeftWheel/Wheel/1", $"Wheels/FrontLeftWheel/Wheel/2", $"Wheels/FrontLeftWheel/Wheel/3"],
+	[$"Wheels/FrontRightWheel/Wheel/1", $"Wheels/FrontRightWheel/Wheel/2", $"Wheels/FrontRightWheel/Wheel/3"],
+	[$"Wheels/BackRightWheel/Wheel/1", $"Wheels/BackRightWheel/Wheel/2", $"Wheels/BackRightWheel/Wheel/3"],
+	[$"Wheels/BackLeftWheel/Wheel/1", $"Wheels/BackLeftWheel/Wheel/2", $"Wheels/BackLeftWheel/Wheel/3"]
 ]
 
 func _ready():
@@ -85,10 +79,11 @@ func _physics_process(delta):
 
 		if Input.is_action_just_pressed("radio"):
 			radio()
-		
-		steering_input = Input.get_axis("right", "left")
+		if steering_enabled:
+			steering_input = Input.get_axis("right", "left")
 		
 		if current_battery > 0:
+			
 			accel_input = Input.get_axis("deccelerate", "accelerate")
 			if not is_being_charged and not is_stationary:
 				current_battery -= battery_drain_rate * delta * abs(accel_input)

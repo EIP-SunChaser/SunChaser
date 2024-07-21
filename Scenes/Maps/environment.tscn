@@ -7396,6 +7396,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31, 0.5, -108)
 
 [connection signal="pressed" from="Garage/Workbench/WorkbenchMenu/LeftMenu/MarginContainer/VBoxContainer/SpecificParts/Button" to="Garage/Workbench/Area3D" method="_on_button_pressed"]
 [connection signal="pressed" from="Garage/Workbench/WorkbenchMenu/LeftMenu/MarginContainer/VBoxContainer/SpecificParts/Button2" to="Garage/Workbench/Area3D" method="_on_button_2_pressed"]
+[connection signal="pressed" from="Garage/Workbench/WorkbenchMenu/LeftMenu/MarginContainer/VBoxContainer/SpecificParts/Button3" to="Garage/Workbench/Area3D" method="_on_button_3_pressed"]
 [connection signal="pressed" from="Garage/Workbench/WorkbenchMenu/LeftMenu/MarginContainer/VBoxContainer/HBoxContainer/CancelButton" to="Garage/Workbench/Area3D" method="_on_cancel_button_pressed"]
 [connection signal="pressed" from="Garage/Workbench/WorkbenchMenu/LeftMenu/MarginContainer/VBoxContainer/HBoxContainer/SaveButton" to="Garage/Workbench/Area3D" method="_on_save_button_pressed"]
 [connection signal="body_entered" from="Garage/Workbench/Area3D" to="Garage/Workbench/Area3D" method="_on_body_entered"]

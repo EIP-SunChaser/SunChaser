@@ -1,79 +1,110 @@
 extends Area3D
 
 @onready var workbench_menu = $"../WorkbenchMenu"
+@onready var animation_player = $"../WorkbenchMenu/AnimationPlayer"
 
-@export var WAIT_TIME = 0.5
-@export var REVERSE_SPEED = 5.0
-@export var REVERSE_DISTANCE = 10.0
+@export var enter_speed = 5.0
+@export var enter_distance = 10.0
+@export var reverse_speed = 10.0
+@export var reverse_distance = 15.0
+@export var rotation_speed = 0.1
 
-var player_car
-var timer: Timer
+var car
 var initial_position: Vector3
+var target_rotation: Vector3
+var is_entering = false
 var is_reversing = false
-
-func _ready():
-	timer = Timer.new()
-	timer.one_shot = true
-	timer.connect("timeout", Callable(self, "_on_timer_timeout"))
-	add_child(timer)
 
 func _on_body_entered(body):
 	if body.is_in_group("JoltCar"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		workbench_menu.show()
-		player_car = body
-		timer.start(WAIT_TIME)
+		animation_player.play("menu_opening")
+		car = body
+		car.linear_velocity = Vector3.ZERO
 
-func _on_timer_timeout():
-	if player_car:
-		set_car_position()
+		initialize_enter_movement()
 
-func set_car_position():
-	if player_car:
-		player_car.parking_brake_engaged = true
-		var new_position = Vector3(31, 0.5, -108)
-		var new_rotation = Vector3(0, 0, 0)
-		
-		var new_transform = Transform3D(Basis().rotated(Vector3.UP, new_rotation.y), new_position)
-		player_car.global_transform = new_transform
-		player_car.linear_velocity = Vector3.ZERO
+func _physics_process(_delta):
+	if car:
+		if is_entering:
+			update_enter_movement()
+		elif is_reversing:
+			update_reverse_movement()
 
-func _on_save_button_pressed():
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	workbench_menu.hide()
-	start_reverse_movement()
-	
-func _on_cancel_button_pressed():
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	workbench_menu.hide()
-	start_reverse_movement()
+func initialize_enter_movement():
+	var current_rotation = car.global_transform.basis.get_euler()
+	current_rotation.y = 0
+	target_rotation = current_rotation
+
+	initial_position = car.global_position
+	is_entering = true
+	set_physics_process(true)
+
+func update_enter_movement():
+	reset_wheel_rotations()
+	car.steering_enabled = false
+
+	var current_rotation = car.global_transform.basis.get_euler()
+	current_rotation.y = lerp(current_rotation.y, target_rotation.y, rotation_speed)
+	car.global_transform = Transform3D(Basis().rotated(Vector3.UP, current_rotation.y), car.global_position)
+
+	var forward_direction = car.global_transform.basis.z.normalized() * -1
+	car.linear_velocity = forward_direction * enter_speed
+
+	if car.global_position.distance_to(initial_position) >= enter_distance:
+		car.parking_brake_engaged = true
+		car.linear_velocity = Vector3.ZERO
+		is_entering = false
+		set_physics_process(false)
+
+func update_reverse_movement():
+	reset_wheel_rotations()
+	car.steering_enabled = false
+
+	var backward_direction = Vector3(0, 0, 1)
+	car.linear_velocity = backward_direction * reverse_speed
+
+	if car.global_position.distance_to(initial_position) >= reverse_distance:
+		workbench_menu.hide()
+		car.linear_velocity = Vector3.ZERO
+		car.steering_enabled = true
+		is_reversing = false
+		set_physics_process(false)
+
+func reset_wheel_rotations():
+	car.front_left_wheel.rotation.y = 0
+	car.front_right_wheel.rotation.y = 0
 
 func start_reverse_movement():
-	if player_car:
-		player_car.parking_brake_engaged = false
-		initial_position = player_car.global_position
+	if car:
+		car.parking_brake_engaged = false
+		initial_position = car.global_position
 		is_reversing = true
 		set_physics_process(true)
 
-func _physics_process(_delta):
-	if player_car and is_reversing:
-		var backward_direction = player_car.global_transform.basis.z
-		player_car.linear_velocity = backward_direction * REVERSE_SPEED
-		
-		var distance_moved = player_car.global_position.distance_to(initial_position)
-		if distance_moved >= REVERSE_DISTANCE:
-			player_car.linear_velocity = Vector3.ZERO
-			is_reversing = false
-			set_physics_process(false)
+func _on_save_button_pressed():
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	animation_player.play_backwards("menu_opening")
+	start_reverse_movement()
+
+func _on_cancel_button_pressed():
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	animation_player.play_backwards("menu_opening")
+	start_reverse_movement()
+
+func toggle_wheels(wheel_index: int):
+	if car:
+		for pair in car.wheel_pairs:
+			pair[0].visible = (wheel_index == 0)
+			pair[1].visible = (wheel_index == 1)
+			pair[2].visible = (wheel_index == 2)
 
 func _on_button_pressed():
-	for wheel_1 in player_car.wheel_1_meshs:
-		wheel_1.show()
-	for wheel_2 in player_car.wheel_2_meshs:
-		wheel_2.hide()
+		toggle_wheels(0)
 
 func _on_button_2_pressed():
-	for wheel_1 in player_car.wheel_1_meshs:
-		wheel_1.hide()
-	for wheel_2 in player_car.wheel_2_meshs:
-		wheel_2.show()
+		toggle_wheels(1)
+
+func _on_button_3_pressed():
+		toggle_wheels(2)

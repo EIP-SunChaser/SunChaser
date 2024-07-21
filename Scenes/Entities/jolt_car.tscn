@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://dhdbxqqbo8gxi"]
+[gd_scene load_steps=39 format=3 uid="uid://dhdbxqqbo8gxi"]
 
 [ext_resource type="Script" path="res://Scripts/Entities/jolt_car.gd" id="1_v325y"]
 [ext_resource type="Script" path="res://Scripts/Entities/wheel.gd" id="2_0xgju"]
@@ -96,6 +96,18 @@ albedo_texture = SubResource("NoiseTexture2D_u4ply")
 material = SubResource("StandardMaterial3D_j8jvf")
 height = 0.5
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_uay00"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_seujd"]
+noise = SubResource("FastNoiseLite_uay00")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m6arr"]
+albedo_texture = SubResource("NoiseTexture2D_seujd")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_41rbx"]
+material = SubResource("StandardMaterial3D_m6arr")
+height = 0.4
+
 [sub_resource type="CylinderMesh" id="CylinderMesh_ww5ne"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4hkpc"]
@@ -114,7 +126,7 @@ radius = 0.025
 [sub_resource type="BoxShape3D" id="BoxShape3D_5a73s"]
 size = Vector3(6.22852, 3.52063, 4)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sx2tr"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aqk82"]
 bg_color = Color(0, 0, 0, 0)
 
 [sub_resource type="Gradient" id="Gradient_mbdqv"]
@@ -229,6 +241,12 @@ visible = false
 mesh = SubResource("SphereMesh_6m2ya")
 skeleton = NodePath("../..")
 
+[node name="3" type="MeshInstance3D" parent="Wheels/FrontLeftWheel/Wheel"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.5, 0, 0)
+visible = false
+mesh = SubResource("CylinderMesh_41rbx")
+skeleton = NodePath("../..")
+
 [node name="FrontRightWheel" type="RayCast3D" parent="Wheels"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7, 0, -1.2)
 script = ExtResource("2_0xgju")
@@ -251,6 +269,12 @@ skeleton = NodePath("../..")
 transform = Transform3D(-4.37114e-08, -0.999999, 0, 1, -4.37113e-08, 0, 0, 0, 0.999999, 0.5, 0, 0)
 visible = false
 mesh = SubResource("SphereMesh_6m2ya")
+skeleton = NodePath("../..")
+
+[node name="3" type="MeshInstance3D" parent="Wheels/FrontRightWheel/Wheel"]
+transform = Transform3D(-4.37114e-08, -0.999999, 0, 1, -4.37113e-08, 0, 0, 0, 0.999999, 0.5, 0, 0)
+visible = false
+mesh = SubResource("CylinderMesh_41rbx")
 skeleton = NodePath("../..")
 
 [node name="BackRightWheel" type="RayCast3D" parent="Wheels"]
@@ -276,6 +300,12 @@ visible = false
 mesh = SubResource("SphereMesh_6m2ya")
 skeleton = NodePath("../..")
 
+[node name="3" type="MeshInstance3D" parent="Wheels/BackRightWheel/Wheel"]
+transform = Transform3D(-4.37114e-08, -0.999999, 0, 1, -4.37113e-08, 0, 0, 0, 0.999999, 0.5, 0, 0)
+visible = false
+mesh = SubResource("CylinderMesh_41rbx")
+skeleton = NodePath("../..")
+
 [node name="BackLeftWheel" type="RayCast3D" parent="Wheels"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7, 0, 1.2)
 script = ExtResource("2_0xgju")
@@ -297,6 +327,12 @@ skeleton = NodePath("../..")
 transform = Transform3D(-4.37114e-08, -0.999999, 0, 1, -4.37113e-08, 0, 0, 0, 0.999999, -0.5, 0, 0)
 visible = false
 mesh = SubResource("SphereMesh_6m2ya")
+skeleton = NodePath("../..")
+
+[node name="3" type="MeshInstance3D" parent="Wheels/BackLeftWheel/Wheel"]
+transform = Transform3D(-4.37114e-08, -0.999999, 0, 1, -4.37113e-08, 0, 0, 0, 0.999999, -0.5, 0, 0)
+visible = false
+mesh = SubResource("CylinderMesh_41rbx")
 skeleton = NodePath("../..")
 
 [node name="HeadLight" type="Node3D" parent="."]
@@ -403,7 +439,7 @@ offset_top = -118.0
 offset_right = -12.0001
 offset_bottom = -88.0
 grow_horizontal = 0
-theme_override_styles/background = SubResource("StyleBoxFlat_sx2tr")
+theme_override_styles/background = SubResource("StyleBoxFlat_aqk82")
 theme_override_styles/fill = SubResource("StyleBoxTexture_546eb")
 
 [node name="RadioText" type="CanvasLayer" parent="."]
