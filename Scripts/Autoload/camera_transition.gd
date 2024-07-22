@@ -13,7 +13,8 @@ func switch_camera(from, to) -> void:
 	to.current = true
 
 func transition_camera3D(from: Camera3D, to: Camera3D, duration: float = 1.0) -> void:
-	if transitioning: return
+	if transitioning:
+		tween.kill()
 	
 	if not camera3D:
 		camera3D = Camera3D.new()

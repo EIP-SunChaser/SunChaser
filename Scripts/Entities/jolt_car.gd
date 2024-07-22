@@ -229,7 +229,7 @@ func leaving_car():
 @rpc("any_peer", "call_local")
 func remove_player_from_car():
 	if player_in_car:
-		var exit_location = global_transform.origin - 2 * global_transform.basis.x
+		var exit_location = global_transform.origin - 3.5 * global_transform.basis.x
 		player_in_car.global_transform.origin = exit_location
 		player_in_car.show()
 		player_in_car.get_node("BodyCollision").disabled = false
