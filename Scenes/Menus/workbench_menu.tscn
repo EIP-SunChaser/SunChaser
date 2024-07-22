@@ -87,8 +87,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
 script = ExtResource("1_yrq5r")
 
 [node name="LeftMenu" type="MarginContainer" parent="."]
@@ -109,115 +107,118 @@ size_flags_vertical = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="LeftMenu"]
 layout_mode = 2
-size_flags_horizontal = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="LeftMenu/VBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="LeftMenu/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LeftMenu/VBoxContainer/ScrollContainer"]
 custom_minimum_size = Vector2(420, 0)
 layout_mode = 2
-size_flags_horizontal = 0
+size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 1
 
-[node name="TitleMenu" type="Label" parent="LeftMenu/VBoxContainer/VBoxContainer"]
+[node name="TitleMenu" type="Label" parent="LeftMenu/VBoxContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Car custom"
 label_settings = SubResource("LabelSettings_n7x1j")
 
-[node name="SpacerTop" type="Control" parent="LeftMenu/VBoxContainer/VBoxContainer"]
+[node name="SpacerTop" type="Control" parent="LeftMenu/VBoxContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="CarParts" type="GridContainer" parent="LeftMenu/VBoxContainer/VBoxContainer"]
+[node name="CarParts" type="GridContainer" parent="LeftMenu/VBoxContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 columns = 3
 
-[node name="Wheels" type="Button" parent="LeftMenu/VBoxContainer/VBoxContainer/CarParts"]
+[node name="Wheels" type="Button" parent="LeftMenu/VBoxContainer/ScrollContainer/VBoxContainer/CarParts"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 text = "Wheels"
 
-[node name="Spring" type="Button" parent="LeftMenu/VBoxContainer/VBoxContainer/CarParts"]
+[node name="Spring" type="Button" parent="LeftMenu/VBoxContainer/ScrollContainer/VBoxContainer/CarParts"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 text = "Spring"
 
-[node name="Hood" type="Button" parent="LeftMenu/VBoxContainer/VBoxContainer/CarParts"]
+[node name="Hood" type="Button" parent="LeftMenu/VBoxContainer/ScrollContainer/VBoxContainer/CarParts"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 text = "Hood"
 
-[node name="Button4" type="Button" parent="LeftMenu/VBoxContainer/VBoxContainer/CarParts"]
+[node name="Button4" type="Button" parent="LeftMenu/VBoxContainer/ScrollContainer/VBoxContainer/CarParts"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 text = "Button 1"
 
-[node name="Button5" type="Button" parent="LeftMenu/VBoxContainer/VBoxContainer/CarParts"]
+[node name="Button5" type="Button" parent="LeftMenu/VBoxContainer/ScrollContainer/VBoxContainer/CarParts"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 text = "Button 1"
 
-[node name="Button6" type="Button" parent="LeftMenu/VBoxContainer/VBoxContainer/CarParts"]
+[node name="Button6" type="Button" parent="LeftMenu/VBoxContainer/ScrollContainer/VBoxContainer/CarParts"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 text = "Button 1"
 
-[node name="HSeparator" type="HSeparator" parent="LeftMenu/VBoxContainer/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="LeftMenu/VBoxContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/separator = SubResource("StyleBoxLine_02vee")
 
-[node name="SpecificParts" type="GridContainer" parent="LeftMenu/VBoxContainer/VBoxContainer"]
+[node name="SpecificParts" type="GridContainer" parent="LeftMenu/VBoxContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 columns = 3
 
-[node name="Button" type="Button" parent="LeftMenu/VBoxContainer/VBoxContainer/SpecificParts"]
+[node name="Button" type="Button" parent="LeftMenu/VBoxContainer/ScrollContainer/VBoxContainer/SpecificParts"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 text = "Wheels 1"
 
-[node name="Button2" type="Button" parent="LeftMenu/VBoxContainer/VBoxContainer/SpecificParts"]
+[node name="Button2" type="Button" parent="LeftMenu/VBoxContainer/ScrollContainer/VBoxContainer/SpecificParts"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 text = "Wheels 2"
 
-[node name="Button3" type="Button" parent="LeftMenu/VBoxContainer/VBoxContainer/SpecificParts"]
+[node name="Button3" type="Button" parent="LeftMenu/VBoxContainer/ScrollContainer/VBoxContainer/SpecificParts"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 text = "Wheels 3"
 
-[node name="Button4" type="Button" parent="LeftMenu/VBoxContainer/VBoxContainer/SpecificParts"]
+[node name="Button4" type="Button" parent="LeftMenu/VBoxContainer/ScrollContainer/VBoxContainer/SpecificParts"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 text = "Wheels 4"
 
-[node name="Button5" type="Button" parent="LeftMenu/VBoxContainer/VBoxContainer/SpecificParts"]
+[node name="Button5" type="Button" parent="LeftMenu/VBoxContainer/ScrollContainer/VBoxContainer/SpecificParts"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 text = "Wheels 5"
 
-[node name="Button6" type="Button" parent="LeftMenu/VBoxContainer/VBoxContainer/SpecificParts"]
+[node name="Button6" type="Button" parent="LeftMenu/VBoxContainer/ScrollContainer/VBoxContainer/SpecificParts"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 text = "Wheels 6"
 
-[node name="SpacerBottom" type="Control" parent="LeftMenu/VBoxContainer/VBoxContainer"]
+[node name="SpacerBottom" type="Control" parent="LeftMenu/VBoxContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="LeftMenu/VBoxContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="LeftMenu/VBoxContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 10
 alignment = 1
 
-[node name="CancelButton" type="Button" parent="LeftMenu/VBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="CancelButton" type="Button" parent="LeftMenu/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Cancel"
 
-[node name="SaveButton" type="Button" parent="LeftMenu/VBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="SaveButton" type="Button" parent="LeftMenu/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Save"
@@ -227,10 +228,10 @@ libraries = {
 "": SubResource("AnimationLibrary_e5g38")
 }
 
-[connection signal="pressed" from="LeftMenu/VBoxContainer/VBoxContainer/CarParts/Wheels" to="." method="_on_wheels_pressed"]
-[connection signal="pressed" from="LeftMenu/VBoxContainer/VBoxContainer/CarParts/Spring" to="." method="_on_spring_pressed"]
-[connection signal="pressed" from="LeftMenu/VBoxContainer/VBoxContainer/SpecificParts/Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="LeftMenu/VBoxContainer/VBoxContainer/SpecificParts/Button2" to="." method="_on_button_2_pressed"]
-[connection signal="pressed" from="LeftMenu/VBoxContainer/VBoxContainer/SpecificParts/Button3" to="." method="_on_button_3_pressed"]
-[connection signal="pressed" from="LeftMenu/VBoxContainer/VBoxContainer/HBoxContainer/CancelButton" to="." method="_on_cancel_button_pressed"]
-[connection signal="pressed" from="LeftMenu/VBoxContainer/VBoxContainer/HBoxContainer/SaveButton" to="." method="_on_save_button_pressed"]
+[connection signal="pressed" from="LeftMenu/VBoxContainer/ScrollContainer/VBoxContainer/CarParts/Wheels" to="." method="_on_wheels_pressed"]
+[connection signal="pressed" from="LeftMenu/VBoxContainer/ScrollContainer/VBoxContainer/CarParts/Spring" to="." method="_on_spring_pressed"]
+[connection signal="pressed" from="LeftMenu/VBoxContainer/ScrollContainer/VBoxContainer/SpecificParts/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="LeftMenu/VBoxContainer/ScrollContainer/VBoxContainer/SpecificParts/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="LeftMenu/VBoxContainer/ScrollContainer/VBoxContainer/SpecificParts/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="LeftMenu/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/CancelButton" to="." method="_on_cancel_button_pressed"]
+[connection signal="pressed" from="LeftMenu/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/SaveButton" to="." method="_on_save_button_pressed"]
