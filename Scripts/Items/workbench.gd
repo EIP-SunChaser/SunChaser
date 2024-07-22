@@ -103,7 +103,7 @@ func _on_save_button_pressed():
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		animation_player.play_backwards("menu_opening")
 		start_reverse_movement()
-		current_selection = ""
+		current_selection = "wheels"
 		update_specific_buttons()
 
 func _on_cancel_button_pressed():
@@ -113,7 +113,7 @@ func _on_cancel_button_pressed():
 		toggle_springs(original_spring)
 		animation_player.play_backwards("menu_opening")
 		start_reverse_movement()
-		current_selection = ""
+		current_selection = "wheels"
 		update_specific_buttons()
 
 func toggle_wheels(wheel_index: int):
