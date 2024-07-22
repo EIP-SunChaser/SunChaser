@@ -95,23 +95,21 @@ func start_reverse_movement():
 		car_state = CarState.REVERSING
 		set_physics_process(true)
 
-func _on_save_button_pressed():
+func _on_save_button_pressed() -> void:
 	if car_state != CarState.ENTERING:
-		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-		animation_player.play_backwards("menu_opening")
-		start_reverse_movement()
-		current_selection = "wheels"
-		update_specific_buttons()
+		close_workbench()
 
-func _on_cancel_button_pressed():
+func _on_cancel_button_pressed() -> void:
 	if car_state != CarState.ENTERING:
-		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-		toggle_wheels(original_wheel)
-		toggle_springs(original_spring)
-		animation_player.play_backwards("menu_opening")
-		start_reverse_movement()
-		current_selection = "wheels"
-		update_specific_buttons()
+		toggle_parts(original_wheel, original_spring)
+		close_workbench()
+
+func close_workbench() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	animation_player.play_backwards("menu_opening")
+	start_reverse_movement()
+	current_selection = "wheels"
+	update_specific_buttons()
 
 func toggle_wheels(wheel_index: int):
 	if car:
@@ -124,6 +122,11 @@ func toggle_springs(spring_index: int):
 		for pair in car.spring_pairs:
 			for i in range(len(car.spring_pairs) - 1):
 				pair[i].visible = (spring_index == i)
+
+func toggle_parts(wheel_index: int, spring_index: int) -> void:
+	if car:
+		toggle_wheels(wheel_index)
+		toggle_springs(spring_index)
 
 func store_original_parts() -> void:
 	if car:
