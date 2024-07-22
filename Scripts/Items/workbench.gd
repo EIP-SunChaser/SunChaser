@@ -117,16 +117,14 @@ func _on_cancel_button_pressed():
 func toggle_wheels(wheel_index: int):
 	if car:
 		for pair in car.wheel_pairs:
-			pair[0].visible = (wheel_index == 0)
-			pair[1].visible = (wheel_index == 1)
-			pair[2].visible = (wheel_index == 2)
+			for i in range(len(car.wheel_pairs) - 1):
+				pair[i].visible = (wheel_index == i)
 
 func toggle_springs(spring_index: int):
 	if car:
 		for pair in car.spring_pairs:
-			pair[0].visible = (spring_index == 0)
-			pair[1].visible = (spring_index == 1)
-			pair[2].visible = (spring_index == 2)
+			for i in range(len(car.spring_pairs) - 1):
+				pair[i].visible = (spring_index == i)
 
 func store_original_wheels():
 	if car:
