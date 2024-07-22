@@ -32,8 +32,7 @@ func _on_area_3d_body_entered(body):
 		animation_player.play("menu_opening")
 		car = body
 		car.linear_velocity = Vector3.ZERO
-		store_original_wheels()
-		store_original_springs()
+		store_original_parts()
 		initialize_enter_movement()
 
 func _physics_process(_delta):
@@ -126,23 +125,17 @@ func toggle_springs(spring_index: int):
 			for i in range(len(car.spring_pairs) - 1):
 				pair[i].visible = (spring_index == i)
 
-func store_original_wheels():
+func store_original_parts() -> void:
 	if car:
-		var index := 0
-		for pair in car.wheel_pairs:
-			if pair[index].visible == true:
-				original_wheel = index
-				return
-			index += 1
+		original_wheel = find_visible_index(car.wheel_pairs)
+		original_spring = find_visible_index(car.spring_pairs)
 
-func store_original_springs():
-	if car:
-		var index := 0
-		for pair in car.spring_pairs:
-			if pair[index].visible == true:
-				original_spring = index
-				return
-			index += 1
+func find_visible_index(pairs: Array) -> int:
+	for pair in pairs:
+		for i in range(pair.size()):
+			if pair[i].visible:
+				return i
+	return 0
 
 func _on_button_pressed():
 	if current_selection == "wheels":
