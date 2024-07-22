@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dfto1y416y1cm"]
+[gd_scene load_steps=10 format=3 uid="uid://dfto1y416y1cm"]
 
 [ext_resource type="Shader" path="res://Assets/Shaders/blur.gdshader" id="1_6envq"]
 [ext_resource type="Script" path="res://Scripts/Items/workbench.gd" id="1_yrq5r"]
@@ -14,6 +14,10 @@ shader_parameter/blur_outer = 0.0
 [sub_resource type="LabelSettings" id="LabelSettings_n7x1j"]
 font = ExtResource("3_dugss")
 font_size = 32
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_02vee"]
+color = Color(0, 0, 0, 0.431373)
+thickness = 3
 
 [sub_resource type="Animation" id="Animation_m501i"]
 length = 0.3
@@ -120,6 +124,10 @@ size_flags_horizontal = 4
 text = "Car custom"
 label_settings = SubResource("LabelSettings_n7x1j")
 
+[node name="SpacerTop" type="Control" parent="LeftMenu/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
 [node name="CarParts" type="GridContainer" parent="LeftMenu/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
@@ -157,6 +165,8 @@ text = "Button 1"
 
 [node name="HSeparator" type="HSeparator" parent="LeftMenu/VBoxContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxLine_02vee")
 
 [node name="SpecificParts" type="GridContainer" parent="LeftMenu/VBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -192,6 +202,10 @@ text = "Wheels 5"
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 text = "Wheels 6"
+
+[node name="SpacerBottom" type="Control" parent="LeftMenu/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="LeftMenu/VBoxContainer/VBoxContainer"]
 layout_mode = 2
