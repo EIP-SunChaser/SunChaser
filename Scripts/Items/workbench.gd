@@ -4,6 +4,7 @@ extends Control
 @onready var animation_player = $"../WorkbenchMenu/AnimationPlayer"
 @onready var camera_3d = $"../Camera3D"
 @onready var specific_parts = $LeftMenu/VBoxContainer/VBoxContainer/SpecificParts
+@onready var wheels_button = $LeftMenu/VBoxContainer/VBoxContainer/CarParts/Wheels
 
 
 @export var enter_speed = 5.0
@@ -28,6 +29,7 @@ func _on_area_3d_body_entered(body):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		GlobalVariables.isInDialogue = true
 		workbench_menu.show()
+		wheels_button.grab_focus()
 		animation_player.play("menu_opening")
 		car = body
 		car.linear_velocity = Vector3.ZERO
