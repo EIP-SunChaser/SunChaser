@@ -6,22 +6,21 @@ extends Control
 @onready var specific_parts = $LeftMenu/VBoxContainer/ScrollContainer/VBoxContainer/SpecificParts
 @onready var wheels_button = $LeftMenu/VBoxContainer/ScrollContainer/VBoxContainer/CarParts/Wheels
 
-
 @export var enter_speed = 5.0
 @export var enter_distance = 10.0
 @export var reverse_speed = 10.0
 @export var reverse_distance = 15.0
 @export var rotation_speed = 0.1
 
+enum CarState { IDLE, ENTERING, REVERSING }
+
 var car
 var initial_position: Vector3
 var target_rotation: Vector3
-var is_entering = false
-var is_reversing = false
+var car_state: CarState = CarState.IDLE
 var original_wheel
 var original_spring
 var current_selection = "wheels"
-
 
 func _on_area_3d_body_entered(body):
 	if !is_multiplayer_authority(): return
@@ -39,10 +38,11 @@ func _on_area_3d_body_entered(body):
 
 func _physics_process(_delta):
 	if car:
-		if is_entering:
-			update_enter_movement()
-		elif is_reversing:
-			update_reverse_movement()
+		match car_state:
+			CarState.ENTERING:
+				update_enter_movement()
+			CarState.REVERSING:
+				update_reverse_movement()
 
 func initialize_enter_movement():
 	var current_rotation = car.global_transform.basis.get_euler()
@@ -50,7 +50,7 @@ func initialize_enter_movement():
 	target_rotation = current_rotation
 
 	initial_position = car.global_position
-	is_entering = true
+	car_state = CarState.ENTERING
 	await CameraTransition.transition_camera3D(car.camera_3d, camera_3d)
 	set_physics_process(true)
 
@@ -67,7 +67,7 @@ func update_enter_movement():
 
 	if car.global_position.distance_to(initial_position) >= enter_distance:
 		car.linear_velocity = Vector3.ZERO
-		is_entering = false
+		car_state = CarState.IDLE
 		set_physics_process(false)
 
 func update_reverse_movement():
@@ -81,7 +81,7 @@ func update_reverse_movement():
 		workbench_menu.hide()
 		car.linear_velocity = Vector3.ZERO
 		car.steering_enabled = true
-		is_reversing = false
+		car_state = CarState.IDLE
 		await CameraTransition.transition_camera3D(camera_3d, car.camera_3d)
 		GlobalVariables.isInDialogue = false
 		set_physics_process(false)
@@ -93,11 +93,11 @@ func reset_wheel_rotations():
 func start_reverse_movement():
 	if car:
 		initial_position = car.global_position
-		is_reversing = true
+		car_state = CarState.REVERSING
 		set_physics_process(true)
 
 func _on_save_button_pressed():
-	if !is_entering:
+	if car_state != CarState.ENTERING:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		animation_player.play_backwards("menu_opening")
 		start_reverse_movement()
@@ -105,7 +105,7 @@ func _on_save_button_pressed():
 		update_specific_buttons()
 
 func _on_cancel_button_pressed():
-	if !is_entering:
+	if car_state != CarState.ENTERING:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		toggle_wheels(original_wheel)
 		toggle_springs(original_spring)
@@ -127,7 +127,6 @@ func toggle_springs(spring_index: int):
 			pair[0].visible = (spring_index == 0)
 			pair[1].visible = (spring_index == 1)
 			pair[2].visible = (spring_index == 2)
-
 
 func store_original_wheels():
 	if car:
@@ -174,17 +173,7 @@ func _on_wheels_pressed():
 	update_specific_buttons()
 
 func update_specific_buttons():
-	if current_selection == "spring":
-		specific_parts.get_node("Button").text = "Spring 0"
-		specific_parts.get_node("Button2").text = "Spring 1"
-		specific_parts.get_node("Button3").text = "Spring 2"
-		specific_parts.get_node("Button4").text = "Spring 3"
-		specific_parts.get_node("Button5").text = "Spring 4"
-		specific_parts.get_node("Button6").text = "Spring 5"
-	elif current_selection == "wheels":
-		specific_parts.get_node("Button").text = "Wheel 0"
-		specific_parts.get_node("Button2").text = "Wheel 1"
-		specific_parts.get_node("Button3").text = "Wheel 2"
-		specific_parts.get_node("Button4").text = "Wheel 3"
-		specific_parts.get_node("Button5").text = "Wheel 4"
-		specific_parts.get_node("Button6").text = "Wheel 5"
+	var button_text = "Spring" if current_selection == "spring" else "Wheel"
+	for i in range(6):
+		var button_node = specific_parts.get_node("Button" + ("" if i == 0 else str(i+1)))
+		button_node.text = button_text + " " + str(i)
