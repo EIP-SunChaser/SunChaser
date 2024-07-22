@@ -212,7 +212,7 @@ func set_player_in_car(player_path: NodePath):
 		player.get_node("BodyCollision").disabled = true
 		
 		if player.is_multiplayer_authority():
-			camera_3d.current = true
+			CameraTransition.transition_camera3D(player_in_car.camera, camera_3d)
 			update_radio_for_player()
 
 func leaving_car():
@@ -231,8 +231,7 @@ func remove_player_from_car():
 		var player_camera = player_head.get_node("Camera3D")
 		
 		if player_camera && player_camera.is_multiplayer_authority():
-			player_camera.current = true
-			camera_3d.current = false
+			CameraTransition.transition_camera3D(camera_3d, player_in_car.camera)
 		
 		player_in_car.is_in_car = false
 		player_in_car = null
