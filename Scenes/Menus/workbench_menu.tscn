@@ -59,6 +59,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource("1_yrq5r")
 
 [node name="LeftMenu" type="MarginContainer" parent="."]
@@ -66,8 +68,8 @@ layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
 offset_right = 420.0
-offset_bottom = 650.0
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="blur_background" type="ColorRect" parent="LeftMenu"]
 material = SubResource("ShaderMaterial_bk2py")
@@ -186,6 +188,8 @@ libraries = {
 "": SubResource("AnimationLibrary_e5g38")
 }
 
+[connection signal="pressed" from="LeftMenu/VBoxContainer/VBoxContainer/CarParts/Wheels" to="." method="_on_wheels_pressed"]
+[connection signal="pressed" from="LeftMenu/VBoxContainer/VBoxContainer/CarParts/Spring" to="." method="_on_spring_pressed"]
 [connection signal="pressed" from="LeftMenu/VBoxContainer/VBoxContainer/SpecificParts/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="LeftMenu/VBoxContainer/VBoxContainer/SpecificParts/Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="LeftMenu/VBoxContainer/VBoxContainer/SpecificParts/Button3" to="." method="_on_button_3_pressed"]

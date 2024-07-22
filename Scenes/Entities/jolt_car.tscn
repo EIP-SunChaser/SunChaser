@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://dhdbxqqbo8gxi"]
+[gd_scene load_steps=41 format=3 uid="uid://dhdbxqqbo8gxi"]
 
 [ext_resource type="Script" path="res://Scripts/Entities/jolt_car.gd" id="1_v325y"]
 [ext_resource type="Script" path="res://Scripts/Entities/wheel.gd" id="2_0xgju"]
@@ -58,6 +58,13 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_31nji")
+
+[sub_resource type="BoxMesh" id="BoxMesh_koane"]
+size = Vector3(10, 27, 10)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_he12t"]
+radius = 5.0
+height = 27.0
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_833o3"]
 frequency = 0.006
@@ -192,42 +199,78 @@ properties/13/replication_mode = 1
 properties/14/path = NodePath("HeadLight/RightHeadLight:visible")
 properties/14/spawn = true
 properties/14/replication_mode = 1
-properties/15/path = NodePath("Wheels/FrontLeftWheel/Wheel/1:visible")
+properties/15/path = NodePath("Wheels/FrontLeftWheel/Spring/Spring1:visible")
 properties/15/spawn = true
 properties/15/replication_mode = 1
-properties/16/path = NodePath("Wheels/FrontLeftWheel/Wheel/2:visible")
+properties/16/path = NodePath("Wheels/FrontLeftWheel/Spring/Spring2:visible")
 properties/16/spawn = true
 properties/16/replication_mode = 1
-properties/17/path = NodePath("Wheels/FrontLeftWheel/Wheel/3:visible")
+properties/17/path = NodePath("Wheels/FrontLeftWheel/Spring/Spring3:visible")
 properties/17/spawn = true
 properties/17/replication_mode = 1
-properties/18/path = NodePath("Wheels/FrontRightWheel/Wheel/1:visible")
+properties/18/path = NodePath("Wheels/FrontLeftWheel/Wheel/Wheel1:visible")
 properties/18/spawn = true
 properties/18/replication_mode = 1
-properties/19/path = NodePath("Wheels/FrontRightWheel/Wheel/2:visible")
+properties/19/path = NodePath("Wheels/FrontLeftWheel/Wheel/Wheel2:visible")
 properties/19/spawn = true
 properties/19/replication_mode = 1
-properties/20/path = NodePath("Wheels/FrontRightWheel/Wheel/3:visible")
+properties/20/path = NodePath("Wheels/FrontLeftWheel/Wheel/Wheel3:visible")
 properties/20/spawn = true
 properties/20/replication_mode = 1
-properties/21/path = NodePath("Wheels/BackRightWheel/Wheel/1:visible")
+properties/21/path = NodePath("Wheels/FrontRightWheel/Spring/Spring1:visible")
 properties/21/spawn = true
 properties/21/replication_mode = 1
-properties/22/path = NodePath("Wheels/BackRightWheel/Wheel/2:visible")
+properties/22/path = NodePath("Wheels/FrontRightWheel/Spring/Spring2:visible")
 properties/22/spawn = true
 properties/22/replication_mode = 1
-properties/23/path = NodePath("Wheels/BackRightWheel/Wheel/3:visible")
+properties/23/path = NodePath("Wheels/FrontRightWheel/Spring/Spring3:visible")
 properties/23/spawn = true
 properties/23/replication_mode = 1
-properties/24/path = NodePath("Wheels/BackLeftWheel/Wheel/1:visible")
+properties/24/path = NodePath("Wheels/FrontRightWheel/Wheel/Wheel1:visible")
 properties/24/spawn = true
 properties/24/replication_mode = 1
-properties/25/path = NodePath("Wheels/BackLeftWheel/Wheel/2:visible")
+properties/25/path = NodePath("Wheels/FrontRightWheel/Wheel/Wheel2:visible")
 properties/25/spawn = true
 properties/25/replication_mode = 1
-properties/26/path = NodePath("Wheels/BackLeftWheel/Wheel/3:visible")
+properties/26/path = NodePath("Wheels/FrontRightWheel/Wheel/Wheel3:visible")
 properties/26/spawn = true
 properties/26/replication_mode = 1
+properties/27/path = NodePath("Wheels/BackRightWheel/Spring/Spring1:visible")
+properties/27/spawn = true
+properties/27/replication_mode = 1
+properties/28/path = NodePath("Wheels/BackRightWheel/Spring/Spring2:visible")
+properties/28/spawn = true
+properties/28/replication_mode = 1
+properties/29/path = NodePath("Wheels/BackRightWheel/Spring/Spring3:visible")
+properties/29/spawn = true
+properties/29/replication_mode = 1
+properties/30/path = NodePath("Wheels/BackRightWheel/Wheel/Wheel1:visible")
+properties/30/spawn = true
+properties/30/replication_mode = 1
+properties/31/path = NodePath("Wheels/BackRightWheel/Wheel/Wheel2:visible")
+properties/31/spawn = true
+properties/31/replication_mode = 1
+properties/32/path = NodePath("Wheels/BackRightWheel/Wheel/Wheel3:visible")
+properties/32/spawn = true
+properties/32/replication_mode = 1
+properties/33/path = NodePath("Wheels/BackLeftWheel/Spring/Spring1:visible")
+properties/33/spawn = true
+properties/33/replication_mode = 1
+properties/34/path = NodePath("Wheels/BackLeftWheel/Spring/Spring2:visible")
+properties/34/spawn = true
+properties/34/replication_mode = 1
+properties/35/path = NodePath("Wheels/BackLeftWheel/Spring/Spring3:visible")
+properties/35/spawn = true
+properties/35/replication_mode = 1
+properties/36/path = NodePath("Wheels/BackLeftWheel/Wheel/Wheel1:visible")
+properties/36/spawn = true
+properties/36/replication_mode = 1
+properties/37/path = NodePath("Wheels/BackLeftWheel/Wheel/Wheel2:visible")
+properties/37/spawn = true
+properties/37/replication_mode = 1
+properties/38/path = NodePath("Wheels/BackLeftWheel/Wheel/Wheel3:visible")
+properties/38/spawn = true
+properties/38/replication_mode = 1
 
 [node name="JoltCar" type="RigidBody3D" groups=["JoltCar"]]
 mass = 10.0
@@ -258,26 +301,40 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7, 0, -1.2)
 script = ExtResource("2_0xgju")
 is_front_wheel = true
 
-[node name="Spring" type="MeshInstance3D" parent="Wheels/FrontLeftWheel"]
+[node name="Spring" type="Node3D" parent="Wheels/FrontLeftWheel"]
+
+[node name="Spring1" type="MeshInstance3D" parent="Wheels/FrontLeftWheel/Spring"]
 transform = Transform3D(0.035, 0, 0, 0, 0.035, 0, 0, 0, 0.035, 0.5, -0.5, 0)
 mesh = SubResource("ArrayMesh_o2057")
+skeleton = NodePath("")
+
+[node name="Spring2" type="MeshInstance3D" parent="Wheels/FrontLeftWheel/Spring"]
+transform = Transform3D(0.035, 0, 0, 0, 0.035, 0, 0, 0, 0.035, 0.5, -0.0246038, 0)
+visible = false
+mesh = SubResource("BoxMesh_koane")
+skeleton = NodePath("")
+
+[node name="Spring3" type="MeshInstance3D" parent="Wheels/FrontLeftWheel/Spring"]
+transform = Transform3D(0.035, 0, 0, 0, 0.035, 0, 0, 0, 0.035, 0.5, -0.025, 0)
+visible = false
+mesh = SubResource("CapsuleMesh_he12t")
 skeleton = NodePath("")
 
 [node name="Wheel" type="Node3D" parent="Wheels/FrontLeftWheel"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)
 
-[node name="1" type="MeshInstance3D" parent="Wheels/FrontLeftWheel/Wheel"]
+[node name="Wheel1" type="MeshInstance3D" parent="Wheels/FrontLeftWheel/Wheel"]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.5, 0, 0)
 mesh = SubResource("TorusMesh_542k1")
 skeleton = NodePath("../..")
 
-[node name="2" type="MeshInstance3D" parent="Wheels/FrontLeftWheel/Wheel"]
+[node name="Wheel2" type="MeshInstance3D" parent="Wheels/FrontLeftWheel/Wheel"]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.5, 0, 0)
 visible = false
 mesh = SubResource("SphereMesh_6m2ya")
 skeleton = NodePath("../..")
 
-[node name="3" type="MeshInstance3D" parent="Wheels/FrontLeftWheel/Wheel"]
+[node name="Wheel3" type="MeshInstance3D" parent="Wheels/FrontLeftWheel/Wheel"]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.5, 0, 0)
 visible = false
 mesh = SubResource("CylinderMesh_41rbx")
@@ -288,26 +345,40 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7, 0, -1.2)
 script = ExtResource("2_0xgju")
 is_front_wheel = true
 
-[node name="Spring" type="MeshInstance3D" parent="Wheels/FrontRightWheel"]
+[node name="Spring" type="Node3D" parent="Wheels/FrontRightWheel"]
+
+[node name="Spring1" type="MeshInstance3D" parent="Wheels/FrontRightWheel/Spring"]
 transform = Transform3D(0.035, 0, 0, 0, 0.035, 0, 0, 0, 0.035, -0.5, -0.5, 0)
 mesh = SubResource("ArrayMesh_o2057")
+skeleton = NodePath("")
+
+[node name="Spring2" type="MeshInstance3D" parent="Wheels/FrontRightWheel/Spring"]
+transform = Transform3D(0.035, 0, 0, 0, 0.035, 0, 0, 0, 0.035, -0.5, -0.025, 0)
+visible = false
+mesh = SubResource("BoxMesh_koane")
+skeleton = NodePath("")
+
+[node name="Spring3" type="MeshInstance3D" parent="Wheels/FrontRightWheel/Spring"]
+transform = Transform3D(0.035, 0, 0, 0, 0.035, 0, 0, 0, 0.035, -0.5, -0.025, 0)
+visible = false
+mesh = SubResource("CapsuleMesh_he12t")
 skeleton = NodePath("")
 
 [node name="Wheel" type="Node3D" parent="Wheels/FrontRightWheel"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0)
 
-[node name="1" type="MeshInstance3D" parent="Wheels/FrontRightWheel/Wheel"]
+[node name="Wheel1" type="MeshInstance3D" parent="Wheels/FrontRightWheel/Wheel"]
 transform = Transform3D(-4.37114e-08, -0.999999, 0, 1, -4.37113e-08, 0, 0, 0, 0.999999, 0.5, 0, 0)
 mesh = SubResource("TorusMesh_542k1")
 skeleton = NodePath("../..")
 
-[node name="2" type="MeshInstance3D" parent="Wheels/FrontRightWheel/Wheel"]
+[node name="Wheel2" type="MeshInstance3D" parent="Wheels/FrontRightWheel/Wheel"]
 transform = Transform3D(-4.37114e-08, -0.999999, 0, 1, -4.37113e-08, 0, 0, 0, 0.999999, 0.5, 0, 0)
 visible = false
 mesh = SubResource("SphereMesh_6m2ya")
 skeleton = NodePath("../..")
 
-[node name="3" type="MeshInstance3D" parent="Wheels/FrontRightWheel/Wheel"]
+[node name="Wheel3" type="MeshInstance3D" parent="Wheels/FrontRightWheel/Wheel"]
 transform = Transform3D(-4.37114e-08, -0.999999, 0, 1, -4.37113e-08, 0, 0, 0, 0.999999, 0.5, 0, 0)
 visible = false
 mesh = SubResource("CylinderMesh_41rbx")
@@ -317,26 +388,40 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7, 0, 1.1918)
 script = ExtResource("2_0xgju")
 
-[node name="Spring" type="MeshInstance3D" parent="Wheels/BackRightWheel"]
+[node name="Spring" type="Node3D" parent="Wheels/BackRightWheel"]
+
+[node name="Spring1" type="MeshInstance3D" parent="Wheels/BackRightWheel/Spring"]
 transform = Transform3D(0.035, 0, 0, 0, 0.035, 0, 0, 0, 0.035, -0.5, -0.5, 0)
 mesh = SubResource("ArrayMesh_o2057")
+skeleton = NodePath("")
+
+[node name="Spring2" type="MeshInstance3D" parent="Wheels/BackRightWheel/Spring"]
+transform = Transform3D(0.035, 0, 0, 0, 0.035, 0, 0, 0, 0.035, -0.5, -0.025, 0)
+visible = false
+mesh = SubResource("BoxMesh_koane")
+skeleton = NodePath("")
+
+[node name="Spring3" type="MeshInstance3D" parent="Wheels/BackRightWheel/Spring"]
+transform = Transform3D(0.035, 0, 0, 0, 0.035, 0, 0, 0, 0.035, -0.5, -0.025, 0)
+visible = false
+mesh = SubResource("CapsuleMesh_he12t")
 skeleton = NodePath("")
 
 [node name="Wheel" type="Node3D" parent="Wheels/BackRightWheel"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0)
 
-[node name="1" type="MeshInstance3D" parent="Wheels/BackRightWheel/Wheel"]
+[node name="Wheel1" type="MeshInstance3D" parent="Wheels/BackRightWheel/Wheel"]
 transform = Transform3D(-4.37114e-08, -0.999999, 0, 1, -4.37113e-08, 0, 0, 0, 0.999999, 0.5, 0, 0)
 mesh = SubResource("TorusMesh_542k1")
 skeleton = NodePath("../..")
 
-[node name="2" type="MeshInstance3D" parent="Wheels/BackRightWheel/Wheel"]
+[node name="Wheel2" type="MeshInstance3D" parent="Wheels/BackRightWheel/Wheel"]
 transform = Transform3D(-4.37114e-08, -0.999999, 0, 1, -4.37113e-08, 0, 0, 0, 0.999999, 0.5, 0, 0)
 visible = false
 mesh = SubResource("SphereMesh_6m2ya")
 skeleton = NodePath("../..")
 
-[node name="3" type="MeshInstance3D" parent="Wheels/BackRightWheel/Wheel"]
+[node name="Wheel3" type="MeshInstance3D" parent="Wheels/BackRightWheel/Wheel"]
 transform = Transform3D(-4.37114e-08, -0.999999, 0, 1, -4.37113e-08, 0, 0, 0, 0.999999, 0.5, 0, 0)
 visible = false
 mesh = SubResource("CylinderMesh_41rbx")
@@ -346,26 +431,40 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7, 0, 1.2)
 script = ExtResource("2_0xgju")
 
-[node name="Spring" type="MeshInstance3D" parent="Wheels/BackLeftWheel"]
+[node name="Spring" type="Node3D" parent="Wheels/BackLeftWheel"]
+
+[node name="Spring1" type="MeshInstance3D" parent="Wheels/BackLeftWheel/Spring"]
 transform = Transform3D(0.035, 0, 0, 0, 0.035, 0, 0, 0, 0.035, 0.5, -0.5, 0)
 mesh = SubResource("ArrayMesh_o2057")
+skeleton = NodePath("")
+
+[node name="Spring2" type="MeshInstance3D" parent="Wheels/BackLeftWheel/Spring"]
+transform = Transform3D(0.035, 0, 0, 0, 0.035, 0, 0, 0, 0.035, 0.5, -0.025, 0)
+visible = false
+mesh = SubResource("BoxMesh_koane")
+skeleton = NodePath("")
+
+[node name="Spring3" type="MeshInstance3D" parent="Wheels/BackLeftWheel/Spring"]
+transform = Transform3D(0.035, 0, 0, 0, 0.035, 0, 0, 0, 0.035, 0.5, -0.025, 0)
+visible = false
+mesh = SubResource("CapsuleMesh_he12t")
 skeleton = NodePath("")
 
 [node name="Wheel" type="Node3D" parent="Wheels/BackLeftWheel"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)
 
-[node name="1" type="MeshInstance3D" parent="Wheels/BackLeftWheel/Wheel"]
+[node name="Wheel1" type="MeshInstance3D" parent="Wheels/BackLeftWheel/Wheel"]
 transform = Transform3D(-4.37114e-08, -0.999999, 0, 1, -4.37113e-08, 0, 0, 0, 0.999999, -0.5, 0, 0)
 mesh = SubResource("TorusMesh_542k1")
 skeleton = NodePath("../..")
 
-[node name="2" type="MeshInstance3D" parent="Wheels/BackLeftWheel/Wheel"]
+[node name="Wheel2" type="MeshInstance3D" parent="Wheels/BackLeftWheel/Wheel"]
 transform = Transform3D(-4.37114e-08, -0.999999, 0, 1, -4.37113e-08, 0, 0, 0, 0.999999, -0.5, 0, 0)
 visible = false
 mesh = SubResource("SphereMesh_6m2ya")
 skeleton = NodePath("../..")
 
-[node name="3" type="MeshInstance3D" parent="Wheels/BackLeftWheel/Wheel"]
+[node name="Wheel3" type="MeshInstance3D" parent="Wheels/BackLeftWheel/Wheel"]
 transform = Transform3D(-4.37114e-08, -0.999999, 0, 1, -4.37113e-08, 0, 0, 0, 0.999999, -0.5, 0, 0)
 visible = false
 mesh = SubResource("CylinderMesh_41rbx")

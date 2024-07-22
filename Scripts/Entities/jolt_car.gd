@@ -58,10 +58,17 @@ var red_color = Color(1, 0, 0, 1)
 var white_color = Color(0.646, 0.646, 0.646, 1)
 
 @onready var wheel_pairs = [
-	[$"Wheels/FrontLeftWheel/Wheel/1", $"Wheels/FrontLeftWheel/Wheel/2", $"Wheels/FrontLeftWheel/Wheel/3"],
-	[$"Wheels/FrontRightWheel/Wheel/1", $"Wheels/FrontRightWheel/Wheel/2", $"Wheels/FrontRightWheel/Wheel/3"],
-	[$"Wheels/BackRightWheel/Wheel/1", $"Wheels/BackRightWheel/Wheel/2", $"Wheels/BackRightWheel/Wheel/3"],
-	[$"Wheels/BackLeftWheel/Wheel/1", $"Wheels/BackLeftWheel/Wheel/2", $"Wheels/BackLeftWheel/Wheel/3"]
+	[$"Wheels/FrontLeftWheel/Wheel/Wheel1", $"Wheels/FrontLeftWheel/Wheel/Wheel2", $"Wheels/FrontLeftWheel/Wheel/Wheel3"],
+	[$"Wheels/FrontRightWheel/Wheel/Wheel1", $"Wheels/FrontRightWheel/Wheel/Wheel2", $"Wheels/FrontRightWheel/Wheel/Wheel3"],
+	[$"Wheels/BackRightWheel/Wheel/Wheel1", $"Wheels/BackRightWheel/Wheel/Wheel2", $"Wheels/BackRightWheel/Wheel/Wheel3"],
+	[$"Wheels/BackLeftWheel/Wheel/Wheel1", $"Wheels/BackLeftWheel/Wheel/Wheel2", $"Wheels/BackLeftWheel/Wheel/Wheel3"]
+]
+
+@onready var spring_pairs = [
+	[$"Wheels/FrontLeftWheel/Spring/Spring1", $"Wheels/FrontLeftWheel/Spring/Spring2", $"Wheels/FrontLeftWheel/Spring/Spring3"],
+	[$"Wheels/FrontRightWheel/Spring/Spring1", $"Wheels/FrontRightWheel/Spring/Spring2", $"Wheels/FrontRightWheel/Spring/Spring3"],
+	[$"Wheels/BackRightWheel/Spring/Spring1", $"Wheels/BackRightWheel/Spring/Spring2", $"Wheels/BackRightWheel/Spring/Spring3"],
+	[$"Wheels/BackLeftWheel/Spring/Spring1", $"Wheels/BackLeftWheel/Spring/Spring2", $"Wheels/BackLeftWheel/Spring/Spring3"]
 ]
 
 func _ready():
@@ -212,7 +219,7 @@ func set_player_in_car(player_path: NodePath):
 		player.get_node("BodyCollision").disabled = true
 		
 		if player.is_multiplayer_authority():
-			CameraTransition.transition_camera3D(player_in_car.camera, camera_3d)
+			await CameraTransition.transition_camera3D(player_in_car.camera, camera_3d, 0.5)
 			update_radio_for_player()
 
 func leaving_car():
@@ -231,7 +238,7 @@ func remove_player_from_car():
 		var player_camera = player_head.get_node("Camera3D")
 		
 		if player_camera && player_camera.is_multiplayer_authority():
-			CameraTransition.transition_camera3D(camera_3d, player_in_car.camera)
+			await CameraTransition.transition_camera3D(camera_3d, player_in_car.camera, 0.5)
 		
 		player_in_car.is_in_car = false
 		player_in_car = null
