@@ -66,7 +66,6 @@ func update_enter_movement():
 	car.linear_velocity = forward_direction * enter_speed
 
 	if car.global_position.distance_to(initial_position) >= enter_distance:
-		car.parking_brake_engaged = true
 		car.linear_velocity = Vector3.ZERO
 		is_entering = false
 		set_physics_process(false)
@@ -93,7 +92,6 @@ func reset_wheel_rotations():
 
 func start_reverse_movement():
 	if car:
-		car.parking_brake_engaged = false
 		initial_position = car.global_position
 		is_reversing = true
 		set_physics_process(true)
