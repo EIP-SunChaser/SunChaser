@@ -3,8 +3,8 @@ extends Control
 @onready var workbench_menu = $"../WorkbenchMenu"
 @onready var animation_player = $"../WorkbenchMenu/AnimationPlayer"
 @onready var camera_3d = $"../Camera3D"
-@onready var specific_parts = $LeftMenu/VBoxContainer/VBoxContainer/SpecificParts
-@onready var wheels_button = $LeftMenu/VBoxContainer/VBoxContainer/CarParts/Wheels
+@onready var specific_parts = $LeftMenu/VBoxContainer/ScrollContainer/VBoxContainer/SpecificParts
+@onready var wheels_button = $LeftMenu/VBoxContainer/ScrollContainer/VBoxContainer/CarParts/Wheels
 
 
 @export var enter_speed = 5.0
