@@ -126,7 +126,7 @@ radius = 0.025
 [sub_resource type="BoxShape3D" id="BoxShape3D_5a73s"]
 size = Vector3(6.22852, 3.52063, 4)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ygt0"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xs0iw"]
 bg_color = Color(0, 0, 0, 0)
 
 [sub_resource type="Gradient" id="Gradient_mbdqv"]
@@ -475,7 +475,7 @@ offset_top = -118.0
 offset_right = -12.0001
 offset_bottom = -88.0
 grow_horizontal = 0
-theme_override_styles/background = SubResource("StyleBoxFlat_5ygt0")
+theme_override_styles/background = SubResource("StyleBoxFlat_xs0iw")
 theme_override_styles/fill = SubResource("StyleBoxTexture_546eb")
 
 [node name="RadioText" type="CanvasLayer" parent="."]

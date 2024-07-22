@@ -7389,6 +7389,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.072, -0.64, -4)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.97223, 1.83295, 0.059021)
 shape = SubResource("BoxShape3D_i20hq")
 
+[node name="Camera3D" type="Camera3D" parent="Garage/Workbench"]
+transform = Transform3D(-0.733896, 0, 0.679262, 0, 1, 0, -0.679262, 0, -0.733896, 6.44929, 3.02217, -10.6089)
+
 [node name="Node3D" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31, 0.5, -108)
 

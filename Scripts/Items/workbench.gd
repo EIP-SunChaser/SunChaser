@@ -2,6 +2,7 @@ extends Control
 
 @onready var workbench_menu = $"../WorkbenchMenu"
 @onready var animation_player = $"../WorkbenchMenu/AnimationPlayer"
+@onready var camera_3d = $"../Camera3D"
 
 @export var enter_speed = 5.0
 @export var enter_distance = 10.0
@@ -42,6 +43,7 @@ func initialize_enter_movement():
 
 	initial_position = car.global_position
 	is_entering = true
+	CameraTransition.transition_camera3D(car.camera_3d, camera_3d)
 	set_physics_process(true)
 
 func update_enter_movement():
@@ -73,6 +75,7 @@ func update_reverse_movement():
 		car.linear_velocity = Vector3.ZERO
 		car.steering_enabled = true
 		is_reversing = false
+		CameraTransition.transition_camera3D(camera_3d, car.camera_3d)
 		set_physics_process(false)
 
 func reset_wheel_rotations():

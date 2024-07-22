@@ -180,10 +180,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "Save"
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-0.715693, -0.174869, 0.676169, 0, 0.968148, 0.25038, -0.698415, 0.179195, -0.692897, 3.88159, 1.34904, -3.91656)
-fov = 45.0
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_e5g38")
