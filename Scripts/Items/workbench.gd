@@ -23,25 +23,27 @@ var original_spring
 var current_selection = "wheels"
 
 func _on_area_3d_body_entered(body):
-	if !is_multiplayer_authority(): return
-	if body.is_in_group("JoltCar") and body.active:
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		GlobalVariables.isInDialogue = true
-		workbench_menu.show()
-		wheels_button.grab_focus()
-		animation_player.play("menu_opening")
-		car = body
-		car.linear_velocity = Vector3.ZERO
-		store_original_parts()
-		initialize_enter_movement()
+	if !is_multiplayer_authority() or !body.is_in_group("JoltCar") or !body.active:
+		return
+
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	GlobalVariables.isInDialogue = true
+	workbench_menu.show()
+	wheels_button.grab_focus()
+	animation_player.play("menu_opening")
+
+	car = body
+	car.linear_velocity = Vector3.ZERO
+	store_original_parts()
+	initialize_enter_movement()
 
 func _physics_process(_delta):
-	if car:
-		match car_state:
-			CarState.ENTERING:
-				update_enter_movement()
-			CarState.REVERSING:
-				update_reverse_movement()
+	if !car: return
+	match car_state:
+		CarState.ENTERING:
+			update_enter_movement()
+		CarState.REVERSING:
+			update_reverse_movement()
 
 func initialize_enter_movement():
 	var current_rotation = car.global_transform.basis.get_euler()
@@ -55,13 +57,12 @@ func initialize_enter_movement():
 
 func update_enter_movement():
 	reset_wheel_rotations()
-	car.steering_enabled = false
 
 	var current_rotation = car.global_transform.basis.get_euler()
 	current_rotation.y = lerp(current_rotation.y, target_rotation.y, rotation_speed)
 	car.global_transform = Transform3D(Basis().rotated(Vector3.UP, current_rotation.y), car.global_position)
 
-	var forward_direction = car.global_transform.basis.z.normalized() * -1
+	var forward_direction = -car.global_transform.basis.z.normalized()
 	car.linear_velocity = forward_direction * enter_speed
 
 	if car.global_position.distance_to(initial_position) >= enter_distance:
@@ -71,7 +72,6 @@ func update_enter_movement():
 
 func update_reverse_movement():
 	reset_wheel_rotations()
-	car.steering_enabled = false
 
 	var backward_direction = Vector3(0, 0, 1)
 	car.linear_velocity = backward_direction * reverse_speed
@@ -79,7 +79,6 @@ func update_reverse_movement():
 	if car.global_position.distance_to(initial_position) >= reverse_distance:
 		workbench_menu.hide()
 		car.linear_velocity = Vector3.ZERO
-		car.steering_enabled = true
 		car_state = CarState.IDLE
 		await CameraTransition.transition_camera3D(camera_3d, car.camera_3d)
 		GlobalVariables.isInDialogue = false
