@@ -57,25 +57,46 @@ var right_tail_light_material: StandardMaterial3D
 var red_color = Color(1, 0, 0, 1)
 var white_color = Color(0.646, 0.646, 0.646, 1)
 
-@onready var wheel_pairs = [
-	[$"Wheels/FrontLeftWheel/Wheel/Wheel1", $"Wheels/FrontLeftWheel/Wheel/Wheel2", $"Wheels/FrontLeftWheel/Wheel/Wheel3"],
-	[$"Wheels/FrontRightWheel/Wheel/Wheel1", $"Wheels/FrontRightWheel/Wheel/Wheel2", $"Wheels/FrontRightWheel/Wheel/Wheel3"],
-	[$"Wheels/BackRightWheel/Wheel/Wheel1", $"Wheels/BackRightWheel/Wheel/Wheel2", $"Wheels/BackRightWheel/Wheel/Wheel3"],
-	[$"Wheels/BackLeftWheel/Wheel/Wheel1", $"Wheels/BackLeftWheel/Wheel/Wheel2", $"Wheels/BackLeftWheel/Wheel/Wheel3"]
-]
+@export var wheel_meshs: Array[Mesh]
+@export var spring_meshs: Array[Mesh]
 
-@onready var spring_pairs = [
-	[$"Wheels/FrontLeftWheel/Spring/Spring1", $"Wheels/FrontLeftWheel/Spring/Spring2", $"Wheels/FrontLeftWheel/Spring/Spring3"],
-	[$"Wheels/FrontRightWheel/Spring/Spring1", $"Wheels/FrontRightWheel/Spring/Spring2", $"Wheels/FrontRightWheel/Spring/Spring3"],
-	[$"Wheels/BackRightWheel/Spring/Spring1", $"Wheels/BackRightWheel/Spring/Spring2", $"Wheels/BackRightWheel/Spring/Spring3"],
-	[$"Wheels/BackLeftWheel/Spring/Spring1", $"Wheels/BackLeftWheel/Spring/Spring2", $"Wheels/BackLeftWheel/Spring/Spring3"]
-]
+var current_wheel_index: int = 0
+var current_spring_index: int = 0
+
+const WHEEL_NAMES = ["FrontLeftWheel", "FrontRightWheel", "BackLeftWheel", "BackRightWheel"]
+
+# TODO rename Wheels node to be more accurate
+func set_mesh(mesh_array: Array[Mesh], index: int, part_name: String) -> void:
+	if index < 0 or index >= mesh_array.size():
+		print("Invalid %s mesh index" % [part_name])
+		return
+	
+	for wheel in WHEEL_NAMES:
+		var mesh_node = get_node("Wheels/%s/%s/Mesh" % [wheel, part_name])
+		if mesh_node:
+			mesh_node.mesh = mesh_array[index]
+
+func set_wheel_mesh(index: int) -> void:
+	set_mesh(wheel_meshs, index, "Wheel")
+	current_wheel_index = index
+
+func set_spring_mesh(index: int) -> void:
+	set_mesh(spring_meshs, index, "Spring")
+	current_spring_index = index
+
+func init_spring_meshs() -> void:
+	for mod_name in ModLoader.modded_wheels:
+		wheel_meshs.append_array(ModLoader.modded_wheels[mod_name])
+	
+	for mod_name in ModLoader.modded_springs:
+		spring_meshs.append_array(ModLoader.modded_springs[mod_name])
 
 func _ready():
 	front_left_wheel = $Wheels/FrontLeftWheel
 	front_right_wheel = $Wheels/FrontRightWheel
 	left_tail_light_material = left_tail_light.get_active_material(0)
 	right_tail_light_material = right_tail_light.get_active_material(0)
+	init_spring_meshs()
 
 func _physics_process(delta):
 	if !is_multiplayer_authority(): return

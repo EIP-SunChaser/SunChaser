@@ -23,6 +23,7 @@ DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 GlobalVariables="*res://Scripts/Autoload/global_variables.gd"
 ConfigFileHandler="*res://Scripts/Autoload/config_file_handler.gd"
 CameraTransition="*res://Scripts/Autoload/camera_transition.gd"
+ModLoader="*res://Scripts/Autoload/mod_loader.gd"
 
 [display]
 

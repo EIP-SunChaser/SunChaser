@@ -91,12 +91,9 @@ script = ExtResource("1_yrq5r")
 
 [node name="LeftMenu" type="MarginContainer" parent="."]
 modulate = Color(1, 1, 1, 0)
-layout_mode = 1
-anchors_preset = 9
-anchor_bottom = 1.0
+layout_mode = 0
 offset_right = 420.0
-grow_vertical = 2
-metadata/_edit_use_anchors_ = true
+offset_bottom = 650.0
 
 [node name="blur_background" type="ColorRect" parent="LeftMenu"]
 material = SubResource("ShaderMaterial_bk2py")
@@ -174,36 +171,6 @@ layout_mode = 2
 size_flags_horizontal = 4
 columns = 3
 
-[node name="Button" type="Button" parent="LeftMenu/VBoxContainer/ScrollContainer/VBoxContainer/SpecificParts"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-text = "Wheels 1"
-
-[node name="Button2" type="Button" parent="LeftMenu/VBoxContainer/ScrollContainer/VBoxContainer/SpecificParts"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-text = "Wheels 2"
-
-[node name="Button3" type="Button" parent="LeftMenu/VBoxContainer/ScrollContainer/VBoxContainer/SpecificParts"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-text = "Wheels 3"
-
-[node name="Button4" type="Button" parent="LeftMenu/VBoxContainer/ScrollContainer/VBoxContainer/SpecificParts"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-text = "Wheels 4"
-
-[node name="Button5" type="Button" parent="LeftMenu/VBoxContainer/ScrollContainer/VBoxContainer/SpecificParts"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-text = "Wheels 5"
-
-[node name="Button6" type="Button" parent="LeftMenu/VBoxContainer/ScrollContainer/VBoxContainer/SpecificParts"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-text = "Wheels 6"
-
 [node name="SpacerBottom" type="Control" parent="LeftMenu/VBoxContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
@@ -230,8 +197,5 @@ libraries = {
 
 [connection signal="pressed" from="LeftMenu/VBoxContainer/ScrollContainer/VBoxContainer/CarParts/Wheels" to="." method="_on_wheels_pressed"]
 [connection signal="pressed" from="LeftMenu/VBoxContainer/ScrollContainer/VBoxContainer/CarParts/Spring" to="." method="_on_spring_pressed"]
-[connection signal="pressed" from="LeftMenu/VBoxContainer/ScrollContainer/VBoxContainer/SpecificParts/Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="LeftMenu/VBoxContainer/ScrollContainer/VBoxContainer/SpecificParts/Button2" to="." method="_on_button_2_pressed"]
-[connection signal="pressed" from="LeftMenu/VBoxContainer/ScrollContainer/VBoxContainer/SpecificParts/Button3" to="." method="_on_button_3_pressed"]
 [connection signal="pressed" from="LeftMenu/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/CancelButton" to="." method="_on_cancel_button_pressed"]
 [connection signal="pressed" from="LeftMenu/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/SaveButton" to="." method="_on_save_button_pressed"]

@@ -18,9 +18,11 @@ var car
 var initial_position: Vector3
 var target_rotation: Vector3
 var car_state: CarState = CarState.IDLE
-var original_wheel
-var original_spring
 var current_selection = "wheels"
+var original_wheel_index: int = 0
+var original_spring_index: int = 0
+var total_wheels = []
+var total_springs = []
 
 func _on_area_3d_body_entered(body):
 	if !is_multiplayer_authority() or !body.is_in_group("JoltCar") or !body.active:
@@ -33,6 +35,15 @@ func _on_area_3d_body_entered(body):
 	animation_player.play("menu_opening")
 
 	car = body
+	if car:
+		total_wheels.clear()
+		total_springs.clear()
+		
+		for mesh in car.wheel_meshs:
+			total_wheels.append(mesh)
+		for mesh in car.spring_meshs:
+			total_springs.append(mesh)
+
 	car.linear_velocity = Vector3.ZERO
 	store_original_parts()
 	initialize_enter_movement()
@@ -100,7 +111,8 @@ func _on_save_button_pressed() -> void:
 
 func _on_cancel_button_pressed() -> void:
 	if car_state != CarState.ENTERING:
-		toggle_parts(original_wheel, original_spring)
+		car.set_wheel_mesh(original_wheel_index)
+		car.set_spring_mesh(original_spring_index)
 		close_workbench()
 
 func close_workbench() -> void:
@@ -110,52 +122,16 @@ func close_workbench() -> void:
 	current_selection = "wheels"
 	update_specific_buttons()
 
-func toggle_wheels(wheel_index: int):
-	if car:
-		for pair in car.wheel_pairs:
-			for i in range(len(car.wheel_pairs) - 1):
-				pair[i].visible = (wheel_index == i)
-
-func toggle_springs(spring_index: int):
-	if car:
-		for pair in car.spring_pairs:
-			for i in range(len(car.spring_pairs) - 1):
-				pair[i].visible = (spring_index == i)
-
-func toggle_parts(wheel_index: int, spring_index: int) -> void:
-	if car:
-		toggle_wheels(wheel_index)
-		toggle_springs(spring_index)
-
 func store_original_parts() -> void:
 	if car:
-		original_wheel = find_visible_index(car.wheel_pairs)
-		original_spring = find_visible_index(car.spring_pairs)
+		original_wheel_index = car.current_wheel_index
+		original_spring_index = car.current_spring_index
 
-func find_visible_index(pairs: Array) -> int:
-	for pair in pairs:
-		for i in range(pair.size()):
-			if pair[i].visible:
-				return i
-	return 0
-
-func _on_button_pressed():
+func _on_specific_button_pressed(index: int):
 	if current_selection == "wheels":
-		toggle_wheels(0)
+		car.set_wheel_mesh(index)
 	elif current_selection == "spring":
-		toggle_springs(0)
-
-func _on_button_2_pressed():
-	if current_selection == "wheels":
-		toggle_wheels(1)
-	elif current_selection == "spring":
-		toggle_springs(1)
-
-func _on_button_3_pressed():
-	if current_selection == "wheels":
-		toggle_wheels(2)
-	elif current_selection == "spring":
-		toggle_springs(2)
+		car.set_spring_mesh(index)
 
 func _on_spring_pressed():
 	current_selection = "spring"
@@ -166,7 +142,15 @@ func _on_wheels_pressed():
 	update_specific_buttons()
 
 func update_specific_buttons():
+	for child in specific_parts.get_children():
+		child.queue_free()
+	
 	var button_text = "Spring" if current_selection == "spring" else "Wheel"
-	for i in range(6):
-		var button_node = specific_parts.get_node("Button" + ("" if i == 0 else str(i+1)))
-		button_node.text = button_text + " " + str(i)
+	var array_size = total_springs.size() if current_selection == "spring" else total_wheels.size()
+
+	for i in range(array_size):
+		var new_button = Button.new()
+		new_button.text = button_text + " " + str(i)
+		new_button.custom_minimum_size = Vector2(100, 100)
+		new_button.pressed.connect(_on_specific_button_pressed.bind(i))
+		specific_parts.add_child(new_button)
