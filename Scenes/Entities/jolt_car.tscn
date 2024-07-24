@@ -45,7 +45,7 @@ radius = 0.025
 [sub_resource type="BoxShape3D" id="BoxShape3D_5a73s"]
 size = Vector3(6.22852, 3.52063, 4)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_enbbh"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jlre1"]
 bg_color = Color(0, 0, 0, 0)
 
 [sub_resource type="Gradient" id="Gradient_mbdqv"]
@@ -111,78 +111,6 @@ properties/13/replication_mode = 1
 properties/14/path = NodePath("HeadLight/RightHeadLight:visible")
 properties/14/spawn = true
 properties/14/replication_mode = 1
-properties/15/path = NodePath("Wheels/FrontLeftWheel/Spring/Spring1:visible")
-properties/15/spawn = true
-properties/15/replication_mode = 1
-properties/16/path = NodePath("Wheels/FrontLeftWheel/Spring/Spring2:visible")
-properties/16/spawn = true
-properties/16/replication_mode = 1
-properties/17/path = NodePath("Wheels/FrontLeftWheel/Spring/Spring3:visible")
-properties/17/spawn = true
-properties/17/replication_mode = 1
-properties/18/path = NodePath("Wheels/FrontLeftWheel/Wheel/Wheel1:visible")
-properties/18/spawn = true
-properties/18/replication_mode = 1
-properties/19/path = NodePath("Wheels/FrontLeftWheel/Wheel/Wheel2:visible")
-properties/19/spawn = true
-properties/19/replication_mode = 1
-properties/20/path = NodePath("Wheels/FrontLeftWheel/Wheel/Wheel3:visible")
-properties/20/spawn = true
-properties/20/replication_mode = 1
-properties/21/path = NodePath("Wheels/FrontRightWheel/Spring/Spring1:visible")
-properties/21/spawn = true
-properties/21/replication_mode = 1
-properties/22/path = NodePath("Wheels/FrontRightWheel/Spring/Spring2:visible")
-properties/22/spawn = true
-properties/22/replication_mode = 1
-properties/23/path = NodePath("Wheels/FrontRightWheel/Spring/Spring3:visible")
-properties/23/spawn = true
-properties/23/replication_mode = 1
-properties/24/path = NodePath("Wheels/FrontRightWheel/Wheel/Wheel1:visible")
-properties/24/spawn = true
-properties/24/replication_mode = 1
-properties/25/path = NodePath("Wheels/FrontRightWheel/Wheel/Wheel2:visible")
-properties/25/spawn = true
-properties/25/replication_mode = 1
-properties/26/path = NodePath("Wheels/FrontRightWheel/Wheel/Wheel3:visible")
-properties/26/spawn = true
-properties/26/replication_mode = 1
-properties/27/path = NodePath("Wheels/BackRightWheel/Spring/Spring1:visible")
-properties/27/spawn = true
-properties/27/replication_mode = 1
-properties/28/path = NodePath("Wheels/BackRightWheel/Spring/Spring2:visible")
-properties/28/spawn = true
-properties/28/replication_mode = 1
-properties/29/path = NodePath("Wheels/BackRightWheel/Spring/Spring3:visible")
-properties/29/spawn = true
-properties/29/replication_mode = 1
-properties/30/path = NodePath("Wheels/BackRightWheel/Wheel/Wheel1:visible")
-properties/30/spawn = true
-properties/30/replication_mode = 1
-properties/31/path = NodePath("Wheels/BackRightWheel/Wheel/Wheel2:visible")
-properties/31/spawn = true
-properties/31/replication_mode = 1
-properties/32/path = NodePath("Wheels/BackRightWheel/Wheel/Wheel3:visible")
-properties/32/spawn = true
-properties/32/replication_mode = 1
-properties/33/path = NodePath("Wheels/BackLeftWheel/Spring/Spring1:visible")
-properties/33/spawn = true
-properties/33/replication_mode = 1
-properties/34/path = NodePath("Wheels/BackLeftWheel/Spring/Spring2:visible")
-properties/34/spawn = true
-properties/34/replication_mode = 1
-properties/35/path = NodePath("Wheels/BackLeftWheel/Spring/Spring3:visible")
-properties/35/spawn = true
-properties/35/replication_mode = 1
-properties/36/path = NodePath("Wheels/BackLeftWheel/Wheel/Wheel1:visible")
-properties/36/spawn = true
-properties/36/replication_mode = 1
-properties/37/path = NodePath("Wheels/BackLeftWheel/Wheel/Wheel2:visible")
-properties/37/spawn = true
-properties/37/replication_mode = 1
-properties/38/path = NodePath("Wheels/BackLeftWheel/Wheel/Wheel3:visible")
-properties/38/spawn = true
-properties/38/replication_mode = 1
 
 [node name="JoltCar" type="RigidBody3D" groups=["JoltCar"]]
 mass = 10.0
@@ -392,7 +320,7 @@ offset_top = -118.0
 offset_right = -12.0001
 offset_bottom = -88.0
 grow_horizontal = 0
-theme_override_styles/background = SubResource("StyleBoxFlat_enbbh")
+theme_override_styles/background = SubResource("StyleBoxFlat_jlre1")
 theme_override_styles/fill = SubResource("StyleBoxTexture_546eb")
 
 [node name="RadioText" type="CanvasLayer" parent="."]

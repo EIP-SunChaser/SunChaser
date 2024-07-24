@@ -76,10 +76,11 @@ func set_mesh(mesh_array: Array[Mesh], index: int, part_name: String) -> void:
 		if mesh_node:
 			mesh_node.mesh = mesh_array[index]
 
+@rpc("any_peer", "call_local")
 func set_wheel_mesh(index: int) -> void:
 	set_mesh(wheel_meshs, index, "Wheel")
 	current_wheel_index = index
-
+@rpc("any_peer", "call_local")
 func set_spring_mesh(index: int) -> void:
 	set_mesh(spring_meshs, index, "Spring")
 	current_spring_index = index

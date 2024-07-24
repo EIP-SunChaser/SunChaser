@@ -129,9 +129,9 @@ func store_original_parts() -> void:
 
 func _on_specific_button_pressed(index: int):
 	if current_selection == "wheels":
-		car.set_wheel_mesh(index)
+		car.set_wheel_mesh.rpc(index)
 	elif current_selection == "spring":
-		car.set_spring_mesh(index)
+		car.set_spring_mesh.rpc(index)
 
 func _on_spring_pressed():
 	current_selection = "spring"
