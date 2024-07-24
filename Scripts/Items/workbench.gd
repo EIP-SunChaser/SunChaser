@@ -146,11 +146,29 @@ func update_specific_buttons():
 		child.queue_free()
 	
 	var button_text = "Spring" if current_selection == "spring" else "Wheel"
-	var array_size = total_springs.size() if current_selection == "spring" else total_wheels.size()
-
-	for i in range(array_size):
+	var array = total_springs if current_selection == "spring" else total_wheels
+	for i in range(array.size()):
 		var new_button = Button.new()
-		new_button.text = button_text + " " + str(i)
 		new_button.custom_minimum_size = Vector2(100, 100)
 		new_button.pressed.connect(_on_specific_button_pressed.bind(i))
+		
+		var icon_path = get_icon_path(array[i])
+		if icon_path != "" and ResourceLoader.exists(icon_path):
+			var icon_texture = load(icon_path)
+			new_button.icon = icon_texture
+			new_button.expand_icon = true
+		else: 
+			new_button.text = button_text + " " + str(i)
 		specific_parts.add_child(new_button)
+
+func get_icon_path(mesh_resource: Resource) -> String:
+	var mesh_name = mesh_resource.resource_path.get_file().get_basename()
+	var icon_base_path = "Assets/Icons/Car/Parts/"
+	
+	match current_selection:
+		"spring":
+			return icon_base_path + "Springs/" + mesh_name + ".png"
+		"wheels":
+			return icon_base_path + "Wheels/" + mesh_name + ".png"
+		_:
+			return ""
