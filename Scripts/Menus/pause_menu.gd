@@ -1,6 +1,6 @@
 extends Control
 
-var player: CharacterBody3D
+var player: RigidBody3D
 @onready var options_button = $VBoxContainer/OptionsButton
 @onready var options_menu = $options_menu
 @onready var v_box_container = $VBoxContainer

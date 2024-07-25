@@ -1,6 +1,6 @@
 extends Control
 
-var player: CharacterBody3D
+var player: RigidBody3D
 
 func _ready():
 	hide()

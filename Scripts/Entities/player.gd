@@ -1,4 +1,4 @@
-extends CharacterBody3D
+extends RigidBody3D
 
 @onready var camera = $Head/Camera3D
 @onready var head = $Head
@@ -26,7 +26,7 @@ var speed = 0.0
 const WALK_SPEED = 5.0
 const SPRINT_SPEED = 8.0
 const CROUCH_SPEED = 2.0
-const JUMP_VELOCITY = 4.5
+const JUMP_FORCE = 4.5
 const SENSITIVITY = 0.003
 var SENSITIVITY_JOYSTICK = 0.06
 
@@ -56,8 +56,6 @@ var isInDialogue = false
 var GODMOD = false
 var god_mode_speed = 100.0
 
-var gravity = 9.8
-
 var respawn_point = Vector3(0, 10, 0)
 
 var sprint_toggled = false
@@ -74,6 +72,12 @@ func _ready():
 	deathLabel.visible = false
 	deathLabel.hide()
 	head_cast.add_exception(self)
+	
+	freeze = false
+	lock_rotation = true
+	contact_monitor = true
+	max_contacts_reported = 5
+	physics_material_override.friction = 0
 
 func _unhandled_input(event):
 	if !is_multiplayer_authority(): return
@@ -99,7 +103,8 @@ func _unhandled_input(event):
 	input_dir = Input.get_vector("left", "right", "up", "down")
 	
 	if Input.is_action_pressed("jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+		linear_velocity.y = 0
+		apply_central_impulse(Vector3.UP * JUMP_FORCE)
 	
 	if Input.is_action_just_pressed("use"):
 		var actionnables = actionable_finder.get_overlapping_areas()
@@ -113,13 +118,13 @@ func _unhandled_input(event):
 		inventoryMenu()
 	
 	if Input.is_action_just_pressed("teleport"):
-			global_transform.origin = Vector3(0, 10, 0)
+		global_transform.origin = Vector3(0, 10, 0)
 			
 	if Input.is_action_just_pressed("teleport-2"):
-			global_transform.origin = Vector3(-1220, 20, -15)
+		global_transform.origin = Vector3(-1220, 20, -15)
 			
 	if Input.is_action_just_pressed("teleport-3"):
-			global_transform.origin = Vector3(-230, 20, -10)
+		global_transform.origin = Vector3(-230, 20, -10)
 
 	if Input.is_action_pressed ("god"):
 		GODMOD = !GODMOD
@@ -129,7 +134,16 @@ func _unhandled_input(event):
 	elif event.is_action_released("sprint") and event is InputEventKey:
 		sprint_toggled = false
 
-func _physics_process(delta):
+func is_on_floor():
+	if get_contact_count() > 0:
+		var collision_state = PhysicsServer3D.body_get_direct_state(get_rid())
+		for i in range(collision_state.get_contact_count()):
+			var normal = collision_state.get_contact_local_normal(i)
+			if normal.dot(Vector3.UP) > 0.7:
+				return true
+	return false
+
+func _integrate_forces(state):
 	if !is_multiplayer_authority(): return
 	if !isAlive: return
 	
@@ -148,21 +162,22 @@ func _physics_process(delta):
 				press_e_ui.show()
 		else:
 			press_e_ui.hide()
-		do_physics_process(delta)
+		do_physics_process(state)
 
-func do_physics_process(delta):
+func do_physics_process(state):
+	var delta = state.step
+	
 	if axis_x > 0.1 or axis_x < -0.1 or axis_y > 0.1 or axis_y < -0.1:
 		head.rotate_y(-axis_x * SENSITIVITY_JOYSTICK)
 		camera.rotate_x(-axis_y * SENSITIVITY_JOYSTICK)
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90))
 	
-	if not is_on_floor() and GODMOD == false:
-		velocity.y -= gravity * delta
-
+	var direction = (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	
 	if GODMOD:
 		set_collision_mask_value(1, false)
 		set_collision_layer_value(1, false)
-		velocity = Vector3.ZERO
+		state.linear_velocity = Vector3.ZERO
 		
 		var camera_basis = camera.get_global_transform().basis
 		var move = Vector3.ZERO
@@ -172,27 +187,26 @@ func do_physics_process(delta):
 		move += Input.get_axis("crouch", "jump") * Vector3.UP
 		move += Input.get_axis("crouch", "sprint") * Vector3.UP
 		
-		global_transform.origin += move.normalized() * god_mode_speed * delta
+		state.transform.origin += move.normalized() * god_mode_speed * delta
 	else:
 		set_collision_mask_value(1, true)
 		set_collision_layer_value(1, true)
-
-	var direction = (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	if is_on_floor():
-		if direction:
-			velocity.x = direction.x * speed
-			velocity.z = direction.z * speed
+		
+		if is_on_floor():
+			if direction:
+				state.linear_velocity.x = direction.x * speed
+				state.linear_velocity.z = direction.z * speed
+			else:
+				state.linear_velocity.x = lerp(state.linear_velocity.x, direction.x * speed, delta * 7.0)
+				state.linear_velocity.z = lerp(state.linear_velocity.z, direction.z * speed, delta * 7.0)
 		else:
-			velocity.x = lerp(velocity.x, direction.x * speed, delta * 7.0)
-			velocity.z = lerp(velocity.z, direction.z * speed, delta * 7.0)
-	else:
-		velocity.x = lerp(velocity.x, direction.x * speed, delta * 3.0)
-		velocity.z = lerp(velocity.z, direction.z * speed, delta * 3.0)
+			state.linear_velocity.x = lerp(state.linear_velocity.x, direction.x * speed, delta * 3.0)
+			state.linear_velocity.z = lerp(state.linear_velocity.z, direction.z * speed, delta * 3.0)
 
-	t_bob += delta * velocity.length() * float(is_on_floor())
+	t_bob += delta * state.linear_velocity.length() * float(is_on_floor())
 	camera.transform.origin = _headbob(t_bob)
 
-	var velocity_clamped = clamp(velocity.length(), 0.5, SPRINT_SPEED * 2)
+	var velocity_clamped = clamp(state.linear_velocity.length(), 0.5, SPRINT_SPEED * 2)
 	var target_fov = BASE_FOV + FOV_CAHNGE * velocity_clamped
 	camera.fov = lerp(camera.fov, target_fov, delta * 8.0)
 
@@ -219,7 +233,6 @@ func do_physics_process(delta):
 		speed = WALK_SPEED if not is_crouching else WALK_SPEED / CROUCH_SPEED
 	
 	check_head_collision.rpc()
-	move_and_slide()
 
 func _process(_delta):
 	if GODMOD:
