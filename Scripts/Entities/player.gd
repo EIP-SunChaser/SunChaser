@@ -102,10 +102,6 @@ func _unhandled_input(event):
 	
 	input_dir = Input.get_vector("left", "right", "up", "down")
 	
-	if Input.is_action_pressed("jump") and is_on_floor():
-		linear_velocity.y = 0
-		apply_central_impulse(Vector3.UP * JUMP_FORCE)
-	
 	if Input.is_action_just_pressed("use"):
 		var actionnables = actionable_finder.get_overlapping_areas()
 		if actionnables.size() > 0 && actionnables[0].has_method("action"):
@@ -212,6 +208,10 @@ func do_physics_process(state):
 
 	if Input.is_action_just_pressed("crouch"):
 		crouch.rpc()
+	
+	if Input.is_action_pressed("jump") and is_on_floor():
+		linear_velocity.y = 0
+		apply_central_impulse(Vector3.UP * JUMP_FORCE)
 
 	if Input.is_action_pressed("shoot") and not is_in_car:
 		play_shoot_effects.rpc()
