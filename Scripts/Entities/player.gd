@@ -62,6 +62,24 @@ var respawn_point = Vector3(0, 10, 0)
 
 var sprint_toggled = false
 
+func save_data(data: SaveData):
+	data.player_position = position
+	data.player_rotation = head.rotation
+	data.player_health = health_bar.health
+	data.player_crouching = is_crouching
+
+func load_data(data: SaveData):
+	position = data.player_position
+	head.rotation = data.player_rotation
+	health_bar.health = data.player_health
+	is_crouching = data.player_crouching
+	if is_crouching:
+		animation_player.play("crouch")
+		animation_player.seek(animation_player.current_animation_length, true)
+	else:
+		animation_player.play_backwards("crouch")
+		animation_player.seek(0, true)
+
 func _enter_tree():
 	set_multiplayer_authority(str(name).to_int())
 
@@ -74,6 +92,7 @@ func _ready():
 	deathLabel.visible = false
 	deathLabel.hide()
 	head_cast.add_exception(self)
+	SaveManager.load_game()
 
 func _unhandled_input(event):
 	if !is_multiplayer_authority(): return
@@ -107,6 +126,7 @@ func _unhandled_input(event):
 			actionnables[0].action()
 
 	if Input.is_action_just_pressed("pause"):
+		SaveManager.save_game()
 		pauseMenu()
 	
 	if Input.is_action_just_pressed("inventory"):
@@ -159,6 +179,10 @@ func do_physics_process(delta):
 	if not is_on_floor() and GODMOD == false:
 		velocity.y -= gravity * delta
 
+	if is_in_car:
+		set_collision_mask_value(1, false)
+		set_collision_layer_value(1, false)
+		velocity = Vector3.ZERO
 	if GODMOD:
 		set_collision_mask_value(1, false)
 		set_collision_layer_value(1, false)
@@ -174,8 +198,9 @@ func do_physics_process(delta):
 		
 		global_transform.origin += move.normalized() * god_mode_speed * delta
 	else:
-		set_collision_mask_value(1, true)
-		set_collision_layer_value(1, true)
+		if !is_in_car:
+			set_collision_mask_value(1, true)
+			set_collision_layer_value(1, true)
 
 	var direction = (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if is_on_floor():

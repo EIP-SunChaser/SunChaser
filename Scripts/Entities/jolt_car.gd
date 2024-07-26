@@ -56,6 +56,16 @@ var right_tail_light_material: StandardMaterial3D
 var red_color = Color(1, 0, 0, 1)
 var white_color = Color(0.646, 0.646, 0.646, 1)
 
+func save_data(data: SaveData):
+	data.car_position = position
+	data.car_rotation = rotation
+	data.car_battery = current_battery
+
+func load_data(data: SaveData):
+	position = data.car_position
+	rotation = data.car_rotation
+	current_battery = data.car_battery
+
 func _ready():
 	front_left_wheel = $Wheels/FrontLeftWheel
 	front_right_wheel = $Wheels/FrontRightWheel
@@ -93,7 +103,12 @@ func _physics_process(delta):
 			is_stationary = false
 		
 		update_tail_lights()
-		
+
+		if player_in_car.is_in_car:
+			player_in_car.global_transform.origin = self.global_transform.origin
+			player_in_car.global_transform.origin.x += 4
+
+				
 		# Apply steering (allowed even with depleted battery)
 		var target_steering_angle = steering_input * deg_to_rad(steering_angle)
 		var angle_difference_weel = target_steering_angle - current_wheel_angle
@@ -200,7 +215,6 @@ func set_player_in_car(player_path: NodePath):
 		player.hide()
 		player_in_car = player
 		player_in_car.is_in_car = true
-		player.get_node("BodyCollision").disabled = true
 		
 		if player.is_multiplayer_authority():
 			camera_3d.current = true
@@ -216,7 +230,6 @@ func remove_player_from_car():
 		var exit_location = global_transform.origin - 2 * global_transform.basis.x
 		player_in_car.global_transform.origin = exit_location
 		player_in_car.show()
-		player_in_car.get_node("BodyCollision").disabled = false
 		
 		var player_head = player_in_car.get_node("Head")
 		var player_camera = player_head.get_node("Camera3D")
