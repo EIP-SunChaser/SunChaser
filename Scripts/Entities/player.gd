@@ -113,16 +113,16 @@ func _unhandled_input(event):
 	if Input.is_action_just_pressed("inventory"):
 		inventoryMenu()
 	
-	if Input.is_action_just_pressed("teleport"):
+	if Input.is_action_just_pressed("teleport") and OS.is_debug_build():
 		global_transform.origin = Vector3(0, 10, 0)
 			
-	if Input.is_action_just_pressed("teleport-2"):
+	if Input.is_action_just_pressed("teleport-2") and OS.is_debug_build():
 		global_transform.origin = Vector3(-1220, 20, -15)
 			
-	if Input.is_action_just_pressed("teleport-3"):
+	if Input.is_action_just_pressed("teleport-3") and OS.is_debug_build():
 		global_transform.origin = Vector3(-230, 20, -10)
 
-	if Input.is_action_pressed ("god"):
+	if Input.is_action_pressed ("god") and OS.is_debug_build():
 		GODMOD = !GODMOD
 
 	if event.is_action_pressed("sprint") and event is InputEventJoypadButton:
@@ -174,6 +174,7 @@ func do_physics_process(state):
 		set_collision_mask_value(1, false)
 		set_collision_layer_value(1, false)
 		state.linear_velocity = Vector3.ZERO
+		gravity_scale = 0
 		
 		var camera_basis = camera.get_global_transform().basis
 		var move = Vector3.ZERO
@@ -187,6 +188,7 @@ func do_physics_process(state):
 	else:
 		set_collision_mask_value(1, true)
 		set_collision_layer_value(1, true)
+		gravity_scale = 1
 		
 		if is_on_floor():
 			if direction:
