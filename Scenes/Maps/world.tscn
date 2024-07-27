@@ -1,7 +1,6 @@
-[gd_scene load_steps=27 format=3 uid="uid://c4ca03hfvhrsd"]
+[gd_scene load_steps=26 format=3 uid="uid://c4ca03hfvhrsd"]
 
 [ext_resource type="PackedScene" uid="uid://bmc1fqst1lx1y" path="res://Scenes/Maps/environment.tscn" id="1_steub"]
-[ext_resource type="PackedScene" uid="uid://b2ajj4fsrspvj" path="res://Scenes/Ui/fps_meter.tscn" id="3_nq26b"]
 [ext_resource type="PackedScene" uid="uid://d0yhvm1880vyv" path="res://Scenes/Entities/hat_npc.tscn" id="4_arjcc"]
 [ext_resource type="PackedScene" uid="uid://bw41xqawmw8pp" path="res://Scenes/Entities/bad_npc.tscn" id="5_hhx2q"]
 [ext_resource type="Script" path="res://Scripts/Ui/IP_ADDRESS.gd" id="6_xrr28"]
@@ -75,8 +74,6 @@ shadow_enabled = true
 environment = SubResource("Environment_1pto3")
 
 [node name="Environment" parent="." instance=ExtResource("1_steub")]
-
-[node name="FPSMeter" parent="." instance=ExtResource("3_nq26b")]
 
 [node name="SpawnLocations" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -813.408, 17.5666, -19.3334)
