@@ -3,9 +3,10 @@ extends Control
 var max_points = 100
 var points = []
 var chart_size = Vector2(200, 75)
-var update_interval = 0.1
+var update_interval = 0.5
 var time_since_last_update = 0
 var highest_fps = 0
+var lowest_fps = 0
 var total_fps = 0
 var frame_count = 0
 var fps_history = []
@@ -27,6 +28,7 @@ func _process(delta):
 		var fps = Engine.get_frames_per_second()
 
 		highest_fps = max(highest_fps, fps)
+		lowest_fps = min(lowest_fps, fps)
 		
 		total_fps += fps
 		frame_count += 1
@@ -60,8 +62,14 @@ func _process(delta):
 func _draw():
 	var viewport_size = get_viewport_rect().size
 	var chart_position = Vector2(viewport_size.x - chart_size.x - 10, 10)
-
 	draw_rect(Rect2(chart_position, chart_size), Color(0.1, 0.1, 0.1))
+
+	var current_min_fps = INF
+	var current_max_fps = 0
+	for point in points:
+		if point.y > 0:
+			current_min_fps = min(current_min_fps, point.y)
+			current_max_fps = max(current_max_fps, point.y)
 
 	for i in range(5):
 		var y = chart_position.y + chart_size.y - (i * chart_size.y / 4)
@@ -71,23 +79,21 @@ func _draw():
 		var x = chart_position.x + (i * chart_size.x / 9)
 		draw_line(Vector2(x, chart_position.y), Vector2(x, chart_position.y + chart_size.y), Color(0.3, 0.3, 0.3))
 
-	if highest_fps > 0:
+	for i in range(4):
+		var fps_value = current_min_fps + (current_max_fps - current_min_fps) * i / 4
+		var y = chart_position.y + chart_size.y - (i * chart_size.y / 4)	
+		draw_string(get_theme_default_font(), Vector2(chart_position.x, y), str(round(fps_value)), HORIZONTAL_ALIGNMENT_LEFT, -1, 10, Color(0.7, 0.7, 0.7))
+
+	if current_max_fps > current_min_fps:
 		for i in range(1, max_points):
 			var start = Vector2(
 				chart_position.x + chart_size.x * (i - 1) / max_points,
-				chart_position.y + chart_size.y - (points[i - 1].y / highest_fps * chart_size.y)
+				chart_position.y + chart_size.y - ((points[i - 1].y - current_min_fps) / (current_max_fps - current_min_fps) * chart_size.y)
 			)
 			var end = Vector2(
 				chart_position.x + chart_size.x * i / max_points,
-				chart_position.y + chart_size.y - (points[i].y / highest_fps * chart_size.y)
+				chart_position.y + chart_size.y - ((points[i].y - current_min_fps) / (current_max_fps - current_min_fps) * chart_size.y)
 			)
-			draw_line(start, end, Color(0, 1, 0), 2)
-
-	if frame_count > 0:
-		var avg_fps = total_fps / frame_count
-		var avg_y = chart_position.y + chart_size.y - (avg_fps / highest_fps * chart_size.y)
-		draw_line(Vector2(chart_position.x, avg_y), Vector2(chart_position.x + chart_size.x, avg_y), Color(1, 0, 0), 1)
-
-	if low_1_percent > 0:
-		var low_y = chart_position.y + chart_size.y - (low_1_percent / highest_fps * chart_size.y)
-		draw_line(Vector2(chart_position.x, low_y), Vector2(chart_position.x + chart_size.x, low_y), Color(1, 1, 0), 1)
+			if start.x >= chart_position.x and start.x <= chart_position.x + chart_size.x and start.y >= chart_position.y and start.y <= chart_position.y + chart_size.y and \
+			   end.x >= chart_position.x and end.x <= chart_position.x + chart_size.x and end.y >= chart_position.y and end.y <= chart_position.y + chart_size.y:
+				draw_line(start, end, Color(0, 1, 0), 2)
