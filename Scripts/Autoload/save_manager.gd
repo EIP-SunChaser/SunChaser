@@ -33,7 +33,7 @@ func load_game():
 	if not FileAccess.file_exists(SAVE_FILE):
 		return
 	
-	var loaded_save_data = ResourceLoader.load(SAVE_FILE) as SaveData
+	var loaded_save_data = SafeResourceLoader.load(SAVE_FILE) as SaveData
 	if not loaded_save_data:
 		return
 	
