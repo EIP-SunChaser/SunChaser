@@ -9,9 +9,10 @@ var time_since_last_update = 0.0
 var highest_fps = 0.0
 var lowest_fps = INF
 var total_fps = 0.0
-var frame_count = 0
+var last_frame_count = 0
 var fps_history = []
 var low_1_percent = 0.0
+var last_frames = 0
 
 @onready var label: Label = $CanvasLayer/Label
 @onready var default_font = get_theme_default_font()
@@ -21,6 +22,7 @@ func _ready():
 		points.append(Vector2.ZERO)
 	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 	label.vertical_alignment = VERTICAL_ALIGNMENT_TOP
+	last_frame_count = Engine.get_frames_drawn()
 
 func _process(delta):
 	time_since_last_update += delta
@@ -32,22 +34,26 @@ func _process(delta):
 		queue_redraw()
 
 func update_fps_data():
-	var fps = Engine.get_frames_per_second()
+	var current_frame_count = Engine.get_frames_drawn()
+	var frames_elapsed = current_frame_count - last_frame_count
+	var fps = frames_elapsed / UPDATE_INTERVAL
+	
 	highest_fps = max(highest_fps, fps)
 	lowest_fps = min(lowest_fps, fps)
 	total_fps += fps
-	frame_count += 1
-	print(frame_count, "||", Engine.get_frames_drawn())
 	fps_history.append(fps)
 	if fps_history.size() > 100:
-		fps_history.pop_front()
+		total_fps -= fps_history.pop_front()
+	
 	var sorted_history = fps_history.duplicate()
 	sorted_history.sort()
 	var low_1_percent_index = max(0, ceil(sorted_history.size() * 0.01) - 1)
 	low_1_percent = sorted_history[low_1_percent_index]
+	
+	last_frame_count = current_frame_count
 
 func update_label():
-	var avg_fps = total_fps / frame_count
+	var avg_fps = total_fps / fps_history.size()
 	label.text = "FPS: %d\nAvg FPS: %d\n1%% Low: %d" % [
 		Engine.get_frames_per_second(),
 		round(avg_fps),
@@ -91,13 +97,16 @@ func draw_fps_labels(pos):
 func draw_fps_graph(pos):
 	var current_min_fps = points.min().y
 	var current_max_fps = points.max().y
-	if current_max_fps > current_min_fps:
+	if current_max_fps >= current_min_fps:
 		var prev_point = null
 		for i in range(MAX_POINTS):
 			var current_point = Vector2(
 				pos.x + CHART_SIZE.x * i / (MAX_POINTS - 1),
-				pos.y + CHART_SIZE.y - ((points[i].y - current_min_fps) / (current_max_fps - current_min_fps) * CHART_SIZE.y)
+				pos.y + CHART_SIZE.y / 2
 			)
+			if current_max_fps > current_min_fps:
+				current_point.y = pos.y + CHART_SIZE.y - ((points[i].y - current_min_fps) / (current_max_fps - current_min_fps) * CHART_SIZE.y)
+			
 			if prev_point != null:
 				var start = Vector2(
 					clamp(prev_point.x, pos.x, pos.x + CHART_SIZE.x),
