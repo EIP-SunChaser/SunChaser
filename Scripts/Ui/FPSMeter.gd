@@ -2,7 +2,7 @@ extends Control
 
 const MAX_POINTS = 100
 const CHART_SIZE = Vector2(200, 75)
-const UPDATE_INTERVAL = 0.5
+const UPDATE_INTERVAL = 1.0
 
 var points = []
 var time_since_last_update = 0.0
@@ -56,8 +56,8 @@ func update_label():
 	var avg_fps = total_fps / fps_history.size()
 	label.text = "FPS: %d\nAvg FPS: %d\n1%% Low: %d" % [
 		Engine.get_frames_per_second(),
-		round(avg_fps),
-		round(low_1_percent)
+		avg_fps,
+		low_1_percent
 	]
 	var viewport_size = get_viewport_rect().size
 	label.position = Vector2(viewport_size.x - label.size.x - CHART_SIZE.x - 20, 10)
