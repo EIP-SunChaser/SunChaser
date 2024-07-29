@@ -1,6 +1,7 @@
 extends Node
 
-const SAVE_FILE = "user://save.tres"
+const SAVE_DIR = "user://saves"
+const SAVE_FILE = SAVE_DIR + "/save.tres"
 var save_timer = null
 const SAVE_INTERVAL = 60
 var save_data: SaveData
@@ -18,6 +19,10 @@ func _on_save_timer_timeout():
 	save_game()
 
 func save_game():
+	var dir = DirAccess.open("user://")
+	if not dir.dir_exists(SAVE_DIR):
+		dir.make_dir(SAVE_DIR)
+	
 	var persist_objects = get_tree().get_nodes_in_group("Persist")
 	
 	for obj in persist_objects:
