@@ -25,6 +25,8 @@ func _ready():
 	last_frame_count = Engine.get_frames_drawn()
 
 func _process(delta):
+	if !is_multiplayer_authority(): return
+
 	time_since_last_update += delta
 	if time_since_last_update >= UPDATE_INTERVAL:
 		update_fps_data()
@@ -68,6 +70,8 @@ func update_points():
 	points[MAX_POINTS - 1] = Vector2(MAX_POINTS - 1, Engine.get_frames_per_second())
 
 func _draw():
+	if !is_multiplayer_authority(): return
+
 	var viewport_size = get_viewport_rect().size
 	var chart_position = Vector2(viewport_size.x - CHART_SIZE.x - 10, 10)
 	draw_chart_background(chart_position)
