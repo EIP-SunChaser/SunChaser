@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://c4ca03hfvhrsd"]
+[gd_scene load_steps=28 format=3 uid="uid://c4ca03hfvhrsd"]
 
 [ext_resource type="PackedScene" uid="uid://bmc1fqst1lx1y" path="res://Scenes/Maps/environment.tscn" id="1_steub"]
 [ext_resource type="PackedScene" uid="uid://b2ajj4fsrspvj" path="res://Scenes/Ui/fps_meter.tscn" id="3_nq26b"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://cvuvh31sst0u1" path="res://Scenes/Entities/forestier.tscn" id="13_tkqpx"]
 [ext_resource type="PackedScene" uid="uid://dfb2jorn13mqh" path="res://Scenes/Entities/pets.tscn" id="14_avud1"]
 [ext_resource type="Script" path="res://Scripts/Maps/TP_TestWorld.gd" id="14_rtuf3"]
+[ext_resource type="PackedScene" uid="uid://bxxckk7bhg62x" path="res://Scenes/Entities/character_model_animation.tscn" id="15_y326l"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2efs4"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -2022,6 +2023,9 @@ shape = SubResource("BoxShape3D_tehmd")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="TP_TestWorld"]
 mesh = SubResource("BoxMesh_jpluy")
+
+[node name="Character_model_animation" parent="." instance=ExtResource("15_y326l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.8862, 0.499999, 47.1977)
 
 [connection signal="body_entered" from="Quest1/Area3D" to="Quest1/Area3D" method="_on_body_entered"]
 [connection signal="body_exited" from="Quest1/Area3D" to="Quest1/Area3D" method="_on_body_exited"]

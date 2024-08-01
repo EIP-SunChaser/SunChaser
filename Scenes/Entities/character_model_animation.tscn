@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://bxxckk7bhg62x"]
+
+[ext_resource type="PackedScene" uid="uid://2rx5qt55heqy" path="res://Assets/Models/Entities/Players/Character_model_animation.glb" id="1_dwfbx"]
+[ext_resource type="Script" path="res://Scripts/Entities/Character_model_animation.gd" id="2_f24pe"]
+
+[node name="Character_model_animation" instance=ExtResource("1_dwfbx")]
+script = ExtResource("2_f24pe")
