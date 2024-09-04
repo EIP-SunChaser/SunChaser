@@ -52,5 +52,5 @@ grow_vertical = 2
 
 [node name="Label" type="Label" parent="blur_background/VBoxContainer"]
 layout_mode = 2
-text = "INVENTORY"
+text = "INVENTORY (en cours)"
 label_settings = SubResource("LabelSettings_iytmq")
