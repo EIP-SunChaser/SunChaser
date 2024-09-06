@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cy7ywppb2i4ey"]
+[gd_scene load_steps=23 format=3 uid="uid://cy7ywppb2i4ey"]
 
 [ext_resource type="Script" path="res://Scripts/Entities/player.gd" id="1_mpqcp"]
 [ext_resource type="Script" path="res://Scripts/Entities/Pseudo.gd" id="2_bmpr3"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://bdjvvprw2achb" path="res://Scenes/Ui/health_bar.tscn" id="6_1voe1"]
 [ext_resource type="PackedScene" uid="uid://sgxyoglr7pux" path="res://Scenes/Menus/pause_menu.tscn" id="8_hcrn3"]
 [ext_resource type="PackedScene" uid="uid://x003u273j5s0" path="res://Scenes/Ui/press_e_ui.tscn" id="9_hu5b3"]
+[ext_resource type="Script" path="res://Scripts/Entities/interactRay.gd" id="10_m2fxw"]
+[ext_resource type="Texture2D" uid="uid://c50xr2pfcelp8" path="res://Assets/Images/crosshair.png" id="11_1sp03"]
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_1lcpa"]
 properties/0/path = NodePath(".:rotation")
@@ -270,6 +272,35 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.668725, 0)
 shape = SubResource("SphereShape3D_wtfnw")
 target_position = Vector3(0, 0, 0)
 debug_shape_custom_color = Color(0.403922, 0.00392157, 1, 1)
+
+[node name="InteractRay" type="RayCast3D" parent="Head"]
+target_position = Vector3(0, 0, -4)
+script = ExtResource("10_m2fxw")
+
+[node name="Prompt" type="Label" parent="Head/InteractRay"]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -24.5
+offset_bottom = 24.5
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -10.5
+offset_top = -10.5
+offset_right = 10.5
+offset_bottom = 10.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("11_1sp03")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
