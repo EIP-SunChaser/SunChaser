@@ -20,7 +20,6 @@ func _on_area_entered(body):
 	var players = get_tree().get_nodes_in_group("Player")
 	for p in players:
 		if p.name != body.name and p.name != "World":
-			print(p.name)
 			p.set_position(body.get_position())
 			pass
 	if current_scene.name == "World":
