@@ -15,7 +15,14 @@ func change_scene(path: String):
 	get_tree().get_root().add_child(current_scene)
 	get_tree().set_current_scene(current_scene)
 
-func _on_area_entered(_body):
+
+func _on_area_entered(body):
+	var players = get_tree().get_nodes_in_group("Player")
+	for p in players:
+		if p.name != body.name and p.name != "World":
+			print(p.name)
+			p.set_position(body.get_position())
+			pass
 	if current_scene.name == "World":
 		change_scene('res://Scenes/Maps/test_world.tscn')
 	elif current_scene.name == "TestWorld":

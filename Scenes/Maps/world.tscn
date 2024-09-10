@@ -65,7 +65,7 @@ material = SubResource("StandardMaterial3D_v1xee")
 flip_faces = true
 size = Vector3(5, 5, 5)
 
-[node name="World" type="Node3D"]
+[node name="World" type="Node3D" groups=["Player"]]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.975177, 0.018898, 0.22062, 0.100239, -0.850736, 0.515946, 0.19744, 0.525253, 0.827724, 0, 5.64631, 0)
