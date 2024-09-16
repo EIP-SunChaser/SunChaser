@@ -22,6 +22,7 @@ var front_left_wheel
 var front_right_wheel
 var players_in_zone = []
 var player_in_car = null 
+var steering_enabled := true
 
 var is_resetting = false
 var reset_rotation_speed = 1.5
@@ -56,25 +57,62 @@ var right_tail_light_material: StandardMaterial3D
 var red_color = Color(1, 0, 0, 1)
 var white_color = Color(0.646, 0.646, 0.646, 1)
 
+@export var wheel_meshs: Array[Mesh]
+@export var spring_meshs: Array[Mesh]
+
+var current_wheel_index: int = 0
+var current_spring_index: int = 0
+
+const WHEEL_NAMES = ["FrontLeftWheel", "FrontRightWheel", "BackLeftWheel", "BackRightWheel"]
+
+# TODO rename Wheels node to be more accurate
+func set_mesh(mesh_array: Array[Mesh], index: int, part_name: String) -> void:
+	if index < 0 or index >= mesh_array.size():
+		print("Invalid %s mesh index" % [part_name])
+		return
+	
+	for wheel in WHEEL_NAMES:
+		var mesh_node = get_node("Wheels/%s/%s/Mesh" % [wheel, part_name])
+		if mesh_node:
+			mesh_node.mesh = mesh_array[index]
+
+@rpc("any_peer", "call_local")
+func set_wheel_mesh(index: int) -> void:
+	set_mesh(wheel_meshs, index, "Wheel")
+	current_wheel_index = index
+@rpc("any_peer", "call_local")
+func set_spring_mesh(index: int) -> void:
+	set_mesh(spring_meshs, index, "Spring")
+	current_spring_index = index
+
+func init_spring_meshs() -> void:
+	for mod_name in ModLoader.modded_wheels:
+		wheel_meshs.append_array(ModLoader.modded_wheels[mod_name])
+	
+	for mod_name in ModLoader.modded_springs:
+		spring_meshs.append_array(ModLoader.modded_springs[mod_name])
+
 func _ready():
 	front_left_wheel = $Wheels/FrontLeftWheel
 	front_right_wheel = $Wheels/FrontRightWheel
 	left_tail_light_material = left_tail_light.get_active_material(0)
 	right_tail_light_material = right_tail_light.get_active_material(0)
+	init_spring_meshs()
 
 func _physics_process(delta):
 	if !is_multiplayer_authority(): return
 	
-	if active && GlobalVariables.isInPause == false:
+	if active && !GlobalVariables.isInPause && !GlobalVariables.isInDialogue:
 		if Input.is_action_just_pressed("brake"):
 			toggle_parking_brake()
 
 		if Input.is_action_just_pressed("radio"):
 			radio()
-		
-		steering_input = Input.get_axis("right", "left")
+		if steering_enabled:
+			steering_input = Input.get_axis("right", "left")
 		
 		if current_battery > 0:
+			
 			accel_input = Input.get_axis("deccelerate", "accelerate")
 			if not is_being_charged and not is_stationary:
 				current_battery -= battery_drain_rate * delta * abs(accel_input)
@@ -203,7 +241,7 @@ func set_player_in_car(player_path: NodePath):
 		player.get_node("BodyCollision").disabled = true
 		
 		if player.is_multiplayer_authority():
-			camera_3d.current = true
+			await CameraTransition.transition_camera3D(player_in_car.camera, camera_3d, 0.5)
 			update_radio_for_player()
 
 func leaving_car():
@@ -213,7 +251,7 @@ func leaving_car():
 @rpc("any_peer", "call_local")
 func remove_player_from_car():
 	if player_in_car:
-		var exit_location = global_transform.origin - 2 * global_transform.basis.x
+		var exit_location = global_transform.origin - 3.5 * global_transform.basis.x
 		player_in_car.global_transform.origin = exit_location
 		player_in_car.show()
 		player_in_car.get_node("BodyCollision").disabled = false
@@ -222,8 +260,7 @@ func remove_player_from_car():
 		var player_camera = player_head.get_node("Camera3D")
 		
 		if player_camera && player_camera.is_multiplayer_authority():
-			player_camera.current = true
-			camera_3d.current = false
+			await CameraTransition.transition_camera3D(camera_3d, player_in_car.camera, 0.5)
 		
 		player_in_car.is_in_car = false
 		player_in_car = null

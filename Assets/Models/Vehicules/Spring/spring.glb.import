@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cevjvf6krcsr2"
-path="res://.godot/imported/scene.gltf-d92c99fdd8d225e466a373886c68122a.scn"
+uid="uid://bnm2otb4fk5p6"
+path="res://.godot/imported/spring.glb-914425840c77b2830c8287afca6353a2.scn"
 
 [deps]
 
-source_file="res://Assets/Models/Vehicules/Spring/scene.gltf"
-dest_files=["res://.godot/imported/scene.gltf-d92c99fdd8d225e466a373886c68122a.scn"]
+source_file="res://Assets/Models/Vehicules/Spring/spring.glb"
+dest_files=["res://.godot/imported/spring.glb-914425840c77b2830c8287afca6353a2.scn"]
 
 [params]
 
