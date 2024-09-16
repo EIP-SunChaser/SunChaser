@@ -320,7 +320,7 @@ offset_top = -118.0
 offset_right = -12.0001
 offset_bottom = -88.0
 grow_horizontal = 0
-theme_override_styles/background = SubResource("StyleBoxFlat_j11jy")
+theme_override_styles/background = SubResource("StyleBoxFlat_iruag")
 theme_override_styles/fill = SubResource("StyleBoxTexture_546eb")
 
 [node name="RadioText" type="CanvasLayer" parent="."]
