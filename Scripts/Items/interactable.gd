@@ -1,13 +1,18 @@
+extends CollisionObject3D
 class_name Interactable
-extends StaticBody3D
+
+signal interacted(body)
 
 @export var prompt_message = "Interact"
-@export var prompt_action = "interact"
+@export var prompt_input = "interact"
 
 func get_prompt():
-	var events = InputMap.action_get_events("use")
-	for event in events:
-		if event is InputEventKey:
-			var key_name = OS.get_keycode_string(event.physical_keycode)
-			return prompt_message + "\n[" + key_name + "]"
-	return prompt_message + "\n[ no key assigned ]"
+	var key_name = ""
+	for action in InputMap.action_get_events(prompt_input):
+		if action is InputEventKey:
+			key_name = action.as_text_physical_keycode()
+			break
+	return prompt_message + "\n[" + key_name + "]"
+
+func interact(body):
+	interacted.emit(body)

@@ -1,6 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://ureeybc23app"]
+[gd_scene load_steps=7 format=3 uid="uid://ureeybc23app"]
 
-[ext_resource type="Script" path="res://Scripts/Items/interactable.gd" id="1_l1hv7"]
+[ext_resource type="Script" path="res://Scripts/Items/apple.gd" id="1_x2jvp"]
+[ext_resource type="AudioStream" uid="uid://c8y78j51sq6pj" path="res://Assets/Audios/Items/pop.ogg" id="2_irty0"]
+[ext_resource type="Resource" uid="uid://b8i6tm0jdux46" path="res://Assets/Textures/Items/tres/apple.tres" id="2_ky6ha"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r1scn"]
 albedo_color = Color(0.85098, 0, 0, 1)
@@ -10,7 +12,8 @@ albedo_color = Color(0.85098, 0, 0, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_g4fmo"]
 
 [node name="Apple" type="StaticBody3D"]
-script = ExtResource("1_l1hv7")
+script = ExtResource("1_x2jvp")
+item = ExtResource("2_ky6ha")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
@@ -20,3 +23,8 @@ mesh = SubResource("BoxMesh_fj38e")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_g4fmo")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_irty0")
+
+[connection signal="interacted" from="." to="." method="_on_interacted"]

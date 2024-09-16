@@ -6,13 +6,15 @@ extends CharacterBody3D
 @onready var pseudo = $Pseudo
 @onready var actionable_finder: Area3D = $Area3D
 @onready var press_e_ui = $Head/Camera3D/Press_e_ui
+@onready var crosshair = $TextureRect
 @onready var deathLabel = $"Head/Camera3D/DeathLabel"
 @onready var health_bar = $Head/Camera3D/HealthBar
 @onready var quest_ui = $Head/Camera3D/Quest_ui
 @onready var speed_label = $SpeedLabel
 
 @onready var pause_menu = $pause_menu
-@onready var inventory = $Inventory
+
+@export var inv: Inv
 
 #Bullets
 @onready var gun_animation = $"Head/Camera3D/rifle_prototype/AnimationPlayer"
@@ -109,9 +111,6 @@ func _unhandled_input(event):
 	if Input.is_action_just_pressed("pause"):
 		pauseMenu()
 	
-	if Input.is_action_just_pressed("inventory"):
-		inventoryMenu()
-	
 	if Input.is_action_just_pressed("teleport"):
 			global_transform.origin = Vector3(0, 10, 0)
 			
@@ -137,9 +136,11 @@ func _physics_process(delta):
 		health_bar.hide()
 		quest_ui.hide()
 		press_e_ui.hide()
+		crosshair.hide()
 	else:
 		health_bar.show()
 		quest_ui.show()
+		crosshair.show()
 
 	if GlobalVariables.isInDialogue == false and !GlobalVariables.isInPause and GlobalVariables.isInInventory == false:
 		if actionable_finder.get_overlapping_areas():
@@ -281,16 +282,6 @@ func pauseMenu():
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		pause_menu.show()
 
-func inventoryMenu():
-	if GlobalVariables.isInInventory == true:
-		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-		inventory.hide()
-		GlobalVariables.isInInventory = false
-	else:
-		GlobalVariables.isInInventory = true
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		inventory.show()
-
 func respawn():
 	global_transform.origin = respawn_point
 	health_bar.init_health(100)
@@ -300,3 +291,6 @@ func respawn():
 
 func set_respawn_point(new_point: Vector3):
 	respawn_point = new_point
+
+func collect(item):
+	inv.insert(item)
