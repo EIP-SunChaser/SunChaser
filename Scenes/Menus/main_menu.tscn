@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://cwfe4ax6jym2h"]
+[gd_scene load_steps=8 format=3 uid="uid://cwfe4ax6jym2h"]
 
 [ext_resource type="Script" path="res://Scripts/Menus/main_menu.gd" id="1_utaag"]
 [ext_resource type="PackedScene" uid="uid://cy7ywppb2i4ey" path="res://Scenes/Entities/player.tscn" id="2_1vl1a"]
 [ext_resource type="PackedScene" uid="uid://dhdbxqqbo8gxi" path="res://Scenes/Entities/jolt_car.tscn" id="3_6ksex"]
 [ext_resource type="Texture2D" uid="uid://d1jrknar7m7ug" path="res://Assets/Images/Outbound Main Art No Logo.png" id="4_1mb4y"]
+[ext_resource type="PackedScene" uid="uid://dhi3iq7ytdwdt" path="res://Scenes/Menus/options_menu.tscn" id="4_7skt0"]
 [ext_resource type="FontFile" uid="uid://7x3cp1mf1vp4" path="res://Assets/Fonts/Switzer-BlackItalic.otf" id="5_0vjv7"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_vunt7"]
@@ -45,6 +46,10 @@ offset_bottom = 114.0
 grow_horizontal = 2
 text = "SunChaser"
 label_settings = SubResource("LabelSettings_vunt7")
+
+[node name="options_menu" parent="." instance=ExtResource("4_7skt0")]
+visible = false
+layout_mode = 1
 
 [node name="BoxContainer" type="BoxContainer" parent="."]
 layout_mode = 1
@@ -105,6 +110,10 @@ alignment = 2
 layout_mode = 2
 text = "Join"
 
+[node name="Options" type="Button" parent="BoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Options"
+
 [node name="Exit" type="Button" parent="BoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "Exit"
@@ -115,4 +124,5 @@ spawn_path = NodePath("..")
 
 [connection signal="button_down" from="BoxContainer/VBoxContainer/Host" to="." method="_on_host_button_down"]
 [connection signal="button_down" from="BoxContainer/VBoxContainer/Join" to="." method="_on_join_button_down"]
+[connection signal="button_down" from="BoxContainer/VBoxContainer/Options" to="." method="_on_options_button_down"]
 [connection signal="button_down" from="BoxContainer/VBoxContainer/Exit" to="." method="_on_exit_button_down"]
