@@ -7,22 +7,29 @@ func _ready():
 	current_scene = root.get_child(root.get_child_count() - 1)
 	
 	connect("body_entered", Callable(self, "_on_area_entered"))
-
-func change_scene(path: String):
-	current_scene.queue_free()
-	var new_scene = ResourceLoader.load(path)
-	current_scene = new_scene.instantiate()
-	get_tree().get_root().add_child(current_scene)
-	get_tree().set_current_scene(current_scene)
+#
+#func change_scene(path: String):
+	##current_scene.queue_free()
+	##var new_scene = ResourceLoader.load(path)
+	##current_scene = new_scene.instantiate()
+	##get_tree().get_root().add_child(current_scene)
+	##get_tree().set_current_scene(current_scene)
+#
+	#
 
 
 func _on_area_entered(body):
 	var players = get_tree().get_nodes_in_group("Player")
-	for p in players:
-		if p.name != body.name and p.name != "World":
-			p.set_position(body.get_position())
-			pass
-	if current_scene.name == "World":
-		change_scene('res://Scenes/Maps/test_world.tscn')
-	elif current_scene.name == "TestWorld":
-		change_scene('res://Scenes/Maps/world.tscn')
+	print(body.name)
+	print(multiplayer.get_unique_id())
+
+	if str(multiplayer.get_unique_id()) == body.name :
+		if current_scene.name == "World":
+			get_tree().change_scene_to_file('res://Scenes/Maps/test_world.tscn')
+		elif current_scene.name == "TestWorld":
+			get_tree().change_scene_to_file('res://Scenes/Maps/world.tscn')
+			
+		#elif p.name != "World":
+			#p.visible = false
+			#p.set_physics_process(false)
+
