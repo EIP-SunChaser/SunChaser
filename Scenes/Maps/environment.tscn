@@ -1,4 +1,4 @@
-[gd_scene load_steps=124 format=3 uid="uid://bmc1fqst1lx1y"]
+[gd_scene load_steps=140 format=3 uid="uid://bmc1fqst1lx1y"]
 
 [ext_resource type="Material" uid="uid://3tfkfbvkum1p" path="res://Assets/Materials/grid.tres" id="1_pb4wu"]
 [ext_resource type="PackedScene" uid="uid://d5d7b87l2mmh" path="res://Scenes/Maps/U_montain.tscn" id="3_e4254"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://buqstjbynyvcg" path="res://Scenes/Items/charging_station.tscn" id="5_jtewa"]
 [ext_resource type="Texture2D" uid="uid://byf2ln775bpbe" path="res://Docs/Profil Pic/jules.png" id="5_o6ilq"]
 [ext_resource type="ArrayMesh" uid="uid://ctakldo0qp5pr" path="res://Assets/Meshs/box.tres" id="6_06emj"]
+[ext_resource type="PackedScene" uid="uid://dfto1y416y1cm" path="res://Scenes/Menus/workbench_menu.tscn" id="7_lqkox"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_2g8a3"]
 material = ExtResource("1_pb4wu")
@@ -362,6 +363,56 @@ size = Vector3(10, 1, 5)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_jmkr7"]
 data = PackedVector3Array(-5, 0.5, 2.5, 5, 0.5, 2.5, -5, -0.5, 2.5, 5, 0.5, 2.5, 5, -0.5, 2.5, -5, -0.5, 2.5, 5, 0.5, -2.5, -5, 0.5, -2.5, 5, -0.5, -2.5, -5, 0.5, -2.5, -5, -0.5, -2.5, 5, -0.5, -2.5, 5, 0.5, 2.5, 5, 0.5, -2.5, 5, -0.5, 2.5, 5, 0.5, -2.5, 5, -0.5, -2.5, 5, -0.5, 2.5, -5, 0.5, -2.5, -5, 0.5, 2.5, -5, -0.5, -2.5, -5, 0.5, 2.5, -5, -0.5, 2.5, -5, -0.5, -2.5, 5, 0.5, 2.5, -5, 0.5, 2.5, 5, 0.5, -2.5, -5, 0.5, 2.5, -5, 0.5, -2.5, 5, 0.5, -2.5, -5, -0.5, 2.5, 5, -0.5, 2.5, -5, -0.5, -2.5, 5, -0.5, 2.5, 5, -0.5, -2.5, -5, -0.5, -2.5)
+
+[sub_resource type="PrismMesh" id="PrismMesh_u63xc"]
+left_to_right = 1.0
+size = Vector3(5, 3.2, 1)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_66h15"]
+data = PackedVector3Array(2.5, 1.6, 0.5, 2.5, -1.6, 0.5, -2.5, -1.6, 0.5, 2.5, 1.6, -0.5, -2.5, -1.6, -0.5, 2.5, -1.6, -0.5, 2.5, 1.6, 0.5, 2.5, 1.6, -0.5, 2.5, -1.6, 0.5, 2.5, 1.6, -0.5, 2.5, -1.6, -0.5, 2.5, -1.6, 0.5, 2.5, 1.6, -0.5, 2.5, 1.6, 0.5, -2.5, -1.6, -0.5, 2.5, 1.6, 0.5, -2.5, -1.6, 0.5, -2.5, -1.6, -0.5, -2.5, -1.6, 0.5, 2.5, -1.6, 0.5, -2.5, -1.6, -0.5, 2.5, -1.6, 0.5, 2.5, -1.6, -0.5, -2.5, -1.6, -0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_2hlfq"]
+size = Vector3(3.465, 1, 5)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_shb24"]
+data = PackedVector3Array(-1.7325, 0.5, 2.5, 1.7325, 0.5, 2.5, -1.7325, -0.5, 2.5, 1.7325, 0.5, 2.5, 1.7325, -0.5, 2.5, -1.7325, -0.5, 2.5, 1.7325, 0.5, -2.5, -1.7325, 0.5, -2.5, 1.7325, -0.5, -2.5, -1.7325, 0.5, -2.5, -1.7325, -0.5, -2.5, 1.7325, -0.5, -2.5, 1.7325, 0.5, 2.5, 1.7325, 0.5, -2.5, 1.7325, -0.5, 2.5, 1.7325, 0.5, -2.5, 1.7325, -0.5, -2.5, 1.7325, -0.5, 2.5, -1.7325, 0.5, -2.5, -1.7325, 0.5, 2.5, -1.7325, -0.5, -2.5, -1.7325, 0.5, 2.5, -1.7325, -0.5, 2.5, -1.7325, -0.5, -2.5, 1.7325, 0.5, 2.5, -1.7325, 0.5, 2.5, 1.7325, 0.5, -2.5, -1.7325, 0.5, 2.5, -1.7325, 0.5, -2.5, 1.7325, 0.5, -2.5, -1.7325, -0.5, 2.5, 1.7325, -0.5, 2.5, -1.7325, -0.5, -2.5, 1.7325, -0.5, 2.5, 1.7325, -0.5, -2.5, -1.7325, -0.5, -2.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_jnybm"]
+size = Vector3(0.92, 1, 2.01)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_heilw"]
+data = PackedVector3Array(-0.46, 0.5, 1.005, 0.46, 0.5, 1.005, -0.46, -0.5, 1.005, 0.46, 0.5, 1.005, 0.46, -0.5, 1.005, -0.46, -0.5, 1.005, 0.46, 0.5, -1.005, -0.46, 0.5, -1.005, 0.46, -0.5, -1.005, -0.46, 0.5, -1.005, -0.46, -0.5, -1.005, 0.46, -0.5, -1.005, 0.46, 0.5, 1.005, 0.46, 0.5, -1.005, 0.46, -0.5, 1.005, 0.46, 0.5, -1.005, 0.46, -0.5, -1.005, 0.46, -0.5, 1.005, -0.46, 0.5, -1.005, -0.46, 0.5, 1.005, -0.46, -0.5, -1.005, -0.46, 0.5, 1.005, -0.46, -0.5, 1.005, -0.46, -0.5, -1.005, 0.46, 0.5, 1.005, -0.46, 0.5, 1.005, 0.46, 0.5, -1.005, -0.46, 0.5, 1.005, -0.46, 0.5, -1.005, 0.46, 0.5, -1.005, -0.46, -0.5, 1.005, 0.46, -0.5, 1.005, -0.46, -0.5, -1.005, 0.46, -0.5, 1.005, 0.46, -0.5, -1.005, -0.46, -0.5, -1.005)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_vdxnq"]
+data = PackedVector3Array(2.5, 1.6, 0.5, 2.5, -1.6, 0.5, -2.5, -1.6, 0.5, 2.5, 1.6, -0.5, -2.5, -1.6, -0.5, 2.5, -1.6, -0.5, 2.5, 1.6, 0.5, 2.5, 1.6, -0.5, 2.5, -1.6, 0.5, 2.5, 1.6, -0.5, 2.5, -1.6, -0.5, 2.5, -1.6, 0.5, 2.5, 1.6, -0.5, 2.5, 1.6, 0.5, -2.5, -1.6, -0.5, 2.5, 1.6, 0.5, -2.5, -1.6, 0.5, -2.5, -1.6, -0.5, -2.5, -1.6, 0.5, 2.5, -1.6, 0.5, -2.5, -1.6, -0.5, 2.5, -1.6, 0.5, 2.5, -1.6, -0.5, -2.5, -1.6, -0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_m0ch5"]
+size = Vector3(9.65, 1, 5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_83olu"]
+size = Vector3(10, 1, 5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8658c"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 16.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_cd0bs"]
+material = SubResource("StandardMaterial3D_8658c")
+size = Vector3(1, 0.17, 11.71)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g8a8f"]
+albedo_color = Color(1, 0.580392, 0.0588235, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_y3b54"]
+material = SubResource("StandardMaterial3D_g8a8f")
+size = Vector3(1, 1, 2)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_vt7vf"]
+data = PackedVector3Array(-0.5, 0.5, 1, 0.5, 0.5, 1, -0.5, -0.5, 1, 0.5, 0.5, 1, 0.5, -0.5, 1, -0.5, -0.5, 1, 0.5, 0.5, -1, -0.5, 0.5, -1, 0.5, -0.5, -1, -0.5, 0.5, -1, -0.5, -0.5, -1, 0.5, -0.5, -1, 0.5, 0.5, 1, 0.5, 0.5, -1, 0.5, -0.5, 1, 0.5, 0.5, -1, 0.5, -0.5, -1, 0.5, -0.5, 1, -0.5, 0.5, -1, -0.5, 0.5, 1, -0.5, -0.5, -1, -0.5, 0.5, 1, -0.5, -0.5, 1, -0.5, -0.5, -1, 0.5, 0.5, 1, -0.5, 0.5, 1, 0.5, 0.5, -1, -0.5, 0.5, 1, -0.5, 0.5, -1, 0.5, 0.5, -1, -0.5, -0.5, 1, 0.5, -0.5, 1, -0.5, -0.5, -1, 0.5, -0.5, 1, 0.5, -0.5, -1, -0.5, -0.5, -1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_i20hq"]
+size = Vector3(14.9445, 4.66589, 14.6842)
 
 [node name="Environment" type="Node3D"]
 
@@ -6941,3 +6992,407 @@ light_color = Color(1, 1, 0.807843, 1)
 shadow_enabled = true
 spot_range = 10.0
 spot_angle = 75.0
+
+[node name="Garage" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.2406, 0, -86.9336)
+
+[node name="Ground" type="Node3D" parent="Garage"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.2406, 0, 86.9336)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Garage/Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.7406, 0, -102.499)
+lod_bias = 0.001
+mesh = SubResource("BoxMesh_uijr1")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("1_pb4wu")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Garage/Ground/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Garage/Ground/MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_37x61")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Garage/Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.7406, 0, -107.499)
+lod_bias = 0.001
+mesh = SubResource("BoxMesh_uijr1")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("1_pb4wu")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Garage/Ground/MeshInstance3D2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Garage/Ground/MeshInstance3D2/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_dylan")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Garage/Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.7406, 0, -112.499)
+lod_bias = 0.001
+mesh = SubResource("BoxMesh_uijr1")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("1_pb4wu")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Garage/Ground/MeshInstance3D3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Garage/Ground/MeshInstance3D3/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_dylan")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Garage/Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.7406, 0, -102.499)
+lod_bias = 0.001
+mesh = SubResource("BoxMesh_uijr1")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("1_pb4wu")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Garage/Ground/MeshInstance3D4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Garage/Ground/MeshInstance3D4/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_37x61")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Garage/Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.7406, 0, -107.499)
+lod_bias = 0.001
+mesh = SubResource("BoxMesh_uijr1")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("1_pb4wu")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Garage/Ground/MeshInstance3D5"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Garage/Ground/MeshInstance3D5/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_dylan")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="Garage/Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.7406, 0, -112.499)
+lod_bias = 0.001
+mesh = SubResource("BoxMesh_uijr1")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("1_pb4wu")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Garage/Ground/MeshInstance3D6"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Garage/Ground/MeshInstance3D6/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_dylan")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="Garage/Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.7406, 0, -102.499)
+lod_bias = 0.001
+mesh = SubResource("BoxMesh_uijr1")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("1_pb4wu")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Garage/Ground/MeshInstance3D7"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Garage/Ground/MeshInstance3D7/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_37x61")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="Garage/Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.7406, 0, -107.499)
+lod_bias = 0.001
+mesh = SubResource("BoxMesh_uijr1")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("1_pb4wu")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Garage/Ground/MeshInstance3D8"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Garage/Ground/MeshInstance3D8/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_dylan")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="Garage/Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.7406, 0, -112.499)
+lod_bias = 0.001
+mesh = SubResource("BoxMesh_uijr1")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("1_pb4wu")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Garage/Ground/MeshInstance3D9"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Garage/Ground/MeshInstance3D9/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_dylan")
+
+[node name="WallLeft" type="Node3D" parent="Garage"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.2406, 0, 86.9336)
+
+[node name="MeshInstance3D13" type="MeshInstance3D" parent="Garage/WallLeft"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 22.7406, 3, -102.499)
+lod_bias = 0.001
+mesh = SubResource("BoxMesh_uijr1")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("1_pb4wu")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Garage/WallLeft/MeshInstance3D13"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Garage/WallLeft/MeshInstance3D13/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_37x61")
+
+[node name="MeshInstance3D14" type="MeshInstance3D" parent="Garage/WallLeft"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 22.7406, 3, -107.499)
+lod_bias = 0.001
+mesh = SubResource("BoxMesh_uijr1")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("1_pb4wu")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Garage/WallLeft/MeshInstance3D14"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Garage/WallLeft/MeshInstance3D14/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_dylan")
+
+[node name="MeshInstance3D15" type="MeshInstance3D" parent="Garage/WallLeft"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 22.7406, 3, -112.499)
+lod_bias = 0.001
+mesh = SubResource("BoxMesh_uijr1")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("1_pb4wu")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Garage/WallLeft/MeshInstance3D15"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Garage/WallLeft/MeshInstance3D15/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_dylan")
+
+[node name="WallBackDown" type="Node3D" parent="Garage"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.2406, 0, 86.9336)
+
+[node name="MeshInstance3D13" type="MeshInstance3D" parent="Garage/WallBackDown"]
+transform = Transform3D(1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, 30.7406, 3, -115.499)
+lod_bias = 0.001
+mesh = SubResource("BoxMesh_uijr1")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("1_pb4wu")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Garage/WallBackDown/MeshInstance3D13"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Garage/WallBackDown/MeshInstance3D13/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_37x61")
+
+[node name="MeshInstance3D14" type="MeshInstance3D" parent="Garage/WallBackDown"]
+transform = Transform3D(1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, 35.7406, 3, -115.499)
+lod_bias = 0.001
+mesh = SubResource("BoxMesh_uijr1")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("1_pb4wu")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Garage/WallBackDown/MeshInstance3D14"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Garage/WallBackDown/MeshInstance3D14/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_dylan")
+
+[node name="MeshInstance3D15" type="MeshInstance3D" parent="Garage/WallBackDown"]
+transform = Transform3D(1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, 25.7406, 3, -115.499)
+lod_bias = 0.001
+mesh = SubResource("BoxMesh_uijr1")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("1_pb4wu")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Garage/WallBackDown/MeshInstance3D15"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Garage/WallBackDown/MeshInstance3D15/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_dylan")
+
+[node name="WallBackTop" type="Node3D" parent="Garage"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.2406, 0, 86.9336)
+
+[node name="MeshInstance3D16" type="MeshInstance3D" parent="Garage/WallBackTop"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 35.7406, 7.12804, -115.499)
+lod_bias = 0.001
+mesh = SubResource("PrismMesh_u63xc")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("1_pb4wu")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Garage/WallBackTop/MeshInstance3D16"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Garage/WallBackTop/MeshInstance3D16/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_66h15")
+
+[node name="MeshInstance3D13" type="MeshInstance3D" parent="Garage/WallBackTop"]
+transform = Transform3D(1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, 30.7406, 7, -115.499)
+lod_bias = 0.001
+mesh = SubResource("BoxMesh_2hlfq")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("1_pb4wu")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Garage/WallBackTop/MeshInstance3D13"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Garage/WallBackTop/MeshInstance3D13/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_shb24")
+
+[node name="MeshInstance3D14" type="MeshInstance3D" parent="Garage/WallBackTop"]
+transform = Transform3D(1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, 30.6014, 9.14494, -115.499)
+lod_bias = 0.001
+mesh = SubResource("BoxMesh_jnybm")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("1_pb4wu")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Garage/WallBackTop/MeshInstance3D14"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Garage/WallBackTop/MeshInstance3D14/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_heilw")
+
+[node name="MeshInstance3D15" type="MeshInstance3D" parent="Garage/WallBackTop"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.7406, 7.12804, -115.499)
+lod_bias = 0.001
+mesh = SubResource("PrismMesh_u63xc")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("1_pb4wu")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Garage/WallBackTop/MeshInstance3D15"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Garage/WallBackTop/MeshInstance3D15/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_vdxnq")
+
+[node name="WallRight" type="Node3D" parent="Garage"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.2406, 0, 86.9336)
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="Garage/WallRight"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 38.7406, 3, -102.499)
+lod_bias = 0.001
+mesh = SubResource("BoxMesh_uijr1")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("1_pb4wu")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Garage/WallRight/MeshInstance3D10"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Garage/WallRight/MeshInstance3D10/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_37x61")
+
+[node name="MeshInstance3D11" type="MeshInstance3D" parent="Garage/WallRight"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 38.7406, 3, -107.499)
+lod_bias = 0.001
+mesh = SubResource("BoxMesh_uijr1")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("1_pb4wu")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Garage/WallRight/MeshInstance3D11"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Garage/WallRight/MeshInstance3D11/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_dylan")
+
+[node name="MeshInstance3D12" type="MeshInstance3D" parent="Garage/WallRight"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 38.7406, 3, -112.499)
+lod_bias = 0.001
+mesh = SubResource("BoxMesh_uijr1")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("1_pb4wu")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Garage/WallRight/MeshInstance3D12"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Garage/WallRight/MeshInstance3D12/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_dylan")
+
+[node name="RoofLeft" type="Node3D" parent="Garage"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.2406, 0, 86.9336)
+
+[node name="MeshInstance3D22" type="MeshInstance3D" parent="Garage/RoofLeft"]
+transform = Transform3D(-0.866025, 0.5, 0, -0.5, -0.866025, 0, 0, 0, 1, 26.678, 7.56782, -102.499)
+lod_bias = 0.001
+mesh = SubResource("BoxMesh_m0ch5")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("1_pb4wu")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Garage/RoofLeft/MeshInstance3D22"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Garage/RoofLeft/MeshInstance3D22/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_37x61")
+
+[node name="MeshInstance3D23" type="MeshInstance3D" parent="Garage/RoofLeft"]
+transform = Transform3D(-0.866025, 0.5, 0, -0.5, -0.866025, 0, 0, 0, 1, 26.678, 7.56782, -107.499)
+lod_bias = 0.001
+mesh = SubResource("BoxMesh_m0ch5")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("1_pb4wu")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Garage/RoofLeft/MeshInstance3D23"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Garage/RoofLeft/MeshInstance3D23/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_dylan")
+
+[node name="MeshInstance3D24" type="MeshInstance3D" parent="Garage/RoofLeft"]
+transform = Transform3D(-0.866025, 0.5, 0, -0.5, -0.866025, 0, 0, 0, 1, 26.678, 7.56782, -112.499)
+lod_bias = 0.001
+mesh = SubResource("BoxMesh_m0ch5")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("1_pb4wu")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Garage/RoofLeft/MeshInstance3D24"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Garage/RoofLeft/MeshInstance3D24/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_dylan")
+
+[node name="RoofRight" type="Node3D" parent="Garage"]
+transform = Transform3D(-0.866025, -0.5, 0, 0.5, -0.866025, 0, 0, 0, 1, 8.45087, 7.5, -15.565)
+
+[node name="MeshInstance3D19" type="MeshInstance3D" parent="Garage/RoofRight"]
+lod_bias = 0.001
+mesh = SubResource("BoxMesh_83olu")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("1_pb4wu")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Garage/RoofRight/MeshInstance3D19"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Garage/RoofRight/MeshInstance3D19/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_37x61")
+
+[node name="MeshInstance3D20" type="MeshInstance3D" parent="Garage/RoofRight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+lod_bias = 0.001
+mesh = SubResource("BoxMesh_83olu")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("1_pb4wu")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Garage/RoofRight/MeshInstance3D20"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Garage/RoofRight/MeshInstance3D20/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_dylan")
+
+[node name="MeshInstance3D21" type="MeshInstance3D" parent="Garage/RoofRight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
+lod_bias = 0.001
+mesh = SubResource("BoxMesh_83olu")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("1_pb4wu")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Garage/RoofRight/MeshInstance3D21"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Garage/RoofRight/MeshInstance3D21/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_dylan")
+
+[node name="LightBar" type="Node3D" parent="Garage"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.38253, 8.899, -21.0753)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Garage/LightBar"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -1.31002, 0.903862)
+shadow_enabled = true
+spot_range = 9.85266
+spot_attenuation = 0.297302
+spot_angle = 47.17
+spot_angle_attenuation = 0.216188
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Garage/LightBar"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.474617, 0)
+mesh = SubResource("BoxMesh_cd0bs")
+
+[node name="Workbench" type="Node3D" parent="Garage"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.41018, 1.64413, -16.4873)
+
+[node name="WorkbenchMenu" parent="Garage/Workbench" instance=ExtResource("7_lqkox")]
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Garage/Workbench"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.07166, -0.640187, -4)
+mesh = SubResource("BoxMesh_y3b54")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Garage/Workbench/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Garage/Workbench/MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_vt7vf")
+
+[node name="Area3D" type="Area3D" parent="Garage/Workbench"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.072, -0.64, -4)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Garage/Workbench/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.97223, 1.83295, 0.059021)
+shape = SubResource("BoxShape3D_i20hq")
+
+[node name="Camera3D" type="Camera3D" parent="Garage/Workbench"]
+transform = Transform3D(-0.733896, 0, 0.679262, 0, 1, 0, -0.679262, 0, -0.733896, 6.44929, 3.02217, -10.6089)
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31, 0.5, -108)
+
+[connection signal="body_entered" from="Garage/Workbench/Area3D" to="Garage/Workbench/WorkbenchMenu" method="_on_area_3d_body_entered"]
