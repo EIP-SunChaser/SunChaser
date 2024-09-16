@@ -19,9 +19,9 @@ config/icon="res://Docs/Profil Pic/jules.png"
 [autoload]
 
 PlayerManager="*res://Scripts/Autoload/player_manager.gd"
-DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 GlobalVariables="*res://Scripts/Autoload/global_variables.gd"
 ConfigFileHandler="*res://Scripts/Autoload/config_file_handler.gd"
+DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 
 [display]
 
