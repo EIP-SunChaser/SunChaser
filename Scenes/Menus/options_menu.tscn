@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dhi3iq7ytdwdt"]
+[gd_scene load_steps=5 format=3 uid="uid://dhi3iq7ytdwdt"]
 
 [ext_resource type="FontFile" uid="uid://7x3cp1mf1vp4" path="res://Assets/Fonts/Switzer-BlackItalic.otf" id="1_cuvwu"]
 [ext_resource type="Script" path="res://Scripts/Menus/options_menu.gd" id="1_p88c3"]
+[ext_resource type="Texture2D" uid="uid://d1jrknar7m7ug" path="res://Assets/Images/Outbound Main Art No Logo.png" id="2_aekd0"]
 [ext_resource type="PackedScene" uid="uid://cpg5gc7d3x4xe" path="res://Scenes/Menus/settings_tab_container.tscn" id="3_go5hd"]
 
 [node name="options_menu" type="Control"]
@@ -12,6 +13,19 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_p88c3")
+
+[node name="Background" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -112.431
+offset_right = 112.431
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_aekd0")
+expand_mode = 3
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
