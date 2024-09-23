@@ -1,0 +1,15 @@
+name: Mirror to the EPITECH repository
+on: [push]
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    if: github.repository != 'EpitechPromo2026/G-EIP-700-BDX-7-1-eip-alrick.rubio'
+    steps:
+        - uses: actions/checkout@v3
+          with:
+            fetch-depth: 0
+        - uses: yesolutions/mirror-action@master
+          with:
+            REMOTE: 'ssh://git@github.com/EpitechPromo2026/G-EIP-700-BDX-7-1-eip-alrick.rubio.git'
+            GIT_SSH_PRIVATE_KEY: ${{ secrets.GIT_SSH_PRIVATE_KEY }}
+            GIT_SSH_NO_VERIFY_HOST: "true"
