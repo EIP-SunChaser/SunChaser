@@ -1,5 +1,8 @@
 name: Mirror to the EPITECH repository
-on: [push]
+on:
+  push:
+  workflow_dispatch:
+
 jobs:
   mirror:
     runs-on: ubuntu-latest
