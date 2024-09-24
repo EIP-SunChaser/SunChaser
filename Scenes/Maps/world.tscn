@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://c4ca03hfvhrsd"]
+[gd_scene load_steps=29 format=3 uid="uid://c4ca03hfvhrsd"]
 
 [ext_resource type="PackedScene" uid="uid://bmc1fqst1lx1y" path="res://Scenes/Maps/environment.tscn" id="1_steub"]
 [ext_resource type="PackedScene" uid="uid://b2ajj4fsrspvj" path="res://Scenes/Ui/fps_meter.tscn" id="3_nq26b"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://dfb2jorn13mqh" path="res://Scenes/Entities/pets.tscn" id="14_avud1"]
 [ext_resource type="Script" path="res://Scripts/Maps/TP_TestWorld.gd" id="14_rtuf3"]
 [ext_resource type="PackedScene" uid="uid://ureeybc23app" path="res://Scenes/Items/apple.tscn" id="15_4xjbh"]
+[ext_resource type="PackedScene" uid="uid://ygtxrh30iwc" path="res://Scenes/Items/chest.tscn" id="16_t2ybn"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2efs4"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -2025,7 +2026,10 @@ shape = SubResource("BoxShape3D_tehmd")
 mesh = SubResource("BoxMesh_jpluy")
 
 [node name="Apple" parent="." instance=ExtResource("15_4xjbh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -799.492, 18.6663, -19.3397)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -799.492, 18.1523, -19.3397)
+
+[node name="chest" parent="." instance=ExtResource("16_t2ybn")]
+transform = Transform3D(-0.0509242, 0, -0.998703, 0, 1, 0, 0.998703, 0, -0.0509242, -805.737, 18.6371, -17.297)
 
 [connection signal="body_entered" from="Quest1/Area3D" to="Quest1/Area3D" method="_on_body_entered"]
 [connection signal="body_exited" from="Quest1/Area3D" to="Quest1/Area3D" method="_on_body_exited"]

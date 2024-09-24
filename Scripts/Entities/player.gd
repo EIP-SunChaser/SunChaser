@@ -303,6 +303,9 @@ func _on_collectable_area_area_entered(area):
 	if area.has_method("collect"):
 		if area != overlapping_areas:
 			overlapping_areas = area
+	elif area.has_method("interact_inv"):
+		if area != overlapping_areas:
+			overlapping_areas = area
 
 
 func _on_collectable_area_area_exited(area):
@@ -312,5 +315,6 @@ func _on_collectable_area_area_exited(area):
 
 func on_collectable_item(area):
 	if area.has_method("collect"):
-		if Input.is_action_just_pressed("use"):
-			area.collect(inv)
+		area.collect(inv)
+	elif area.has_method("interact_inv"):
+		area.interact_inv($inventory_gui)

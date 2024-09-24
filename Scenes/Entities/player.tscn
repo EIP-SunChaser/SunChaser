@@ -47,11 +47,11 @@ radius = 0.55
 
 [sub_resource type="BoxMesh" id="BoxMesh_ipsvg"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_wtfnw"]
-radius = 0.08
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_xwtsl"]
 size = Vector3(0.404297, 0.323242, 1.96088)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_wtfnw"]
+radius = 0.08
 
 [sub_resource type="Animation" id="Animation_e7y2j"]
 length = 0.001
@@ -271,18 +271,18 @@ text = "DEAD"
 [node name="Press_e_ui" parent="Head/Camera3D" instance=ExtResource("9_hu5b3")]
 visible = false
 
+[node name="collectable_area" type="Area3D" parent="Head/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.50028, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Head/Camera3D/collectable_area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -1.07787)
+shape = SubResource("BoxShape3D_xwtsl")
+
 [node name="HeadCast" type="ShapeCast3D" parent="Head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.668725, 0)
 shape = SubResource("SphereShape3D_wtfnw")
 target_position = Vector3(0, 0, 0)
 debug_shape_custom_color = Color(0.403922, 0.00392157, 1, 1)
-
-[node name="collectable_area" type="Area3D" parent="Head"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.50028, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Head/collectable_area"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -1.07787)
-shape = SubResource("BoxShape3D_xwtsl")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchors_preset = 8
@@ -315,5 +315,5 @@ shape = SubResource("BoxShape3D_wfju5")
 
 [connection signal="body_part_hit" from="DamageArea3D" to="." method="_on_body_part_hit"]
 [connection signal="health_depleted" from="Head/Camera3D/HealthBar" to="." method="_on_health_bar_health_depleted"]
-[connection signal="area_entered" from="Head/collectable_area" to="." method="_on_collectable_area_area_entered"]
-[connection signal="area_exited" from="Head/collectable_area" to="." method="_on_collectable_area_area_exited"]
+[connection signal="area_entered" from="Head/Camera3D/collectable_area" to="." method="_on_collectable_area_area_entered"]
+[connection signal="area_exited" from="Head/Camera3D/collectable_area" to="." method="_on_collectable_area_area_exited"]

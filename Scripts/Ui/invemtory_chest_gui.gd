@@ -44,19 +44,6 @@ func update():
 		item_stack_gui.update()
 
 
-func _input(event):
-	if Input.is_action_just_pressed("inventory"):
-		if is_open:
-			close()
-			GlobalVariables.isInInventory = false
-			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-		else:
-			open()
-			GlobalVariables.isInInventory = true
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	update_item_in_hand()
-
-
 func open():
 	visible = true
 	is_open = true

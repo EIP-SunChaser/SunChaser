@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="Inventory" load_steps=8 format=3 uid="uid://ctbkxgv8thu4k"]
+
+[ext_resource type="Script" path="res://Scripts/Ui/inventory.gd" id="1_jussb"]
+[ext_resource type="Script" path="res://Scripts/Ui/inventory_slot.gd" id="2_7nnjm"]
+
+[sub_resource type="Resource" id="Resource_w4m0u"]
+script = ExtResource("2_7nnjm")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_vra1h"]
+script = ExtResource("2_7nnjm")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_yclhl"]
+script = ExtResource("2_7nnjm")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_ppx0u"]
+script = ExtResource("2_7nnjm")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_d6fy5"]
+script = ExtResource("2_7nnjm")
+amount = 0
+
+[resource]
+script = ExtResource("1_jussb")
+slots = Array[ExtResource("2_7nnjm")]([SubResource("Resource_w4m0u"), SubResource("Resource_vra1h"), SubResource("Resource_yclhl"), SubResource("Resource_ppx0u"), SubResource("Resource_d6fy5")])
