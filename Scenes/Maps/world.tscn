@@ -2026,8 +2026,6 @@ mesh = SubResource("BoxMesh_jpluy")
 
 [node name="Apple" parent="." instance=ExtResource("15_4xjbh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -799.492, 18.6663, -19.3397)
-prompt_message = "Hello i'm an apple"
-prompt_input = "use"
 
 [connection signal="body_entered" from="Quest1/Area3D" to="Quest1/Area3D" method="_on_body_entered"]
 [connection signal="body_exited" from="Quest1/Area3D" to="Quest1/Area3D" method="_on_body_exited"]

@@ -14,7 +14,7 @@ extends CharacterBody3D
 
 @onready var pause_menu = $pause_menu
 
-@export var inv: Inv
+@export var inv: Inventory
 
 #Bullets
 @onready var gun_animation = $"Head/Camera3D/rifle_prototype/AnimationPlayer"
@@ -63,6 +63,8 @@ var gravity = 9.8
 var respawn_point = Vector3(0, 10, 0)
 
 var sprint_toggled = false
+
+var overlapping_areas: Area3D = null
 
 func _enter_tree():
 	set_multiplayer_authority(str(name).to_int())
@@ -127,6 +129,9 @@ func _unhandled_input(event):
 		sprint_toggled = !sprint_toggled
 	elif event.is_action_released("sprint") and event is InputEventKey:
 		sprint_toggled = false
+	
+	if overlapping_areas != null:
+		on_collectable_item(overlapping_areas)
 
 func _physics_process(delta):
 	if !is_multiplayer_authority(): return
@@ -147,6 +152,8 @@ func _physics_process(delta):
 			var action_func = actionable_finder.get_overlapping_areas()
 			if action_func.size() > 0 && action_func[0].has_method("action"):
 				press_e_ui.show()
+		elif overlapping_areas != null:
+			press_e_ui.show()
 		else:
 			press_e_ui.hide()
 		do_physics_process(delta)
@@ -292,5 +299,18 @@ func respawn():
 func set_respawn_point(new_point: Vector3):
 	respawn_point = new_point
 
-func collect(item):
-	inv.insert(item)
+func _on_collectable_area_area_entered(area):
+	if area.has_method("collect"):
+		if area != overlapping_areas:
+			overlapping_areas = area
+
+
+func _on_collectable_area_area_exited(area):
+	if area == overlapping_areas:
+		overlapping_areas = null
+
+
+func on_collectable_item(area):
+	if area.has_method("collect"):
+		if Input.is_action_just_pressed("use"):
+			area.collect(inv)
