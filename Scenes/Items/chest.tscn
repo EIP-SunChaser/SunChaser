@@ -17,9 +17,8 @@ material = SubResource("StandardMaterial3D_8enf5")
 [node name="chest" type="StaticBody3D"]
 
 [node name="inventory_simple_chest_gui" parent="." instance=ExtResource("1_jc8ag")]
-anchors_preset = 1
-anchor_left = 1.0
-offset_left = 0.0
+offset_top = 200.0
+offset_bottom = 200.0
 inv = ExtResource("2_ahogd")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
