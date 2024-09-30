@@ -2,13 +2,15 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bburkr64llqre"
+uid="uid://bgavrgoptyqlg"
 path.s3tc="res://.godot/imported/godot_plush V2_godot_plush_roughness.png-110ef4345927baf021e705d35b1f642d.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={}
+generator_parameters={
+"md5": "53e8d52887ded32d898767cc245cc96a"
+}
 
 [deps]
 

@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://wfufsnyatbuh"]
+
+[ext_resource type="Script" path="res://Scripts/Ui/slot_gui.gd" id="1_pwrl2"]
+[ext_resource type="Texture2D" uid="uid://lu1wwowymy4e" path="res://Assets/Textures/Menu/slot_inv.png" id="2_mteip"]
+
+[node name="slot_gui" type="Button"]
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("1_pwrl2")
+
+[node name="background" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_mteip")
+centered = false
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0

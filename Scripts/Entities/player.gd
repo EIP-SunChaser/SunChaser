@@ -6,13 +6,15 @@ extends CharacterBody3D
 @onready var pseudo = $Pseudo
 @onready var actionable_finder: Area3D = $Area3D
 @onready var press_e_ui = $Head/Camera3D/Press_e_ui
+@onready var crosshair = $TextureRect
 @onready var deathLabel = $"Head/Camera3D/DeathLabel"
 @onready var health_bar = $Head/Camera3D/HealthBar
 @onready var quest_ui = $Head/Camera3D/Quest_ui
 @onready var speed_label = $SpeedLabel
 
 @onready var pause_menu = $pause_menu
-@onready var inventory = $Inventory
+
+@export var inv: Inventory
 
 #Bullets
 @onready var gun_animation = $"Head/Camera3D/rifle_prototype/AnimationPlayer"
@@ -61,6 +63,8 @@ var gravity = 9.8
 var respawn_point = Vector3(0, 10, 0)
 
 var sprint_toggled = false
+
+var overlapping_areas: Area3D = null
 
 func save_data(data: SaveData):
 	data.player_position = position
@@ -129,9 +133,6 @@ func _unhandled_input(event):
 		SaveManager.save_game()
 		pauseMenu()
 	
-	if Input.is_action_just_pressed("inventory"):
-		inventoryMenu()
-	
 	if Input.is_action_just_pressed("teleport"):
 			global_transform.origin = Vector3(0, 10, 0)
 			
@@ -148,6 +149,9 @@ func _unhandled_input(event):
 		sprint_toggled = !sprint_toggled
 	elif event.is_action_released("sprint") and event is InputEventKey:
 		sprint_toggled = false
+	
+	if overlapping_areas != null:
+		on_collectable_item(overlapping_areas)
 
 func _physics_process(delta):
 	if !is_multiplayer_authority(): return
@@ -157,15 +161,19 @@ func _physics_process(delta):
 		health_bar.hide()
 		quest_ui.hide()
 		press_e_ui.hide()
+		crosshair.hide()
 	else:
 		health_bar.show()
 		quest_ui.show()
+		crosshair.show()
 
 	if GlobalVariables.isInDialogue == false and !GlobalVariables.isInPause and GlobalVariables.isInInventory == false:
 		if actionable_finder.get_overlapping_areas():
 			var action_func = actionable_finder.get_overlapping_areas()
 			if action_func.size() > 0 && action_func[0].has_method("action"):
 				press_e_ui.show()
+		elif overlapping_areas != null:
+			press_e_ui.show()
 		else:
 			press_e_ui.hide()
 		do_physics_process(delta)
@@ -306,16 +314,6 @@ func pauseMenu():
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		pause_menu.show()
 
-func inventoryMenu():
-	if GlobalVariables.isInInventory == true:
-		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-		inventory.hide()
-		GlobalVariables.isInInventory = false
-	else:
-		GlobalVariables.isInInventory = true
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		inventory.show()
-
 func respawn():
 	global_transform.origin = respawn_point
 	health_bar.init_health(100)
@@ -325,3 +323,23 @@ func respawn():
 
 func set_respawn_point(new_point: Vector3):
 	respawn_point = new_point
+
+func _on_collectable_area_area_entered(area):
+	if area.has_method("collect"):
+		if area != overlapping_areas:
+			overlapping_areas = area
+	elif area.has_method("interact_inv"):
+		if area != overlapping_areas:
+			overlapping_areas = area
+
+
+func _on_collectable_area_area_exited(area):
+	if area == overlapping_areas:
+		overlapping_areas = null
+
+
+func on_collectable_item(area):
+	if area.has_method("collect"):
+		area.collect(inv)
+	elif area.has_method("interact_inv"):
+		area.interact_inv($inventory_gui)
