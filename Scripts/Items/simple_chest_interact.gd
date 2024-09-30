@@ -1,6 +1,6 @@
 extends Area3D
 
-@onready var inventory_gui = $"../inventory_gui"
+@onready var inventory_gui = $"../inventory_simple_chest_gui"
 
 func interact_inv(inv_player):
 	if Input.is_action_just_pressed("use"):

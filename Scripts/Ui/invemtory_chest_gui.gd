@@ -8,8 +8,6 @@ var is_open = false
 @onready var Item_stack_gui_class = preload("res://Scenes/Ui/item_stack_gui.tscn")
 @onready var slots: Array = $NinePatchRect/GridContainer.get_children()
 
-var item_in_hand: Item_stack_gui
-
 func _ready():
 	connect_slots()
 	inventory.updated.connect(update)
@@ -56,16 +54,16 @@ func close():
 
 func on_slot_clicked(slot):
 	if slot.is_empty():
-		if !item_in_hand: return
+		if !GlobalVariables.item_in_hand: return
 		
 		insert_item_in_slot(slot)
 		return
 	
-	if !item_in_hand:
+	if !GlobalVariables.item_in_hand:
 		take_item_from_slot(slot)
 		return
 	
-	if slot.item_stack_gui.inventory_slot.item.name == item_in_hand.inventory_slot.item.name:
+	if slot.item_stack_gui.inventory_slot.item.name == GlobalVariables.item_in_hand.inventory_slot.item.name:
 		stack_items(slot)
 		return
 	
@@ -73,16 +71,16 @@ func on_slot_clicked(slot):
 
 
 func take_item_from_slot(slot):
-	item_in_hand = slot.take_item()
-	add_child(item_in_hand)
+	GlobalVariables.item_in_hand = slot.take_item()
+	add_child(GlobalVariables.item_in_hand)
 	update_item_in_hand()
 
 
 func insert_item_in_slot(slot):
-	var item = item_in_hand
+	var item = GlobalVariables.item_in_hand
 	
-	remove_child(item_in_hand)
-	item_in_hand = null
+	remove_child(GlobalVariables.item_in_hand)
+	GlobalVariables.item_in_hand = null
 	slot.insert(item)
 
 
@@ -91,15 +89,15 @@ func swap_items(slot):
 	
 	insert_item_in_slot(slot)
 	
-	item_in_hand = temp_item
-	add_child(item_in_hand)
+	GlobalVariables.item_in_hand = temp_item
+	add_child(GlobalVariables.item_in_hand)
 	update_item_in_hand()
 
 
 func stack_items(slot):
 	var slot_item: Item_stack_gui = slot.item_stack_gui
 	var max_amount = slot_item.inventory_slot.item.stack_size
-	var total_amount = slot_item.inventory_slot.amount + item_in_hand.inventory_slot.amount
+	var total_amount = slot_item.inventory_slot.amount + GlobalVariables.item_in_hand.inventory_slot.amount
 	
 	if slot_item.inventory_slot.amount == max_amount:
 		swap_items(slot)
@@ -107,16 +105,16 @@ func stack_items(slot):
 	
 	if total_amount <= max_amount:
 		slot_item.inventory_slot.amount = total_amount
-		remove_child(item_in_hand)
-		item_in_hand = null
+		remove_child(GlobalVariables.item_in_hand)
+		GlobalVariables.item_in_hand = null
 	else:
 		slot_item.inventory_slot.amount = max_amount
-		item_in_hand.inventory_slot.amount = total_amount - max_amount
+		GlobalVariables.item_in_hand.inventory_slot.amount = total_amount - max_amount
 	
 	slot_item.update()
-	if item_in_hand: item_in_hand.update()
+	if GlobalVariables.item_in_hand: GlobalVariables.item_in_hand.update()
 
 
 func update_item_in_hand():
-	if !item_in_hand: return
-	item_in_hand.global_position = get_global_mouse_position() - item_in_hand.size / 2
+	if !GlobalVariables.item_in_hand: return
+	GlobalVariables.item_in_hand.global_position = get_global_mouse_position() - GlobalVariables.item_in_hand.size / 2
