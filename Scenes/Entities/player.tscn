@@ -5,6 +5,7 @@
 [ext_resource type="Script" path="res://Scripts/Entities/Pseudo.gd" id="2_bmpr3"]
 [ext_resource type="Script" path="res://Scripts/Entities/BodyPart.gd" id="2_cnrj0"]
 [ext_resource type="PackedScene" uid="uid://cgqrq6rysq7ws" path="res://Scenes/Ui/inventory_gui.tscn" id="2_dro4v"]
+[ext_resource type="PackedScene" uid="uid://b2ajj4fsrspvj" path="res://Scenes/Ui/fps_meter.tscn" id="2_j34kx"]
 [ext_resource type="PackedScene" uid="uid://bvkvxoqp0eys3" path="res://Scenes/Items/rifle_prototype.tscn" id="3_xq2hx"]
 [ext_resource type="PackedScene" uid="uid://cdp8oynggphk4" path="res://Scenes/Ui/quest_ui.tscn" id="5_p4gfi"]
 [ext_resource type="PackedScene" uid="uid://bdjvvprw2achb" path="res://Scenes/Ui/health_bar.tscn" id="6_1voe1"]
@@ -189,19 +190,22 @@ _data = {
 [sub_resource type="BoxShape3D" id="BoxShape3D_wfju5"]
 size = Vector3(1, 2, 1)
 
-[node name="Player" type="CharacterBody3D" groups=["Players"]]
+[node name="Player" type="CharacterBody3D" groups=["Persist", "Players"]]
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("1_mpqcp")
 inv = ExtResource("2_b2niv")
 
+[node name="FPSMeter" parent="." instance=ExtResource("2_j34kx")]
+
 [node name="SpeedLabel" type="Label" parent="."]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -40.0
-offset_top = 25.0
-offset_bottom = 48.0
+offset_left = -51.915
+offset_top = 90.0
+offset_right = -11.915
+offset_bottom = 113.0
 grow_horizontal = 0
 
 [node name="inventory_gui" parent="." instance=ExtResource("2_dro4v")]

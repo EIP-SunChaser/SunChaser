@@ -1,0 +1,13 @@
+[gd_resource type="SphereMesh" load_steps=4 format=3 uid="uid://cxlnq5pga15di"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_g21fb"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_u4ply"]
+noise = SubResource("FastNoiseLite_g21fb")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j8jvf"]
+albedo_texture = SubResource("NoiseTexture2D_u4ply")
+
+[resource]
+material = SubResource("StandardMaterial3D_j8jvf")
+height = 0.5
