@@ -1,14 +1,17 @@
-[gd_scene load_steps=21 format=3 uid="uid://cy7ywppb2i4ey"]
+[gd_scene load_steps=25 format=3 uid="uid://cy7ywppb2i4ey"]
 
 [ext_resource type="Script" path="res://Scripts/Entities/player.gd" id="1_mpqcp"]
+[ext_resource type="Resource" uid="uid://b35njdhefynw5" path="res://Ressources/player_inventory.tres" id="2_b2niv"]
 [ext_resource type="Script" path="res://Scripts/Entities/Pseudo.gd" id="2_bmpr3"]
 [ext_resource type="Script" path="res://Scripts/Entities/BodyPart.gd" id="2_cnrj0"]
-[ext_resource type="PackedScene" uid="uid://ddj7h6l2wjim8" path="res://Scenes/Menus/inventory.tscn" id="3_ajgpe"]
+[ext_resource type="PackedScene" uid="uid://cgqrq6rysq7ws" path="res://Scenes/Ui/inventory_gui.tscn" id="2_dro4v"]
+[ext_resource type="PackedScene" uid="uid://b2ajj4fsrspvj" path="res://Scenes/Ui/fps_meter.tscn" id="2_j34kx"]
 [ext_resource type="PackedScene" uid="uid://bvkvxoqp0eys3" path="res://Scenes/Items/rifle_prototype.tscn" id="3_xq2hx"]
 [ext_resource type="PackedScene" uid="uid://cdp8oynggphk4" path="res://Scenes/Ui/quest_ui.tscn" id="5_p4gfi"]
 [ext_resource type="PackedScene" uid="uid://bdjvvprw2achb" path="res://Scenes/Ui/health_bar.tscn" id="6_1voe1"]
 [ext_resource type="PackedScene" uid="uid://sgxyoglr7pux" path="res://Scenes/Menus/pause_menu.tscn" id="8_hcrn3"]
 [ext_resource type="PackedScene" uid="uid://x003u273j5s0" path="res://Scenes/Ui/press_e_ui.tscn" id="9_hu5b3"]
+[ext_resource type="Texture2D" uid="uid://c50xr2pfcelp8" path="res://Assets/Images/crosshair.png" id="11_1sp03"]
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_1lcpa"]
 properties/0/path = NodePath(".:rotation")
@@ -44,6 +47,9 @@ resource_local_to_scene = true
 radius = 0.55
 
 [sub_resource type="BoxMesh" id="BoxMesh_ipsvg"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xwtsl"]
+size = Vector3(0.404297, 0.323242, 1.96088)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_wtfnw"]
 radius = 0.08
@@ -184,23 +190,27 @@ _data = {
 [sub_resource type="BoxShape3D" id="BoxShape3D_wfju5"]
 size = Vector3(1, 2, 1)
 
-[node name="Player" type="CharacterBody3D" groups=["Players"]]
+[node name="Player" type="CharacterBody3D" groups=["Persist", "Players"]]
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("1_mpqcp")
+inv = ExtResource("2_b2niv")
+
+[node name="FPSMeter" parent="." instance=ExtResource("2_j34kx")]
 
 [node name="SpeedLabel" type="Label" parent="."]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -40.0
-offset_top = 25.0
-offset_bottom = 48.0
+offset_left = -51.915
+offset_top = 90.0
+offset_right = -11.915
+offset_bottom = 113.0
 grow_horizontal = 0
 
-[node name="pause_menu" parent="." instance=ExtResource("8_hcrn3")]
+[node name="inventory_gui" parent="." instance=ExtResource("2_dro4v")]
 
-[node name="Inventory" parent="." instance=ExtResource("3_ajgpe")]
+[node name="pause_menu" parent="." instance=ExtResource("8_hcrn3")]
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_1lcpa")
@@ -265,11 +275,32 @@ text = "DEAD"
 [node name="Press_e_ui" parent="Head/Camera3D" instance=ExtResource("9_hu5b3")]
 visible = false
 
+[node name="collectable_area" type="Area3D" parent="Head/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.50028, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Head/Camera3D/collectable_area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -1.07787)
+shape = SubResource("BoxShape3D_xwtsl")
+
 [node name="HeadCast" type="ShapeCast3D" parent="Head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.668725, 0)
 shape = SubResource("SphereShape3D_wtfnw")
 target_position = Vector3(0, 0, 0)
 debug_shape_custom_color = Color(0.403922, 0.00392157, 1, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -10.5
+offset_top = -10.5
+offset_right = 10.5
+offset_bottom = 10.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("11_1sp03")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -288,3 +319,5 @@ shape = SubResource("BoxShape3D_wfju5")
 
 [connection signal="body_part_hit" from="DamageArea3D" to="." method="_on_body_part_hit"]
 [connection signal="health_depleted" from="Head/Camera3D/HealthBar" to="." method="_on_health_bar_health_depleted"]
+[connection signal="area_entered" from="Head/Camera3D/collectable_area" to="." method="_on_collectable_area_area_entered"]
+[connection signal="area_exited" from="Head/Camera3D/collectable_area" to="." method="_on_collectable_area_area_exited"]

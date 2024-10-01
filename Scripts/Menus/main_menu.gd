@@ -51,6 +51,9 @@ func _on_join_button_down():
 	get_tree().root.add_child(scene)
 	get_tree().current_scene = scene
 
+func _on_options_button_down():
+	get_tree().change_scene_to_file("res://Scenes/Menus/options_menu.tscn")
+
 func _on_exit_button_down():
 	get_tree().quit()
 

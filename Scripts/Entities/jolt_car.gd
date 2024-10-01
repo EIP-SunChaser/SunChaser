@@ -21,7 +21,8 @@ var car_zone = false
 var front_left_wheel
 var front_right_wheel
 var players_in_zone = []
-var player_in_car = null 
+var player_in_car = null
+var steering_enabled := true
 
 var is_resetting = false
 var reset_rotation_speed = 1.5
@@ -56,32 +57,79 @@ var right_tail_light_material: StandardMaterial3D
 var red_color = Color(1, 0, 0, 1)
 var white_color = Color(0.646, 0.646, 0.646, 1)
 
+func save_data(data: SaveData):
+	data.car_position = position
+	data.car_rotation = rotation
+	data.car_battery = current_battery
+
+func load_data(data: SaveData):
+	position = data.car_position
+	rotation = data.car_rotation
+	current_battery = data.car_battery
+
+@export var wheel_meshs: Array[Mesh]
+@export var spring_meshs: Array[Mesh]
+
+var current_wheel_index: int = 0
+var current_spring_index: int = 0
+
+const WHEEL_NAMES = ["FrontLeftWheel", "FrontRightWheel", "BackLeftWheel", "BackRightWheel"]
+
+# TODO rename Wheels node to be more accurate
+func set_mesh(mesh_array: Array[Mesh], index: int, part_name: String) -> void:
+	if index < 0 or index >= mesh_array.size():
+		print("Invalid %s mesh index" % [part_name])
+		return
+
+	for wheel in WHEEL_NAMES:
+		var mesh_node = get_node("Wheels/%s/%s/Mesh" % [wheel, part_name])
+		if mesh_node:
+			mesh_node.mesh = mesh_array[index]
+
+@rpc("any_peer", "call_local")
+func set_wheel_mesh(index: int) -> void:
+	set_mesh(wheel_meshs, index, "Wheel")
+	current_wheel_index = index
+@rpc("any_peer", "call_local")
+func set_spring_mesh(index: int) -> void:
+	set_mesh(spring_meshs, index, "Spring")
+	current_spring_index = index
+
+func init_spring_meshs() -> void:
+	for mod_name in ModLoader.modded_wheels:
+		wheel_meshs.append_array(ModLoader.modded_wheels[mod_name])
+
+	for mod_name in ModLoader.modded_springs:
+		spring_meshs.append_array(ModLoader.modded_springs[mod_name])
+
 func _ready():
 	front_left_wheel = $Wheels/FrontLeftWheel
 	front_right_wheel = $Wheels/FrontRightWheel
 	left_tail_light_material = left_tail_light.get_active_material(0)
 	right_tail_light_material = right_tail_light.get_active_material(0)
+	init_spring_meshs()
 
 func _physics_process(delta):
 	if !is_multiplayer_authority(): return
-	
-	if active && GlobalVariables.isInPause == false:
+
+	if active && !GlobalVariables.isInPause && !GlobalVariables.isInDialogue:
 		if Input.is_action_just_pressed("brake"):
 			toggle_parking_brake()
 
 		if Input.is_action_just_pressed("radio"):
 			radio()
-		
-		steering_input = Input.get_axis("right", "left")
-		
+		if steering_enabled:
+			steering_input = Input.get_axis("right", "left")
+
 		if current_battery > 0:
+
 			accel_input = Input.get_axis("deccelerate", "accelerate")
 			if not is_being_charged and not is_stationary:
 				current_battery -= battery_drain_rate * delta * abs(accel_input)
 				current_battery = max(current_battery, 0)
 		else:
 			accel_input = 0
-		
+
 		if parking_brake_engaged:
 			if speed == 0:
 				is_stationary = true
@@ -91,48 +139,53 @@ func _physics_process(delta):
 					linear_velocity.x = 0
 		else:
 			is_stationary = false
-		
+
 		update_tail_lights()
-		
+
+		if player_in_car.is_in_car:
+			player_in_car.global_transform.origin = self.global_transform.origin
+			player_in_car.global_transform.origin.x += 4
+
+
 		# Apply steering (allowed even with depleted battery)
 		var target_steering_angle = steering_input * deg_to_rad(steering_angle)
 		var angle_difference_weel = target_steering_angle - current_wheel_angle
 		var max_angle_change = steering_speed * delta
-		
+
 		if abs(angle_difference_weel) < max_angle_change:
 			current_wheel_angle = target_steering_angle
 		else:
 			current_wheel_angle += sign(angle_difference_weel) * max_angle_change
-		
+
 		current_wheel_angle = clamp(current_wheel_angle, -deg_to_rad(steering_angle), deg_to_rad(steering_angle))
-		
+
 		front_left_wheel.rotation.y = current_wheel_angle
 		front_right_wheel.rotation.y = current_wheel_angle
-		
+
 		speed = int(linear_velocity.length())
 		speed_counter.text = str(speed)
 		$SpeedText.show()
-		
+
 		battery_display.battery = current_battery
 		$BatteryText.show()
 		$RadioText.show()
 		leaving_car()
-		
+
 		if Input.is_action_just_pressed("reset_car"):
 			reset_car_rotation()
-		
+
 		if Input.is_action_just_pressed("teleport"):
 			global_transform.origin = Vector3(-14, 5, 1)
 			self.set_global_rotation_degrees(Vector3(0, 90, 0))
-			
+
 		if Input.is_action_just_pressed("teleport-2"):
 			global_transform.origin = Vector3(-1220, 20, -15)
 			self.set_global_rotation_degrees(Vector3(0, -90, 0))
-			
+
 		if Input.is_action_just_pressed("teleport-3"):
 			global_transform.origin = Vector3(-230, 20, -10)
 			self.set_global_rotation_degrees(Vector3(0, -90, 0))
-		
+
 		if Input.is_action_just_pressed("headlight"):
 			left_head_light.visible = !left_head_light.visible
 			right_head_light.visible = !right_head_light.visible
@@ -144,8 +197,8 @@ func _physics_process(delta):
 		accel_input = 0
 		front_left_wheel.rotation.y = 0
 		front_right_wheel.rotation.y = 0
-	
-	apply_smooth_rotation(delta)	
+
+	apply_smooth_rotation(delta)
 
 func update_tail_lights():
 	var braking = Input.is_action_pressed("deccelerate")
@@ -200,10 +253,9 @@ func set_player_in_car(player_path: NodePath):
 		player.hide()
 		player_in_car = player
 		player_in_car.is_in_car = true
-		player.get_node("BodyCollision").disabled = true
-		
+
 		if player.is_multiplayer_authority():
-			camera_3d.current = true
+			await CameraTransition.transition_camera3D(player_in_car.camera, camera_3d, 0.5)
 			update_radio_for_player()
 
 func leaving_car():
@@ -213,22 +265,20 @@ func leaving_car():
 @rpc("any_peer", "call_local")
 func remove_player_from_car():
 	if player_in_car:
-		var exit_location = global_transform.origin - 2 * global_transform.basis.x
+		var exit_location = global_transform.origin - 3.5 * global_transform.basis.x
 		player_in_car.global_transform.origin = exit_location
 		player_in_car.show()
-		player_in_car.get_node("BodyCollision").disabled = false
-		
+
 		var player_head = player_in_car.get_node("Head")
 		var player_camera = player_head.get_node("Camera3D")
-		
+
 		if player_camera && player_camera.is_multiplayer_authority():
-			player_camera.current = true
-			camera_3d.current = false
-		
+			await CameraTransition.transition_camera3D(camera_3d, player_in_car.camera, 0.5)
+
 		player_in_car.is_in_car = false
 		player_in_car = null
 		update_radio_for_player()
-	
+
 	active = false
 	$SpeedText.hide()
 	$BatteryText.hide()
@@ -249,7 +299,7 @@ func apply_smooth_rotation(delta):
 		var current_rotation = global_transform.basis
 		var new_rotation = current_rotation.slerp(target_rotation, reset_rotation_speed * delta)
 		global_transform.basis = new_rotation
-		
+
 		if abs(new_rotation.y.dot(Vector3.UP) - 1.0) < 0.01:
 			is_resetting = false
 
