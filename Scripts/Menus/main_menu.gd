@@ -3,11 +3,20 @@ extends Control
 @export var player_scene: PackedScene
 @export var car_scene: PackedScene
 
-@onready var pseudo = $BoxContainer/VBoxContainer2/Pseudo
-@onready var ip_address = $BoxContainer/VBoxContainer2/IP_Address
-@onready var host = $BoxContainer/VBoxContainer/Host
-@onready var upnp_checkbox = $BoxContainer/VBoxContainer/Host/upnp
-@export var world_scene = preload("res://Scenes/Maps/world.tscn")
+@onready var ui: Control = $UI
+@onready var pseudo = $UI/BoxContainer/VBoxContainer2/Pseudo
+@onready var ip_address = $UI/BoxContainer/VBoxContainer2/IP_Address
+@onready var host = $UI/BoxContainer/VBoxContainer/Host
+@onready var upnp_checkbox = $UI/BoxContainer/VBoxContainer/Host/upnp
+@export var world_scene = "res://Scenes/Maps/world.tscn"
+
+@onready var progress_bar: ProgressBar = $ProgressBar
+var progress_array = []
+var scene_load_status = 0
+var update = 0.0
+var action = ""
+
+
 var current_spawn_index = 0
 
 const PORT = 9999
@@ -20,36 +29,68 @@ func _ready():
 	host.grab_focus()
 	upnp_checkbox.button_pressed = false
 
-func _process(_delta):
-	pass
+func _process(delta: float) -> void:
+	# Check the loading status of the scene
+	scene_load_status = ResourceLoader.load_threaded_get_status(world_scene, progress_array)
 
-func connected_to_server():
-	send_player_information.rpc_id(1, pseudo.text, multiplayer.get_unique_id())
+	if progress_array[0] > update:
+		update = progress_array[0]
 
-func _on_host_button_down():
-	self.hide()
+	# When the scene is fully loaded, instantiate it
+	if progress_bar.value >= 1.0:
+		if update >= 1.0:
+			if scene_load_status == ResourceLoader.THREAD_LOAD_LOADED:
+				var packed_scene = ResourceLoader.load_threaded_get(world_scene) as PackedScene
+				if packed_scene:
+					if action == "host":
+						_start_hosting()
+					elif action == "join":
+						_start_joining()
+					
+					var new_scene = packed_scene.instantiate()
+					get_tree().root.add_child(new_scene)
+					get_tree().current_scene = new_scene
+					self.hide()
+
+	if progress_bar.value < update:
+		progress_bar.value = lerp(progress_bar.value, update, delta)
+	progress_bar.value += clamp(progress_bar.value, 0.0, 1.0)
+
+func _start_hosting():
 	peer.create_server(PORT)
 	multiplayer.multiplayer_peer = peer
 	multiplayer.peer_connected.connect(add_player)
 	multiplayer.peer_disconnected.connect(delete_player)
+	
 	send_player_information(pseudo.text, multiplayer.get_unique_id())
 	add_player(multiplayer.get_unique_id())
+
 	if upnp_checkbox.button_pressed:
 		upnp_setup()
-	var scene = world_scene.instantiate()
-	get_tree().root.add_child(scene)
-	get_tree().current_scene = scene
 
-func _on_join_button_down():
+func _start_joining():
 	if ip_address.text != "":
 		peer.create_client(ip_address.text, PORT)
 	else:
 		peer.create_client(DEFAULT_IP, PORT)
+
 	multiplayer.multiplayer_peer = peer
-	self.hide()
-	var scene = world_scene.instantiate()
-	get_tree().root.add_child(scene)
-	get_tree().current_scene = scene
+
+func connected_to_server():
+	send_player_information(pseudo.text, multiplayer.get_unique_id())
+
+func _on_host_button_down():
+	ResourceLoader.load_threaded_request(world_scene)
+	action = "host"
+	ui.hide()
+	progress_bar.show()
+	
+
+func _on_join_button_down():
+	ResourceLoader.load_threaded_request(world_scene)
+	action = "join"
+	ui.hide()
+	progress_bar.show()
 
 func _on_options_button_down():
 	get_tree().change_scene_to_file("res://Scenes/Menus/options_menu.tscn")

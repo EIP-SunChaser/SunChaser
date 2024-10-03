@@ -48,4 +48,5 @@ mesh = SubResource("BoxMesh_hcisg")
 shape = SubResource("ConcavePolygonShape3D_m0joe")
 
 [node name="OccluderInstance3D" type="OccluderInstance3D" parent="." index="4"]
+visible = false
 occluder = ExtResource("2_coa22")

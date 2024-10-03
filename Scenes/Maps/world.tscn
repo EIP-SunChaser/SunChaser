@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://c4ca03hfvhrsd"]
+[gd_scene load_steps=28 format=3 uid="uid://c4ca03hfvhrsd"]
 
 [ext_resource type="PackedScene" uid="uid://bmc1fqst1lx1y" path="res://Scenes/Maps/environment.tscn" id="1_steub"]
 [ext_resource type="PackedScene" uid="uid://d0yhvm1880vyv" path="res://Scenes/Entities/hat_npc.tscn" id="4_arjcc"]

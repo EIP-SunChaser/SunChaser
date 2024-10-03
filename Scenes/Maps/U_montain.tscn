@@ -24,4 +24,5 @@ lod_bias = 0.02
 shape = SubResource("ConcavePolygonShape3D_37m10")
 
 [node name="OccluderInstance3D" type="OccluderInstance3D" parent="." index="2"]
+visible = false
 occluder = ExtResource("3_v126k")

@@ -47,11 +47,33 @@ grow_horizontal = 2
 text = "SunChaser"
 label_settings = SubResource("LabelSettings_vunt7")
 
+[node name="ProgressBar" type="ProgressBar" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 35.0
+offset_top = -48.0
+offset_right = 285.0
+offset_bottom = -21.0
+grow_vertical = 0
+max_value = 1.0
+step = 0.0
+
 [node name="options_menu" parent="." instance=ExtResource("4_7skt0")]
 visible = false
 layout_mode = 1
 
-[node name="BoxContainer" type="BoxContainer" parent="."]
+[node name="UI" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BoxContainer" type="BoxContainer" parent="UI"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -59,36 +81,36 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -167.5
-offset_top = -112.5
+offset_top = -130.0
 offset_right = 167.5
-offset_bottom = 112.5
+offset_bottom = 130.0
 grow_horizontal = 2
 grow_vertical = 2
 vertical = true
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="BoxContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="UI/BoxContainer"]
 layout_mode = 2
 
-[node name="IP_Address" type="LineEdit" parent="BoxContainer/VBoxContainer2"]
+[node name="IP_Address" type="LineEdit" parent="UI/BoxContainer/VBoxContainer2"]
 layout_mode = 2
 
-[node name="Pseudo" type="LineEdit" parent="BoxContainer/VBoxContainer2"]
+[node name="Pseudo" type="LineEdit" parent="UI/BoxContainer/VBoxContainer2"]
 layout_mode = 2
 placeholder_text = "Enter your name here!"
 
-[node name="HSeparator" type="HSeparator" parent="BoxContainer/VBoxContainer2"]
+[node name="HSeparator" type="HSeparator" parent="UI/BoxContainer/VBoxContainer2"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="BoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/BoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Host" type="Button" parent="BoxContainer/VBoxContainer"]
+[node name="Host" type="Button" parent="UI/BoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "Host"
 
-[node name="upnp" type="CheckBox" parent="BoxContainer/VBoxContainer/Host"]
+[node name="upnp" type="CheckBox" parent="UI/BoxContainer/VBoxContainer/Host"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -106,15 +128,15 @@ theme_override_constants/outline_size = 10
 text = "UPnP"
 alignment = 2
 
-[node name="Join" type="Button" parent="BoxContainer/VBoxContainer"]
+[node name="Join" type="Button" parent="UI/BoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "Join"
 
-[node name="Options" type="Button" parent="BoxContainer/VBoxContainer"]
+[node name="Options" type="Button" parent="UI/BoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "Options"
 
-[node name="Exit" type="Button" parent="BoxContainer/VBoxContainer"]
+[node name="Exit" type="Button" parent="UI/BoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "Exit"
 
@@ -122,7 +144,7 @@ text = "Exit"
 _spawnable_scenes = PackedStringArray("res://Scenes/Entities/player.tscn", "res://Scenes/Entities/jolt_car.tscn")
 spawn_path = NodePath("..")
 
-[connection signal="button_down" from="BoxContainer/VBoxContainer/Host" to="." method="_on_host_button_down"]
-[connection signal="button_down" from="BoxContainer/VBoxContainer/Join" to="." method="_on_join_button_down"]
-[connection signal="button_down" from="BoxContainer/VBoxContainer/Options" to="." method="_on_options_button_down"]
-[connection signal="button_down" from="BoxContainer/VBoxContainer/Exit" to="." method="_on_exit_button_down"]
+[connection signal="button_down" from="UI/BoxContainer/VBoxContainer/Host" to="." method="_on_host_button_down"]
+[connection signal="button_down" from="UI/BoxContainer/VBoxContainer/Join" to="." method="_on_join_button_down"]
+[connection signal="button_down" from="UI/BoxContainer/VBoxContainer/Options" to="." method="_on_options_button_down"]
+[connection signal="button_down" from="UI/BoxContainer/VBoxContainer/Exit" to="." method="_on_exit_button_down"]
