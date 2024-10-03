@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cwfe4ax6jym2h"]
+[gd_scene load_steps=12 format=3 uid="uid://cwfe4ax6jym2h"]
 
 [ext_resource type="Script" path="res://Scripts/Menus/main_menu.gd" id="1_utaag"]
 [ext_resource type="PackedScene" uid="uid://cy7ywppb2i4ey" path="res://Scenes/Entities/player.tscn" id="2_1vl1a"]
@@ -6,10 +6,29 @@
 [ext_resource type="Texture2D" uid="uid://d1jrknar7m7ug" path="res://Assets/Images/Outbound Main Art No Logo.png" id="4_1mb4y"]
 [ext_resource type="PackedScene" uid="uid://dhi3iq7ytdwdt" path="res://Scenes/Menus/options_menu.tscn" id="4_7skt0"]
 [ext_resource type="FontFile" uid="uid://7x3cp1mf1vp4" path="res://Assets/Fonts/Switzer-BlackItalic.otf" id="5_0vjv7"]
+[ext_resource type="Script" path="res://Scripts/Menus/tips.gd" id="6_luhnb"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_vunt7"]
 font = ExtResource("5_0vjv7")
 font_size = 64
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bs2sk"]
+bg_color = Color(0, 0, 0, 0.490196)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0kvtt"]
+bg_color = Color(0, 0, 0, 0.490196)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="LabelSettings" id="LabelSettings_em040"]
+font = ExtResource("5_0vjv7")
+font_size = 18
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -47,23 +66,51 @@ grow_horizontal = 2
 text = "SunChaser"
 label_settings = SubResource("LabelSettings_vunt7")
 
-[node name="ProgressBar" type="ProgressBar" parent="."]
+[node name="LoadingUI" type="Control" parent="."]
 visible = false
 layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 35.0
-offset_top = -48.0
-offset_right = 285.0
-offset_bottom = -21.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="LoadingUI"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -125.0
+offset_top = -157.0
+offset_right = 125.0
+offset_bottom = -121.0
+grow_horizontal = 2
 grow_vertical = 0
+theme_override_styles/background = SubResource("StyleBoxFlat_bs2sk")
+theme_override_styles/fill = SubResource("StyleBoxFlat_0kvtt")
 max_value = 1.0
 step = 0.0
 
-[node name="options_menu" parent="." instance=ExtResource("4_7skt0")]
-visible = false
+[node name="PanelContainer" type="PanelContainer" parent="LoadingUI"]
 layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -98.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Tips" type="Label" parent="LoadingUI/PanelContainer"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+label_settings = SubResource("LabelSettings_em040")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+script = ExtResource("6_luhnb")
 
 [node name="MenuUI" type="Control" parent="."]
 layout_mode = 1
@@ -139,6 +186,10 @@ text = "Options"
 [node name="Exit" type="Button" parent="MenuUI/BoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "Exit"
+
+[node name="options_menu" parent="." instance=ExtResource("4_7skt0")]
+visible = false
+layout_mode = 1
 
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
 _spawnable_scenes = PackedStringArray("res://Scenes/Entities/player.tscn", "res://Scenes/Entities/jolt_car.tscn")

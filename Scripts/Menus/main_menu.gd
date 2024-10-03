@@ -4,7 +4,8 @@ extends Control
 @export var car_scene: PackedScene
 
 @onready var menu_ui: Control = $MenuUI
-@onready var progress_bar: ProgressBar = $ProgressBar
+@onready var progress_bar: ProgressBar = $LoadingUI/ProgressBar
+@onready var loading_ui: Control = $LoadingUI
 @onready var pseudo = $MenuUI/BoxContainer/VBoxContainer2/Pseudo
 @onready var ip_address = $MenuUI/BoxContainer/VBoxContainer2/IP_Address
 @onready var host = $MenuUI/BoxContainer/VBoxContainer/Host
@@ -81,7 +82,7 @@ func start_loading(action_type: String) -> void:
 	ResourceLoader.load_threaded_request(world_scene)
 	action = action_type
 	menu_ui.hide()
-	progress_bar.show()
+	loading_ui.show()
 
 func _on_host_button_down() -> void:
 	start_loading("host")
