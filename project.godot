@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="SunChaser"
-run/main_scene="res://Scenes/Menus/main_menu.tscn"
+run/main_scene="res://Scenes/Maps/ai_test_ground.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 boot_splash/image="res://Docs/Profil Pic/jules.png"
 config/icon="res://Docs/Profil Pic/jules.png"
@@ -22,6 +22,8 @@ PlayerManager="*res://Scripts/Autoload/player_manager.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 GlobalVariables="*res://Scripts/Autoload/global_variables.gd"
 ConfigFileHandler="*res://Scripts/Autoload/config_file_handler.gd"
+BeehaveGlobalMetrics="*res://addons/beehave/metrics/beehave_global_metrics.gd"
+BeehaveGlobalDebugger="*res://addons/beehave/debug/global_debugger.gd"
 
 [display]
 
@@ -29,7 +31,7 @@ window/vsync/vsync_mode=0
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
+enabled=PackedStringArray("res://addons/beehave/plugin.cfg", "res://addons/dialogue_manager/plugin.cfg")
 
 [file_customization]
 

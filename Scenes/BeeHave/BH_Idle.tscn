@@ -1,0 +1,30 @@
+[gd_scene load_steps=7 format=3 uid="uid://dqf6li1kyq27k"]
+
+[ext_resource type="Script" path="res://addons/beehave/nodes/beehave_tree.gd" id="1_dp3ws"]
+[ext_resource type="Script" path="res://addons/beehave/nodes/composites/sequence.gd" id="3_u244u"]
+[ext_resource type="Script" path="res://addons/beehave/nodes/decorators/time_limiter.gd" id="6_xb01m"]
+[ext_resource type="Script" path="res://addons/beehave/nodes/decorators/delayer.gd" id="7_bc7ns"]
+[ext_resource type="Script" path="res://Scripts/BeeHave/SelectNewLocation.gd" id="8_l1lsq"]
+[ext_resource type="Script" path="res://Scripts/BeeHave/IsArrived.gd" id="9_keexf"]
+
+[node name="BH_Idle" type="Node" node_paths=PackedStringArray("blackboard", "actor")]
+script = ExtResource("1_dp3ws")
+blackboard = NodePath("@Node@38630")
+actor = NodePath("")
+
+[node name="IdleDelay" type="Node" parent="."]
+script = ExtResource("7_bc7ns")
+wait_time = 3.0
+
+[node name="Idle" type="Node" parent="IdleDelay"]
+script = ExtResource("3_u244u")
+
+[node name="SelectNewLocation" type="Node" parent="IdleDelay/Idle"]
+script = ExtResource("8_l1lsq")
+
+[node name="TimeLimiterDecorator" type="Node" parent="IdleDelay/Idle"]
+script = ExtResource("6_xb01m")
+wait_time = 6.0
+
+[node name="IsArrived" type="Node" parent="IdleDelay/Idle/TimeLimiterDecorator"]
+script = ExtResource("9_keexf")

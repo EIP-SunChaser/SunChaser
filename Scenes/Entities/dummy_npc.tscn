@@ -1,0 +1,55 @@
+[gd_scene load_steps=10 format=3 uid="uid://0bl3mef2ejy"]
+
+[ext_resource type="Script" path="res://Scripts/Entities/npc_ai_test.gd" id="1_3gf68"]
+[ext_resource type="PackedScene" uid="uid://dnhmojsk8ks3y" path="res://Scenes/BeeHave/BH_DummyNpc.tscn" id="2_w8qba"]
+[ext_resource type="Script" path="res://Scripts/Entities/BodyPart.gd" id="3_ic6l5"]
+[ext_resource type="Script" path="res://Scripts/Entities/Senses.gd" id="3_p5dia"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vjwgl"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_a1haj"]
+material = SubResource("StandardMaterial3D_vjwgl")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_app87"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_f11ig"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_7uus0"]
+radius = 20.0
+
+[node name="DummyNpc" type="CharacterBody3D" groups=["Good_Guy"]]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_3gf68")
+
+[node name="BhDummyNpc" parent="." node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("2_w8qba")]
+blackboard = NodePath("@Node@75449")
+actor = NodePath("..")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_a1haj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_app87")
+
+[node name="BodyArea" type="Area3D" parent="." groups=["Bandits"]]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0, 0)
+script = ExtResource("3_ic6l5")
+damage = 20
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BodyArea"]
+shape = SubResource("CapsuleShape3D_f11ig")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
+[node name="Senses" type="Area3D" parent="."]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("3_p5dia")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Senses"]
+shape = SubResource("SphereShape3D_7uus0")
+
+[connection signal="body_entered" from="Senses" to="Senses" method="_on_body_entered"]
+[connection signal="body_exited" from="Senses" to="Senses" method="_on_body_exited"]
