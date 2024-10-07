@@ -6,13 +6,15 @@ extends RigidBody3D
 @onready var pseudo = $Pseudo
 @onready var actionable_finder: Area3D = $Area3D
 @onready var press_e_ui = $Head/Camera3D/Press_e_ui
+@onready var crosshair = $TextureRect
 @onready var deathLabel = $"Head/Camera3D/DeathLabel"
 @onready var health_bar = $Head/Camera3D/HealthBar
 @onready var quest_ui = $Head/Camera3D/Quest_ui
 @onready var speed_label = $SpeedLabel
 
 @onready var pause_menu = $pause_menu
-@onready var inventory = $Inventory
+
+@export var inv: Inventory
 
 #Bullets
 @onready var gun_animation = $"Head/Camera3D/rifle_prototype/AnimationPlayer"
@@ -60,6 +62,26 @@ var respawn_point = Vector3(0, 10, 0)
 
 var sprint_toggled = false
 
+var overlapping_areas: Area3D = null
+
+func save_data(data: SaveData):
+	data.player_position = position
+	data.player_rotation = head.rotation
+	data.player_health = health_bar.health
+	data.player_crouching = is_crouching
+
+func load_data(data: SaveData):
+	position = data.player_position
+	head.rotation = data.player_rotation
+	health_bar.health = data.player_health
+	is_crouching = data.player_crouching
+	if is_crouching:
+		animation_player.play("crouch")
+		animation_player.seek(animation_player.current_animation_length, true)
+	else:
+		animation_player.play_backwards("crouch")
+		animation_player.seek(0, true)
+
 func _enter_tree():
 	set_multiplayer_authority(str(name).to_int())
 
@@ -78,6 +100,8 @@ func _ready():
 	contact_monitor = true
 	max_contacts_reported = 5
 	physics_material_override.friction = 0
+	
+	SaveManager.load_game()
 
 func _unhandled_input(event):
 	if !is_multiplayer_authority(): return
@@ -108,19 +132,17 @@ func _unhandled_input(event):
 			actionnables[0].action()
 
 	if Input.is_action_just_pressed("pause"):
+		SaveManager.save_game()
 		pauseMenu()
 	
-	if Input.is_action_just_pressed("inventory"):
-		inventoryMenu()
-	
 	if Input.is_action_just_pressed("teleport") and OS.is_debug_build():
-		global_transform.origin = Vector3(0, 10, 0)
-			
+		call_deferred("set_global_position", Vector3(0, 10, 0))
+
 	if Input.is_action_just_pressed("teleport-2") and OS.is_debug_build():
-		global_transform.origin = Vector3(-1220, 20, -15)
+		call_deferred("set_global_position", Vector3(-1220, 20, -15))
 			
 	if Input.is_action_just_pressed("teleport-3") and OS.is_debug_build():
-		global_transform.origin = Vector3(-230, 20, -10)
+		call_deferred("set_global_position", Vector3(-230, 20, -10))
 
 	if Input.is_action_pressed ("god") and OS.is_debug_build():
 		GODMOD = !GODMOD
@@ -129,7 +151,10 @@ func _unhandled_input(event):
 		sprint_toggled = !sprint_toggled
 	elif event.is_action_released("sprint") and event is InputEventKey:
 		sprint_toggled = false
-
+	
+	if overlapping_areas != null:
+		on_collectable_item(overlapping_areas)
+	
 func is_on_floor():
 	if get_contact_count() > 0:
 		var collision_state = PhysicsServer3D.body_get_direct_state(get_rid())
@@ -147,29 +172,37 @@ func _integrate_forces(state):
 		health_bar.hide()
 		quest_ui.hide()
 		press_e_ui.hide()
+		crosshair.hide()
 	else:
 		health_bar.show()
 		quest_ui.show()
+		crosshair.show()
 
 	if GlobalVariables.isInDialogue == false and !GlobalVariables.isInPause and GlobalVariables.isInInventory == false:
 		if actionable_finder.get_overlapping_areas():
 			var action_func = actionable_finder.get_overlapping_areas()
 			if action_func.size() > 0 && action_func[0].has_method("action"):
 				press_e_ui.show()
+		elif overlapping_areas != null:
+			press_e_ui.show()
 		else:
 			press_e_ui.hide()
 		do_physics_process(state)
 
 func do_physics_process(state):
 	var delta = state.step
-	
+
 	if axis_x > 0.1 or axis_x < -0.1 or axis_y > 0.1 or axis_y < -0.1:
 		head.rotate_y(-axis_x * SENSITIVITY_JOYSTICK)
 		camera.rotate_x(-axis_y * SENSITIVITY_JOYSTICK)
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90))
 	
 	var direction = (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	
+
+	if is_in_car:
+		set_collision_mask_value(1, false)
+		set_collision_layer_value(1, false)
+		state.linear_velocity = Vector3.ZERO
 	if GODMOD:
 		set_collision_mask_value(1, false)
 		set_collision_layer_value(1, false)
@@ -186,20 +219,21 @@ func do_physics_process(state):
 		
 		state.transform.origin += move.normalized() * god_mode_speed * delta
 	else:
-		set_collision_mask_value(1, true)
-		set_collision_layer_value(1, true)
-		gravity_scale = 1
-		
-		if is_on_floor():
-			if direction:
-				state.linear_velocity.x = direction.x * speed
-				state.linear_velocity.z = direction.z * speed
-			else:
-				state.linear_velocity.x = lerp(state.linear_velocity.x, direction.x * speed, delta * 7.0)
-				state.linear_velocity.z = lerp(state.linear_velocity.z, direction.z * speed, delta * 7.0)
+		if !is_in_car:
+			set_collision_mask_value(1, true)
+			set_collision_layer_value(1, true)
+			gravity_scale = 1
+
+	if is_on_floor():
+		if direction:
+			state.linear_velocity.x = direction.x * speed
+			state.linear_velocity.z = direction.z * speed
 		else:
-			state.linear_velocity.x = lerp(state.linear_velocity.x, direction.x * speed, delta * 3.0)
-			state.linear_velocity.z = lerp(state.linear_velocity.z, direction.z * speed, delta * 3.0)
+			state.linear_velocity.x = lerp(state.linear_velocity.x, direction.x * speed, delta * 7.0)
+			state.linear_velocity.z = lerp(state.linear_velocity.z, direction.z * speed, delta * 7.0)
+	else:
+		state.linear_velocity.x = lerp(state.linear_velocity.x, direction.x * speed, delta * 3.0)
+		state.linear_velocity.z = lerp(state.linear_velocity.z, direction.z * speed, delta * 3.0)
 
 	t_bob += delta * state.linear_velocity.length() * float(is_on_floor())
 	camera.transform.origin = _headbob(t_bob)
@@ -210,7 +244,7 @@ func do_physics_process(state):
 
 	if Input.is_action_just_pressed("crouch"):
 		crouch.rpc()
-	
+
 	if Input.is_action_pressed("jump") and is_on_floor():
 		linear_velocity.y = 0
 		apply_central_impulse(Vector3.UP * JUMP_FORCE)
@@ -296,16 +330,6 @@ func pauseMenu():
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		pause_menu.show()
 
-func inventoryMenu():
-	if GlobalVariables.isInInventory == true:
-		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-		inventory.hide()
-		GlobalVariables.isInInventory = false
-	else:
-		GlobalVariables.isInInventory = true
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		inventory.show()
-
 func respawn():
 	global_transform.origin = respawn_point
 	health_bar.init_health(100)
@@ -315,3 +339,24 @@ func respawn():
 
 func set_respawn_point(new_point: Vector3):
 	respawn_point = new_point
+
+func _on_collectable_area_area_entered(area):
+	if area.has_method("collect"):
+		if area != overlapping_areas:
+			overlapping_areas = area
+	elif area.has_method("interact_inv"):
+		if area != overlapping_areas:
+			overlapping_areas = area
+
+
+func _on_collectable_area_area_exited(area):
+	if area == overlapping_areas:
+		overlapping_areas = null
+
+
+func on_collectable_item(area):
+	if area.has_method("collect"):
+		area.collect(inv)
+	elif area.has_method("interact_inv"):
+		area.interact_inv($inventory_gui)
+

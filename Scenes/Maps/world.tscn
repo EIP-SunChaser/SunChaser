@@ -1,7 +1,6 @@
-[gd_scene load_steps=27 format=3 uid="uid://c4ca03hfvhrsd"]
+[gd_scene load_steps=36 format=3 uid="uid://c4ca03hfvhrsd"]
 
 [ext_resource type="PackedScene" uid="uid://bmc1fqst1lx1y" path="res://Scenes/Maps/environment.tscn" id="1_steub"]
-[ext_resource type="PackedScene" uid="uid://b2ajj4fsrspvj" path="res://Scenes/Ui/fps_meter.tscn" id="3_nq26b"]
 [ext_resource type="PackedScene" uid="uid://d0yhvm1880vyv" path="res://Scenes/Entities/hat_npc.tscn" id="4_arjcc"]
 [ext_resource type="PackedScene" uid="uid://bw41xqawmw8pp" path="res://Scenes/Entities/bad_npc.tscn" id="5_hhx2q"]
 [ext_resource type="Script" path="res://Scripts/Ui/IP_ADDRESS.gd" id="6_xrr28"]
@@ -14,6 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://cvuvh31sst0u1" path="res://Scenes/Entities/forestier.tscn" id="13_tkqpx"]
 [ext_resource type="PackedScene" uid="uid://dfb2jorn13mqh" path="res://Scenes/Entities/pets.tscn" id="14_avud1"]
 [ext_resource type="Script" path="res://Scripts/Maps/TP_TestWorld.gd" id="14_rtuf3"]
+[ext_resource type="PackedScene" uid="uid://ureeybc23app" path="res://Scenes/Items/apple.tscn" id="15_4xjbh"]
+[ext_resource type="Terrain3DStorage" uid="uid://eax5bysdyues" path="res://Ressources/Maps/world.res" id="16_200o5"]
+[ext_resource type="PackedScene" uid="uid://ygtxrh30iwc" path="res://Scenes/Items/chest.tscn" id="16_t2ybn"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2efs4"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -65,6 +67,67 @@ material = SubResource("StandardMaterial3D_v1xee")
 flip_faces = true
 size = Vector3(5, 5, 5)
 
+[sub_resource type="Gradient" id="Gradient_8ka27"]
+offsets = PackedFloat32Array(0.2, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_h74dl"]
+noise_type = 2
+frequency = 0.03
+cellular_jitter = 3.0
+cellular_return_type = 0
+domain_warp_enabled = true
+domain_warp_type = 1
+domain_warp_amplitude = 50.0
+domain_warp_fractal_type = 2
+domain_warp_fractal_lacunarity = 1.5
+domain_warp_fractal_gain = 1.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_faipu"]
+seamless = true
+color_ramp = SubResource("Gradient_8ka27")
+noise = SubResource("FastNoiseLite_h74dl")
+
+[sub_resource type="Terrain3DMaterial" id="Terrain3DMaterial_hq233"]
+_shader_parameters = {
+"blend_sharpness": 0.87,
+"height_blending": true,
+"macro_variation1": Color(1, 1, 1, 1),
+"macro_variation2": Color(1, 1, 1, 1),
+"noise1_angle": 0.0,
+"noise1_offset": Vector2(0.5, 0.5),
+"noise1_scale": 0.04,
+"noise2_scale": 0.076,
+"noise3_scale": 0.225,
+"noise_texture": SubResource("NoiseTexture2D_faipu"),
+"vertex_normals_distance": 128.0,
+"world_noise_blend_far": 1.0,
+"world_noise_blend_near": 0.5,
+"world_noise_height": 64.0,
+"world_noise_lod_distance": 7500.0,
+"world_noise_max_octaves": 4,
+"world_noise_min_octaves": 2,
+"world_noise_offset": Vector3(0, 0, 0),
+"world_noise_scale": 5.0
+}
+world_background = 2
+show_checkered = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j0t2i"]
+cull_mode = 2
+vertex_color_use_as_albedo = true
+backlight_enabled = true
+backlight = Color(0.5, 0.5, 0.5, 1)
+
+[sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_3lbya"]
+height_offset = 0.5
+density = 10.0
+material_override = SubResource("StandardMaterial3D_j0t2i")
+generated_type = 1
+
+[sub_resource type="Terrain3DAssets" id="Terrain3DAssets_egnea"]
+mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_3lbya")])
+
 [node name="World" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -75,8 +138,6 @@ shadow_enabled = true
 environment = SubResource("Environment_1pto3")
 
 [node name="Environment" parent="." instance=ExtResource("1_steub")]
-
-[node name="FPSMeter" parent="." instance=ExtResource("3_nq26b")]
 
 [node name="SpawnLocations" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -813.408, 17.5666, -19.3334)
@@ -2022,6 +2083,17 @@ shape = SubResource("BoxShape3D_tehmd")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="TP_TestWorld"]
 mesh = SubResource("BoxMesh_jpluy")
+
+[node name="Apple" parent="." instance=ExtResource("15_4xjbh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -799.492, 18.1523, -19.3397)
+
+[node name="chest" parent="." instance=ExtResource("16_t2ybn")]
+transform = Transform3D(-0.0509242, 0, -0.998703, 0, 1, 0, 0.998703, 0, -0.0509242, -805.737, 18.6371, -17.297)
+
+[node name="Terrain3D" type="Terrain3D" parent="."]
+storage = ExtResource("16_200o5")
+material = SubResource("Terrain3DMaterial_hq233")
+assets = SubResource("Terrain3DAssets_egnea")
 
 [connection signal="body_entered" from="Quest1/Area3D" to="Quest1/Area3D" method="_on_body_entered"]
 [connection signal="body_exited" from="Quest1/Area3D" to="Quest1/Area3D" method="_on_body_exited"]
