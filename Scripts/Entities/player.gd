@@ -169,6 +169,8 @@ func _integrate_forces(state):
 	if !isAlive: return
 	
 	if GlobalVariables.isInDialogue == true || GlobalVariables.isInPause == true || GlobalVariables.isInInventory == true:
+		state.linear_velocity = Vector3.ZERO
+		gravity_scale = 0
 		health_bar.hide()
 		quest_ui.hide()
 		press_e_ui.hide()
@@ -359,4 +361,3 @@ func on_collectable_item(area):
 		area.collect(inv)
 	elif area.has_method("interact_inv"):
 		area.interact_inv($inventory_gui)
-
