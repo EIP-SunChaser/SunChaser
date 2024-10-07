@@ -251,7 +251,6 @@ mesh = SubResource("BoxMesh_ipsvg")
 skeleton = NodePath("../../BodyCollision")
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
-current = true
 
 [node name="rifle_prototype" parent="Head/Camera3D" instance=ExtResource("3_xq2hx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.546027, -0.273746, -0.724783)
