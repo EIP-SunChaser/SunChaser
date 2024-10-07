@@ -1,0 +1,133 @@
+[gd_scene load_steps=7 format=3 uid="uid://v1tro8rybh64"]
+
+[ext_resource type="PackedScene" uid="uid://dsoey86w5qs3b" path="res://Assets/Models/Items/Guns/rifle_prototype.glb" id="1_eh3kq"]
+
+[sub_resource type="Animation" id="Animation_ui4hj"]
+resource_name = "aim"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cube:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0001, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(-0.55, 0.15, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RayCast3D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0001, 0.0002, 0.0003, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.00148539, 0.0674375, -0.935307), Vector3(0.00148539, 0.0674375, -0.935307), Vector3(0.00148539, 0.0674375, -0.935307), Vector3(0.00148539, 0.0674375, -0.935307), Vector3(-0.55, 0.15, -0.935)]
+}
+
+[sub_resource type="Animation" id="Animation_sykcn"]
+resource_name = "aim_n_shoot"
+length = 0.5
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cube:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.01, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.55, 0.15, 0), Vector3(-0.55, 0.15, 0.1), Vector3(-0.55, 0.15, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RayCast3D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.01, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.55, 0.22, -1), Vector3(-0.55, 0.22, -0.8), Vector3(-0.55, 0.22, -1)]
+}
+
+[sub_resource type="Animation" id="Animation_1i4pb"]
+resource_name = "shoot"
+length = 0.5
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cube:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.01, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0.1), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RayCast3D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.01, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0.00148539, 0.0674375, -0.935307), Vector3(0, 0.06, -0.8), Vector3(0, 0.06, -1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5vn6j"]
+_data = {
+"aim": SubResource("Animation_ui4hj"),
+"aim_n_shoot": SubResource("Animation_sykcn"),
+"shoot": SubResource("Animation_1i4pb")
+}
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_8g1vd"]
+properties/0/path = NodePath("Cube:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath("Cube:rotation")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+properties/2/path = NodePath("RayCast3D:rotation")
+properties/2/spawn = true
+properties/2/replication_mode = 1
+properties/3/path = NodePath("RayCast3D:position")
+properties/3/spawn = true
+properties/3/replication_mode = 1
+properties/4/path = NodePath("RayCast3D:target_position")
+properties/4/spawn = true
+properties/4/replication_mode = 1
+properties/5/path = NodePath("AnimationPlayer:current_animation")
+properties/5/spawn = true
+properties/5/replication_mode = 1
+
+[node name="isolated_rifle" instance=ExtResource("1_eh3kq")]
+
+[node name="Cube" parent="." index="0"]
+transform = Transform3D(4.29715e-08, 0, 0.028304, 0, 0.0403951, 0, -0.240314, 0, 5.06115e-09, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
+libraries = {
+"": SubResource("AnimationLibrary_5vn6j")
+}
+
+[node name="RayCast3D" type="RayCast3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00148539, 0.0674375, -0.935307)
+target_position = Vector3(0, 0, -1)
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." index="3"]
+replication_config = SubResource("SceneReplicationConfig_8g1vd")

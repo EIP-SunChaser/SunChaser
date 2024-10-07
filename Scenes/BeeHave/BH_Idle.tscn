@@ -9,7 +9,7 @@
 
 [node name="BH_Idle" type="Node" node_paths=PackedStringArray("blackboard", "actor")]
 script = ExtResource("1_dp3ws")
-blackboard = NodePath("@Node@38630")
+blackboard = NodePath("@Node@18327")
 actor = NodePath("")
 
 [node name="IdleDelay" type="Node" parent="."]

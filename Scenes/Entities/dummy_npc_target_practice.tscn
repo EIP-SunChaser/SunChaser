@@ -20,7 +20,7 @@ collision_mask = 3
 script = ExtResource("1_ax5pt")
 
 [node name="BH_Idle" parent="." node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("2_5tybh")]
-blackboard = NodePath("@Node@56377")
+blackboard = NodePath("@Node@18325")
 actor = NodePath("..")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]

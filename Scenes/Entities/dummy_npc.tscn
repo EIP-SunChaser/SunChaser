@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://0bl3mef2ejy"]
+[gd_scene load_steps=11 format=3 uid="uid://0bl3mef2ejy"]
 
 [ext_resource type="Script" path="res://Scripts/Entities/npc_ai_test.gd" id="1_3gf68"]
 [ext_resource type="PackedScene" uid="uid://dnhmojsk8ks3y" path="res://Scenes/BeeHave/BH_DummyNpc.tscn" id="2_w8qba"]
+[ext_resource type="PackedScene" uid="uid://bvkvxoqp0eys3" path="res://Scenes/Items/rifle_prototype.tscn" id="3_cir88"]
 [ext_resource type="Script" path="res://Scripts/Entities/BodyPart.gd" id="3_ic6l5"]
 [ext_resource type="Script" path="res://Scripts/Entities/Senses.gd" id="3_p5dia"]
 
@@ -24,8 +25,11 @@ collision_mask = 3
 script = ExtResource("1_3gf68")
 
 [node name="BhDummyNpc" parent="." node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("2_w8qba")]
-blackboard = NodePath("@Node@75449")
+blackboard = NodePath("@Node@18320")
 actor = NodePath("..")
+
+[node name="rifle_prototype" parent="." instance=ExtResource("3_cir88")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.555284, 0.423273, -0.570815)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_a1haj")
@@ -33,12 +37,12 @@ mesh = SubResource("CapsuleMesh_a1haj")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_app87")
 
-[node name="BodyArea" type="Area3D" parent="." groups=["Bandits"]]
+[node name="DamageBodyArea" type="Area3D" parent="." groups=["Bandits"]]
 transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0, 0)
 script = ExtResource("3_ic6l5")
 damage = 20
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="BodyArea"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DamageBodyArea"]
 shape = SubResource("CapsuleShape3D_f11ig")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
