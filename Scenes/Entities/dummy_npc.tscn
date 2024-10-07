@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://Scripts/Entities/npc_ai_test.gd" id="1_3gf68"]
 [ext_resource type="PackedScene" uid="uid://dnhmojsk8ks3y" path="res://Scenes/BeeHave/BH_DummyNpc.tscn" id="2_w8qba"]
-[ext_resource type="PackedScene" uid="uid://bvkvxoqp0eys3" path="res://Scenes/Items/rifle_prototype.tscn" id="3_cir88"]
 [ext_resource type="Script" path="res://Scripts/Entities/BodyPart.gd" id="3_ic6l5"]
 [ext_resource type="Script" path="res://Scripts/Entities/Senses.gd" id="3_p5dia"]
+[ext_resource type="PackedScene" uid="uid://v1tro8rybh64" path="res://Scenes/Items/isolated_rifle.tscn" id="3_v7ts1"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vjwgl"]
 albedo_color = Color(1, 0, 0, 1)
@@ -25,11 +25,11 @@ collision_mask = 3
 script = ExtResource("1_3gf68")
 
 [node name="BhDummyNpc" parent="." node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("2_w8qba")]
-blackboard = NodePath("@Node@18320")
+blackboard = NodePath("@Node@44915")
 actor = NodePath("..")
 
-[node name="rifle_prototype" parent="." instance=ExtResource("3_cir88")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.555284, 0.423273, -0.570815)
+[node name="Rifle" parent="." instance=ExtResource("3_v7ts1")]
+transform = Transform3D(0.998628, -0.00174294, 0.052336, 0.00174533, 0.999998, 0, -0.0523359, 9.13434e-05, 0.998629, 0.712981, 0.469485, -0.312568)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_a1haj")

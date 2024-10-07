@@ -3,6 +3,9 @@ extends CharacterBody3D
 var health = 100
 
 @onready var senses = $Senses
+@onready var rifle = $Rifle
+
+@export var pathFollow: PathFollow3D
 
 @export var movement_speed: float = 4.0
 @export var target_radius: float = 10.0  # Radius around the character to find a target
@@ -15,12 +18,8 @@ var rotate_node : Node3D = null
 
 var enemy : Node3D
 
-#region Movement System
-func choose_random_target() -> void:
-	var random_offset: Vector3 = get_random_point_in_radius()
-	var target_position: Vector3 = global_position + random_offset
-	set_movement_target(target_position)
-	
+#region Look Mecanic
+
 func look_at_target(target_position: Vector3) -> void:
 	var direction: Vector3 = (target_position - global_position).normalized()
 	look_at(global_position + direction, Vector3.UP)  # Rotate the character towards the target position
@@ -39,7 +38,13 @@ func look_in_direction(target_position: Vector3, delta: float) -> void:
 		
 		# Use slerp to interpolate between current and target rotation smoothly
 		basis = current_basis.slerp(target_basis, rotation_speed * delta)
+#endregion
 
+#region Movement System
+func choose_random_target() -> void:
+	var random_offset: Vector3 = get_random_point_in_radius()
+	var target_position: Vector3 = global_position + random_offset
+	set_movement_target(target_position)
 
 func get_random_point_in_radius() -> Vector3:
 	var angle: float = randf() * TAU  # TAU is a constant for 2*PI (full circle in radians)
@@ -47,6 +52,21 @@ func get_random_point_in_radius() -> Vector3:
 	var x_offset: float = cos(angle) * distance
 	var z_offset: float = sin(angle) * distance
 	return Vector3(x_offset, 0, z_offset)  # Random point on the XZ plane
+	
+func has_patrol() -> bool:
+	return is_instance_valid(pathFollow)
+	
+func is_at_patrol() -> bool:
+	var tolerance = 1.0
+	if global_position.distance_to(pathFollow.global_position) < tolerance:
+		return true
+	return false
+
+func return_to_patrol():
+	set_movement_target(pathFollow.global_position)
+
+func increment_patrol():
+	pathFollow.progress += 1.0
 	
 func is_at_destination():
 	return navigation_agent.is_navigation_finished()

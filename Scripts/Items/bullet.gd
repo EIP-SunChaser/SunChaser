@@ -1,6 +1,5 @@
 extends Node3D
 
-
 const SPEED = 40.0
 
 @onready var mesh = $MeshInstance3D
@@ -19,7 +18,6 @@ func _physics_process(delta):
 
 		await get_tree().create_timer(1.0).timeout
 		queue_free()
-
 
 func _on_timer_timeout():
 	queue_free()

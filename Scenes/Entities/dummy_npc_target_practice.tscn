@@ -20,7 +20,7 @@ collision_mask = 3
 script = ExtResource("1_ax5pt")
 
 [node name="BH_Idle" parent="." node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("2_5tybh")]
-blackboard = NodePath("@Node@18325")
+blackboard = NodePath("@Node@45371")
 actor = NodePath("..")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -38,3 +38,5 @@ damage = 20
 shape = SubResource("CapsuleShape3D_45iky")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
+[connection signal="body_part_hit" from="BodyArea" to="." method="_on_body_part_hit"]

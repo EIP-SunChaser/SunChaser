@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://v1tro8rybh64"]
+[gd_scene load_steps=8 format=3 uid="uid://v1tro8rybh64"]
 
 [ext_resource type="PackedScene" uid="uid://dsoey86w5qs3b" path="res://Assets/Models/Items/Guns/rifle_prototype.glb" id="1_eh3kq"]
+[ext_resource type="Script" path="res://Scripts/Items/isolated_rifle.gd" id="2_fvjtn"]
 
 [sub_resource type="Animation" id="Animation_ui4hj"]
 resource_name = "aim"
@@ -116,6 +117,7 @@ properties/5/spawn = true
 properties/5/replication_mode = 1
 
 [node name="isolated_rifle" instance=ExtResource("1_eh3kq")]
+script = ExtResource("2_fvjtn")
 
 [node name="Cube" parent="." index="0"]
 transform = Transform3D(4.29715e-08, 0, 0.028304, 0, 0.0403951, 0, -0.240314, 0, 5.06115e-09, 0, 0, 0)
