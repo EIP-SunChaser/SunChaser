@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://mixqfp0sdpcd" path="res://Assets/Models/Maps/mountain.glb" id="1_p4e7o"]
 [ext_resource type="Texture2D" uid="uid://3pkbnh1mtbjy" path="res://Assets/Images/grid.svg" id="2_uvvvy"]
-[ext_resource type="ArrayOccluder3D" uid="uid://rugo7rdxg1ra" path="res://Occluder/U_montain.occ" id="3_v126k"]
+[ext_resource type="ArrayOccluder3D" uid="uid://b6cdq4lxbhyca" path="res://Occluder/U_montain.occ" id="3_v126k"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sqvgp"]
 albedo_texture = ExtResource("2_uvvvy")
