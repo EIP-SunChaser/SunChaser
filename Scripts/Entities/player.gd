@@ -124,7 +124,7 @@ func _unhandled_input(event):
 	if Input.is_action_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 	
-	if Input.is_action_just_pressed("use"):
+	if Input.is_action_just_pressed("use") and not GlobalVariables.isInPause:
 		var actionnables = actionable_finder.get_overlapping_areas()
 		if actionnables.size() > 0 && actionnables[0].has_method("action"):
 			actionnables[0].action()
@@ -133,7 +133,7 @@ func _unhandled_input(event):
 		SaveManager.save_game()
 		pauseMenu()
 	
-	if Input.is_action_just_pressed("teleport"):
+	if Input.is_action_just_pressed("teleport") and not GlobalVariables.isInPause and OS.is_debug_build():
 			global_transform.origin = Vector3(0, 10, 0)
 			
 	if Input.is_action_just_pressed("teleport-2"):
@@ -142,7 +142,7 @@ func _unhandled_input(event):
 	if Input.is_action_just_pressed("teleport-3"):
 			global_transform.origin = Vector3(-230, 20, -10)
 
-	if Input.is_action_pressed ("god"):
+	if Input.is_action_pressed ("god") and not GlobalVariables.isInPause and not is_in_car and OS.is_debug_build():
 		GODMOD = !GODMOD
 
 	if event.is_action_pressed("sprint") and event is InputEventJoypadButton:

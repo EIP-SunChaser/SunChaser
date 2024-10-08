@@ -38,9 +38,4 @@ size_flags_horizontal = 3
 [node name="InputButton" parent="MarginContainer/VBoxContainer/ScrollContainer/ActionList" instance=ExtResource("1_f06bm")]
 layout_mode = 2
 
-[node name="ResetButton" type="Button" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-focus_mode = 0
-text = "Reset to default"
-
-[connection signal="pressed" from="MarginContainer/VBoxContainer/ResetButton" to="." method="_on_reset_button_pressed"]
+[editable path="MarginContainer/VBoxContainer/ScrollContainer/ActionList/InputButton"]

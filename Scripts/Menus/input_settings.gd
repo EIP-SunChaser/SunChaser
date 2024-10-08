@@ -61,7 +61,7 @@ func create_action_list():
 		input_label.text = format_input_text(keyboard_text, controller_text)
 		
 		action_list.add_child(button)
-		button.pressed.connect(on_input_button_pressed.bind(button, action))
+		input_label.pressed.connect(on_input_button_pressed.bind(button, action))
 
 func format_input_text(keyboard_text, controller_text):
 	if keyboard_text and controller_text:
@@ -210,6 +210,3 @@ func detect_controller_type():
 		return "Nintendo"
 	else:
 		return "Unknown"
-
-func _on_reset_button_pressed():
-	create_action_list()
