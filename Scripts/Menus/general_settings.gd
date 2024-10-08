@@ -12,6 +12,9 @@ extends Control
 @onready var vsync_check = $MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Display/VSync/VSyncCheck
 @onready var framerate_option = $MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Display/Framerate/FramerateOption
 
+@onready var exit_button: Button = $MarginContainer/VBoxContainer/ExitButton
+@onready var options_menu: Control = $"../../../../.."
+
 var is_fullscreen: bool = false
 var display_settings
 var audio_settings
@@ -21,6 +24,15 @@ func _ready():
 	populate_window_mode()
 	populate_framerate_options()
 	apply_settings()
+	visibility_changed.connect(_on_visibility_changed)
+	resolution_option.grab_focus()
+	options_menu.exit_button_focused.connect(test_print)
+	
+func test_print():
+	print("hello")
+func _on_visibility_changed():
+	if visible and get_tree().current_scene.name != "MainMenu":
+		resolution_option.grab_focus()
 
 func apply_settings():
 	display_settings = ConfigFileHandler.load_display_settings()

@@ -66,6 +66,7 @@ text = "Window Mode"
 
 [node name="FullscreenOption" type="OptionButton" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Display/Fullscreen"]
 layout_mode = 2
+focus_neighbor_bottom = NodePath("../../VSync/VSyncCheck")
 
 [node name="VSync" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Display"]
 layout_mode = 2
@@ -87,6 +88,7 @@ text = "Frame Rate Limit"
 
 [node name="FramerateOption" type="OptionButton" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Display/Framerate"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../../VSync/VSyncCheck")
 
 [node name="Volume" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
@@ -177,7 +179,6 @@ text = "100%"
 [node name="ResetButton" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 8
-focus_mode = 0
 text = "Reset to default"
 
 [connection signal="item_selected" from="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Display/Resolution/ResolutionOption" to="." method="_on_resolution_option_item_selected"]

@@ -61,3 +61,4 @@ size_flags_vertical = 8
 text = "Exit"
 
 [connection signal="button_down" from="MarginContainer/VBoxContainer/ExitButton" to="." method="_on_exit_button_button_down"]
+[connection signal="focus_entered" from="MarginContainer/VBoxContainer/ExitButton" to="." method="_on_exit_button_focus_entered"]
