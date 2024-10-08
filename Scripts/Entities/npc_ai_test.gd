@@ -7,6 +7,11 @@ var health = 100
 
 @export var pathFollow: PathFollow3D
 
+#groupes by rapport of their relation with the player
+@export_enum("Ally", "Neutral", "Enemy") var affiliation: String
+
+@export var isFighter: bool
+
 @export var movement_speed: float = 4.0
 @export var target_radius: float = 10.0  # Radius around the character to find a target
 @export var rotation_speed: float = 3.0  # Speed at which the character rotates toward the target
@@ -53,6 +58,18 @@ func get_random_point_in_radius() -> Vector3:
 	var z_offset: float = sin(angle) * distance
 	return Vector3(x_offset, 0, z_offset)  # Random point on the XZ plane
 	
+func flee_from_target(target: Vector3):
+	var flee_distance = 30.0
+	# Get the direction vector from AI to target
+	var direction_to_target: Vector3 = (target - global_transform.origin).normalized()
+	# Invert the direction (opposite direction)
+	var flee_direction: Vector3 = -direction_to_target
+	# Calculate the flee position (some distance away)
+	var flee_position: Vector3 = global_transform.origin + flee_direction * flee_distance
+	
+	# Set the flee position as the target destination for the NavigationAgent3D
+	set_movement_target(flee_position)
+	
 func has_patrol() -> bool:
 	return is_instance_valid(pathFollow)
 	
@@ -84,21 +101,24 @@ func _on_velocity_computed(safe_velocity: Vector3):
 func _on_body_part_hit(dam):
 	health -= dam
 	if health <= 0:
-		if is_in_group("Bandits"):
-			GlobalVariables.entity_kill += 1
-			if GlobalVariables.entity_kill >= 3:
-				if GlobalVariables.quest_one == GlobalVariables.check_quest.KILL_RED_TWO:
-					GlobalVariables.quest_one = GlobalVariables.check_quest.TALK_FORESTIERS_ONE
-			else:
-				if GlobalVariables.quest_one == GlobalVariables.check_quest.KILL_RED_TWO:
-					GlobalVariables.quest_one = GlobalVariables.check_quest.KILL_RED_ONE
 		queue_free()
 		
 #endregion
 
 func _ready() -> void:
 	navigation_agent.velocity_computed.connect(Callable(_on_velocity_computed))
-	#choose_random_target()  # Choose an initial random target when the scene starts
+	
+	if affiliation == "Ally":
+		add_to_group("Ally")
+	elif affiliation == "Neutral":
+		add_to_group("Neutral")
+	elif affiliation == "Enemy":
+		add_to_group("Enemy")
+	else:
+		add_to_group("Not Defined")
+		
+	if not isFighter:
+		remove_child(get_node("Rifle"))
 
 func _physics_process(delta):
 	var next_path_position: Vector3 = navigation_agent.get_next_path_position()

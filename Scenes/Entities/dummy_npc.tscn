@@ -19,14 +19,13 @@ material = SubResource("StandardMaterial3D_vjwgl")
 [sub_resource type="SphereShape3D" id="SphereShape3D_7uus0"]
 radius = 20.0
 
-[node name="DummyNpc" type="CharacterBody3D" groups=["Good_Guy"]]
+[node name="DummyNpc" type="CharacterBody3D"]
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("1_3gf68")
 
-[node name="BhDummyNpc" parent="." node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("2_w8qba")]
-blackboard = NodePath("@Node@44915")
-actor = NodePath("..")
+[node name="BhDummyNpc" parent="." node_paths=PackedStringArray("blackboard") instance=ExtResource("2_w8qba")]
+blackboard = NodePath("@Node@26580")
 
 [node name="Rifle" parent="." instance=ExtResource("3_v7ts1")]
 transform = Transform3D(0.998628, -0.00174294, 0.052336, 0.00174533, 0.999998, 0, -0.0523359, 9.13434e-05, 0.998629, 0.712981, 0.469485, -0.312568)
@@ -37,7 +36,7 @@ mesh = SubResource("CapsuleMesh_a1haj")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_app87")
 
-[node name="DamageBodyArea" type="Area3D" parent="." groups=["Bandits"]]
+[node name="DamageBodyArea" type="Area3D" parent="." groups=["BodyArea"]]
 transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0, 0)
 script = ExtResource("3_ic6l5")
 damage = 20
@@ -55,5 +54,6 @@ script = ExtResource("3_p5dia")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Senses"]
 shape = SubResource("SphereShape3D_7uus0")
 
+[connection signal="body_part_hit" from="DamageBodyArea" to="." method="_on_body_part_hit"]
 [connection signal="body_entered" from="Senses" to="Senses" method="_on_body_entered"]
 [connection signal="body_exited" from="Senses" to="Senses" method="_on_body_exited"]

@@ -5,7 +5,7 @@ var angle_cone_of_vision := deg_to_rad(170.0)
 var max_view_distance := 20.0
 var angle_between_rays := deg_to_rad(3.3)
 
-@onready var npc : CharacterBody3D = get_parent()
+@onready var parent : CharacterBody3D = get_parent()
 
 @export var current_enemies : Array[CharacterBody3D] = []
 
@@ -41,7 +41,9 @@ func _physics_process(delta: float) -> void:
 	for ray in get_children():
 		if ray is RayCast3D and ray.is_colliding():
 			var collider = ray.get_collider()
-			if collider.is_in_group("Bad_Guy"):
+			if parent.is_in_group("Ally") and collider.is_in_group("Enemy"):
+				current_enemies.append(collider)
+			elif parent.is_in_group("Enemy") and collider.is_in_group("Ally"):
 				current_enemies.append(collider)
 			break
 			
@@ -81,8 +83,7 @@ func _on_body_entered(body):
 
 func _on_body_exited(body):
 	current_enemies.clear() #Needs to be fixed to only delete the enemy who exited the area
-
-	npc.enemy = null
-	npc.rotate_target = Vector3.ZERO
-	npc.rotate_node = null
+	parent.enemy = null
+	parent.rotate_target = Vector3.ZERO
+	parent.rotate_node = null
 	print("area exited by: ", body)

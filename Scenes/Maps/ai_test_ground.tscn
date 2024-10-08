@@ -1,8 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://dbetgfvmeocle"]
+[gd_scene load_steps=8 format=3 uid="uid://dbetgfvmeocle"]
 
 [ext_resource type="Script" path="res://Scripts/Maps/ai_test_ground.gd" id="1_1ngwb"]
 [ext_resource type="PackedScene" uid="uid://0bl3mef2ejy" path="res://Scenes/Entities/dummy_npc.tscn" id="1_gjq3n"]
-[ext_resource type="PackedScene" uid="uid://dorwjpdmjj12j" path="res://Scenes/Entities/dummy_npc_target_practice.tscn" id="2_wp0gs"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_s8lhk"]
 vertices = PackedVector3Array(-4.25, 1.25, 2, -3.25, 1.25, 3.5, -1.5, 1.25, 4.5, 2, 1.25, 4.25, 2, 1.25, 4.25, 3.5, 1.25, 3.25, 4.5, 1.25, 1.5, 4.5, 1.25, -1.5, 4.5, 1.25, -1.5, 3.25, 1.25, -3.5, 1.5, 1.25, -4.5, -1.5, 1.25, -4.5, -3.5, 1.25, -3.25, -4.5, 1.25, -1.5, 4.5, 1.25, -1.5, 1.5, 1.25, -4.5, -1.5, 1.25, -4.5, -4.5, 1.25, -1.5, -4.25, 1.25, 2, 2, 1.25, 4.25)
@@ -48,9 +47,12 @@ mesh = SubResource("CylinderMesh_c85ww")
 [node name="DummyNpc" parent="." node_paths=PackedStringArray("pathFollow") instance=ExtResource("1_gjq3n")]
 transform = Transform3D(-0.994345, 0, -0.106195, 0, 1, 0, 0.106195, 0, -0.994345, -0.142884, 2.03663, 0.616558)
 pathFollow = NodePath("../Path3D/PathFollow3D")
+affiliation = "Ally"
+isFighter = true
 
-[node name="TargetNpc" parent="." instance=ExtResource("2_wp0gs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.74248, 1.99646, 26.8069)
+[node name="DummyNpc2" parent="." instance=ExtResource("1_gjq3n")]
+transform = Transform3D(0.997169, 0, 0.0751879, 0, 1, 0, -0.0751879, 0, 0.997169, -0.142884, 2.03663, 13.2756)
+affiliation = "Enemy"
 
 [node name="Path3D" type="Path3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.437464, 1.724, 0.0874929)
@@ -61,4 +63,5 @@ transform = Transform3D(0.00696423, 0, -0.999976, 0, 1, 0, 0.999976, 0, 0.006964
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Path3D/PathFollow3D"]
 transform = Transform3D(2.12796, 0, -6.51926e-09, 0, 2.21725, 0, 7.45058e-09, 0, 2.01094, 0, 0, 0)
+visible = false
 material_override = SubResource("StandardMaterial3D_wtssc")
