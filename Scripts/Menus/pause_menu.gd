@@ -29,12 +29,27 @@ func on_exit_options_menu():
 	options_menu.hide()
 	resume_button.grab_focus()
 
+@rpc("any_peer", "call_local")
+func reset_all():
+	var players = get_tree().get_nodes_in_group("Player")
+	var cars = get_tree().get_nodes_in_group("Car")
+	for i in players:
+		i.queue_free()
+	for i in cars:
+		i.queue_free()
+	get_tree().change_scene_to_file("res://Scenes/Menus/main_menu.tscn")
+
 func _on_back_to_main_menu_button_down():
 	player.pauseMenu()
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	reset_all.rpc()
+	await get_tree().create_timer(2).timeout 
 	if multiplayer.has_multiplayer_peer():
 		multiplayer.multiplayer_peer.close()
-	get_tree().change_scene_to_file("res://Scenes/Menus/main_menu.tscn")
 
 func _on_exit_to_desktop_button_down():
+	reset_all.rpc()
+	await get_tree().create_timer(2).timeout 
+	if multiplayer.has_multiplayer_peer():
+		multiplayer.multiplayer_peer.close()
 	get_tree().quit()
