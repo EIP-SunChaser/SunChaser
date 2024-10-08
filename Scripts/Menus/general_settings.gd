@@ -11,7 +11,6 @@ extends Control
 @onready var fullscreen_option = $MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Display/Fullscreen/FullscreenOption
 @onready var vsync_check = $MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Display/VSync/VSyncCheck
 @onready var framerate_option = $MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Display/Framerate/FramerateOption
-@onready var reset_button: Button = $MarginContainer/VBoxContainer/ResetButton
 @onready var tab_container: TabContainer = $".."
 
 var is_fullscreen: bool = false
@@ -28,7 +27,8 @@ func _ready():
 
 func _on_visibility_changed():
 	if visible and get_tree().current_scene.name != "MainMenu":
-		resolution_option.grab_focus()
+		pass
+		tab_container.get_tab_bar().grab_focus()
 
 func apply_settings():
 	display_settings = ConfigFileHandler.load_display_settings()

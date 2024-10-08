@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://d1jrknar7m7ug" path="res://Assets/Images/Outbound Main Art No Logo.png" id="2_aekd0"]
 [ext_resource type="PackedScene" uid="uid://cpg5gc7d3x4xe" path="res://Scenes/Menus/settings_tab_container.tscn" id="3_go5hd"]
 
-[node name="options_menu" type="Control"]
+[node name="options_menu" type="Control" groups=["OptionsMenu"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -55,14 +55,26 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="ExitButton" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="VBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 8
-focus_neighbor_top = NodePath("../settings_tab_container/TabContainer/General/MarginContainer/VBoxContainer/ResetButton")
-focus_neighbor_bottom = NodePath("../settings_tab_container/TabContainer/General/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Display/Resolution/ResolutionOption")
-text = "Exit"
 
-[connection signal="button_down" from="MarginContainer/VBoxContainer/ExitButton" to="." method="_on_exit_button_button_down"]
+[node name="ResetButton" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Reset to default"
+
+[node name="ExitButton" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+text = "Save & Exit"
+
+[connection signal="button_down" from="MarginContainer/VBoxContainer/VBoxContainer/ResetButton" to="." method="_on_reset_button_button_down"]
+[connection signal="focus_entered" from="MarginContainer/VBoxContainer/VBoxContainer/ResetButton" to="." method="_on_button_focus_entered"]
+[connection signal="focus_exited" from="MarginContainer/VBoxContainer/VBoxContainer/ResetButton" to="." method="_on_button_focus_exited"]
+[connection signal="button_down" from="MarginContainer/VBoxContainer/VBoxContainer/ExitButton" to="." method="_on_exit_button_button_down"]
+[connection signal="focus_entered" from="MarginContainer/VBoxContainer/VBoxContainer/ExitButton" to="." method="_on_button_focus_entered"]
+[connection signal="focus_exited" from="MarginContainer/VBoxContainer/VBoxContainer/ExitButton" to="." method="_on_button_focus_exited"]
 
 [editable path="MarginContainer/VBoxContainer/settings_tab_container"]
 [editable path="MarginContainer/VBoxContainer/settings_tab_container/TabContainer/General"]
