@@ -5,7 +5,7 @@
 [ext_resource type="Terrain3DStorage" uid="uid://boxnardws6d6f" path="res://Ressources/Maps/ai_test_ground.res" id="2_33bnw"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_s8lhk"]
-vertices = PackedVector3Array(-70.5705, 0.25025, -71.071, -70.5705, 0.25025, -60.8108, -60.06, 0.25025, -60.8108, -60.06, 0.25025, -71.071)
+vertices = PackedVector3Array(-70.5705, 0.25025, -71.071, -70.5705, 0.25025, -61.061, -60.3103, 0.25025, -61.061, -60.3103, 0.25025, -71.071)
 polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
 
 [sub_resource type="Gradient" id="Gradient_h0yim"]
@@ -122,7 +122,7 @@ affiliation = "Enemy"
 isFighter = true
 
 [node name="Path3D" type="Path3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.437464, 1.724, 0.0874929)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -512.174, 1.724, -548.932)
 curve = SubResource("Curve3D_5e67a")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
