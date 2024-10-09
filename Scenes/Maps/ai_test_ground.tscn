@@ -103,21 +103,6 @@ assets = SubResource("Terrain3DAssets_s0eob")
 transform = Transform3D(-0.994345, 0, -0.106195, 0, 1, 0, 0.106195, 0, -0.994345, -465.787, 2.03663, -545.896)
 health = 10000
 pathFollow = NodePath("../Path3D/PathFollow3D")
-affiliation = "Ally"
-isFighter = true
-
-[node name="DummyNpc2" parent="." instance=ExtResource("1_gjq3n")]
-transform = Transform3D(0.997169, 0, 0.0751879, 0, 1, 0, -0.0751879, 0, 0.997169, -463.136, 2.03663, -538.252)
-affiliation = "Enemy"
-isFighter = true
-
-[node name="DummyNpc3" parent="." instance=ExtResource("1_gjq3n")]
-transform = Transform3D(0.997169, 0, 0.0751879, 0, 1, 0, -0.0751879, 0, 0.997169, -465.787, 2.03663, -539.754)
-affiliation = "Enemy"
-isFighter = true
-
-[node name="DummyNpc4" parent="." instance=ExtResource("1_gjq3n")]
-transform = Transform3D(0.997169, 0, 0.0751879, 0, 1, 0, -0.0751879, 0, 0.997169, -491.574, 2.03663, -539.754)
 affiliation = "Enemy"
 isFighter = true
 

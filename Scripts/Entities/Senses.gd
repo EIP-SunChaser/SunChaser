@@ -46,7 +46,7 @@ func _physics_process(delta: float) -> void:
 			if parent.is_in_group("Ally") and collider.is_in_group("Enemy"):
 				if collider not in current_enemies:
 					current_enemies.append(collider)
-			elif parent.is_in_group("Enemy") and collider.is_in_group("Ally"):
+			elif parent.is_in_group("Enemy") and (collider.is_in_group("Ally") or collider.is_in_group("Players")):
 				if collider not in current_enemies:
 					current_enemies.append(collider)
 			break

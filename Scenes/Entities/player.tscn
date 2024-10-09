@@ -224,7 +224,7 @@ material_override = SubResource("StandardMaterial3D_e6ydu")
 mesh = SubResource("CapsuleMesh_sbrlq")
 skeleton = NodePath("../..")
 
-[node name="DamageArea3D" type="Area3D" parent="." groups=["Players"]]
+[node name="DamageArea3D" type="Area3D" parent="." groups=["BodyArea", "Players"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 script = ExtResource("2_cnrj0")
 damage = 20
