@@ -25,7 +25,7 @@ collision_mask = 3
 script = ExtResource("1_3gf68")
 
 [node name="BhDummyNpc" parent="." node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("2_w8qba")]
-blackboard = NodePath("@Node@27417")
+blackboard = NodePath("@Node@21219")
 actor = NodePath("..")
 
 [node name="Rifle" parent="." instance=ExtResource("3_v7ts1")]

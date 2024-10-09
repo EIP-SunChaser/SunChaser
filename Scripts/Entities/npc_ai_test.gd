@@ -90,6 +90,9 @@ func is_at_destination():
 
 func set_movement_target(movement_target: Vector3):
 	navigation_agent.set_target_position(movement_target)
+
+func stop_movement():
+	navigation_agent.set_target_position(global_position)
 	
 func _on_velocity_computed(safe_velocity: Vector3):
 	velocity = safe_velocity

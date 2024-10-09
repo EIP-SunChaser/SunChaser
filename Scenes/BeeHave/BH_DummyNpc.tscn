@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dnhmojsk8ks3y"]
+[gd_scene load_steps=20 format=3 uid="uid://dnhmojsk8ks3y"]
 
 [ext_resource type="Script" path="res://addons/beehave/nodes/beehave_tree.gd" id="1_e8iqe"]
 [ext_resource type="Script" path="res://addons/beehave/nodes/composites/selector_reactive.gd" id="2_b4sp2"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" path="res://addons/beehave/nodes/decorators/time_limiter.gd" id="8_rpw87"]
 [ext_resource type="Script" path="res://Scripts/BeeHave/HasPatrol.gd" id="9_bwc8v"]
 [ext_resource type="Script" path="res://Scripts/BeeHave/IsArrived.gd" id="9_cl0rb"]
+[ext_resource type="Script" path="res://Scripts/BeeHave/StopMovement.gd" id="9_wgq4g"]
 [ext_resource type="Script" path="res://Scenes/BeeHave/IsAtPatrol.gd" id="10_cyvrt"]
 [ext_resource type="Script" path="res://addons/beehave/nodes/composites/selector.gd" id="10_dm3ow"]
 [ext_resource type="Script" path="res://Scripts/BeeHave/IncrementPatrol.gd" id="11_wxc4n"]
@@ -21,7 +22,7 @@
 
 [node name="BhDummyNpc" type="Node" node_paths=PackedStringArray("blackboard", "actor")]
 script = ExtResource("1_e8iqe")
-blackboard = NodePath("@Node@18322")
+blackboard = NodePath("@Node@18325")
 actor = NodePath("..")
 
 [node name="SelectorReactiveComposite" type="Node" parent="."]
@@ -53,6 +54,9 @@ script = ExtResource("4_nbya8")
 
 [node name="LookAtEnemy" type="Node" parent="SelectorReactiveComposite/Combat/SelectorComposite/Fight"]
 script = ExtResource("5_xtvxo")
+
+[node name="StopMovement" type="Node" parent="SelectorReactiveComposite/Combat/SelectorComposite/Fight"]
+script = ExtResource("9_wgq4g")
 
 [node name="Shoot" type="Node" parent="SelectorReactiveComposite/Combat/SelectorComposite/Fight"]
 script = ExtResource("3_ha5tv")
