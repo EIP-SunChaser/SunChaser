@@ -25,4 +25,3 @@ func play_shoot_effects():
 		spawnNewBullet()
 		#instance.get_node("AudioStreamPlayer3D").play() 			#needs to add 3D sound in the world
 		playShootingAnimation()
-

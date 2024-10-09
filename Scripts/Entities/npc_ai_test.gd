@@ -137,4 +137,3 @@ func _physics_process(delta):
 		navigation_agent.set_velocity(new_velocity)
 	else:
 		_on_velocity_computed(new_velocity)
-

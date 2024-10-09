@@ -53,13 +53,16 @@ isFighter = true
 
 [node name="DummyNpc2" parent="." instance=ExtResource("1_gjq3n")]
 transform = Transform3D(0.997169, 0, 0.0751879, 0, 1, 0, -0.0751879, 0, 0.997169, 2.5076, 2.03663, 8.26029)
-health = 10000
 affiliation = "Enemy"
 isFighter = true
 
 [node name="DummyNpc3" parent="." instance=ExtResource("1_gjq3n")]
 transform = Transform3D(0.997169, 0, 0.0751879, 0, 1, 0, -0.0751879, 0, 0.997169, -0.142884, 2.03663, 6.75836)
-health = 10000
+affiliation = "Enemy"
+isFighter = true
+
+[node name="DummyNpc4" parent="." instance=ExtResource("1_gjq3n")]
+transform = Transform3D(0.997169, 0, 0.0751879, 0, 1, 0, -0.0751879, 0, 0.997169, -25.9302, 2.03663, 6.75836)
 affiliation = "Enemy"
 isFighter = true
 
