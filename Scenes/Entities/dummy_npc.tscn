@@ -24,8 +24,9 @@ collision_layer = 3
 collision_mask = 3
 script = ExtResource("1_3gf68")
 
-[node name="BhDummyNpc" parent="." node_paths=PackedStringArray("blackboard") instance=ExtResource("2_w8qba")]
-blackboard = NodePath("@Node@26580")
+[node name="BhDummyNpc" parent="." node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("2_w8qba")]
+blackboard = NodePath("@Node@27417")
+actor = NodePath("..")
 
 [node name="Rifle" parent="." instance=ExtResource("3_v7ts1")]
 transform = Transform3D(0.998628, -0.00174294, 0.052336, 0.00174533, 0.999998, 0, -0.0523359, 9.13434e-05, 0.998629, 0.712981, 0.469485, -0.312568)

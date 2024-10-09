@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-var health = 100
+@export var health = 100
 
 @onready var senses = $Senses
 @onready var rifle = $Rifle

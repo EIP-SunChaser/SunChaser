@@ -41,10 +41,14 @@ func _physics_process(delta: float) -> void:
 	for ray in get_children():
 		if ray is RayCast3D and ray.is_colliding():
 			var collider = ray.get_collider()
+			if parent == null or collider == null:
+				return  # Stop execution if parent is null
 			if parent.is_in_group("Ally") and collider.is_in_group("Enemy"):
-				current_enemies.append(collider)
+				if collider not in current_enemies:
+					current_enemies.append(collider)
 			elif parent.is_in_group("Enemy") and collider.is_in_group("Ally"):
-				current_enemies.append(collider)
+				if collider not in current_enemies:
+					current_enemies.append(collider)
 			break
 			
 func has_enemies() -> bool:
@@ -82,8 +86,7 @@ func _on_body_entered(body):
 	pass #In future optimisation will activate senses only if there is something to see
 
 func _on_body_exited(body):
-	current_enemies.clear() #Needs to be fixed to only delete the enemy who exited the area
+	current_enemies.erase(body)
 	parent.enemy = null
 	parent.rotate_target = Vector3.ZERO
 	parent.rotate_node = null
-	print("area exited by: ", body)

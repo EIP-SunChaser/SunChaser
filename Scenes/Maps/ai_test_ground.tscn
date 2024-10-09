@@ -46,13 +46,22 @@ mesh = SubResource("CylinderMesh_c85ww")
 
 [node name="DummyNpc" parent="." node_paths=PackedStringArray("pathFollow") instance=ExtResource("1_gjq3n")]
 transform = Transform3D(-0.994345, 0, -0.106195, 0, 1, 0, 0.106195, 0, -0.994345, -0.142884, 2.03663, 0.616558)
+health = 10000
 pathFollow = NodePath("../Path3D/PathFollow3D")
 affiliation = "Ally"
 isFighter = true
 
 [node name="DummyNpc2" parent="." instance=ExtResource("1_gjq3n")]
-transform = Transform3D(0.997169, 0, 0.0751879, 0, 1, 0, -0.0751879, 0, 0.997169, -0.142884, 2.03663, 13.2756)
+transform = Transform3D(0.997169, 0, 0.0751879, 0, 1, 0, -0.0751879, 0, 0.997169, 2.5076, 2.03663, 8.26029)
+health = 10000
 affiliation = "Enemy"
+isFighter = true
+
+[node name="DummyNpc3" parent="." instance=ExtResource("1_gjq3n")]
+transform = Transform3D(0.997169, 0, 0.0751879, 0, 1, 0, -0.0751879, 0, 0.997169, -0.142884, 2.03663, 6.75836)
+health = 10000
+affiliation = "Enemy"
+isFighter = true
 
 [node name="Path3D" type="Path3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.437464, 1.724, 0.0874929)
