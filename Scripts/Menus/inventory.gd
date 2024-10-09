@@ -1,8 +1,18 @@
-extends Control
+extends Resource
 
-var player: CharacterBody3D
+class_name Inv
 
-func _ready():
-	hide()
-	process_mode = Node.PROCESS_MODE_ALWAYS
-	player = get_parent()
+signal update
+
+@export var slots: Array[InvSlot]
+
+func insert(item: InvItem):
+	var itemslots = slots.filter(func(slot): return slot.item == item)
+	if !itemslots.is_empty():
+		itemslots[0].amount += 1
+	else:
+		var emptyslots = slots.filter(func(slot): return slot.item == null)
+		if !emptyslots.is_empty():
+			emptyslots[0].item = item
+			emptyslots[0].amount = 1
+	update.emit()

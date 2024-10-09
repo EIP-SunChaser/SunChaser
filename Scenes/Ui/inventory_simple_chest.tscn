@@ -1,0 +1,51 @@
+[gd_scene load_steps=4 format=3 uid="uid://6mh3lxflyn2m"]
+
+[ext_resource type="Script" path="res://Scripts/Ui/invemtory_chest_gui.gd" id="1_lkrm0"]
+[ext_resource type="Texture2D" uid="uid://jnmn5g651nti" path="res://Assets/Textures/Menu/back_inv.png" id="3_tpa66"]
+[ext_resource type="PackedScene" uid="uid://wfufsnyatbuh" path="res://Scenes/Ui/slot_gui.tscn" id="4_btq0e"]
+
+[node name="inventory_simple_chest_gui" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+scale = Vector2(5, 5)
+script = ExtResource("1_lkrm0")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 1
+offset_right = 66.0
+offset_bottom = 14.0
+texture = ExtResource("3_tpa66")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="GridContainer" type="GridContainer" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.0
+offset_top = -4.0
+offset_right = 28.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 5
+
+[node name="slot_gui1" parent="NinePatchRect/GridContainer" instance=ExtResource("4_btq0e")]
+layout_mode = 2
+
+[node name="slot_gui2" parent="NinePatchRect/GridContainer" instance=ExtResource("4_btq0e")]
+layout_mode = 2
+
+[node name="slot_gui3" parent="NinePatchRect/GridContainer" instance=ExtResource("4_btq0e")]
+layout_mode = 2
+
+[node name="slot_gui4" parent="NinePatchRect/GridContainer" instance=ExtResource("4_btq0e")]
+layout_mode = 2
+
+[node name="slot_gui5" parent="NinePatchRect/GridContainer" instance=ExtResource("4_btq0e")]
+layout_mode = 2

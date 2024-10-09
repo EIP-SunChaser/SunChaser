@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://ureeybc23app"]
+
+[ext_resource type="Script" path="res://Scripts/Items/collectable.gd" id="1_x2jvp"]
+[ext_resource type="Resource" uid="uid://bjw0518pk6hrv" path="res://Ressources/Items/apple.tres" id="2_on0mp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r1scn"]
+albedo_color = Color(0.85098, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_fj38e"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g4fmo"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c6gut"]
+
+[node name="Apple" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+material_override = SubResource("StandardMaterial3D_r1scn")
+mesh = SubResource("BoxMesh_fj38e")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_g4fmo")
+
+[node name="Area3D" type="Area3D" parent="."]
+script = ExtResource("1_x2jvp")
+item_res = ExtResource("2_on0mp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_c6gut")

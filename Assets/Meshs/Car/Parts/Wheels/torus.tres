@@ -1,0 +1,26 @@
+[gd_resource type="TorusMesh" load_steps=6 format=3 uid="uid://6a6ai35c38c7"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_833o3"]
+frequency = 0.006
+offset = Vector3(978.72, 0, 0)
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_os4bg"]
+seamless = true
+seamless_blend_skirt = 0.356
+noise = SubResource("FastNoiseLite_833o3")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_qwqtk"]
+frequency = 0.0603
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_j4ckb"]
+noise = SubResource("FastNoiseLite_qwqtk")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dqdr2"]
+albedo_texture = SubResource("NoiseTexture2D_os4bg")
+refraction_texture = SubResource("NoiseTexture2D_j4ckb")
+grow_amount = -0.34
+
+[resource]
+material = SubResource("StandardMaterial3D_dqdr2")
+inner_radius = 0.115
+outer_radius = 0.5

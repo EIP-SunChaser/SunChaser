@@ -1,0 +1,37 @@
+[gd_scene load_steps=8 format=3 uid="uid://ygtxrh30iwc"]
+
+[ext_resource type="Script" path="res://Scripts/Items/simple_chest_interact.gd" id="1_1usp2"]
+[ext_resource type="PackedScene" uid="uid://6mh3lxflyn2m" path="res://Scenes/Ui/inventory_simple_chest.tscn" id="1_jc8ag"]
+[ext_resource type="Resource" uid="uid://ctbkxgv8thu4k" path="res://Ressources/simple_chest_inventory.tres" id="2_ahogd"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8enf5"]
+albedo_color = Color(0.513711, 0.197847, 1.44392e-07, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_c11p7"]
+material = SubResource("StandardMaterial3D_8enf5")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ong55"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tybio"]
+
+[node name="chest" type="StaticBody3D"]
+
+[node name="inventory_simple_chest_gui" parent="." instance=ExtResource("1_jc8ag")]
+offset_top = 200.0
+offset_bottom = 200.0
+inv = ExtResource("2_ahogd")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_c11p7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_ong55")
+
+[node name="Area3D" type="Area3D" parent="."]
+script = ExtResource("1_1usp2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_tybio")
