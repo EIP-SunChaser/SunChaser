@@ -2,7 +2,11 @@
 
 [ext_resource type="Script" path="res://Scripts/Maps/ai_test_ground.gd" id="1_1ngwb"]
 [ext_resource type="PackedScene" uid="uid://0bl3mef2ejy" path="res://Scenes/Entities/dummy_npc.tscn" id="1_gjq3n"]
-[ext_resource type="Terrain3DStorage" uid="uid://bwvfm06du1o2f" path="res://Ressources/Maps/ai_test_ground.res" id="2_33bnw"]
+[ext_resource type="Terrain3DStorage" uid="uid://boxnardws6d6f" path="res://Ressources/Maps/ai_test_ground.res" id="2_33bnw"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_s8lhk"]
+vertices = PackedVector3Array(-70.5705, 0.25025, -71.071, -70.5705, 0.25025, -60.8108, -60.06, 0.25025, -60.8108, -60.06, 0.25025, -71.071)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
 
 [sub_resource type="Gradient" id="Gradient_h0yim"]
 offsets = PackedFloat32Array(0.2, 1)
@@ -49,6 +53,7 @@ _shader_parameters = {
 }
 world_background = 2
 show_checkered = true
+show_navigation = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nvbrh"]
 cull_mode = 2
@@ -64,8 +69,6 @@ generated_type = 1
 
 [sub_resource type="Terrain3DAssets" id="Terrain3DAssets_s0eob"]
 mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_5ospg")])
-
-[sub_resource type="NavigationMesh" id="NavigationMesh_s8lhk"]
 
 [sub_resource type="Curve3D" id="Curve3D_5e67a"]
 _data = {
@@ -87,34 +90,34 @@ current = true
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.442758, 0.896641, 0, -0.896641, 0.442758, 0, 0, 0)
 
-[node name="Terrain3D" type="Terrain3D" parent="."]
-storage = ExtResource("2_33bnw")
-material = SubResource("Terrain3DMaterial_hijs7")
-assets = SubResource("Terrain3DAssets_s0eob")
-
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 transform = Transform3D(7.45161, 0, 0, 0, 0.999282, 0, 0, 0, 7.88921, 0, 0, 0)
 navigation_mesh = SubResource("NavigationMesh_s8lhk")
 
+[node name="Terrain3D" type="Terrain3D" parent="NavigationRegion3D"]
+storage = ExtResource("2_33bnw")
+material = SubResource("Terrain3DMaterial_hijs7")
+assets = SubResource("Terrain3DAssets_s0eob")
+
 [node name="DummyNpc" parent="." node_paths=PackedStringArray("pathFollow") instance=ExtResource("1_gjq3n")]
-transform = Transform3D(-0.994345, 0, -0.106195, 0, 1, 0, 0.106195, 0, -0.994345, -0.142884, 2.03663, 0.616558)
+transform = Transform3D(-0.994345, 0, -0.106195, 0, 1, 0, 0.106195, 0, -0.994345, -465.787, 2.03663, -545.896)
 health = 10000
 pathFollow = NodePath("../Path3D/PathFollow3D")
 affiliation = "Ally"
 isFighter = true
 
 [node name="DummyNpc2" parent="." instance=ExtResource("1_gjq3n")]
-transform = Transform3D(0.997169, 0, 0.0751879, 0, 1, 0, -0.0751879, 0, 0.997169, 2.5076, 2.03663, 8.26029)
+transform = Transform3D(0.997169, 0, 0.0751879, 0, 1, 0, -0.0751879, 0, 0.997169, -463.136, 2.03663, -538.252)
 affiliation = "Enemy"
 isFighter = true
 
 [node name="DummyNpc3" parent="." instance=ExtResource("1_gjq3n")]
-transform = Transform3D(0.997169, 0, 0.0751879, 0, 1, 0, -0.0751879, 0, 0.997169, -0.142884, 2.03663, 6.75836)
+transform = Transform3D(0.997169, 0, 0.0751879, 0, 1, 0, -0.0751879, 0, 0.997169, -465.787, 2.03663, -539.754)
 affiliation = "Enemy"
 isFighter = true
 
 [node name="DummyNpc4" parent="." instance=ExtResource("1_gjq3n")]
-transform = Transform3D(0.997169, 0, 0.0751879, 0, 1, 0, -0.0751879, 0, 0.997169, -25.9302, 2.03663, 6.75836)
+transform = Transform3D(0.997169, 0, 0.0751879, 0, 1, 0, -0.0751879, 0, 0.997169, -491.574, 2.03663, -539.754)
 affiliation = "Enemy"
 isFighter = true
 
