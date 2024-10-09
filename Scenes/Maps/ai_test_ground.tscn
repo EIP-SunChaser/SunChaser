@@ -1,15 +1,71 @@
-[gd_scene load_steps=8 format=3 uid="uid://dbetgfvmeocle"]
+[gd_scene load_steps=14 format=3 uid="uid://dbetgfvmeocle"]
 
 [ext_resource type="Script" path="res://Scripts/Maps/ai_test_ground.gd" id="1_1ngwb"]
 [ext_resource type="PackedScene" uid="uid://0bl3mef2ejy" path="res://Scenes/Entities/dummy_npc.tscn" id="1_gjq3n"]
+[ext_resource type="Terrain3DStorage" uid="uid://bwvfm06du1o2f" path="res://Ressources/Maps/ai_test_ground.res" id="2_33bnw"]
+
+[sub_resource type="Gradient" id="Gradient_h0yim"]
+offsets = PackedFloat32Array(0.2, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_dpfaj"]
+noise_type = 2
+frequency = 0.03
+cellular_jitter = 3.0
+cellular_return_type = 0
+domain_warp_enabled = true
+domain_warp_type = 1
+domain_warp_amplitude = 50.0
+domain_warp_fractal_type = 2
+domain_warp_fractal_lacunarity = 1.5
+domain_warp_fractal_gain = 1.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_vwfbk"]
+seamless = true
+color_ramp = SubResource("Gradient_h0yim")
+noise = SubResource("FastNoiseLite_dpfaj")
+
+[sub_resource type="Terrain3DMaterial" id="Terrain3DMaterial_hijs7"]
+_shader_parameters = {
+"blend_sharpness": 0.87,
+"height_blending": true,
+"macro_variation1": Color(1, 1, 1, 1),
+"macro_variation2": Color(1, 1, 1, 1),
+"noise1_angle": 0.0,
+"noise1_offset": Vector2(0.5, 0.5),
+"noise1_scale": 0.04,
+"noise2_scale": 0.076,
+"noise3_scale": 0.225,
+"noise_texture": SubResource("NoiseTexture2D_vwfbk"),
+"vertex_normals_distance": 128.0,
+"world_noise_blend_far": 1.0,
+"world_noise_blend_near": 0.5,
+"world_noise_height": 64.0,
+"world_noise_lod_distance": 7500.0,
+"world_noise_max_octaves": 4,
+"world_noise_min_octaves": 2,
+"world_noise_offset": Vector3(0, 0, 0),
+"world_noise_scale": 5.0
+}
+world_background = 2
+show_checkered = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nvbrh"]
+cull_mode = 2
+vertex_color_use_as_albedo = true
+backlight_enabled = true
+backlight = Color(0.5, 0.5, 0.5, 1)
+
+[sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_5ospg"]
+height_offset = 0.5
+density = 10.0
+material_override = SubResource("StandardMaterial3D_nvbrh")
+generated_type = 1
+
+[sub_resource type="Terrain3DAssets" id="Terrain3DAssets_s0eob"]
+mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_5ospg")])
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_s8lhk"]
-vertices = PackedVector3Array(-4.25, 1.25, 2, -3.25, 1.25, 3.5, -1.5, 1.25, 4.5, 2, 1.25, 4.25, 2, 1.25, 4.25, 3.5, 1.25, 3.25, 4.5, 1.25, 1.5, 4.5, 1.25, -1.5, 4.5, 1.25, -1.5, 3.25, 1.25, -3.5, 1.5, 1.25, -4.5, -1.5, 1.25, -4.5, -3.5, 1.25, -3.25, -4.5, 1.25, -1.5, 4.5, 1.25, -1.5, 1.5, 1.25, -4.5, -1.5, 1.25, -4.5, -4.5, 1.25, -1.5, -4.25, 1.25, 2, 2, 1.25, 4.25)
-polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(5, 4, 6), PackedInt32Array(6, 4, 7), PackedInt32Array(10, 9, 8), PackedInt32Array(13, 12, 11), PackedInt32Array(15, 14, 16), PackedInt32Array(16, 14, 17), PackedInt32Array(17, 14, 18), PackedInt32Array(18, 14, 19)]
-
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_obybj"]
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_c85ww"]
 
 [sub_resource type="Curve3D" id="Curve3D_5e67a"]
 _data = {
@@ -31,18 +87,14 @@ current = true
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.442758, 0.896641, 0, -0.896641, 0.442758, 0, 0, 0)
 
+[node name="Terrain3D" type="Terrain3D" parent="."]
+storage = ExtResource("2_33bnw")
+material = SubResource("Terrain3DMaterial_hijs7")
+assets = SubResource("Terrain3DAssets_s0eob")
+
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 transform = Transform3D(7.45161, 0, 0, 0, 0.999282, 0, 0, 0, 7.88921, 0, 0, 0)
 navigation_mesh = SubResource("NavigationMesh_s8lhk")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D"]
-transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/StaticBody3D"]
-shape = SubResource("CylinderShape3D_obybj")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/StaticBody3D"]
-mesh = SubResource("CylinderMesh_c85ww")
 
 [node name="DummyNpc" parent="." node_paths=PackedStringArray("pathFollow") instance=ExtResource("1_gjq3n")]
 transform = Transform3D(-0.994345, 0, -0.106195, 0, 1, 0, 0.106195, 0, -0.994345, -0.142884, 2.03663, 0.616558)

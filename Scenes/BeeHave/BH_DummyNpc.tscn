@@ -22,7 +22,7 @@
 
 [node name="BhDummyNpc" type="Node" node_paths=PackedStringArray("blackboard", "actor")]
 script = ExtResource("1_e8iqe")
-blackboard = NodePath("@Node@18297")
+blackboard = NodePath("@Node@18308")
 actor = NodePath("")
 
 [node name="SelectorReactiveComposite" type="Node" parent="."]
