@@ -39,7 +39,7 @@ func look_in_direction(target_position: Vector3, delta: float) -> void:
 		# Get the current rotation as a basis
 		var current_basis: Basis = basis
 		# Create a new transform looking at the target direction
-		var target_basis: Basis = Basis().looking_at(direction, Vector3.UP)
+		var target_basis: Basis = Basis.looking_at(direction, Vector3.UP)
 		
 		# Use slerp to interpolate between current and target rotation smoothly
 		basis = current_basis.slerp(target_basis, rotation_speed * delta)

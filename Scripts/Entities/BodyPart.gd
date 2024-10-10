@@ -5,4 +5,4 @@ extends Area3D
 signal body_part_hit(dam)
 
 func hit():
-	emit_signal("body_part_hit", damage)
+	body_part_hit.emit(damage)

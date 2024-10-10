@@ -33,7 +33,7 @@ func generate_raycasts() -> void:
 		add_child(ray)
 		ray.enabled = true
 		
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	var bodies : Array[Node3D] = self.get_overlapping_bodies()
 	
 	if bodies.size() <= 1:
@@ -82,7 +82,7 @@ func has_los(target : Vector3) -> bool:
 		raycast.enabled = false
 		return true
 
-func _on_body_entered(body):
+func _on_body_entered(_body):
 	pass #In future optimisation will activate senses only if there is something to see
 
 func _on_body_exited(body):
