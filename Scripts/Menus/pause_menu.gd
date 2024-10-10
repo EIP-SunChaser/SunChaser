@@ -37,19 +37,20 @@ func reset_all():
 		i.queue_free()
 	for i in cars:
 		i.queue_free()
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	get_tree().change_scene_to_file("res://Scenes/Menus/main_menu.tscn")
+	await get_tree().create_timer(0.1).timeout 
+	if multiplayer.has_multiplayer_peer():
+		multiplayer.multiplayer_peer.close()
 
 func _on_back_to_main_menu_button_down():
 	player.pauseMenu()
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	reset_all.rpc()
-	await get_tree().create_timer(2).timeout 
-	if multiplayer.has_multiplayer_peer():
-		multiplayer.multiplayer_peer.close()
+	if multiplayer.is_server():
+		reset_all.rpc()
+	else:
+		get_tree().change_scene_to_file("res://Scenes/Menus/main_menu.tscn")
 
 func _on_exit_to_desktop_button_down():
-	reset_all.rpc()
-	await get_tree().create_timer(2).timeout 
-	if multiplayer.has_multiplayer_peer():
-		multiplayer.multiplayer_peer.close()
+	if multiplayer.is_server():
+		reset_all.rpc()
 	get_tree().quit()
