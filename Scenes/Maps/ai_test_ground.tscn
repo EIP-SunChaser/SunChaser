@@ -1,8 +1,17 @@
-[gd_scene load_steps=14 format=3 uid="uid://dbetgfvmeocle"]
+[gd_scene load_steps=16 format=3 uid="uid://dbetgfvmeocle"]
 
 [ext_resource type="Script" path="res://Scripts/Maps/ai_test_ground.gd" id="1_1ngwb"]
 [ext_resource type="PackedScene" uid="uid://0bl3mef2ejy" path="res://Scenes/Entities/dummy_npc.tscn" id="1_gjq3n"]
 [ext_resource type="Terrain3DStorage" uid="uid://boxnardws6d6f" path="res://Ressources/Maps/ai_test_ground.res" id="2_33bnw"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_yatfc"]
+
+[sub_resource type="Sky" id="Sky_8cjor"]
+sky_material = SubResource("ProceduralSkyMaterial_yatfc")
+
+[sub_resource type="Environment" id="Environment_ysty5"]
+background_mode = 2
+sky = SubResource("Sky_8cjor")
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_s8lhk"]
 vertices = PackedVector3Array(-70.5705, 0.25025, -71.071, -70.5705, 0.25025, -61.061, -60.3103, 0.25025, -61.061, -60.3103, 0.25025, -71.071)
@@ -77,18 +86,18 @@ _data = {
 }
 point_count = 5
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wtssc"]
-albedo_color = Color(1, 1, 0, 1)
-
 [node name="AI_Test_Ground" type="Node3D"]
 script = ExtResource("1_1ngwb")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ysty5")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.442758, 0.896641, 0, -0.896641, 0.442758, 0, 0, 0)
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-0.0328133, 0.743053, -0.668428, 0.0174545, 0.669112, 0.742957, 0.999309, 0.0127118, -0.0349254, -17.9626, 23.8568, -4.92633)
 current = true
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.442758, 0.896641, 0, -0.896641, 0.442758, 0, 0, 0)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 transform = Transform3D(7.45161, 0, 0, 0, 0.999282, 0, 0, 0, 7.88921, 0, 0, 0)
@@ -113,7 +122,17 @@ curve = SubResource("Curve3D_5e67a")
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
 transform = Transform3D(0.00696423, 0, -0.999976, 0, 1, 0, 0.999976, 0, 0.00696423, -6, 0.276003, -6)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="Path3D/PathFollow3D"]
-transform = Transform3D(2.12796, 0, -6.51926e-09, 0, 2.21725, 0, 7.45058e-09, 0, 2.01094, 0, 0, 0)
-visible = false
-material_override = SubResource("StandardMaterial3D_wtssc")
+[node name="SpawnLocations" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -555, 0, -550)
+
+[node name="0" type="Node3D" parent="SpawnLocations" groups=["SpawnPoints"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0.5, 0)
+
+[node name="1" type="Node3D" parent="SpawnLocations" groups=["SpawnPoints"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.755, 2.6, 0)
+
+[node name="2" type="Node3D" parent="SpawnLocations" groups=["SpawnPoints"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.9, 3.8, 0)
+
+[node name="3" type="Node3D" parent="SpawnLocations" groups=["SpawnPoints"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.755, 0.5, -5.5)
