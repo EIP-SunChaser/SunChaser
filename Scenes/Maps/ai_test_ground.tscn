@@ -6,12 +6,12 @@
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_yatfc"]
 
-[sub_resource type="Sky" id="Sky_8cjor"]
+[sub_resource type="Sky" id="Sky_u3gox"]
 sky_material = SubResource("ProceduralSkyMaterial_yatfc")
 
 [sub_resource type="Environment" id="Environment_ysty5"]
 background_mode = 2
-sky = SubResource("Sky_8cjor")
+sky = SubResource("Sky_u3gox")
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_s8lhk"]
 vertices = PackedVector3Array(-70.5705, 0.25025, -71.071, -70.5705, 0.25025, -61.061, -60.3103, 0.25025, -61.061, -60.3103, 0.25025, -71.071)
@@ -50,19 +50,9 @@ _shader_parameters = {
 "noise2_scale": 0.076,
 "noise3_scale": 0.225,
 "noise_texture": SubResource("NoiseTexture2D_vwfbk"),
-"vertex_normals_distance": 128.0,
-"world_noise_blend_far": 1.0,
-"world_noise_blend_near": 0.5,
-"world_noise_height": 64.0,
-"world_noise_lod_distance": 7500.0,
-"world_noise_max_octaves": 4,
-"world_noise_min_octaves": 2,
-"world_noise_offset": Vector3(0, 0, 0),
-"world_noise_scale": 5.0
+"vertex_normals_distance": 128.0
 }
-world_background = 2
 show_checkered = true
-show_navigation = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nvbrh"]
 cull_mode = 2

@@ -10,7 +10,7 @@ extends Control
 @onready var ip_address = $MenuUI/BoxContainer/VBoxContainer2/IP_Address
 @onready var host = $MenuUI/BoxContainer/VBoxContainer/Host
 @onready var upnp_checkbox = $MenuUI/BoxContainer/VBoxContainer/Host/upnp
-@export var world_scene = "res://Scenes/Maps/ai_test_ground.tscn"
+@export var world_scene = "res://Scenes/Maps/beta_map.tscn"
 
 var scene_load_status = 0
 var action = ""
