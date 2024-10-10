@@ -16,7 +16,7 @@ var tips = [
 func _ready() -> void:
 	select_random_tip()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 func select_random_tip() -> void:

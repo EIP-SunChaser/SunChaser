@@ -1,0 +1,115 @@
+[gd_scene load_steps=11 format=3 uid="uid://cmqmqfxmskhkf"]
+
+[ext_resource type="Terrain3DStorage" uid="uid://bpbaq873efita" path="res://Scenes/Maps/beta_map.res" id="1_h0e1s"]
+[ext_resource type="Terrain3DMaterial" uid="uid://dfcy8ydyi0xyd" path="res://Scenes/Maps/beta_map_material.res" id="2_pbiud"]
+[ext_resource type="PackedScene" uid="uid://0bl3mef2ejy" path="res://Scenes/Entities/dummy_npc.tscn" id="2_prtvk"]
+[ext_resource type="Terrain3DAssets" uid="uid://b2jq3ham3dnx2" path="res://Scenes/Maps/beta_map_assets.tres" id="3_rdwv5"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_32v1c"]
+
+[sub_resource type="Sky" id="Sky_8cjor"]
+sky_material = SubResource("ProceduralSkyMaterial_32v1c")
+
+[sub_resource type="Environment" id="Environment_cpqlk"]
+background_mode = 2
+sky = SubResource("Sky_8cjor")
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_k245o"]
+vertices = PackedVector3Array(319.069, 32.2823, 191.441, 318.568, 32.2823, 195.445, 318.568, 32.2823, 198.198, 326.576, 32.2823, 198.949, 327.077, 32.2823, 193.443, 327.077, 32.2823, 191.942, 169.92, 6.75675, 208.458, 177.678, 6.75675, 208.208, 177.427, 6.75675, 200.701, 169.67, 6.75675, 200.701, 177.678, 7.007, 209.71, 179.179, 7.007, 217.718, 179.429, 7.007, 209.96, 169.92, 7.007, 217.718, 184.184, 7.007, 217.718, 184.184, 7.007, 209.96, 318.318, 20.5205, 223.974, 318.318, 20.5205, 225.726, 319.069, 20.5205, 225.976, 327.327, 20.5205, 210.961, 327.327, 20.5205, 210.46, 319.569, 20.5205, 209.96, 326.076, 20.5205, 226.476, 342.592, 20.5205, 249.249, 342.092, 20.5205, 249.249, 339.089, 20.5205, 255.505, 339.089, 20.5205, 256.006, 352.853, 20.5205, 263.013, 356.356, 20.5205, 256.506, 356.106, 20.5205, 255.756, 206.206, 13.5135, 296.797, 206.206, 13.5135, 305.806, 212.212, 13.5135, 305.806, 212.212, 13.5135, 296.797, 213.213, 7.75775, 306.556, 206.206, 7.75775, 306.807, 206.206, 7.75775, 310.56, 220.47, 7.75775, 310.56, 220.47, 7.75775, 296.797, 213.213, 7.75775, 296.797, 184.685, 0.25025, 414.414, 269.519, 0.25025, 414.414, 269.519, 0.25025, 413.663, 184.935, 0.25025, 329.079, 184.184, 0.25025, 329.079, 184.184, 0.25025, 413.914, 270.52, 0.25025, 413.413, 270.52, 0.25025, 328.829, 269.77, 0.25025, 328.078, 185.185, 0.25025, 328.078, 313.063, 9.009, 364.865, 313.063, 9.009, 378.628, 327.327, 9.009, 378.628, 327.327, 9.009, 364.865)
+polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 5), PackedInt32Array(2, 5, 4), PackedInt32Array(2, 4, 3), PackedInt32Array(7, 6, 8), PackedInt32Array(8, 6, 9), PackedInt32Array(6, 7, 10), PackedInt32Array(10, 12, 11), PackedInt32Array(6, 10, 13), PackedInt32Array(13, 10, 11), PackedInt32Array(15, 14, 12), PackedInt32Array(12, 14, 11), PackedInt32Array(17, 16, 18), PackedInt32Array(20, 19, 21), PackedInt32Array(21, 19, 16), PackedInt32Array(16, 19, 18), PackedInt32Array(18, 19, 22), PackedInt32Array(25, 24, 23), PackedInt32Array(25, 23, 26), PackedInt32Array(26, 23, 29), PackedInt32Array(26, 29, 28), PackedInt32Array(26, 28, 27), PackedInt32Array(33, 32, 30), PackedInt32Array(30, 32, 31), PackedInt32Array(35, 34, 36), PackedInt32Array(36, 34, 37), PackedInt32Array(39, 38, 34), PackedInt32Array(34, 38, 37), PackedInt32Array(42, 41, 40), PackedInt32Array(45, 44, 43), PackedInt32Array(47, 46, 42), PackedInt32Array(48, 43, 49), PackedInt32Array(45, 43, 40), PackedInt32Array(40, 43, 42), PackedInt32Array(42, 43, 48), PackedInt32Array(42, 48, 47), PackedInt32Array(53, 52, 50), PackedInt32Array(50, 52, 51)]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d5htv"]
+albedo_color = Color(0, 0.313726, 1, 1)
+
+[sub_resource type="Curve3D" id="Curve3D_bdvro"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -6, 0.276003, -6, 0, 0, 0, 0, 0, 0, 6.56254, 0.276003, -6.08749, 0, 0, 0, 0, 0, 0, 6.56254, 0.276003, 7.91251, 0, 0, 0, 0, 0, 0, -6.43746, 0.276003, 7.91251, 0, 0, 0, 0, 0, 0, -6, 0.276003, -6),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
+}
+point_count = 5
+
+[node name="BetaMap" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.442758, 0.896641, 0, -0.896641, 0.442758, 0, 0, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_cpqlk")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.0328133, 0.743053, -0.668428, 0.0174545, 0.669112, 0.742957, 0.999309, 0.0127118, -0.0349254, -17.9626, 23.8568, -4.92633)
+current = true
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_k245o")
+
+[node name="Buildings" type="Node3D" parent="NavigationRegion3D"]
+
+[node name="House" type="CSGBox3D" parent="NavigationRegion3D/Buildings"]
+transform = Transform3D(13.4162, 0, -3.81186, 0, 6.561, 0, 6.70866, 0, 7.62307, 347.844, 17.1263, 256.159)
+size = Vector3(1.10852, 1, 1)
+material = SubResource("StandardMaterial3D_d5htv")
+
+[node name="House3" type="CSGBox3D" parent="NavigationRegion3D/Buildings"]
+transform = Transform3D(-1.10641, 0, -8.49978, 0, 6.561, 0, 14.9591, 0, -0.62866, 322.791, 17.1263, 218.2)
+size = Vector3(1.10852, 1, 1)
+material = SubResource("StandardMaterial3D_d5htv")
+
+[node name="House5" type="CSGBox3D" parent="NavigationRegion3D/Buildings"]
+transform = Transform3D(-0.511571, 0, -8.83777, 0, 20.3488, 0, 6.91668, 0, -0.653658, 322.791, 19.5296, 195.164)
+size = Vector3(1.10852, 1.23621, 1)
+material = SubResource("StandardMaterial3D_d5htv")
+
+[node name="House2" type="CSGBox3D" parent="NavigationRegion3D/Buildings"]
+transform = Transform3D(15, 0, 0, 0, 6.561, 0, 0, 0, 8.523, 177.208, 3.59642, 213.917)
+material = SubResource("StandardMaterial3D_d5htv")
+
+[node name="House3" type="CSGBox3D" parent="NavigationRegion3D/Buildings/House2"]
+transform = Transform3D(0.0319515, 0, -0.568705, 0, 1, 0, 1.75907, 0, 0.0103299, -0.22444, -0.036385, -0.711771)
+material = SubResource("StandardMaterial3D_d5htv")
+
+[node name="House4" type="CSGBox3D" parent="NavigationRegion3D/Buildings"]
+transform = Transform3D(15, 0, 0, 0, 6.561, 0, 0, 0, 14.592, 320.264, 5.62795, 371.837)
+material = SubResource("StandardMaterial3D_d5htv")
+
+[node name="House6" type="CSGBox3D" parent="NavigationRegion3D/Buildings"]
+transform = Transform3D(15, 0, 0, 0, 6.561, 0, 0, 0, 14.592, 213.386, 4.27776, 303.844)
+material = SubResource("StandardMaterial3D_d5htv")
+
+[node name="House7" type="CSGBox3D" parent="NavigationRegion3D/Buildings/House6"]
+transform = Transform3D(0.446916, 0, 0, 0, 1.00981, 0, 0, 0, 0.678465, -0.271027, 0.863404, -0.158636)
+material = SubResource("StandardMaterial3D_d5htv")
+
+[node name="Terrain3D" type="Terrain3D" parent="NavigationRegion3D"]
+storage = ExtResource("1_h0e1s")
+material = ExtResource("2_pbiud")
+assets = ExtResource("3_rdwv5")
+
+[node name="SpawnLocations" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 300.67, 0, 456.811)
+
+[node name="0" type="Node3D" parent="SpawnLocations" groups=["SpawnPoints"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0.5, 0)
+
+[node name="1" type="Node3D" parent="SpawnLocations" groups=["SpawnPoints"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.755, 2.6, 0)
+
+[node name="2" type="Node3D" parent="SpawnLocations" groups=["SpawnPoints"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.9, 3.8, 0)
+
+[node name="3" type="Node3D" parent="SpawnLocations" groups=["SpawnPoints"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.755, 0.5, -5.5)
+
+[node name="Path3D" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 203.266, -0.101796, 369.618)
+curve = SubResource("Curve3D_bdvro")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(0.00696423, 0, -0.999976, 0, 1, 0, 0.999976, 0, 0.00696423, -6, 0.276003, -6)
+
+[node name="DummyNpc" parent="." node_paths=PackedStringArray("pathFollow") instance=ExtResource("2_prtvk")]
+transform = Transform3D(-0.994345, 0, -0.106195, 0, 1, 0, 0.106195, 0, -0.994345, 202.16, 2.03663, 363.841)
+health = 10000
+pathFollow = NodePath("../Path3D/PathFollow3D")
+affiliation = "Enemy"
+isFighter = true

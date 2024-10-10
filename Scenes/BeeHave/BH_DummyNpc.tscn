@@ -1,0 +1,116 @@
+[gd_scene load_steps=20 format=3 uid="uid://dnhmojsk8ks3y"]
+
+[ext_resource type="Script" path="res://addons/beehave/nodes/beehave_tree.gd" id="1_e8iqe"]
+[ext_resource type="Script" path="res://addons/beehave/nodes/composites/selector_reactive.gd" id="2_b4sp2"]
+[ext_resource type="Script" path="res://addons/beehave/nodes/composites/sequence.gd" id="3_ha5tv"]
+[ext_resource type="Script" path="res://Scripts/BeeHave/GetEnemy.gd" id="4_nbya8"]
+[ext_resource type="Script" path="res://Scripts/BeeHave/IsFighter.gd" id="5_4mog7"]
+[ext_resource type="Script" path="res://Scripts/BeeHave/LookAtEnemy.gd" id="5_xtvxo"]
+[ext_resource type="Script" path="res://addons/beehave/nodes/decorators/delayer.gd" id="6_4y2gg"]
+[ext_resource type="Script" path="res://Scripts/BeeHave/isShootingAnimationEnded.gd" id="6_q03uy"]
+[ext_resource type="Script" path="res://Scripts/BeeHave/SelectNewLocation.gd" id="6_rl15e"]
+[ext_resource type="Script" path="res://Scripts/BeeHave/FleeFromTarget.gd" id="7_1lmh2"]
+[ext_resource type="Script" path="res://Scripts/BeeHave/ShootRifle.gd" id="7_kxsi2"]
+[ext_resource type="Script" path="res://addons/beehave/nodes/decorators/time_limiter.gd" id="8_rpw87"]
+[ext_resource type="Script" path="res://Scripts/BeeHave/HasPatrol.gd" id="9_bwc8v"]
+[ext_resource type="Script" path="res://Scripts/BeeHave/IsArrived.gd" id="9_cl0rb"]
+[ext_resource type="Script" path="res://Scripts/BeeHave/StopMovement.gd" id="9_wgq4g"]
+[ext_resource type="Script" path="res://Scenes/BeeHave/IsAtPatrol.gd" id="10_cyvrt"]
+[ext_resource type="Script" path="res://addons/beehave/nodes/composites/selector.gd" id="10_dm3ow"]
+[ext_resource type="Script" path="res://Scripts/BeeHave/IncrementPatrol.gd" id="11_wxc4n"]
+[ext_resource type="Script" path="res://Scripts/BeeHave/ReturnToPatrol.gd" id="12_rwuim"]
+
+[node name="BhDummyNpc" type="Node" node_paths=PackedStringArray("blackboard", "actor")]
+script = ExtResource("1_e8iqe")
+blackboard = NodePath("@Node@18300")
+actor = NodePath("")
+
+[node name="SelectorReactiveComposite" type="Node" parent="."]
+script = ExtResource("2_b4sp2")
+
+[node name="Combat" type="Node" parent="SelectorReactiveComposite"]
+script = ExtResource("3_ha5tv")
+
+[node name="SelectorComposite" type="Node" parent="SelectorReactiveComposite/Combat"]
+script = ExtResource("10_dm3ow")
+
+[node name="Flee" type="Node" parent="SelectorReactiveComposite/Combat/SelectorComposite"]
+script = ExtResource("3_ha5tv")
+
+[node name="IsFighter" type="Node" parent="SelectorReactiveComposite/Combat/SelectorComposite/Flee"]
+script = ExtResource("5_4mog7")
+
+[node name="GetEnemy" type="Node" parent="SelectorReactiveComposite/Combat/SelectorComposite/Flee"]
+script = ExtResource("4_nbya8")
+
+[node name="FleeFromTarget" type="Node" parent="SelectorReactiveComposite/Combat/SelectorComposite/Flee"]
+script = ExtResource("7_1lmh2")
+
+[node name="Fight" type="Node" parent="SelectorReactiveComposite/Combat/SelectorComposite"]
+script = ExtResource("3_ha5tv")
+
+[node name="GetEnemy" type="Node" parent="SelectorReactiveComposite/Combat/SelectorComposite/Fight"]
+script = ExtResource("4_nbya8")
+
+[node name="LookAtEnemy" type="Node" parent="SelectorReactiveComposite/Combat/SelectorComposite/Fight"]
+script = ExtResource("5_xtvxo")
+
+[node name="StopMovement" type="Node" parent="SelectorReactiveComposite/Combat/SelectorComposite/Fight"]
+script = ExtResource("9_wgq4g")
+
+[node name="Shoot" type="Node" parent="SelectorReactiveComposite/Combat/SelectorComposite/Fight"]
+script = ExtResource("3_ha5tv")
+
+[node name="isShootingAnimationEnded" type="Node" parent="SelectorReactiveComposite/Combat/SelectorComposite/Fight/Shoot"]
+script = ExtResource("6_q03uy")
+
+[node name="ShootRifle" type="Node" parent="SelectorReactiveComposite/Combat/SelectorComposite/Fight/Shoot"]
+script = ExtResource("7_kxsi2")
+
+[node name="TimeLimiterDecorator" type="Node" parent="SelectorReactiveComposite/Combat/SelectorComposite/Fight/Shoot"]
+script = ExtResource("8_rpw87")
+wait_time = 1.0
+
+[node name="GetEnemy" type="Node" parent="SelectorReactiveComposite/Combat/SelectorComposite/Fight/Shoot/TimeLimiterDecorator"]
+script = ExtResource("4_nbya8")
+
+[node name="SelectorReactiveComposite" type="Node" parent="SelectorReactiveComposite"]
+script = ExtResource("2_b4sp2")
+
+[node name="Patrol" type="Node" parent="SelectorReactiveComposite/SelectorReactiveComposite"]
+script = ExtResource("3_ha5tv")
+
+[node name="HasPatrol" type="Node" parent="SelectorReactiveComposite/SelectorReactiveComposite/Patrol"]
+script = ExtResource("9_bwc8v")
+
+[node name="SelectorComposite" type="Node" parent="SelectorReactiveComposite/SelectorReactiveComposite/Patrol"]
+script = ExtResource("10_dm3ow")
+
+[node name="Patroling" type="Node" parent="SelectorReactiveComposite/SelectorReactiveComposite/Patrol/SelectorComposite"]
+script = ExtResource("3_ha5tv")
+
+[node name="IsAtPatrol" type="Node" parent="SelectorReactiveComposite/SelectorReactiveComposite/Patrol/SelectorComposite/Patroling"]
+script = ExtResource("10_cyvrt")
+
+[node name="IncrementPatrol" type="Node" parent="SelectorReactiveComposite/SelectorReactiveComposite/Patrol/SelectorComposite/Patroling"]
+script = ExtResource("11_wxc4n")
+
+[node name="ReturnToPatrol" type="Node" parent="SelectorReactiveComposite/SelectorReactiveComposite/Patrol/SelectorComposite"]
+script = ExtResource("12_rwuim")
+
+[node name="IdleDelay" type="Node" parent="SelectorReactiveComposite/SelectorReactiveComposite"]
+script = ExtResource("6_4y2gg")
+wait_time = 3.0
+
+[node name="Idle" type="Node" parent="SelectorReactiveComposite/SelectorReactiveComposite/IdleDelay"]
+script = ExtResource("3_ha5tv")
+
+[node name="SelectNewLocation" type="Node" parent="SelectorReactiveComposite/SelectorReactiveComposite/IdleDelay/Idle"]
+script = ExtResource("6_rl15e")
+
+[node name="TimeLimiterDecorator" type="Node" parent="SelectorReactiveComposite/SelectorReactiveComposite/IdleDelay/Idle"]
+script = ExtResource("8_rpw87")
+wait_time = 6.0
+
+[node name="IsArrived" type="Node" parent="SelectorReactiveComposite/SelectorReactiveComposite/IdleDelay/Idle/TimeLimiterDecorator"]
+script = ExtResource("9_cl0rb")
