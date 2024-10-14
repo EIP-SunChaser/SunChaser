@@ -1,0 +1,128 @@
+[gd_scene load_steps=16 format=3 uid="uid://dbetgfvmeocle"]
+
+[ext_resource type="Script" path="res://Scripts/Maps/ai_test_ground.gd" id="1_1ngwb"]
+[ext_resource type="PackedScene" uid="uid://0bl3mef2ejy" path="res://Scenes/Entities/dummy_npc.tscn" id="1_gjq3n"]
+[ext_resource type="Terrain3DStorage" uid="uid://boxnardws6d6f" path="res://Ressources/Maps/ai_test_ground.res" id="2_33bnw"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_yatfc"]
+
+[sub_resource type="Sky" id="Sky_u3gox"]
+sky_material = SubResource("ProceduralSkyMaterial_yatfc")
+
+[sub_resource type="Environment" id="Environment_ysty5"]
+background_mode = 2
+sky = SubResource("Sky_u3gox")
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_s8lhk"]
+vertices = PackedVector3Array(-70.5705, 0.25025, -71.071, -70.5705, 0.25025, -61.061, -60.3103, 0.25025, -61.061, -60.3103, 0.25025, -71.071)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+
+[sub_resource type="Gradient" id="Gradient_h0yim"]
+offsets = PackedFloat32Array(0.2, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_dpfaj"]
+noise_type = 2
+frequency = 0.03
+cellular_jitter = 3.0
+cellular_return_type = 0
+domain_warp_enabled = true
+domain_warp_type = 1
+domain_warp_amplitude = 50.0
+domain_warp_fractal_type = 2
+domain_warp_fractal_lacunarity = 1.5
+domain_warp_fractal_gain = 1.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_vwfbk"]
+seamless = true
+color_ramp = SubResource("Gradient_h0yim")
+noise = SubResource("FastNoiseLite_dpfaj")
+
+[sub_resource type="Terrain3DMaterial" id="Terrain3DMaterial_hijs7"]
+_shader_parameters = {
+"blend_sharpness": 0.87,
+"height_blending": true,
+"macro_variation1": Color(1, 1, 1, 1),
+"macro_variation2": Color(1, 1, 1, 1),
+"noise1_angle": 0.0,
+"noise1_offset": Vector2(0.5, 0.5),
+"noise1_scale": 0.04,
+"noise2_scale": 0.076,
+"noise3_scale": 0.225,
+"noise_texture": SubResource("NoiseTexture2D_vwfbk"),
+"vertex_normals_distance": 128.0
+}
+show_checkered = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nvbrh"]
+cull_mode = 2
+vertex_color_use_as_albedo = true
+backlight_enabled = true
+backlight = Color(0.5, 0.5, 0.5, 1)
+
+[sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_5ospg"]
+height_offset = 0.5
+density = 10.0
+material_override = SubResource("StandardMaterial3D_nvbrh")
+generated_type = 1
+
+[sub_resource type="Terrain3DAssets" id="Terrain3DAssets_s0eob"]
+mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_5ospg")])
+
+[sub_resource type="Curve3D" id="Curve3D_5e67a"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -6, 0.276003, -6, 0, 0, 0, 0, 0, 0, 6.56254, 0.276003, -6.08749, 0, 0, 0, 0, 0, 0, 6.56254, 0.276003, 7.91251, 0, 0, 0, 0, 0, 0, -6.43746, 0.276003, 7.91251, 0, 0, 0, 0, 0, 0, -6, 0.276003, -6),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
+}
+point_count = 5
+
+[node name="AI_Test_Ground" type="Node3D"]
+script = ExtResource("1_1ngwb")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ysty5")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.442758, 0.896641, 0, -0.896641, 0.442758, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.0328133, 0.743053, -0.668428, 0.0174545, 0.669112, 0.742957, 0.999309, 0.0127118, -0.0349254, -17.9626, 23.8568, -4.92633)
+current = true
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+transform = Transform3D(7.45161, 0, 0, 0, 0.999282, 0, 0, 0, 7.88921, 0, 0, 0)
+navigation_mesh = SubResource("NavigationMesh_s8lhk")
+
+[node name="Terrain3D" type="Terrain3D" parent="NavigationRegion3D"]
+storage = ExtResource("2_33bnw")
+material = SubResource("Terrain3DMaterial_hijs7")
+assets = SubResource("Terrain3DAssets_s0eob")
+
+[node name="DummyNpc" parent="." node_paths=PackedStringArray("pathFollow") instance=ExtResource("1_gjq3n")]
+transform = Transform3D(-0.994345, 0, -0.106195, 0, 1, 0, 0.106195, 0, -0.994345, -465.787, 2.03663, -545.896)
+health = 10000
+pathFollow = NodePath("../Path3D/PathFollow3D")
+affiliation = "Enemy"
+isFighter = true
+
+[node name="Path3D" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -512.174, 1.724, -548.932)
+curve = SubResource("Curve3D_5e67a")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(0.00696423, 0, -0.999976, 0, 1, 0, 0.999976, 0, 0.00696423, -6, 0.276003, -6)
+
+[node name="SpawnLocations" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -555, 0, -550)
+
+[node name="0" type="Node3D" parent="SpawnLocations" groups=["SpawnPoints"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0.5, 0)
+
+[node name="1" type="Node3D" parent="SpawnLocations" groups=["SpawnPoints"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.755, 2.6, 0)
+
+[node name="2" type="Node3D" parent="SpawnLocations" groups=["SpawnPoints"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.9, 3.8, 0)
+
+[node name="3" type="Node3D" parent="SpawnLocations" groups=["SpawnPoints"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.755, 0.5, -5.5)

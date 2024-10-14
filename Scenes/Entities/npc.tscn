@@ -1,0 +1,54 @@
+[gd_scene load_steps=9 format=3 uid="uid://rifdu1jbhm5i"]
+
+[ext_resource type="Script" path="res://Scripts/Entities/actionable_dialogue.gd" id="1_qdu02"]
+[ext_resource type="Resource" uid="uid://80iuna024nxn" path="res://Dialogue/Quest_001.dialogue" id="2_8ijj1"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gcx27"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yhxfo"]
+albedo_color = Color(1, 1, 0, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_0w8mw"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ualx8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_iac30"]
+size = Vector3(1, 2, 1.6272)
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_sdu1p"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:rotation")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+
+[node name="npc" type="RigidBody3D"]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_gcx27")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+material_override = SubResource("StandardMaterial3D_yhxfo")
+mesh = SubResource("CapsuleMesh_0w8mw")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.7, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 1.4914, 0.386557)
+mesh = SubResource("BoxMesh_ualx8")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_qdu02")
+dialogue_ressource = ExtResource("2_8ijj1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1.3136)
+shape = SubResource("BoxShape3D_iac30")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_sdu1p")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
