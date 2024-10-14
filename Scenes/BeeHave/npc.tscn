@@ -1,0 +1,105 @@
+[gd_scene load_steps=15 format=3 uid="uid://bf515bsipno8e"]
+
+[ext_resource type="Script" path="res://addons/beehave/nodes/beehave_tree.gd" id="1_0yljw"]
+[ext_resource type="Script" path="res://addons/beehave/nodes/composites/selector.gd" id="2_ww8lj"]
+[ext_resource type="Script" path="res://addons/beehave/nodes/composites/sequence.gd" id="3_4pyev"]
+[ext_resource type="Script" path="res://addons/beehave/nodes/leaves/condition.gd" id="4_krek7"]
+[ext_resource type="Script" path="res://Scripts/BeeHave/GetEnemy.gd" id="4_nupsc"]
+[ext_resource type="Script" path="res://addons/beehave/nodes/decorators/succeeder.gd" id="5_fe6ax"]
+[ext_resource type="Script" path="res://addons/beehave/nodes/decorators/delayer.gd" id="6_0mirq"]
+[ext_resource type="Script" path="res://addons/beehave/nodes/leaves/action.gd" id="7_ryxum"]
+[ext_resource type="Script" path="res://addons/beehave/nodes/decorators/limiter.gd" id="8_ldimu"]
+[ext_resource type="Script" path="res://Scripts/BeeHave/NewWanderTarget.gd" id="10_hj74l"]
+[ext_resource type="Script" path="res://Scripts/BeeHave/StartNavigation.gd" id="11_vfu6a"]
+[ext_resource type="Script" path="res://Scripts/BeeHave/WaitForDestination.gd" id="12_7hy8l"]
+[ext_resource type="Script" path="res://addons/beehave/nodes/decorators/time_limiter.gd" id="12_golpk"]
+[ext_resource type="Script" path="res://Scripts/BeeHave/StopNavigation.gd" id="13_h0phb"]
+
+[node name="NPC" type="Node" node_paths=PackedStringArray("blackboard", "actor")]
+script = ExtResource("1_0yljw")
+blackboard = NodePath("@Node@18316")
+actor = NodePath("")
+
+[node name="SelectorComposite" type="Node" parent="."]
+script = ExtResource("2_ww8lj")
+
+[node name="Combat" type="Node" parent="SelectorComposite"]
+script = ExtResource("3_4pyev")
+
+[node name="GetEnemy" type="Node" parent="SelectorComposite/Combat"]
+script = ExtResource("4_nupsc")
+
+[node name="AlwaysSucceedDecorator" type="Node" parent="SelectorComposite/Combat"]
+script = ExtResource("5_fe6ax")
+
+[node name="SelectorComposite" type="Node" parent="SelectorComposite/Combat/AlwaysSucceedDecorator"]
+script = ExtResource("2_ww8lj")
+
+[node name="InRange" type="Node" parent="SelectorComposite/Combat/AlwaysSucceedDecorator/SelectorComposite"]
+script = ExtResource("3_4pyev")
+
+[node name="rotateTowardsEnemy" type="Node" parent="SelectorComposite/Combat/AlwaysSucceedDecorator/SelectorComposite/InRange"]
+script = ExtResource("3_4pyev")
+
+[node name="ConditionLeaf" type="Node" parent="SelectorComposite/Combat/AlwaysSucceedDecorator/SelectorComposite/InRange/rotateTowardsEnemy"]
+script = ExtResource("4_krek7")
+
+[node name="LimiterDecorator" type="Node" parent="SelectorComposite/Combat/AlwaysSucceedDecorator/SelectorComposite/InRange/rotateTowardsEnemy"]
+script = ExtResource("8_ldimu")
+
+[node name="ActionLeaf" type="Node" parent="SelectorComposite/Combat/AlwaysSucceedDecorator/SelectorComposite/InRange/rotateTowardsEnemy/LimiterDecorator"]
+script = ExtResource("7_ryxum")
+
+[node name="AttackEnemy" type="Node" parent="SelectorComposite/Combat/AlwaysSucceedDecorator/SelectorComposite/InRange"]
+script = ExtResource("3_4pyev")
+
+[node name="IsCooldownDone" type="Node" parent="SelectorComposite/Combat/AlwaysSucceedDecorator/SelectorComposite/InRange/AttackEnemy"]
+script = ExtResource("4_krek7")
+
+[node name="AnimAttack" type="Node" parent="SelectorComposite/Combat/AlwaysSucceedDecorator/SelectorComposite/InRange/AttackEnemy"]
+script = ExtResource("7_ryxum")
+
+[node name="StartCooldown" type="Node" parent="SelectorComposite/Combat/AlwaysSucceedDecorator/SelectorComposite/InRange/AttackEnemy"]
+script = ExtResource("7_ryxum")
+
+[node name="GoToEnemy" type="Node" parent="SelectorComposite/Combat/AlwaysSucceedDecorator/SelectorComposite"]
+script = ExtResource("3_4pyev")
+
+[node name="ConditionLeaf" type="Node" parent="SelectorComposite/Combat/AlwaysSucceedDecorator/SelectorComposite/GoToEnemy"]
+script = ExtResource("4_krek7")
+
+[node name="ActionLeaf" type="Node" parent="SelectorComposite/Combat/AlwaysSucceedDecorator/SelectorComposite/GoToEnemy"]
+script = ExtResource("7_ryxum")
+
+[node name="ActionLeaf2" type="Node" parent="SelectorComposite/Combat/AlwaysSucceedDecorator/SelectorComposite/GoToEnemy"]
+script = ExtResource("7_ryxum")
+
+[node name="LimiterDecorator" type="Node" parent="SelectorComposite/Combat/AlwaysSucceedDecorator/SelectorComposite/GoToEnemy"]
+script = ExtResource("8_ldimu")
+
+[node name="ConditionLeaf" type="Node" parent="SelectorComposite/Combat/AlwaysSucceedDecorator/SelectorComposite/GoToEnemy/LimiterDecorator"]
+script = ExtResource("4_krek7")
+
+[node name="Idle" type="Node" parent="SelectorComposite"]
+script = ExtResource("6_0mirq")
+wait_time = 3.0
+
+[node name="SequenceComposite" type="Node" parent="SelectorComposite/Idle"]
+script = ExtResource("3_4pyev")
+
+[node name="NewWanderTarget" type="Node" parent="SelectorComposite/Idle/SequenceComposite"]
+script = ExtResource("10_hj74l")
+radius = 50.0
+
+[node name="StartNavigation" type="Node" parent="SelectorComposite/Idle/SequenceComposite"]
+script = ExtResource("11_vfu6a")
+
+[node name="TimeLimiterDecorator" type="Node" parent="SelectorComposite/Idle/SequenceComposite"]
+script = ExtResource("12_golpk")
+wait_time = 6.0
+
+[node name="WaitForDestination" type="Node" parent="SelectorComposite/Idle/SequenceComposite/TimeLimiterDecorator"]
+script = ExtResource("12_7hy8l")
+
+[node name="StopNavigation" type="Node" parent="SelectorComposite/Idle/SequenceComposite"]
+script = ExtResource("13_h0phb")
