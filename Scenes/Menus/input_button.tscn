@@ -1,23 +1,23 @@
 [gd_scene load_steps=4 format=3 uid="uid://cpybau248pqr"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xxhai"]
-bg_color = Color(0, 0, 0, 0.392157)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h2olq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tm8xc"]
 bg_color = Color(1, 1, 1, 0.392157)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h2olq"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xxhai"]
+bg_color = Color(0, 0, 0, 0.392157)
 
 [node name="InputButton" type="Button"]
-custom_minimum_size = Vector2(0, 18)
+custom_minimum_size = Vector2(0, 35)
 anchors_preset = 10
 anchor_right = 1.0
 grow_horizontal = 2
 focus_mode = 0
-theme_override_styles/normal = SubResource("StyleBoxFlat_xxhai")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_h2olq")
 theme_override_styles/hover = SubResource("StyleBoxFlat_tm8xc")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_tm8xc")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_h2olq")
+theme_override_styles/normal = SubResource("StyleBoxFlat_xxhai")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -45,8 +45,8 @@ layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 1
 
-[node name="LabelInput" type="Label" parent="MarginContainer/HBoxContainer"]
+[node name="LabelInput" type="Button" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 mouse_filter = 1
 text = "INPUT KEY"
-vertical_alignment = 1
+flat = true
