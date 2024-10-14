@@ -43,11 +43,21 @@ func reset_all():
 	if multiplayer.has_multiplayer_peer():
 		multiplayer.multiplayer_peer.close()
 
+@rpc("any_peer", "call_local")
+func reset_player(id):
+	var players = get_tree().get_nodes_in_group("Player")
+	for i in players:
+		if i.name == str(id):
+			print("Player " + str(id) + " deleted!")
+			i.queue_free()
+
 func _on_back_to_main_menu_button_down():
 	player.pauseMenu()
 	if multiplayer.is_server():
 		reset_all.rpc()
 	else:
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		reset_player.rpc(multiplayer.get_unique_id())
 		get_tree().change_scene_to_file("res://Scenes/Menus/main_menu.tscn")
 
 func _on_exit_to_desktop_button_down():
