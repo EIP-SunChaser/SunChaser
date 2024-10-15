@@ -191,6 +191,7 @@ func do_physics_process(delta):
 		set_collision_mask_value(1, false)
 		set_collision_layer_value(1, false)
 		velocity = Vector3.ZERO
+		press_e_ui.hide()
 	if GODMOD:
 		set_collision_mask_value(1, false)
 		set_collision_layer_value(1, false)
