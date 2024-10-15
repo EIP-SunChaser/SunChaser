@@ -53,6 +53,7 @@ func populate_resolution_options():
 func populate_window_mode():
 	var current_mode = DisplayServer.window_get_mode()
 	var window_modes = [
+		{"mode": DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN, "name": "Exclusive Fullscreen"},
 		{"mode": DisplayServer.WINDOW_MODE_FULLSCREEN, "name": "Fullscreen"},
 		{"mode": DisplayServer.WINDOW_MODE_MAXIMIZED, "name": "Maximized"},
 		{"mode": DisplayServer.WINDOW_MODE_WINDOWED, "name": "Windowed"}
