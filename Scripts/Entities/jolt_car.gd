@@ -143,8 +143,9 @@ func _physics_process(delta):
 		update_tail_lights()
 
 		if player_in_car.is_in_car:
+			player_in_car.head.global_transform.basis = camera_3d.global_transform.basis
+			player_in_car.camera.global_transform.basis = camera_3d.global_transform.basis
 			player_in_car.global_transform.origin = self.global_transform.origin
-			player_in_car.global_transform.origin.x += 4
 
 
 		# Apply steering (allowed even with depleted battery)
@@ -250,8 +251,9 @@ func set_player_in_car(player_path: NodePath):
 		active = true
 		$SpeedText.show()
 		$BatteryText.show()
-		player.hide()
 		player_in_car = player
+		if not player_in_car.is_crouching:
+			player_in_car.crouch.rpc()
 		player_in_car.is_in_car = true
 
 		if player.is_multiplayer_authority():
@@ -276,6 +278,8 @@ func remove_player_from_car():
 			await CameraTransition.transition_camera3D(camera_3d, player_in_car.camera, 0.5)
 
 		player_in_car.is_in_car = false
+		player_in_car.crouch.rpc()
+		player_in_car.global_transform.origin.x = self.global_transform.origin.x + 4
 		player_in_car = null
 		update_radio_for_player()
 

@@ -229,10 +229,11 @@ func do_physics_process(delta):
 	var target_fov = BASE_FOV + FOV_CAHNGE * velocity_clamped
 	camera.fov = lerp(camera.fov, target_fov, delta * 8.0)
 
-	if Input.is_action_just_pressed("crouch"):
+	if Input.is_action_just_pressed("crouch") and not is_in_car:
 		crouch.rpc()
 
-	if Input.is_action_pressed("shoot") and not is_in_car:
+	if Input.is_action_pressed("shoot"):
+		if is_in_car and not isAiming: return
 		play_shoot_effects.rpc()
 
 	if Input.is_action_pressed("aim"):

@@ -28,7 +28,7 @@ func _ready():
 	initial_pitch = pitch_node.rotation_degrees.x
 
 func _input(event):
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT:
+	if event is InputEventMouseButton and (event.button_index == MOUSE_BUTTON_LEFT or event.button_index == MOUSE_BUTTON_RIGHT):
 		dragging = event.pressed
 	if event is InputEventMouseMotion and dragging:
 		yaw += -event.relative.x * yaw_sensitivity
