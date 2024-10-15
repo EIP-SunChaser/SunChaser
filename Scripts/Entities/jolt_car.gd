@@ -254,6 +254,7 @@ func set_player_in_car(player_path: NodePath):
 		player_in_car = player
 		if not player_in_car.is_crouching:
 			player_in_car.crouch.rpc()
+		player_in_car.pseudo.hide()
 		player_in_car.is_in_car = true
 
 		if player.is_multiplayer_authority():
@@ -280,6 +281,7 @@ func remove_player_from_car():
 		player_in_car.is_in_car = false
 		player_in_car.crouch.rpc()
 		player_in_car.global_transform.origin.x = self.global_transform.origin.x + 4
+		player_in_car.pseudo.show()
 		player_in_car = null
 		update_radio_for_player()
 

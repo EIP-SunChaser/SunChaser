@@ -3,7 +3,7 @@ extends CharacterBody3D
 @onready var camera = $Head/Camera3D
 @onready var head = $Head
 @onready var animation_player = $AnimationPlayer
-@onready var pseudo = $Pseudo
+@onready var pseudo: Label3D = $Pseudo
 @onready var actionable_finder: Area3D = $Area3D
 @onready var press_e_ui = $Head/Camera3D/Press_e_ui
 @onready var crosshair = $TextureRect
