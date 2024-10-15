@@ -8,6 +8,8 @@ func _ready():
 		config.set_value("display", "resolution", 0)
 		config.set_value("display", "window_mode", 0)
 		config.set_value("display", "vsync", true)
+		config.set_value("display", "fxaa", Viewport.SCREEN_SPACE_AA_DISABLED)
+		config.set_value("display", "msaa", Viewport.MSAA_DISABLED)
 		config.set_value("display", "framerate", 5)
 		
 		config.set_value("audio", "master_volume", 0.50)

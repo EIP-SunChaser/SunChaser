@@ -80,6 +80,28 @@ text = "Vsync"
 [node name="VSyncCheck" type="CheckBox" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Display/VSync"]
 layout_mode = 2
 size_flags_horizontal = 0
+focus_neighbor_top = NodePath("../../Fullscreen/FullscreenOption")
+
+[node name="FXAA" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Display"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Display/FXAA"]
+layout_mode = 2
+text = "FXAA"
+
+[node name="FXAACheck" type="CheckBox" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Display/FXAA"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="MSAA" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Display"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Display/MSAA"]
+layout_mode = 2
+text = "MSAA"
+
+[node name="MSAAOption" type="OptionButton" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Display/MSAA"]
+layout_mode = 2
 
 [node name="Framerate" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Display"]
 layout_mode = 2
@@ -90,9 +112,10 @@ text = "Frame Rate Limit"
 
 [node name="FramerateOption" type="OptionButton" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Display/Framerate"]
 layout_mode = 2
-focus_neighbor_top = NodePath("../../VSync/VSyncCheck")
 
 [connection signal="item_selected" from="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Display/Resolution/ResolutionOption" to="." method="_on_resolution_option_item_selected"]
 [connection signal="item_selected" from="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Display/Fullscreen/FullscreenOption" to="." method="_on_fullscreen_option_item_selected"]
 [connection signal="toggled" from="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Display/VSync/VSyncCheck" to="." method="_on_v_sync_check_toggled"]
+[connection signal="toggled" from="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Display/FXAA/FXAACheck" to="." method="_on_fxaa_check_toggled"]
+[connection signal="item_selected" from="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Display/MSAA/MSAAOption" to="." method="_on_msaa_option_item_selected"]
 [connection signal="item_selected" from="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Display/Framerate/FramerateOption" to="." method="_on_framerate_option_item_selected"]
