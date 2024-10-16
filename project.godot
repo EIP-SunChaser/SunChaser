@@ -45,6 +45,7 @@ folder_colors={
 "res://Dialogue/": "pink",
 "res://Docs/": "purple",
 "res://Occluder/": "teal",
+"res://Ressources/": "gray",
 "res://Scenes/": "orange",
 "res://Scripts/": "red",
 "res://addons/": "yellow"
