@@ -145,6 +145,7 @@ func _physics_process(delta):
 		if player_in_car.is_in_car:
 			player_in_car.head.global_transform.basis = camera_3d.global_transform.basis
 			player_in_car.camera.global_transform.basis = camera_3d.global_transform.basis
+			player_in_car.rotation = self.rotation
 			player_in_car.global_transform.origin = self.global_transform.origin
 
 
