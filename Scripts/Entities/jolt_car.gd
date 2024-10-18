@@ -18,8 +18,21 @@ var car_zone = false
 @export var rear_tire_grip: float = 2.0
 @onready var multiplayer_synchronizer = $MultiplayerSynchronizer
 @export var current_wheel_angle: float = 0.0
-var front_left_wheel
-var front_right_wheel
+@onready var front_left_wheel_ray: RayCast3D = $Wheels/FrontLeftWheel
+@onready var front_right_wheel_ray: RayCast3D = $Wheels/FrontRightWheel
+@onready var back_right_wheel_ray: RayCast3D = $Wheels/BackRightWheel
+@onready var back_left_wheel_ray: RayCast3D = $Wheels/BackLeftWheel
+@onready var front_left_wheel: Node3D = $Wheels/FrontLeftWheel/Wheel
+@onready var front_right_wheel: Node3D = $Wheels/FrontRightWheel/Wheel
+@onready var back_right_wheel: Node3D = $Wheels/BackRightWheel/Wheel
+@onready var back_left_wheel: Node3D = $Wheels/BackLeftWheel/Wheel
+
+@export var max_wheel_health: float = 100.0
+var front_left_wheel_health: float
+var front_right_wheel_health: float
+var back_left_wheel_health: float
+var back_right_wheel_health: float
+
 var players_in_zone = []
 var player_in_car = null
 var steering_enabled := true
@@ -103,8 +116,10 @@ func init_spring_meshs() -> void:
 		spring_meshs.append_array(ModLoader.modded_springs[mod_name])
 
 func _ready():
-	front_left_wheel = $Wheels/FrontLeftWheel
-	front_right_wheel = $Wheels/FrontRightWheel
+	front_left_wheel_health = max_wheel_health
+	front_right_wheel_health = max_wheel_health
+	back_left_wheel_health = max_wheel_health
+	back_right_wheel_health = max_wheel_health
 	left_tail_light_material = left_tail_light.get_active_material(0)
 	right_tail_light_material = right_tail_light.get_active_material(0)
 	init_spring_meshs()
@@ -159,8 +174,8 @@ func _physics_process(delta):
 
 		current_wheel_angle = clamp(current_wheel_angle, -deg_to_rad(steering_angle), deg_to_rad(steering_angle))
 
-		front_left_wheel.rotation.y = current_wheel_angle
-		front_right_wheel.rotation.y = current_wheel_angle
+		front_left_wheel_ray.rotation.y = current_wheel_angle
+		front_right_wheel_ray.rotation.y = current_wheel_angle
 
 		speed = int(linear_velocity.length())
 		speed_counter.text = str(speed)
@@ -195,8 +210,8 @@ func _physics_process(delta):
 		$RadioText.hide()
 		entering_car()
 		accel_input = 0
-		front_left_wheel.rotation.y = 0
-		front_right_wheel.rotation.y = 0
+		front_left_wheel_ray.rotation.y = 0
+		front_right_wheel_ray.rotation.y = 0
 
 	apply_smooth_rotation(delta)
 
@@ -331,3 +346,38 @@ func update_radio_for_player():
 		else:
 			audio_stream_player.stop()
 			audio_stream_player_3d.play(current_playback_position)
+
+func damage_wheel(wheel: String, damage: float):
+	match wheel:
+		"front_left":
+			front_left_wheel_health -= damage
+			if front_left_wheel_health <= 0:
+				front_left_wheel_ray.collide_with_bodies = false
+				front_left_wheel.hide()
+		"front_right":
+			front_right_wheel_health -= damage
+			if front_right_wheel_health <= 0:
+				front_right_wheel_ray.collide_with_bodies = false
+				front_right_wheel.hide()
+		"back_left":
+			back_left_wheel_health -= damage
+			if back_left_wheel_health <= 0:
+				back_left_wheel_ray.collide_with_bodies = false
+				back_left_wheel.hide()
+		"back_right":
+			back_right_wheel_health -= damage
+			if back_right_wheel_health <= 0:
+				back_right_wheel_ray.collide_with_bodies = false
+				back_right_wheel.hide()
+
+func _on_front_left_damage_area_3d_body_part_hit(dam: int) -> void:
+	damage_wheel("front_left", dam)
+
+func _on_front_right_damage_area_3d_body_part_hit(dam: int) -> void:
+	damage_wheel("front_right", dam)
+
+func _on_back_right_damage_area_3d_body_part_hit(dam: int) -> void:
+	damage_wheel("back_right", dam)
+
+func _on_back_left_damage_area_3d_body_part_hit(dam: int) -> void:
+	damage_wheel("back_left", dam)
