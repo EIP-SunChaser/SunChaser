@@ -21,7 +21,7 @@ var car_zone = false
 var front_left_wheel
 var front_right_wheel
 var players_in_zone = []
-var player_in_car = null
+var player_in_car: CharacterBody3D = null
 var steering_enabled := true
 
 var is_resetting = false
@@ -281,6 +281,7 @@ func remove_player_from_car():
 
 		player_in_car.is_in_car = false
 		player_in_car.crouch.rpc()
+		player_in_car.rotation = Vector3.ZERO
 		player_in_car.global_transform.origin.x = self.global_transform.origin.x + 4
 		player_in_car.pseudo.show()
 		player_in_car = null
