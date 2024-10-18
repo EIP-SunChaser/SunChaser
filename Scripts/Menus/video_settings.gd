@@ -1,52 +1,45 @@
 extends Control
 
-@onready var master_slider = $MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Volume/MasterVolume/MasterSlider
-@onready var music_slider = $MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Volume/MusicVolume/MusicSlider
-@onready var sound_effects_slider = $MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Volume/SoundEffectsVolume/SoundEffectsSlider
-@onready var master_percentage = $MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Volume/MasterVolume/MasterPercentage
-@onready var music_percentage = $MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Volume/MusicVolume/MusicPercentage
-@onready var sound_effects_percentage = $MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Volume/SoundEffectsVolume/SoundEffectsPercentage
-
 @onready var resolution_option = $MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Display/Resolution/ResolutionOption
 @onready var fullscreen_option = $MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Display/Fullscreen/FullscreenOption
 @onready var vsync_check = $MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Display/VSync/VSyncCheck
 @onready var framerate_option = $MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Display/Framerate/FramerateOption
+@onready var msaa_option = $MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Display/MSAA/MSAAOption
+@onready var fxaa_check = $MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Display/FXAA/FXAACheck
 @onready var tab_container: TabContainer = $".."
 
 var is_fullscreen: bool = false
 var display_settings
-var audio_settings
 
 func _ready():
 	populate_resolution_options()
 	populate_window_mode()
 	populate_framerate_options()
+	populate_msaa_options()
 	apply_settings()
 	visibility_changed.connect(_on_visibility_changed)
 	tab_container.get_tab_bar().grab_focus()
 
 func _on_visibility_changed():
 	if visible and get_tree().current_scene.name != "MainMenu":
-		pass
 		tab_container.get_tab_bar().grab_focus()
 
 func apply_settings():
 	display_settings = ConfigFileHandler.load_display_settings()
-	audio_settings = ConfigFileHandler.load_audio_settings()
 
 	resolution_option.selected = display_settings.resolution
 	fullscreen_option.selected = display_settings.window_mode
 	vsync_check.button_pressed = display_settings.vsync
 	framerate_option.selected = display_settings.framerate
-	
-	master_slider.value = audio_settings.master_volume
-	music_slider.value = audio_settings.music_volume
-	sound_effects_slider.value = audio_settings.sfx_volume
+	msaa_option.selected = display_settings.msaa
+	fxaa_check.button_pressed = display_settings.fxaa
 	
 	_on_resolution_option_item_selected(display_settings.resolution)
 	_on_fullscreen_option_item_selected(display_settings.window_mode)
 	_on_v_sync_check_toggled(display_settings.vsync)
 	_on_framerate_option_item_selected(display_settings.framerate)
+	_on_msaa_option_item_selected(display_settings.msaa)
+	_on_fxaa_check_toggled(display_settings.fxaa)
 
 func populate_resolution_options():
 	var current_resolution = get_window().size
@@ -60,6 +53,7 @@ func populate_resolution_options():
 func populate_window_mode():
 	var current_mode = DisplayServer.window_get_mode()
 	var window_modes = [
+		{"mode": DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN, "name": "Exclusive Fullscreen"},
 		{"mode": DisplayServer.WINDOW_MODE_FULLSCREEN, "name": "Fullscreen"},
 		{"mode": DisplayServer.WINDOW_MODE_MAXIMIZED, "name": "Maximized"},
 		{"mode": DisplayServer.WINDOW_MODE_WINDOWED, "name": "Windowed"}
@@ -80,6 +74,17 @@ func populate_framerate_options():
 		if framerates[i] == current_framerate:
 			framerate_option.select(i)
 
+func populate_msaa_options():
+	var msaa_modes = [
+		{"mode": Viewport.MSAA_DISABLED, "name": "Disabled"},
+		{"mode": Viewport.MSAA_2X, "name": "2x"},
+		{"mode": Viewport.MSAA_4X, "name": "4x"},
+		{"mode": Viewport.MSAA_8X, "name": "8x"}
+	]
+	
+	for i in range(msaa_modes.size()):
+		msaa_option.add_item(msaa_modes[i].name, msaa_modes[i].mode)
+
 func _on_resolution_option_item_selected(index):
 	var selected_resolution = resolution_option.get_item_text(index).split("x")
 	get_window().size = Vector2(int(selected_resolution[0]), int(selected_resolution[1]))
@@ -99,32 +104,26 @@ func _on_framerate_option_item_selected(index):
 	Engine.max_fps = selected_framerate
 	ConfigFileHandler.save_display_settings("framerate", index)
 
-func _on_master_slider_value_changed(value):
-	master_percentage.text = str(master_slider.value * 100) + "%"
-	AudioServer.set_bus_volume_db(0, linear_to_db(master_slider.value))
-	ConfigFileHandler.save_audio_settings("master_volume", value)
+func _on_msaa_option_item_selected(index):
+	var selected_msaa = msaa_option.get_item_id(index)
+	get_viewport().msaa_3d = selected_msaa
+	ConfigFileHandler.save_display_settings("msaa", index)
 
-func _on_music_slider_value_changed(value):
-	music_percentage.text = str(music_slider.value * 100) + "%"
-	AudioServer.set_bus_volume_db(1, linear_to_db(music_slider.value))
-	ConfigFileHandler.save_audio_settings("music_volume", value)
-
-func _on_sound_effects_slider_value_changed(value):
-	sound_effects_percentage.text = str(sound_effects_slider.value * 100) + "%"
-	AudioServer.set_bus_volume_db(2, linear_to_db(sound_effects_slider.value))
-	ConfigFileHandler.save_audio_settings("sfx_volume", value)
+func _on_fxaa_check_toggled(button_pressed):
+	get_viewport().screen_space_aa = Viewport.SCREEN_SPACE_AA_FXAA if button_pressed else Viewport.SCREEN_SPACE_AA_DISABLED
+	ConfigFileHandler.save_display_settings("fxaa", button_pressed)
 
 func _on_reset_button_pressed():
-	master_slider.value = 1
-	music_slider.value = 1
-	sound_effects_slider.value = 1
-
 	resolution_option.selected = 0
 	fullscreen_option.selected = 0
-	vsync_check.button_pressed = 1
+	vsync_check.button_pressed = true
 	framerate_option.selected = 5
+	msaa_option.selected = 0
+	fxaa_check.button_pressed = false
 	
 	_on_resolution_option_item_selected(resolution_option.selected)
 	_on_fullscreen_option_item_selected(fullscreen_option.selected)
 	_on_v_sync_check_toggled(vsync_check.button_pressed)
 	_on_framerate_option_item_selected(framerate_option.selected)
+	_on_msaa_option_item_selected(msaa_option.selected)
+	_on_fxaa_check_toggled(fxaa_check.button_pressed)
