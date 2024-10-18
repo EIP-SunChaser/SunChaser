@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://dhdbxqqbo8gxi"]
+[gd_scene load_steps=30 format=3 uid="uid://dhdbxqqbo8gxi"]
 
 [ext_resource type="Script" path="res://Scripts/Entities/jolt_car.gd" id="1_v325y"]
 [ext_resource type="Script" path="res://Scripts/Entities/wheel.gd" id="2_0xgju"]
@@ -14,6 +14,7 @@
 [ext_resource type="BoxMesh" uid="uid://dcja85y8y0i6g" path="res://Assets/Meshs/Car/Parts/Springs/square.tres" id="7_1mpdo"]
 [ext_resource type="AudioStream" uid="uid://cijx6n856d2yy" path="res://Assets/Audios/Musics/International_love.mp3" id="7_q0kix"]
 [ext_resource type="ArrayMesh" uid="uid://kmav3dhldjo4" path="res://Assets/Meshs/Car/Parts/Springs/coil.tres" id="7_wtmty"]
+[ext_resource type="Script" path="res://Scripts/Entities/BodyPart.gd" id="10_a1tub"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g4php"]
 size = Vector3(3.78675, 0.950195, 3.41965)
@@ -26,6 +27,8 @@ uv1_triplanar = true
 [sub_resource type="BoxMesh" id="BoxMesh_tphuy"]
 material = SubResource("StandardMaterial3D_sakff")
 size = Vector3(2, 0.5, 3)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_gmrwt"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_ww5ne"]
 
@@ -123,6 +126,7 @@ wheel_radius = 0.5
 engine_power = 70.0
 front_tire_grip = 1.0
 rear_tire_grip = 1.0
+max_wheel_health = 60.0
 parking_brake_force = 100.0
 battery_drain_rate = 1.0
 wheel_meshs = Array[Mesh]([ExtResource("4_68e7a"), ExtResource("5_jmh46"), ExtResource("6_ml41d")])
@@ -158,6 +162,14 @@ transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.5, 
 mesh = ExtResource("4_68e7a")
 skeleton = NodePath("../..")
 
+[node name="FrontLeftDamageArea3D" type="Area3D" parent="Wheels/FrontLeftWheel/Wheel" groups=["BodyArea"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0)
+script = ExtResource("10_a1tub")
+damage = 20
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wheels/FrontLeftWheel/Wheel/FrontLeftDamageArea3D"]
+shape = SubResource("SphereShape3D_gmrwt")
+
 [node name="FrontRightWheel" type="RayCast3D" parent="Wheels"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7, 0, -1.2)
 script = ExtResource("2_0xgju")
@@ -178,6 +190,14 @@ transform = Transform3D(-4.37114e-08, -0.999999, 0, 1, -4.37113e-08, 0, 0, 0, 0.
 mesh = ExtResource("4_68e7a")
 skeleton = NodePath("../..")
 
+[node name="FrontRightDamageArea3D" type="Area3D" parent="Wheels/FrontRightWheel/Wheel" groups=["BodyArea"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)
+script = ExtResource("10_a1tub")
+damage = 20
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wheels/FrontRightWheel/Wheel/FrontRightDamageArea3D"]
+shape = SubResource("SphereShape3D_gmrwt")
+
 [node name="BackRightWheel" type="RayCast3D" parent="Wheels"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7, 0, 1.1918)
 script = ExtResource("2_0xgju")
@@ -197,6 +217,14 @@ transform = Transform3D(-4.37114e-08, -0.999999, 0, 1, -4.37113e-08, 0, 0, 0, 0.
 mesh = ExtResource("4_68e7a")
 skeleton = NodePath("../..")
 
+[node name="BackRightDamageArea3D" type="Area3D" parent="Wheels/BackRightWheel/Wheel" groups=["BodyArea"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)
+script = ExtResource("10_a1tub")
+damage = 20
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wheels/BackRightWheel/Wheel/BackRightDamageArea3D"]
+shape = SubResource("SphereShape3D_gmrwt")
+
 [node name="BackLeftWheel" type="RayCast3D" parent="Wheels"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7, 0, 1.2)
 script = ExtResource("2_0xgju")
@@ -215,6 +243,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)
 transform = Transform3D(-4.37114e-08, -0.999999, 0, 1, -4.37113e-08, 0, 0, 0, 0.999999, -0.5, 0, 0)
 mesh = ExtResource("4_68e7a")
 skeleton = NodePath("../..")
+
+[node name="BackLeftDamageArea3D" type="Area3D" parent="Wheels/BackLeftWheel/Wheel" groups=["BodyArea"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0)
+script = ExtResource("10_a1tub")
+damage = 20
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wheels/BackLeftWheel/Wheel/BackLeftDamageArea3D"]
+shape = SubResource("SphereShape3D_gmrwt")
 
 [node name="HeadLight" type="Node3D" parent="."]
 
@@ -355,5 +391,9 @@ bus = &"Music"
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_afsww")
 
+[connection signal="body_part_hit" from="Wheels/FrontLeftWheel/Wheel/FrontLeftDamageArea3D" to="." method="_on_front_left_damage_area_3d_body_part_hit"]
+[connection signal="body_part_hit" from="Wheels/FrontRightWheel/Wheel/FrontRightDamageArea3D" to="." method="_on_front_right_damage_area_3d_body_part_hit"]
+[connection signal="body_part_hit" from="Wheels/BackRightWheel/Wheel/BackRightDamageArea3D" to="." method="_on_back_right_damage_area_3d_body_part_hit"]
+[connection signal="body_part_hit" from="Wheels/BackLeftWheel/Wheel/BackLeftDamageArea3D" to="." method="_on_back_left_damage_area_3d_body_part_hit"]
 [connection signal="body_entered" from="PlayerDetect" to="." method="_on_player_detect_body_entered"]
 [connection signal="body_exited" from="PlayerDetect" to="." method="_on_player_detect_body_exited"]
