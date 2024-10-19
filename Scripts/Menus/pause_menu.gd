@@ -36,17 +36,10 @@ func reset_game(id: int) -> void:
 	
 	for car in get_tree().get_nodes_in_group("Car"):
 		if car.name.ends_with(id_str):
-			print(car)
 			car.queue_free()
 			break
 	
-	var player_to_remove: Node = null
-	for player in get_tree().get_nodes_in_group("Player"):
-		if player.name == id_str:
-			player_to_remove = player
-			break
-	
-	if player_to_remove:
+	if player.name == id_str:
 		if id != 1:
 			multiplayer.multiplayer_peer.disconnect_peer(id)
 		main_menu.delete_player(id)
