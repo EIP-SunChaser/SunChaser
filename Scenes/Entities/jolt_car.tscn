@@ -1,7 +1,8 @@
-[gd_scene load_steps=30 format=3 uid="uid://dhdbxqqbo8gxi"]
+[gd_scene load_steps=31 format=3 uid="uid://dhdbxqqbo8gxi"]
 
 [ext_resource type="Script" path="res://Scripts/Entities/jolt_car.gd" id="1_v325y"]
 [ext_resource type="Script" path="res://Scripts/Entities/wheel.gd" id="2_0xgju"]
+[ext_resource type="PackedScene" uid="uid://7hwea7xro822" path="res://Scenes/Items/wheel.tscn" id="2_3gmpd"]
 [ext_resource type="Texture2D" uid="uid://ccgta3050isxh" path="res://Assets/Textures/Grid/Light/texture_06.png" id="2_wku7g"]
 [ext_resource type="Script" path="res://Scripts/Entities/CameraController.gd" id="3_hjqr5"]
 [ext_resource type="TorusMesh" uid="uid://6a6ai35c38c7" path="res://Assets/Meshs/Car/Parts/Wheels/torus.tres" id="4_68e7a"]
@@ -28,7 +29,9 @@ uv1_triplanar = true
 material = SubResource("StandardMaterial3D_sakff")
 size = Vector3(2, 0.5, 3)
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_gmrwt"]
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_kuyr8"]
+height = 0.5
+radius = 0.55
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_ww5ne"]
 
@@ -48,7 +51,7 @@ radius = 0.025
 [sub_resource type="BoxShape3D" id="BoxShape3D_5a73s"]
 size = Vector3(6.22852, 3.52063, 4)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wpe64"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fc74n"]
 bg_color = Color(0, 0, 0, 0)
 
 [sub_resource type="Gradient" id="Gradient_mbdqv"]
@@ -126,6 +129,7 @@ wheel_radius = 0.5
 engine_power = 70.0
 front_tire_grip = 1.0
 rear_tire_grip = 1.0
+detached_wheel_scene = ExtResource("2_3gmpd")
 max_wheel_health = 60.0
 parking_brake_force = 100.0
 battery_drain_rate = 1.0
@@ -168,7 +172,8 @@ script = ExtResource("10_a1tub")
 damage = 20
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Wheels/FrontLeftWheel/Wheel/FrontLeftDamageArea3D"]
-shape = SubResource("SphereShape3D_gmrwt")
+transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 0, 0, 0)
+shape = SubResource("CylinderShape3D_kuyr8")
 
 [node name="FrontRightWheel" type="RayCast3D" parent="Wheels"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7, 0, -1.2)
@@ -196,7 +201,8 @@ script = ExtResource("10_a1tub")
 damage = 20
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Wheels/FrontRightWheel/Wheel/FrontRightDamageArea3D"]
-shape = SubResource("SphereShape3D_gmrwt")
+transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 0, 0, 0)
+shape = SubResource("CylinderShape3D_kuyr8")
 
 [node name="BackRightWheel" type="RayCast3D" parent="Wheels"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7, 0, 1.1918)
@@ -223,7 +229,8 @@ script = ExtResource("10_a1tub")
 damage = 20
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Wheels/BackRightWheel/Wheel/BackRightDamageArea3D"]
-shape = SubResource("SphereShape3D_gmrwt")
+transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 0, 0, 0)
+shape = SubResource("CylinderShape3D_kuyr8")
 
 [node name="BackLeftWheel" type="RayCast3D" parent="Wheels"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7, 0, 1.2)
@@ -250,7 +257,8 @@ script = ExtResource("10_a1tub")
 damage = 20
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Wheels/BackLeftWheel/Wheel/BackLeftDamageArea3D"]
-shape = SubResource("SphereShape3D_gmrwt")
+transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 0, 0, 0)
+shape = SubResource("CylinderShape3D_kuyr8")
 
 [node name="HeadLight" type="Node3D" parent="."]
 
@@ -356,7 +364,7 @@ offset_top = -118.0
 offset_right = -12.0001
 offset_bottom = -88.0
 grow_horizontal = 0
-theme_override_styles/background = SubResource("StyleBoxFlat_wpe64")
+theme_override_styles/background = SubResource("StyleBoxFlat_fc74n")
 theme_override_styles/fill = SubResource("StyleBoxTexture_546eb")
 
 [node name="RadioText" type="CanvasLayer" parent="."]

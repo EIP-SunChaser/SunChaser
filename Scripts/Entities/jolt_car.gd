@@ -26,6 +26,7 @@ var car_zone = false
 @onready var front_right_wheel: Node3D = $Wheels/FrontRightWheel/Wheel
 @onready var back_right_wheel: Node3D = $Wheels/BackRightWheel/Wheel
 @onready var back_left_wheel: Node3D = $Wheels/BackLeftWheel/Wheel
+@export var detached_wheel_scene: PackedScene
 
 @export var max_wheel_health: float = 100.0
 var front_left_wheel_health: float
@@ -351,24 +352,29 @@ func damage_wheel(wheel: String, damage: float):
 	match wheel:
 		"front_left":
 			front_left_wheel_health -= damage
-			if front_left_wheel_health <= 0:
-				front_left_wheel_ray.collide_with_bodies = false
-				front_left_wheel.hide()
+			if front_left_wheel_health <= 0 and front_left_wheel.is_visible_in_tree():
+				detach_wheel(front_left_wheel_ray, front_left_wheel)
 		"front_right":
 			front_right_wheel_health -= damage
-			if front_right_wheel_health <= 0:
-				front_right_wheel_ray.collide_with_bodies = false
-				front_right_wheel.hide()
+			if front_right_wheel_health <= 0 and front_right_wheel.is_visible_in_tree():
+				detach_wheel(front_right_wheel_ray, front_right_wheel)
 		"back_left":
 			back_left_wheel_health -= damage
-			if back_left_wheel_health <= 0:
-				back_left_wheel_ray.collide_with_bodies = false
-				back_left_wheel.hide()
+			if back_left_wheel_health <= 0 and back_left_wheel.is_visible_in_tree():
+				detach_wheel(back_left_wheel_ray, back_left_wheel)
 		"back_right":
 			back_right_wheel_health -= damage
-			if back_right_wheel_health <= 0:
-				back_right_wheel_ray.collide_with_bodies = false
-				back_right_wheel.hide()
+			if back_right_wheel_health <= 0 and back_right_wheel.is_visible_in_tree():
+				detach_wheel(back_right_wheel_ray, back_right_wheel)
+
+func detach_wheel(wheel_ray: RayCast3D, wheel_node: Node3D):
+	wheel_ray.collide_with_bodies = false
+	wheel_node.hide()
+
+	var detached_wheel = detached_wheel_scene.instantiate()
+	get_parent().add_child(detached_wheel)
+
+	detached_wheel.global_transform = wheel_node.global_transform
 
 func _on_front_left_damage_area_3d_body_part_hit(dam: int) -> void:
 	damage_wheel("front_left", dam)
