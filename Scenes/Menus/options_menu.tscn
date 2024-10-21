@@ -77,4 +77,3 @@ text = "Save & Exit"
 [connection signal="focus_exited" from="MarginContainer/VBoxContainer/VBoxContainer/ExitButton" to="." method="_on_button_focus_exited"]
 
 [editable path="MarginContainer/VBoxContainer/settings_tab_container"]
-[editable path="MarginContainer/VBoxContainer/settings_tab_container/TabContainer/General"]
