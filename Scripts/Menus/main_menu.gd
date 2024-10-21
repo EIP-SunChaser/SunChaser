@@ -110,7 +110,7 @@ func add_player(id: int) -> void:
 
 func spawn_car(id: int, spawn_position: Vector3) -> void:
 	var car = car_scene.instantiate()
-	car.name = "JoltCar " + str(id) 
+	car.name = "JoltCar " + str(id)
 	car.add_to_group("Car")
 	add_child(car, true)
 	car.global_position = spawn_position

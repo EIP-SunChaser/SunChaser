@@ -384,13 +384,12 @@ func detach_wheel(wheel_ray: RayCast3D, wheel_node: Node3D):
 
 	detached_wheel.global_transform = wheel_node.global_transform
 
-	var speed = linear_velocity.length()
-	var rotation_speed = speed / wheel_radius
+	var rotation_speed = linear_velocity.length() / wheel_radius
 
 	var car_forward = global_transform.basis.z
 	var direction = 1 if linear_velocity.dot(car_forward) > 0 else -1
 
-	var impulse = wheel_node.global_transform.basis.x * speed * direction
+	var impulse = wheel_node.global_transform.basis.x * rotation_speed * direction
 	detached_wheel.apply_torque_impulse(impulse)
 
 func _on_front_left_damage_area_3d_body_part_hit(dam: int) -> void:
