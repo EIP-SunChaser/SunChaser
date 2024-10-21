@@ -22,6 +22,7 @@ const DEFAULT_IP = "127.0.0.1"
 var peer = ENetMultiplayerPeer.new()
 
 func _ready() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	ip_address.placeholder_text = "Enter the host IP! Default is " + DEFAULT_IP
 	multiplayer.connected_to_server.connect(connected_to_server)
 	host.grab_focus()
@@ -55,6 +56,8 @@ func load_world_scene() -> void:
 			self.hide()
 
 func start_hosting() -> void:
+	if multiplayer.multiplayer_peer:
+		multiplayer.multiplayer_peer.close()
 	peer.create_server(PORT)
 	multiplayer.multiplayer_peer = peer
 	multiplayer.peer_connected.connect(add_player)
@@ -103,11 +106,11 @@ func add_player(id: int) -> void:
 		spawn_player(id, spawn_position)
 
 		var car_spawn_position = spawn_position + Vector3(0, 10, 10)
-		spawn_car(car_spawn_position)
+		spawn_car(id, car_spawn_position)
 
-func spawn_car(spawn_position: Vector3) -> void:
+func spawn_car(id: int, spawn_position: Vector3) -> void:
 	var car = car_scene.instantiate()
-	car.name = "JoltCar"
+	car.name = "JoltCar " + str(id) 
 	car.add_to_group("Car")
 	add_child(car, true)
 	car.global_position = spawn_position

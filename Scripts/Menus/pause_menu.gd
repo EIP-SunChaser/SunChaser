@@ -5,6 +5,7 @@ var player: CharacterBody3D
 @onready var options_menu = $options_menu
 @onready var v_box_container = $VBoxContainer
 @onready var resume_button = $VBoxContainer/ResumeButton
+@onready var main_menu = $"/root/MainMenu"
 
 func _ready():
 	hide()
@@ -30,37 +31,26 @@ func on_exit_options_menu():
 	resume_button.grab_focus()
 
 @rpc("any_peer", "call_local")
-func reset_all():
-	var players = get_tree().get_nodes_in_group("Player")
-	var cars = get_tree().get_nodes_in_group("Car")
-	for i in players:
-		i.queue_free()
-	for i in cars:
-		i.queue_free()
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	get_tree().change_scene_to_file("res://Scenes/Menus/main_menu.tscn")
-	await get_tree().create_timer(0.1).timeout 
-	if multiplayer.has_multiplayer_peer():
-		multiplayer.multiplayer_peer.close()
-
-@rpc("any_peer", "call_local")
-func reset_player(id):
-	var players = get_tree().get_nodes_in_group("Player")
-	for i in players:
-		if i.name == str(id):
-			print("Player " + str(id) + " deleted!")
-			i.queue_free()
+func reset_game(id: int) -> void:
+	var id_str := str(id)
+	
+	for car in get_tree().get_nodes_in_group("Car"):
+		if car.name.ends_with(id_str):
+			car.queue_free()
+			break
+	
+	if player.name == id_str:
+		if id != 1:
+			multiplayer.multiplayer_peer.disconnect_peer(id)
+		main_menu.delete_player(id)
+	
+	if multiplayer.get_unique_id() == id:
+		main_menu.queue_free()
+		get_tree().change_scene_to_file("res://Scenes/Menus/main_menu.tscn")
 
 func _on_back_to_main_menu_button_down():
 	player.pauseMenu()
-	if multiplayer.is_server():
-		reset_all.rpc()
-	else:
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		reset_player.rpc(multiplayer.get_unique_id())
-		get_tree().change_scene_to_file("res://Scenes/Menus/main_menu.tscn")
+	reset_game.rpc(multiplayer.get_unique_id())
 
 func _on_exit_to_desktop_button_down():
-	if multiplayer.is_server():
-		reset_all.rpc()
 	get_tree().quit()
