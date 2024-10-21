@@ -48,7 +48,7 @@ func load_world_scene() -> void:
 					start_hosting()
 				"join":
 					start_joining()
-			
+
 			var new_scene = packed_scene.instantiate()
 			get_tree().root.add_child(new_scene)
 			get_tree().current_scene = new_scene
@@ -59,7 +59,7 @@ func start_hosting() -> void:
 	multiplayer.multiplayer_peer = peer
 	multiplayer.peer_connected.connect(add_player)
 	multiplayer.peer_disconnected.connect(delete_player)
-	
+
 	send_player_information(pseudo.text, multiplayer.get_unique_id())
 	add_player(multiplayer.get_unique_id())
 
