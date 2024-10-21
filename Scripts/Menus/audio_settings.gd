@@ -44,6 +44,7 @@ func _on_sound_effects_slider_value_changed(value):
 	ConfigFileHandler.save_audio_settings("sfx_volume", value)
 
 func _on_reset_button_pressed():
-	master_slider.value = 1
-	music_slider.value = 1
-	sound_effects_slider.value = 1
+	audio_settings = ConfigFileHandler.AudioSettings.new()
+	master_slider.value = audio_settings.master_volume
+	music_slider.value = audio_settings.music_volume
+	sound_effects_slider.value = audio_settings.sfx_volume

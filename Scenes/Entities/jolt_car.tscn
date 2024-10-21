@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/Entities/jolt_car.gd" id="1_v325y"]
 [ext_resource type="Script" path="res://Scripts/Entities/wheel.gd" id="2_0xgju"]
-[ext_resource type="PackedScene" uid="uid://7hwea7xro822" path="res://Scenes/Items/wheel.tscn" id="2_3gmpd"]
+[ext_resource type="PackedScene" path="res://Scenes/Items/wheel.tscn" id="2_3gmpd"]
 [ext_resource type="Texture2D" uid="uid://ccgta3050isxh" path="res://Assets/Textures/Grid/Light/texture_06.png" id="2_wku7g"]
 [ext_resource type="Script" path="res://Scripts/Entities/CameraController.gd" id="3_hjqr5"]
 [ext_resource type="TorusMesh" uid="uid://6a6ai35c38c7" path="res://Assets/Meshs/Car/Parts/Wheels/torus.tres" id="4_68e7a"]
@@ -51,7 +51,7 @@ radius = 0.025
 [sub_resource type="BoxShape3D" id="BoxShape3D_5a73s"]
 size = Vector3(6.22852, 3.52063, 4)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fc74n"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lws5p"]
 bg_color = Color(0, 0, 0, 0)
 
 [sub_resource type="Gradient" id="Gradient_mbdqv"]
@@ -364,7 +364,7 @@ offset_top = -118.0
 offset_right = -12.0001
 offset_bottom = -88.0
 grow_horizontal = 0
-theme_override_styles/background = SubResource("StyleBoxFlat_fc74n")
+theme_override_styles/background = SubResource("StyleBoxFlat_lws5p")
 theme_override_styles/fill = SubResource("StyleBoxTexture_546eb")
 
 [node name="RadioText" type="CanvasLayer" parent="."]

@@ -33,7 +33,7 @@ func apply_settings():
 	framerate_option.selected = display_settings.framerate
 	msaa_option.selected = display_settings.msaa
 	fxaa_check.button_pressed = display_settings.fxaa
-	
+
 	_on_resolution_option_item_selected(display_settings.resolution)
 	_on_fullscreen_option_item_selected(display_settings.window_mode)
 	_on_v_sync_check_toggled(display_settings.vsync)
@@ -44,7 +44,7 @@ func apply_settings():
 func populate_resolution_options():
 	var current_resolution = get_window().size
 	var resolutions = [current_resolution, Vector2(1280, 720), Vector2(1920, 1080), Vector2(2560, 1440), Vector2(3840, 2160)]
-	
+
 	for i in range(resolutions.size()):
 		resolution_option.add_item(str(resolutions[i].x) + "x" + str(resolutions[i].y), i)
 		if Vector2i(resolutions[i]) == current_resolution:
@@ -58,7 +58,7 @@ func populate_window_mode():
 		{"mode": DisplayServer.WINDOW_MODE_MAXIMIZED, "name": "Maximized"},
 		{"mode": DisplayServer.WINDOW_MODE_WINDOWED, "name": "Windowed"}
 	]
-	
+
 	for i in range(window_modes.size()):
 		fullscreen_option.add_item(window_modes[i].name, window_modes[i].mode)
 		if window_modes[i].mode == current_mode:
@@ -67,7 +67,7 @@ func populate_window_mode():
 func populate_framerate_options():
 	var framerates = [30, 60, 120, 144, 240, 0]
 	var current_framerate = Engine.max_fps
-	
+
 	for i in range(framerates.size()):
 		var text = str(framerates[i]) if framerates[i] > 0 else "Unlimited"
 		framerate_option.add_item(text, framerates[i])
@@ -81,7 +81,7 @@ func populate_msaa_options():
 		{"mode": Viewport.MSAA_4X, "name": "4x"},
 		{"mode": Viewport.MSAA_8X, "name": "8x"}
 	]
-	
+
 	for i in range(msaa_modes.size()):
 		msaa_option.add_item(msaa_modes[i].name, msaa_modes[i].mode)
 
@@ -114,13 +114,14 @@ func _on_fxaa_check_toggled(button_pressed):
 	ConfigFileHandler.save_display_settings("fxaa", button_pressed)
 
 func _on_reset_button_pressed():
-	resolution_option.selected = 0
-	fullscreen_option.selected = 0
-	vsync_check.button_pressed = true
-	framerate_option.selected = 5
-	msaa_option.selected = 0
-	fxaa_check.button_pressed = false
-	
+	display_settings = ConfigFileHandler.DisplaySettings.new()
+	resolution_option.selected = display_settings.resolution
+	fullscreen_option.selected = display_settings.window_mode
+	vsync_check.button_pressed = display_settings.vsync
+	msaa_option.selected = display_settings.msaa
+	fxaa_check.button_pressed = display_settings.fxaa
+	framerate_option.selected = display_settings.framerate
+
 	_on_resolution_option_item_selected(resolution_option.selected)
 	_on_fullscreen_option_item_selected(fullscreen_option.selected)
 	_on_v_sync_check_toggled(vsync_check.button_pressed)
