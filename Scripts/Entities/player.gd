@@ -3,7 +3,7 @@ extends CharacterBody3D
 @onready var camera = $Head/Camera3D
 @onready var head = $Head
 @onready var animation_player = $AnimationPlayer
-@onready var pseudo = $Pseudo
+@onready var pseudo: Label3D = $Pseudo
 @onready var actionable_finder: Area3D = $Area3D
 @onready var press_e_ui = $Head/Camera3D/Press_e_ui
 @onready var crosshair = $TextureRect
@@ -191,6 +191,7 @@ func do_physics_process(delta):
 		set_collision_mask_value(1, false)
 		set_collision_layer_value(1, false)
 		velocity = Vector3.ZERO
+		press_e_ui.hide()
 	if GODMOD:
 		set_collision_mask_value(1, false)
 		set_collision_layer_value(1, false)
@@ -229,10 +230,11 @@ func do_physics_process(delta):
 	var target_fov = BASE_FOV + FOV_CAHNGE * velocity_clamped
 	camera.fov = lerp(camera.fov, target_fov, delta * 8.0)
 
-	if Input.is_action_just_pressed("crouch"):
+	if Input.is_action_just_pressed("crouch") and not is_in_car:
 		crouch.rpc()
 
-	if Input.is_action_pressed("shoot") and not is_in_car:
+	if Input.is_action_pressed("shoot"):
+		if is_in_car and not isAiming: return
 		play_shoot_effects.rpc()
 
 	if Input.is_action_pressed("aim"):
